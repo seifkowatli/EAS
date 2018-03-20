@@ -1,0 +1,22 @@
+
+
+.Exam { 
+	background-color: AntiqueWhite;
+ 	border:2px black;
+ 	border-radius: 5px;
+ 	margin: 15px;
+ }
+
+
+ .Timer { 
+ 	background-color: AntiqueWhite;
+ 	border:2px black;
+ 	margin: 15px;
+  }
+
+
+  .Questions {
+  	background-color: AntiqueWhite;
+ 	border:2px black;
+  	margin : 15px;
+  } 
