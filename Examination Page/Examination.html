@@ -8,14 +8,59 @@
 			<meta name="describtion" content="Examination Page">
 			<link rel="stylesheet" type="text/css" href="css/style.css">
 			<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+			<style >
+				.jumbotron { 
+					background-color:AntiqueWhite;
+ 				}
+			</style>
+
 	</head>
-	<body>
-				
+	<body >
+		<div class="bg">
+		<div class="row"> 
+			<div  class="col-lg-10 col-lg-offset-1">
+				<h2 style="padding-top:0px; margin-top:10px;" class="text-center page-header page-header">
+				<img  height="150px" width="300px" src="img/OES_Logo.png"></h2>
+			</div>
+		</div>
 
 		<div class="row">
-			<div class="Questions col-lg-2"><h1>hello forom zone1 </h1></div>
-			<div class="Exam jumbotron  col-lg-6"><h1>hello from zone2</h1></div>
-			<div class="Timer  col-lg-3"><h1>hello from zone3</h1></div>
+			<div class="Questions col-lg-2">
+				<h1>hello forom zone1 </h1>
+			</div>
+			
+			<div class="Exam jumbotron  col-lg-6">
+				
+				<form class="" action="" method="POST">
+
+					<p id="Question_Text">This is the question text</p>
+					<input class="" type="radio" name="Answer" >Answer 1 <br>
+					<input class="" type="radio" name="Answer" >Answer 2 <br>				
+					<input class="" type="radio" name="Answer" >Answer 3 <br>
+					<input class="" type="radio" name="Answer" >Answer 4 <br>
+
+
+					<div class="text-center">
+					<input class="btn btn-success" type="submit" name="submit" value="Submit ">
+					<div class="btn btn-group">
+
+					<input class="btn btn-success" type="submit" name="submit" value="Next Question">
+					<input class="btn btn-success" type="submit" name="submit" value="Previous Question">
+						
+					</div>
+					<input class="btn btn-danger" type="submit" name="submit" value="End Exam">
+						
+					</div>
+					
+				</form>
+
+				
+			</div>
+			
+
+			<div class="Timer  col-lg-3">
+				<h1>hello from zone3</h1>
+			</div>
 
 		</div>
 
