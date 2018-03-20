@@ -16,7 +16,7 @@
 
 	</head>
 	<body >
-		<div class="bg">
+		<!-- <div class="bg"> -->
 		<div class="row"> 
 			<div  class="col-lg-10 col-lg-offset-1">
 				<h2 style="padding-top:0px; margin-top:10px;" class="text-center page-header page-header">
@@ -33,22 +33,27 @@
 				
 				<form class="" action="" method="POST">
 
+					<div style="margin: 10px; margin-bottom: 30px;">
+						
 					<p id="Question_Text">This is the question text</p>
 					<input class="" type="radio" name="Answer" >Answer 1 <br>
 					<input class="" type="radio" name="Answer" >Answer 2 <br>				
 					<input class="" type="radio" name="Answer" >Answer 3 <br>
 					<input class="" type="radio" name="Answer" >Answer 4 <br>
 
+					</div>
 
 					<div class="text-center">
-					<input class="btn btn-success" type="submit" name="submit" value="Submit ">
-					<div class="btn btn-group">
+					<input style="width: 100px;" class="btn btn-success" type="submit" name="submit" value="Submit ">
 
-					<input class="btn btn-success" type="submit" name="submit" value="Next Question">
-					<input class="btn btn-success" type="submit" name="submit" value="Previous Question">
-						
+					<div class="btn btn-group">
+					<button style="width: 100px;" class="btn btn-default" type="submit" name="Next" > <span class="glyphicon glyphicon-menu-left"></span> previous</button>
+
+					<button style="width: 100px;" class="btn btn-default" type="submit" name="Next" >Next <span class="glyphicon glyphicon-menu-right"></span></button>
+					
 					</div>
-					<input class="btn btn-danger" type="submit" name="submit" value="End Exam">
+
+					<input style="width: 100px;" class="btn btn-danger" type="submit" name="End-Exam" value="End Exam">
 						
 					</div>
 					
