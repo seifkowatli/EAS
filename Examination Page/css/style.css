@@ -1,0 +1,38 @@
+body , html { 
+	height: 100%;
+ }
+
+
+.Exam { 
+ 	border:2px black;
+ 	border-radius: 5px;
+ 	margin: 15px;
+ 	margin-top:5px;
+ }
+
+
+ .Timer { 
+ 	background-color: AntiqueWhite;
+ 	border:2px black;
+ 	margin: 15px;
+ 	margin-top:5px;
+
+  }
+
+
+  .Questions {
+  	background-color: AntiqueWhite;
+ 	border:2px black;
+  	margin : 15px;
+  	margin-left: 20px;
+ 	margin-top:5px;
+  } 
+
+  .bg{ 
+  	background-image: url("../img/bg.png");
+  	opacity: 0.9;
+  	height: 100%;
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+   }
