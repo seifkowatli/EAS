@@ -14,37 +14,66 @@
  				}
 			</style>
 
+			<script type="text/javascript" src="js/jquery.js"></script>
+			<script type="text/javascript" src="js/jquery.min.js"></script>
+			<script src="js/bootstrap.min.js"></script>
+
 	</head>
 	<body >
 		<!-- <div class="bg"> -->
 		<div class="row"> 
-			<div  class="col-lg-10 col-lg-offset-1">
-				<h2 style="padding-top:0px; margin-top:10px;" class="text-center page-header page-header">
-				<img  height="150px" width="300px" src="img/OES_Logo.png"></h2>
+			<div class="head col-lg-12 ">
+				<img id="avatar"  src="img/avatar.png">
+				
+				<span id="Username"> Username </span>
+					
+				<img id="logo" src="img/OES_Logo.png"></h2>
 			</div>
-		</div>
+		</div><!-- end of my header -->
 
 		<div class="row">
+
+
 			<div class="Questions col-lg-2">
-				<h1>hello forom zone1 </h1>
-			</div>
+				<div class="row">
+				<ul  class="list-group" style="margin: 3px 0px 0px 8px;">
+					<a href="#Quest-Group1" data-toggle="collapse" class="list-group-item active list-group-item-heading" >First Question Group</a>
+					<div class="collapse" id="Quest-Group1">
+					<li class="btn list-group-item">First Question</li>
+					<li class="btn list-group-item">Second Question</li>
+					<li class="btn list-group-item">Last Question</li>
+					</div>
+				</ul>
+
+				<ul class="list-group">
+					<a href="#Quest-Group2" data-toggle="collapse" class="list-group-item  list-group-item-heading" >First Question Group</a>
+					<div class="collapse" id="Quest-Group2">
+					<li class="btn list-group-item ">First Question</li>
+					<li class="btn list-group-item">Second Question</li>
+					<li class="btn list-group-item">Last Question</li>
+					</div>
+				</ul>
+
+			
+
+				</div>
+			</div> <!-- end of my side bar -->
 			
 			<div class="Exam jumbotron  col-lg-6">
 				
-				<form class="" action="" method="POST">
+				<form class="" action="requests.html" method="POST">
 
 					<div style="margin: 10px; margin-bottom: 30px;">
 						
 					<p id="Question_Text">This is the question text</p>
-					<input class="" type="radio" name="Answer" >Answer 1 <br>
-					<input class="" type="radio" name="Answer" >Answer 2 <br>				
-					<input class="" type="radio" name="Answer" >Answer 3 <br>
-					<input class="" type="radio" name="Answer" >Answer 4 <br>
+					<input class="" type="radio" name="Answer"> Answer 1 <br>
+					<input class="" type="radio" name="Answer"> Answer 2 <br>				
+					<input class="" type="radio" name="Answer"> Answer 3 <br>
+					<input class="" type="radio" name="Answer"> Answer 4 <br>
 
 					</div>
-
 					<div class="text-center">
-					<input style="width: 100px;" class="btn btn-success" type="submit" name="submit" value="Submit ">
+					<input style="" class="btn btn-success" type="submit" name="submit" value="Submit Questions">
 
 					<div class="btn btn-group">
 					<button style="width: 100px;" class="btn btn-default" type="submit" name="Next" > <span class="glyphicon glyphicon-menu-left"></span> previous</button>
@@ -53,25 +82,30 @@
 					
 					</div>
 
-					<input style="width: 100px;" class="btn btn-danger" type="submit" name="End-Exam" value="End Exam">
+					<button style="width: 120px;" class="btn btn-info" type="submit" name="End-Finish" >Finish Exam <span class="glyphicon glyphicon-ok"></span></button>
 						
 					</div>
 					
 				</form>
 
 				
-			</div>
+			</div> <!-- end of the exam division -->
 			
 
 			<div class="Timer  col-lg-3">
 				<h1>hello from zone3</h1>
-			</div>
+			</div> <!-- end of the timer code -->
 
-		</div>
+		</div>  <!-- end of the page content division -- >
 
+		
 	</body>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		
+
+	</script>
+	
 
 </html>
