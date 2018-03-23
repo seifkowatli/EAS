@@ -2,10 +2,18 @@ body , html {
 	height: 100%;
  }
 
-.head {
-	background-color:DarkSeaGreen;
+.user-sec {
+	background-color: #a5cccb;
+	margin-top: 10px;
+	height: 80px;
+	opacity: 0.9;
+	/*border:2px solid;*/
 
+	}
 
+#glPic { 
+width: 180px;
+height: 80px;
 }
 
 
@@ -30,26 +38,27 @@ body , html {
   	/*background-color: DarkSeaGreen;*/
  	border:2px black;
   	margin : 15px;
-  	margin-left: 7px;
+  	margin-left: 0px;
  	margin-top:0px;
  	/*border:1px  black ;*/
   } 
 
   .bg{
-  	background-image: url("../img/bg.png");
+  	background-image: url("../img/bg5.jpg");
   	opacity: 0.9;
   	height: 100%;
   	background-position: center;
   	background-repeat: no-repeat;
   	background-size: cover;
+  	
   }
 
 
    #logo { 
    	height: 80px;
    	width: 160px;
-   	position: relative;
-   	left: 1060px;
+   margin-right:0px;
+   
   }
 
 
@@ -58,6 +67,7 @@ body , html {
     width: 50px;
     position: relative;
     left: 8px;
+    top:16px;
     margin: 0px;
     padding:0px;
    }
@@ -65,7 +75,7 @@ body , html {
    #Username {
    	position: relative;
    	left: 10px;
-   	top: 3px;
+   	top: 20px;
    	font-weight: bold;	
    }
 
