@@ -11,12 +11,13 @@
 			<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 			<style >
 				.jumbotron { 
-					background-color:AntiqueWhite;
+					background-color: lightgray;
  				}
 			</style>
 			<script type="text/javascript" src="js/jquery.js"></script>
 			<script type="text/javascript" src="js/jquery.min.js"></script>
 			<script src="js/bootstrap.min.js"></script>
+			<script type="text/javascript" src="js/script.js"></script>
 
 	</head>
 	<body >
@@ -49,7 +50,7 @@
 			<div class="Questions col-lg-2">
 				<div class="row">
 				<ul  class="list-group" style="margin: 3px 0px 0px 8px;">
-					<a href="#Quest-Group1" data-toggle="collapse" class="list-group-item active list-group-item-heading" >First Question Group</a>
+					<a href="#Quest-Group1" data-toggle="collapse" class="list-group-item list-group-item-info list-group-item-heading" >First Question Group</a>
 					<div class="collapse" id="Quest-Group1">
 					<li class="btn list-group-item">First Question</li>
 					<li class="btn list-group-item">Second Question</li>
@@ -58,7 +59,7 @@
 				</ul>
 
 				<ul class="list-group">
-					<a href="#Quest-Group2" data-toggle="collapse" class="list-group-item  list-group-item-heading" >First Question Group</a>
+					<a href="#Quest-Group2" data-toggle="collapse" class="list-group-item list-group-item-info list-group-item-heading" >Second Question Group</a>
 					<div class="collapse" id="Quest-Group2">
 					<li class="btn list-group-item ">First Question</li>
 					<li class="btn list-group-item">Second Question</li>
@@ -78,10 +79,10 @@
 					<div style="margin: 10px; margin-bottom: 30px;">
 						
 					<p id="Question_Text">This is the question text</p>
-					<input class="" type="radio" name="Answer"> Answer 1 <br>
-					<input class="" type="radio" name="Answer"> Answer 2 <br>				
-					<input class="" type="radio" name="Answer"> Answer 3 <br>
-					<input class="" type="radio" name="Answer"> Answer 4 <br>
+					<input id="Ans1" class="" type="radio" name="Answer"> <label for="Ans1">  Answer 1 </label> <br>
+					<input id="Ans2" class="" type="radio" name="Answer"> <label for="Ans2">  Answer 2 </label> <br>				
+					<input id="Ans3" class="" type="radio" name="Answer"> <label for="Ans3">  Answer 3 </label> <br>
+					<input id="Ans4" class="" type="radio" name="Answer"> <label for="Ans4">  Answer 4 </label> <br>
 
 					</div>
 					<div class="text-center">
@@ -105,20 +106,16 @@
 			
 
 			<div class="Timer  col-lg-3">
-				<h1>hello from zone3</h1>
+				
+					<p class="list-group-item" id="cd"></p>
+					<p class="list-group-item" id="cdq" ></p>
+
 			</div> <!-- end of the timer code -->
 
 		</div> <!-- end of the page content division -- >
 
 		</div>
 
-	</body>
-
-
-	<script type="text/javascript">
-		
-
-	</script>
-	
-
+	</body
+>
 </html>
