@@ -34,7 +34,7 @@ var x = setInterval(function() {
 
 
 var countDownDate_q = new Date(Date.now());
-countDownDate_q.setMinutes(countDownDate_q.getMinutes() + 15);
+countDownDate_q.setMinutes(countDownDate_q.getMinutes() + 2);
 var x = setInterval(function() {
 
     // Get todays date and time
