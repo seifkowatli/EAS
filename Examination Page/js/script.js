@@ -1,5 +1,6 @@
 
 
+
 // Set the date we're counting down to
 var countDownDate = new Date(Date.now());
 countDownDate.setHours(countDownDate.getHours() + 2);
@@ -35,6 +36,7 @@ var x = setInterval(function() {
 
 var countDownDate_q = new Date(Date.now());
 countDownDate_q.setMinutes(countDownDate_q.getMinutes() + 15);
+
 var x = setInterval(function() {
 
     // Get todays date and time
@@ -58,3 +60,5 @@ var x = setInterval(function() {
         document.getElementById("cdq").innerHTML = "EXPIRED";
     }
 }, 1000);
+
+
