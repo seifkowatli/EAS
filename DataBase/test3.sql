@@ -2,8 +2,8 @@
 create table Exam(
 Exam_ID int identity(1,1),
 Course_ID int,
-Exam_Time int not null,
-Exam_Date varchar not null,
+Exam_Time varchar(128) not null,
+Exam_Date varchar(128) not null,
 Exam_Semester varchar(128)not null,
 Exam_Type varchar(128),
 number_Of_Students int,
@@ -17,6 +17,8 @@ create table Course(
 Course_ID int not null identity(1,1),
 Course_Name varchar(100) not null,
 Credit_Hours int not null,
+_Drop bit default(0),
+Prohibited bit default(0),
 Course_Description varchar(255),
 primary key (Course_ID)
 )
@@ -46,7 +48,7 @@ foreign key(ECourse_ID) references Course
 create table Questions_Bank(
 Question_ID int identity(1,1),
 Question_Text varchar(255),
-Expected_Time int,
+Expected_Time varchar(128),
 Difficulty_Level int,
 Question_Frequency int default(0),
 Thinking_Skills varchar(200),
@@ -93,7 +95,8 @@ create table Student_Answers(
 Exam_ID int, 
 Student_ID nvarchar(128),
 Question_ID int ,
-Student_Answer bit,
+Student_Answer varchar(200),
+IsTrue bit,
 primary key(Exam_ID,Student_ID,Question_ID),
 foreign key(Exam_ID,Student_ID) references  Students_Exams,
 foreign key(Question_ID) references  Questions_Bank(Question_ID)
@@ -129,9 +132,7 @@ foreign key (ILOs_ID) references ILOS,
 
 
 
-alter table Course_User
-add _Drop bit default(0),
-Prohibited bit default(0)
+
 
 
 
