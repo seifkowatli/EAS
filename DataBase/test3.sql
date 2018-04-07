@@ -17,8 +17,6 @@ create table Course(
 Course_ID int not null identity(1,1),
 Course_Name varchar(100) not null,
 Credit_Hours int not null,
-_Drop bit default(0),
-Prohibited bit default(0),
 Course_Description varchar(255),
 primary key (Course_ID)
 )
@@ -107,6 +105,8 @@ create table Course_User(
 CourseID int,  
 UserID nvarchar(128),
 Semester varchar(200),
+_Drop bit default(0),
+Prohibited bit default(0),
 primary key(CourseID,UserID,Semester),
 foreign key (CourseID) references Course,
 foreign key (UserID) references AspNetUsers
@@ -128,12 +128,3 @@ primary key(Topic_ID,ILOs_ID),
 foreign key (Topic_ID) references Topic,
 foreign key (ILOs_ID) references ILOS,
 )
-
-
-
-
-
-
-
-
-
