@@ -18,9 +18,6 @@ namespace OES_Services
         public OES_DatabaseEntities1()
             : base("name=OES_DatabaseEntities1")
         {
-
-            this.Configuration.LazyLoadingEnabled = false;
-            this.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

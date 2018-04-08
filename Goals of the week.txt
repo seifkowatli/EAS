@@ -1,6 +1,21 @@
-1- Understand the CSP Algorithm 
-2- Connect all project with GitHub
-3- Finish ES once and for all
+1. Understand the CSP Algorithm 
+2. Connect all project with GitHub
+3. Finish ES once and for all
   3.1 Finish the portal
   3.2 Finish the core API
   3.3 Connect all parts together
+
+ Tomorrow's Tasks
+1. Push ES
+2. Finish MVC
+  
+
+Ideas :
+
+We can optimize our algorithm to support all kind of exams
+  1. School/college Examination
+  2. Placement Test
+  3. Quiz
+  4. Onlien exams
+
+  
