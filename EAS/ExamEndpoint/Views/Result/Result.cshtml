@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "Results";
+
+    @Scripts.Render("~/Scripts/jquery-1.10.2.js")
+    @Scripts.Render("~/Scripts/result.js")
+    @Styles.Render("~/Content/bootstrap.css")
+    @Styles.Render("~/Styles/StyleSheet1.css")
+    @Styles.Render("~/Styles/Home-Style.css")
+}
+<!DOCTYPE html>
+
+
+<script>
+
+    $.ajax({
+        method: 'Get',
+        url: 'http://localhost:2199/api/Authintecation/STD_Auth',
+        contentType: "application/json",
+        headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
+        success: function (data) {
+
+        },
+        error: function (jqXHR) {
+
+
+            window.location = "http://localhost:46253/";
+
+
+        },
+
+
+    });
+
+
+</script>
+
+
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="main" style="height:100%">
+        <div id="dev1" class="dev1" style:"margin:10%">
+            <label>Student Name:</label><br />
+            <p id="p1"></p>
+            <hr>
+            <label>Student Mark:</label><br />
+            <p>
+
+                <label id="p2"></label>
+                <label>%</label>
+
+            </p>
+            <hr>
+            <label>Details:</label><br />
+            <table class="table table-bordered" id="myTable">
+                <tr class="success">
+                    <th> Questions</th>
+                    <th>answer</th>
+                </tr>
+
+
+
+            </table>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "Questiones";
+}
+
+@Scripts.Render("~/Scripts/jquery-1.10.2.js")
+@Scripts.Render("~/Scripts/questions-js.js")
+@Scripts.Render("~/Scripts/FlipClock.js")
+@Scripts.Render("~/Scripts/bootbox.min.js")
+@Scripts.Render("~/Scripts/bootstrap.js")
+
+
+@Styles.Render("~/Styles/flipclock.css")
+@Styles.Render("~/Styles/Home-Style.css")
+@Styles.Render("~/Content/bootstrap.css")
+@Styles.Render("~/Styles/StyleSheet1.css")
+
+
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<script>
+
+    $.ajax({
+        method: 'Get',
+        url: 'http://localhost:12906/api/Route/STD_Auth/',
+        contentType: "application/json",
+        headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
+        success: function () {
+
+        },
+        error: function () {
+            window.location = "http://localhost:46253/";
+
+
+        },
+
+
+
+
+
+    });
+
+
+
+</script>
+
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="main">
+
+        <div>
+            <input type="button" id="Get_Quest" value="Start The Exam" class="btn btn-success" style="margin:20px" />
+            <span id="spanUsername" class="text-muted"></span>
+            <input type="button" id="Log_Off" value="terminate The Exam" class="pull-right btn btn-danger" style="width:auto; margin:20px" /><br>
+            <hr>
+        </div>
+
+        <div style="margin:1%">
+
+            <div class="clock"></div>
+            <div class="message"></div>
+        </div>
+
+        <div style="margin:1%">
+            <div class="clock1" id="clock1" style="margin:2em;"></div>
+            <div class="message"></div>
+        </div>
+        <div style="margin:1%">
+            <div id="clock2" style="margin:2em;"></div>
+            <div class="message"></div>
+        </div>
+        <div id="alert" class="alert alert-danger collapse">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <div id="divErrorText">Remaining time is 10 seconds</div>
+
+        </div>
+
+        <div style="width: auto; margin:1%" id="div1" class="dev1">
+
+            <p id="quest1" style="display: inline"></p><br>
+
+
+            <form>
+                <label>A)</label>
+                <input type="radio" id="ans1" name="answer" style=" display inline" />
+                <p id="ans1-t" style="display: inline"></p><br>
+
+                <label>B)</label>
+
+                <input type="radio" id="ans2" name="answer" />
+                <p id="ans2-t" style="display: inline"></p><br>
+
+                <label>C)</label>
+
+                <input type="radio" id="ans3" name="answer" />
+                <p id="ans3-t" style="display: inline"></p><br>
+
+                <label>D)</label>
+
+                <input type="radio" id="ans4" name="answer" />
+                <p id="ans4-t" style="display: inline"></p><br>
+
+
+                <input type="button" id="Get_ans" value="submet" style="width:auto; margin:20px" onclick="CallButton()" /><br>
+                <hr>
+            </form>
+        </div>
+
+
+
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+

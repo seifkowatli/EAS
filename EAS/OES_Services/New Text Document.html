@@ -1,0 +1,113 @@
+<script src="Scripts/jquery-1.10.2.js"></script>
+<script src="RegisterScript.js"></script>
+<script src="Scripts/bootstrap.min.js"></script>
+<link href=StyleSheet3.css rel='stylesheet' type='text/css'>
+<link href="Content/bootstrap.css" rel="stylesheet" />
+
+
+
+<div class="main">
+    <div class="container-fluid">
+        <div class="register-form">
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <label>User NAME</label><br>
+                    <input id="TextUserName" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <label>Phone</label><br>
+                    <input id="TextPhone" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <label>EMAIL</label><br>
+                    <input id="TextEmail" class="form-control" type="email">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <label>First Name</label><br>
+                    <input id="F_Name" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <label>Last Name</label><br>
+                    <input id="L_Name" class="form-control" type="text">
+                </div>
+            </div>
+
+
+            <hr>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <label>PASSWORD</label><br>
+                    <input id="TextPassWord" class="form-control" type="password">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <label> Confirm PASSWORD</label><br>
+                    <input id="TextCPassWord" class="form-control" type="password">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <label> Roles</label><br>
+                    <select style="width: 200px; height: 40px; font-weight: bold" id="TextRole">
+                        <option value="Student">Student</option>
+                        <option value="Teacher">Teacher</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                </div><br>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+                    <button class="btn btn-default regbutton" id="btnRegister">Register</button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" tabindex="-1" id="successModel" data-keyboard="false" data-backdrop="static">
+
+        <div class="modal-dialog modal-sm">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                    <h4>Success</h4>
+
+                </div>
+
+
+                <div class="modal-body">
+                    <h2>Registration successfull</h2>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div id="divError" class="alert alert-danger collapse">
+        <a id="LinkClose" class="close" href="#">&times;</a>
+        <div id="divErrorText"></div>
+    </div>
+</div>

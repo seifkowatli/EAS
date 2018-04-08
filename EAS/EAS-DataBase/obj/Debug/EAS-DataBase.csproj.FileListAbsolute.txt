@@ -1,0 +1,10 @@
+D:\salim\DONE\Junior\Exam System\EAS-DataBase\bin\Debug\EAS-DataBase.dll.config
+D:\salim\DONE\Junior\Exam System\EAS-DataBase\bin\Debug\EAS-DataBase.dll
+D:\salim\DONE\Junior\Exam System\EAS-DataBase\bin\Debug\EAS-DataBase.pdb
+D:\salim\DONE\Junior\Exam System\EAS-DataBase\bin\Debug\EntityFramework.dll
+D:\salim\DONE\Junior\Exam System\EAS-DataBase\bin\Debug\EntityFramework.SqlServer.dll
+D:\salim\DONE\Junior\Exam System\EAS-DataBase\bin\Debug\EntityFramework.xml
+D:\salim\DONE\Junior\Exam System\EAS-DataBase\bin\Debug\EntityFramework.SqlServer.xml
+D:\salim\DONE\Junior\Exam System\EAS-DataBase\obj\Debug\EAS-DataBase.dll
+D:\salim\DONE\Junior\Exam System\EAS-DataBase\obj\Debug\EAS-DataBase.pdb
+D:\salim\DONE\Junior\Exam System\EAS-DataBase\obj\Debug\EAS-DataBase.csprojResolveAssemblyReference.cache

@@ -1,0 +1,91 @@
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\ApplicationInsights.config
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\roslyn\csc.exe
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\roslyn\vbc.exe
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\roslyn\VBCSCompiler.exe
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\Portal EndPoint.dll.config
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\Portal EndPoint.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\Portal EndPoint.pdb
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\Antlr3.Runtime.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\Microsoft.AI.Web.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\Microsoft.ApplicationInsights.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\Newtonsoft.Json.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\System.Web.Helpers.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\System.Web.Mvc.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\System.Web.Optimization.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\System.Web.Razor.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\System.Web.WebPages.Deployment.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\System.Web.WebPages.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\System.Web.WebPages.Razor.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\WebGrease.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\Microsoft.AI.Web.xml
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\Microsoft.ApplicationInsights.xml
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\System.Web.Helpers.xml
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\System.Web.Mvc.xml
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\System.Web.Optimization.xml
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\System.Web.Razor.xml
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\System.Web.WebPages.xml
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\System.Web.WebPages.Deployment.xml
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\System.Web.WebPages.Razor.xml
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\Antlr3.Runtime.pdb
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\bin\Newtonsoft.Json.xml
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\obj\Debug\Portal EndPoint.dll
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\obj\Debug\Portal EndPoint.pdb
+C:\Users\FNI\Desktop\Exam System\Portal EndPoint\obj\Debug\Portal EndPoint.csprojResolveAssemblyReference.cache
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\ApplicationInsights.config
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\Portal EndPoint.dll.config
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\Portal EndPoint.dll
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\Portal EndPoint.pdb
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\Antlr3.Runtime.dll
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\Microsoft.AI.Agent.Intercept.dll
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\Microsoft.AI.DependencyCollector.dll
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\Microsoft.AI.Web.dll
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\Microsoft.AI.WindowsServer.dll
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\Microsoft.ApplicationInsights.dll
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\Microsoft.Web.Infrastructure.dll
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\Newtonsoft.Json.dll
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\System.Web.Helpers.dll
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\System.Web.Mvc.dll
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\System.Web.Optimization.dll
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\System.Web.Razor.dll
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\System.Web.WebPages.Deployment.dll
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\System.Web.WebPages.dll
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\System.Web.WebPages.Razor.dll
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\WebGrease.dll
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\Microsoft.AI.DependencyCollector.xml
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\Microsoft.AI.Web.xml
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\Microsoft.AI.WindowsServer.xml
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\Microsoft.ApplicationInsights.xml
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\System.Web.Helpers.xml
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\System.Web.Mvc.xml
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\System.Web.Optimization.xml
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\System.Web.Razor.xml
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\System.Web.WebPages.xml
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\System.Web.WebPages.Deployment.xml
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\System.Web.WebPages.Razor.xml
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\Antlr3.Runtime.pdb
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\bin\Newtonsoft.Json.xml
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\obj\Debug\Portal EndPoint.dll
+D:\salim\DONE\Junior\Exam System\Portal EndPoint\obj\Debug\Portal EndPoint.pdb

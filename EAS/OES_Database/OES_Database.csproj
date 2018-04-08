@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{65BE5441-7896-4F76-9657-2D0547A79488}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OES_Database</RootNamespace>
+    <AssemblyName>OES_Database</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
+    <Reference Include="Oracle.DataAccess.EntityFramework, Version=6.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL" />
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL" />
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AspNetRole.cs">
+      <DependentUpon>OES_Accounts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUser.cs">
+      <DependentUpon>OES_Accounts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserClaim.cs">
+      <DependentUpon>OES_Accounts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserLogin.cs">
+      <DependentUpon>OES_Accounts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Class1.cs" />
+    <Compile Include="C__MigrationHistory.cs">
+      <DependentUpon>OES_Accounts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EXAM.cs">
+      <DependentUpon>OES_QuestionBank.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OES_Accounts.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OES_Accounts.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OES_Accounts.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OES_Accounts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OES_Accounts.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OES_Accounts.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="OES_QuestionBank.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OES_QuestionBank.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OES_QuestionBank.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OES_QuestionBank.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OES_QuestionBank.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OES_QuestionBank.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="OES_STD_Ans.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OES_STD_Ans.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OES_STD_Ans.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OES_STD_Ans.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OES_STD_Ans.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OES_STD_Ans.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QUESTION.cs">
+      <DependentUpon>OES_QuestionBank.tt</DependentUpon>
+    </Compile>
+    <Compile Include="std_ans.cs">
+      <DependentUpon>OES_STD_Ans.tt</DependentUpon>
+    </Compile>
+    <Compile Include="std_result.cs">
+      <DependentUpon>OES_STD_Ans.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Subject.cs">
+      <DependentUpon>OES_Accounts.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="OES_QuestionBank.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OES_QuestionBank.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="OES_Accounts.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OES_Accounts.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="OES_Accounts.edmx.diagram">
+      <DependentUpon>OES_Accounts.edmx</DependentUpon>
+    </None>
+    <None Include="OES_QuestionBank.edmx.diagram">
+      <DependentUpon>OES_QuestionBank.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="OES_STD_Ans.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OES_STD_Ans.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="OES_STD_Ans.edmx.diagram">
+      <DependentUpon>OES_STD_Ans.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="OES_Accounts.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OES_Accounts.edmx</DependentUpon>
+      <LastGenOutput>OES_Accounts.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="OES_Accounts.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OES_Accounts.edmx</DependentUpon>
+      <LastGenOutput>OES_Accounts.cs</LastGenOutput>
+    </Content>
+    <Content Include="OES_QuestionBank.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OES_QuestionBank.edmx</DependentUpon>
+      <LastGenOutput>OES_QuestionBank.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="OES_QuestionBank.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OES_QuestionBank.edmx</DependentUpon>
+      <LastGenOutput>OES_QuestionBank.cs</LastGenOutput>
+    </Content>
+    <Content Include="OES_STD_Ans.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OES_STD_Ans.edmx</DependentUpon>
+      <LastGenOutput>OES_STD_Ans.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="OES_STD_Ans.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OES_STD_Ans.edmx</DependentUpon>
+      <LastGenOutput>OES_STD_Ans.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

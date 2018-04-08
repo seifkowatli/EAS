@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="oes_std_ansModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="std_ans">
+    <Key>
+      <PropertyRef Name="STD_ID" />
+      <PropertyRef Name="Quest_ID" />
+      <PropertyRef Name="EXAM_ID" />
+    </Key>
+    <Property Name="STD_ID" Type="Int32" Nullable="false" />
+    <Property Name="Quest_ID" Type="Int32" Nullable="false" />
+    <Property Name="EXAM_ID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="std_result">
+    <Key>
+      <PropertyRef Name="STD_ID" />
+      <PropertyRef Name="Exam_ID" />
+    </Key>
+    <Property Name="STD_ID" Type="Int32" Nullable="false" />
+    <Property Name="Exam_ID" Type="Int32" Nullable="false" />
+    <Property Name="Result" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="OES_STD_AnsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="std_ans" EntityType="Self.std_ans" />
+    <EntitySet Name="std_result" EntityType="Self.std_result" />
+  </EntityContainer>
+</Schema>

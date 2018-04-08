@@ -1,0 +1,73 @@
+﻿body {
+}
+
+.dev1 {
+   
+	top: 10px;
+	width: 25%;
+    height:60%;
+	padding: 18px 6% 60px 6%;
+	margin:5px;
+   
+	background: rgb(247, 247, 247);
+	border: 1px solid rgba(147, 184, 189,0.8);
+	box-shadow:	
+		0pt 2px 5px rgba(105, 108, 109,  0.7),	
+		0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+	border-radius: 5px;
+      white-space:nowrap;
+      overflow:auto;
+      
+        height: auto;
+         
+        min-height: 60%;
+         min-width: 50%;
+         display:inline-block;
+    
+}
+
+
+.img1 {
+    width:150px;
+ 
+}
+.container {
+    padding: 5px;
+}
+
+.imgcont{
+     
+     text-align: center;
+    margin: 24px 0 12px 0;
+    padding:10px;
+     overflow:auto;
+   
+    
+
+}
+
+    
+.btn1{
+    width: 25%;
+	cursor: pointer;	
+	background: rgb(61, 157, 179);
+	padding: 8px 5px;
+	font-family: 'BebasNeueRegular','Arial Narrow',Arial,sans-serif;
+	color: #fff;
+	font-size: 12px;	
+	border: 1px solid rgb(28, 108, 122);	
+	margin: 10px;	
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+	border-radius: 3px;	
+	box-shadow:
+		0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset,
+		0px 0px 0px 3px rgb(254, 254, 254),
+		0px 5px 3px 3px rgb(210, 210, 210);
+	transition: all 0.2s linear;
+}
+
+
+
+
+
+

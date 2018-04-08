@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Home-Page";
+}
+
+@Scripts.Render("~/Scripts/jquery-1.10.2.js")
+@Scripts.Render("~/Scripts/loginscript.js")
+@Scripts.Render("~/Scripts/spin.min.js")
+@Scripts.Render("~/Scripts/ladda.min.js")
+
+@Styles.Render("~/Styles/Home-Style.css")
+@Styles.Render("~/Content/bootstrap.css")
+
+@Styles.Render("~/Styles/demo.css")
+@Styles.Render("~/Styles/ladda.min.css")
+
+<div class="main" >
+   
+    
+    <div class="container">
+        <center>
+            <div class="middle">
+                <div id="login">
+                    <form action="javascript:void(0);" method="get">
+                        <fieldset class="clearfix">
+                            <p><span class="fa fa-user"></span><input type="text" id="TextUserName" placeholder="Username" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
+                            <p><span class="fa fa-lock"></span><input type="password" id="TextPassWord" placeholder="Password" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
+
+                            <div>
+                                <section class="button-demo">
+                                    <span style="width:50%; text-align:right;  display: inline-block;"><button id="btnLogin" data-style="slide-down" />Sign In</span>
+                                </section>
+                            </div>
+                        </fieldset>
+                        <div class="clearfix"></div>
+                    </form>
+                    <div class="clearfix"></div>
+                </div> <!-- end login -->
+                <div class="logo">
+                    <img src="~/Yarmouk_Private_University_Logo.png">
+                </div>
+
+            </div>
+        </center>
+    </div>
+    <div id="divError" class="alert alert-danger collapse">
+        <a id="LinkClose" class="close" href="#">&times;</a>
+        <div id="divErrorText"></div>
+
+    </div>
+</div>
+
+
+<script>
+    Ladda.bind('.button-demo button', { timeout: 100000 });
+
+    // Bind progress buttons and simulate loading progress
+    Ladda.bind('.progress-demo button', {
+        callback: function (instance) {
+            var progress = 0;
+            var interval = setInterval(function () {
+                progress = Math.min(progress + Math.random() * 0.1, 1);
+                instance.setProgress(progress);
+
+                if (progress === 1) {
+                    instance.stop();
+                    clearInterval(interval);
+                }
+            }, 200);
+        }
+    });
+</script>
+

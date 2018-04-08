@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "Home-Page";
+}
+
+@Scripts.Render("~/Scripts/jquery-1.10.2.js")
+@Scripts.Render("~/Scripts/bootstrap.min.js")
+@Scripts.Render("~/Scripts/jquery-1.10.2.min.js")
+@Scripts.Render("~/Scripts/result.js")
+
+@Styles.Render("~/Styles/style.css")
+@Styles.Render("~/Styles/bootstrap.css")
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Exam_Result</title>
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width = device-width ,initial-scale = 1">
+    <meta name="author" content="Seif">
+    <meta charset="utf-8">
+    <meta name="describtion" content="Examination Page">
+    <style>
+        .jumbotron {
+            background-color: lightgray;
+        }
+    </style>
+
+
+
+
+</head>
+<body>
+
+    <div class="bg">
+
+        <div class="row head">
+
+            <div class="user-sec col-lg-2 ">
+                <img id="avatar" src="~/img/avatar.png">
+
+                <span id="spanUsername"> Username </span>
+            </div>
+
+
+            <div class="col-lg-3 col-lg-offset-3">
+
+                <img id="glPic" src="~/img/gl.png">
+            </div>
+
+
+            <div class="col-lg-2 col-lg-offset-2">
+                <img id="logo" src="~/img/OES_Logo.png"></h2>
+            </div>
+
+        </div> <!-- end of my header -->
+
+        <div class="row">
+
+            <div class="Questions col-lg-2">
+                <div class="row">
+                </div>
+            </div> <!-- end of my side bar -->
+
+            <div class="Exam jumbotron  col-lg-6">
+                <div style="margin: 10px; margin-bottom: 30px;">
+
+
+                    <label>Student Name:</label><br />
+                    <p id="p1"></p>
+                    <hr>
+                    <label>Student Mark:</label><br />
+                    <p>
+
+                        <label id="p2"></label>
+                        <label>%</label>
+
+                    </p>
+                    <hr>
+                    <label>Details:</label><br />
+                    <table class="table table-bordered" id="myTable">
+                        <tr class="success">
+                            <th> Questions</th>
+                            <th>answer</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+</body>
+</html>
+<script>
+
+
+    $(document).ready(function () {
+        document.getElementById('spanUsername').innerHTML = '  hello,' + localStorage.getItem('UserName');
+        $('#start_exam').click(function () {
+
+
+            window.location = 'http://localhost:46253/Exam/Exam_Page';
+
+
+        })
+    })
+</script>
+
+
+
+

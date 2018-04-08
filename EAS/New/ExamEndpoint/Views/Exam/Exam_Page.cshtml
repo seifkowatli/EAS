@@ -1,0 +1,134 @@
+﻿
+
+@Scripts.Render("~/Scripts/jquery-1.10.2.min.js")
+@Scripts.Render("~/Scripts/jquery-1.10.2.js")
+@Scripts.Render("~/Scripts/bootstrap.min.js")
+
+@Scripts.Render("~/Scripts/Exam_script.js")
+
+@Styles.Render("~/Styles/style.css")
+@Styles.Render("~/Styles/bootstrap.css")
+
+
+
+
+
+
+<!DOCTYPE html>
+<html >
+<head>
+	<title>Examination Page</title>
+			<meta http-equiv="X-UA-Compatible" content="IE-edge">
+			<meta name="viewport" content="width = device-width ,initial-scale = 1">
+			<meta name="author" content="Seif">
+			<meta charset="utf-8">
+			<meta name="describtion" content="Examination Page">
+			<style >
+				.jumbotron { 
+					background-color: lightgray;
+ 				}
+			</style>
+			
+			
+			
+
+	</head>
+	<body >
+
+		<div class="bg">
+
+		<div class="row head"> 
+
+			<div class="user-sec col-lg-2 ">
+				<img id="avatar"  src="~/img/avatar.png">
+				
+				<span id="Username"> Username </span>
+			</div>
+
+
+			<div class="col-lg-3 col-lg-offset-3">
+				
+				<img id="glPic" src="~/img/gl.png">
+			</div>
+
+
+			<div class="col-lg-2 col-lg-offset-2">				
+				<img id="logo" src="~/img/OES_Logo.png"></h2>
+			</div>
+				
+		</div> <!-- end of my header -->
+
+		<div class="row">
+
+			<div class="Questions col-lg-2">
+				<div class="row">
+				<ul  class="list-group" style="margin: 3px 0px 0px 8px;">
+					<a href="#Quest-Group1" data-toggle="collapse" class="list-group-item list-group-item-info list-group-item-heading" >First Question Group</a>
+					<div class="collapse" id="Quest-Group1">
+					<li class="btn list-group-item">First Question</li>
+					<li class="btn list-group-item">Second Question</li>
+					<li class="btn list-group-item">Last Question</li>
+					</div>
+				</ul>
+
+				<ul class="list-group">
+					<a href="#Quest-Group2" data-toggle="collapse" class="list-group-item list-group-item-info list-group-item-heading" >Second Question Group</a>
+					<div class="collapse" id="Quest-Group2">
+					<li class="btn list-group-item ">First Question</li>
+					<li class="btn list-group-item">Second Question</li>
+					<li class="btn list-group-item">Last Question</li>
+					</div>
+				</ul>
+
+			
+
+				</div>
+			</div> <!-- end of my side bar -->
+			
+			<div class="Exam jumbotron  col-lg-6">
+				
+				
+
+					<div style="margin: 10px; margin-bottom: 30px;">
+						
+					<p id="Question_Text">This is the question text</p>
+					<input id="Ans1" class="" type="radio" name="Answer"> <label for="Ans1" id="Q_ans1">  Answer 1 </label> <br>
+					<input id="Ans2" class="" type="radio" name="Answer"> <label for="Ans2" id="Q_ans2">  Answer 2 </label> <br>				
+					<input id="Ans3" class="" type="radio" name="Answer"> <label for="Ans3" id="Q_ans3">  Answer 3 </label> <br>
+					<input id="Ans4" class="" type="radio" name="Answer"> <label for="Ans4" id="Q_ans4">  Answer 4 </label> <br>
+
+					</div>
+					<div class="text-center">
+					<input style="" class="btn btn-success" type="submit" name="submit" value="Submit Questions" >
+
+					<div class="btn btn-group" id="p1">
+					<button style="width: 100px;" onclick="Previous_Question()" class="btn btn-default" type="submit" name="Next"  id="p11"> <span class="glyphicon glyphicon-step-backward"></span> previous</button>
+
+					<button style="width: 100px;" onclick="Next_Question()" class="btn btn-default" id="n1" name="Next" >Next <span class="glyphicon glyphicon-step-forward"></span></button>
+					
+					</div>
+
+					<button style="width: 120px;" class="btn btn-info" type="submit" name="End-Finish "  onclick="Save_Student_Answer_in_DB()" >Finish Exam <span class="glyphicon glyphicon-ok-sign"></span></button>
+						
+					</div>
+					
+				
+
+				
+			</div> <!-- end of the exam division -->
+			
+
+			<div class="Timer  col-lg-3">
+				
+					<p class="list-group-item" id="cd"></p>
+					<p class="list-group-item" id="cdq" ></p>
+
+			</div> <!-- end of the timer code -->
+
+		</div> <!-- end of the page content division -- >
+
+		</div>
+
+	</body
+>
+</html>

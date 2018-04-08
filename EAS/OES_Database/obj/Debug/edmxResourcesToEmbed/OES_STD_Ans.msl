@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="oes_std_ansModelStoreContainer" CdmEntityContainer="OES_STD_AnsEntities">
+    <EntitySetMapping Name="std_ans">
+      <EntityTypeMapping TypeName="oes_std_ansModel.std_ans">
+        <MappingFragment StoreEntitySet="std_ans">
+          <ScalarProperty Name="STD_ID" ColumnName="STD_ID" />
+          <ScalarProperty Name="Quest_ID" ColumnName="Quest_ID" />
+          <ScalarProperty Name="EXAM_ID" ColumnName="EXAM_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="std_result">
+      <EntityTypeMapping TypeName="oes_std_ansModel.std_result">
+        <MappingFragment StoreEntitySet="std_result">
+          <ScalarProperty Name="STD_ID" ColumnName="STD_ID" />
+          <ScalarProperty Name="Exam_ID" ColumnName="Exam_ID" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

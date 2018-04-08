@@ -1,0 +1,19 @@
+C:\Users\FNI\Desktop\Exam System\New\ExamEndpoint\bin\Client-Side.dll.config
+C:\Users\FNI\Desktop\Exam System\New\ExamEndpoint\bin\Client-Side.dll
+C:\Users\FNI\Desktop\Exam System\New\ExamEndpoint\bin\Client-Side.pdb
+C:\Users\FNI\Desktop\Exam System\New\ExamEndpoint\obj\Debug\Client-Side.dll
+C:\Users\FNI\Desktop\Exam System\New\ExamEndpoint\obj\Debug\Client-Side.pdb
+C:\Users\FNI\Desktop\Exam System\New\ExamEndpoint\obj\Debug\New Exam Endpoint.csprojResolveAssemblyReference.cache
+D:\salim\DONE\Junior\Exam System\New\ExamEndpoint\bin\Client-Side.dll.config
+D:\salim\DONE\Junior\Exam System\New\ExamEndpoint\bin\Client-Side.dll
+D:\salim\DONE\Junior\Exam System\New\ExamEndpoint\bin\Client-Side.pdb
+D:\salim\DONE\Junior\Exam System\New\ExamEndpoint\bin\Newtonsoft.Json.dll
+D:\salim\DONE\Junior\Exam System\New\ExamEndpoint\bin\System.Web.Mvc.dll
+D:\salim\DONE\Junior\Exam System\New\ExamEndpoint\obj\Debug\Client-Side.dll
+D:\salim\DONE\Junior\Exam System\New\ExamEndpoint\obj\Debug\Client-Side.pdb
+D:\salim\DONE\Junior\Exam System\New\ExamEndpoint\bin\EntityFramework.dll
+D:\salim\DONE\Junior\Exam System\New\ExamEndpoint\bin\EntityFramework.SqlServer.dll
+D:\salim\DONE\Junior\Exam System\New\ExamEndpoint\bin\System.Web.Cors.dll
+D:\salim\DONE\Junior\Exam System\New\ExamEndpoint\bin\EntityFramework.xml
+D:\salim\DONE\Junior\Exam System\New\ExamEndpoint\bin\EntityFramework.SqlServer.xml
+D:\salim\DONE\Junior\Exam System\New\ExamEndpoint\obj\Debug\New Exam Endpoint.csprojResolveAssemblyReference.cache

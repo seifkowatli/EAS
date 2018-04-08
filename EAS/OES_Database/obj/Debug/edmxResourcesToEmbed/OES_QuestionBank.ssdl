@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="EXAM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="EXAM_DATE" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="SEMESTER" Type="varchar2" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EXAM_QUESTION">
+    <Key>
+      <PropertyRef Name="EXAM_ID" />
+      <PropertyRef Name="QUESTION_ID" />
+    </Key>
+    <Property Name="EXAM_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="QUESTION_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="QUESTION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="Q_TEXT" Type="long" Nullable="false" />
+    <Property Name="T_ANS" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="ANS1" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="ANS2" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="ANS3" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="ANS4" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="TEACHER_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="DIFFICULTY" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TIME" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="SUBJECT_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="FREQUENCY" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <Association Name="EXAM_QUESTION_EXMAID">
+    <End Role="EXAM" Type="Self.EXAM" Multiplicity="1" />
+    <End Role="EXAM_QUESTION" Type="Self.EXAM_QUESTION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EXAM">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EXAM_QUESTION">
+        <PropertyRef Name="EXAM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EXAM_QUESTION_QUESTIONID">
+    <End Role="QUESTION" Type="Self.QUESTION" Multiplicity="1" />
+    <End Role="EXAM_QUESTION" Type="Self.EXAM_QUESTION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QUESTION">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EXAM_QUESTION">
+        <PropertyRef Name="QUESTION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="EXAM" EntityType="Self.EXAM" Schema="QUESTIONBANK" store:Type="Tables" />
+    <EntitySet Name="EXAM_QUESTION" EntityType="Self.EXAM_QUESTION" Schema="QUESTIONBANK" store:Type="Tables" />
+    <EntitySet Name="QUESTION" EntityType="Self.QUESTION" Schema="QUESTIONBANK" store:Type="Tables" />
+    <AssociationSet Name="EXAM_QUESTION_EXMAID" Association="Self.EXAM_QUESTION_EXMAID">
+      <End Role="EXAM" EntitySet="EXAM" />
+      <End Role="EXAM_QUESTION" EntitySet="EXAM_QUESTION" />
+    </AssociationSet>
+    <AssociationSet Name="EXAM_QUESTION_QUESTIONID" Association="Self.EXAM_QUESTION_QUESTIONID">
+      <End Role="QUESTION" EntitySet="QUESTION" />
+      <End Role="EXAM_QUESTION" EntitySet="EXAM_QUESTION" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

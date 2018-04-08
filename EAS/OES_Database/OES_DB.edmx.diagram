@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="80099426f8e54a8a85890657576059fd" Name="Diagram1">
+        <EntityTypeShape EntityType="OES_DatabaseModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OES_DatabaseModel.AspNetRole" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OES_DatabaseModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OES_DatabaseModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OES_DatabaseModel.AspNetUser" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OES_DatabaseModel.Exam" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OES_DatabaseModel.Question" Width="1.5" PointX="8.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OES_DatabaseModel.STD_Result" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OES_DatabaseModel.Student_Ans" Width="1.5" PointX="10.5" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OES_DatabaseModel.Subject" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OES_DatabaseModel.User_Subject" Width="1.5" PointX="5.25" PointY="13.75" IsExpanded="true" />
+        <AssociationConnector Association="OES_DatabaseModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="OES_DatabaseModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="OES_DatabaseModel.FK__STD_Resul__STD_I__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="OES_DatabaseModel.fk_Student_Ans_STD" ManuallyRouted="false" />
+        <AssociationConnector Association="OES_DatabaseModel.fk_Teacher_Question" ManuallyRouted="false" />
+        <AssociationConnector Association="OES_DatabaseModel.FK_User_US" ManuallyRouted="false" />
+        <AssociationConnector Association="OES_DatabaseModel.FK__STD_Resul__Exam___4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="OES_DatabaseModel.FK_EXAM_SUBJECT" ManuallyRouted="false" />
+        <AssociationConnector Association="OES_DatabaseModel.fk_Student_Ans_Exam" ManuallyRouted="false" />
+        <AssociationConnector Association="OES_DatabaseModel.FK__Questions__Subje__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="OES_DatabaseModel.fk_Student_Ans_Quest" ManuallyRouted="false" />
+        <AssociationConnector Association="OES_DatabaseModel.FK_Subject_US" ManuallyRouted="false" />
+        <AssociationConnector Association="OES_DatabaseModel.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="OES_DatabaseModel.Exam_Question" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
