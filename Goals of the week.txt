@@ -1,0 +1,6 @@
+1- Understand the CSP Algorithm 
+2- Connect all project with GitHub
+3- Finish ES once and for all
+  3.1 Finish the portal
+  3.2 Finish the core API
+  3.3 Connect all parts together
