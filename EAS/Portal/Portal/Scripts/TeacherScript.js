@@ -1,32 +1,26 @@
 ﻿
-//Teachers Script 
 function Close_Alert_Div() {
 
     $('#successText').hide();
     $('#errortxt').hide();
 }
 
-
-
 $(document).ready(function () {
 
-  
-    $('#successText').click(function () {
 
-        $('#successText').hide();
-    })
-  
-    $('#errortxt').click(function () {
 
-        $('#errortxt').hide();
-})
+    $('#successText').hide();
+    $('#errortxt').hide();
 
-  
+    //Ans1: $('#A1').val(),
+    //    Ans2: $('#A2').val(),
+    //        Ans3: $('#A3').val(),
+    //            TrueAns: $('#TA').val(),
 
     $('#BtnSave').click(function () {
 
         var Answers = [];
-       
+
         console.log(Answers);
 
 
@@ -67,17 +61,17 @@ $(document).ready(function () {
             Expected_Time: $('#ET').val(),
             Difficulty_Level: Y,
             Question_Mark: $('#mk').val(),
-            Question_Frequency:0,
+            Question_Frequency: 0,
 
 
-            
+
 
 
         };
         console.log(N_quest)
 
         $.ajax({
-           
+
 
             type: "Post",
             data: JSON.stringify(N_quest),
@@ -135,8 +129,6 @@ $(document).ready(function () {
 
 
     });
-
-
     $('#Log_Off').click(function () {
 
         sessionStorage.removeItem('accessToken');
@@ -151,4 +143,3 @@ $(document).ready(function () {
 
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
