@@ -12,15 +12,14 @@ namespace EAS_DataBase
     using System;
     using System.Collections.Generic;
     
-    public partial class Student_Answers
+    public partial class Course_Teacher
     {
-        public int Exam_ID { get; set; }
-        public string Student_ID { get; set; }
-        public int Question_ID { get; set; }
-        public string Student_Answer { get; set; }
-        public Nullable<bool> IsTrue { get; set; }
+        public int CourseID { get; set; }
+        public string Teacher_ID { get; set; }
+        public string Semester { get; set; }
+        public Nullable<double> Success_rate { get; set; }
     
-        public virtual Questions_Bank Questions_Bank { get; set; }
-        public virtual Students_Exams Students_Exams { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
+        public virtual Course Course { get; set; }
     }
 }

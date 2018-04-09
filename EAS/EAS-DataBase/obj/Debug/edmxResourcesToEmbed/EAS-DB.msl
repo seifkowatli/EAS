@@ -79,14 +79,25 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Course_User">
-      <EntityTypeMapping TypeName="EAS_DatabaseModel.Course_User">
-        <MappingFragment StoreEntitySet="Course_User">
+    <EntitySetMapping Name="Course_Students">
+      <EntityTypeMapping TypeName="EAS_DatabaseModel.Course_Students">
+        <MappingFragment StoreEntitySet="Course_Students">
           <ScalarProperty Name="CourseID" ColumnName="CourseID" />
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
           <ScalarProperty Name="Semester" ColumnName="Semester" />
           <ScalarProperty Name="C_Drop" ColumnName="_Drop" />
           <ScalarProperty Name="Prohibited" ColumnName="Prohibited" />
+          <ScalarProperty Name="Student_Mark" ColumnName="Student_Mark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Course_Teacher">
+      <EntityTypeMapping TypeName="EAS_DatabaseModel.Course_Teacher">
+        <MappingFragment StoreEntitySet="Course_Teacher">
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="Teacher_ID" ColumnName="Teacher_ID" />
+          <ScalarProperty Name="Semester" ColumnName="Semester" />
+          <ScalarProperty Name="Success_rate" ColumnName="Success_rate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -143,6 +154,7 @@
           <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
           <ScalarProperty Name="Question_ID" ColumnName="Question_ID" />
           <ScalarProperty Name="Student_Answer" ColumnName="Student_Answer" />
+          <ScalarProperty Name="IsTrue" ColumnName="IsTrue" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

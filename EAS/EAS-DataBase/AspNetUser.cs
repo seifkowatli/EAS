@@ -19,7 +19,8 @@ namespace EAS_DataBase
         {
             this.AspNetUserClaims = new HashSet<AspNetUserClaim>();
             this.AspNetUserLogins = new HashSet<AspNetUserLogin>();
-            this.Course_User = new HashSet<Course_User>();
+            this.Course_Students = new HashSet<Course_Students>();
+            this.Course_Teacher = new HashSet<Course_Teacher>();
             this.Students_Exams = new HashSet<Students_Exams>();
             this.AspNetRoles = new HashSet<AspNetRole>();
         }
@@ -44,7 +45,9 @@ namespace EAS_DataBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Course_User> Course_User { get; set; }
+        public virtual ICollection<Course_Students> Course_Students { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Course_Teacher> Course_Teacher { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Students_Exams> Students_Exams { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

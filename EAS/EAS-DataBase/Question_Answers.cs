@@ -18,5 +18,7 @@ namespace EAS_DataBase
         public int Answer_ID { get; set; }
         public string Answer_Text { get; set; }
         public Nullable<bool> is_trueAnswer { get; set; }
+    
+        public virtual Questions_Bank Questions_Bank { get; set; }
     }
 }

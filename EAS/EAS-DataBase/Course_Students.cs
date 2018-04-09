@@ -12,12 +12,16 @@ namespace EAS_DataBase
     using System;
     using System.Collections.Generic;
     
-    public partial class Course_User
+    public partial class Course_Students
     {
         public int CourseID { get; set; }
-        public string UserID { get; set; }
+        public string Student_ID { get; set; }
         public string Semester { get; set; }
         public Nullable<bool> C_Drop { get; set; }
         public Nullable<bool> Prohibited { get; set; }
+        public Nullable<double> Student_Mark { get; set; }
+    
+        public virtual AspNetUser AspNetUser { get; set; }
+        public virtual Course Course { get; set; }
     }
 }

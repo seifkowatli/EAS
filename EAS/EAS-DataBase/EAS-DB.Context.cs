@@ -32,7 +32,8 @@ namespace EAS_DataBase
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<Course_EM> Course_EM { get; set; }
-        public virtual DbSet<Course_User> Course_User { get; set; }
+        public virtual DbSet<Course_Students> Course_Students { get; set; }
+        public virtual DbSet<Course_Teacher> Course_Teacher { get; set; }
         public virtual DbSet<Exam> Exams { get; set; }
         public virtual DbSet<ILO> ILOS { get; set; }
         public virtual DbSet<Question_Answers> Question_Answers { get; set; }
