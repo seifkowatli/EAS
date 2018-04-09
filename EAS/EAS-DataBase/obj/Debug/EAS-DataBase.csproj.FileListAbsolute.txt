@@ -8,3 +8,13 @@ D:\salim\DONE\Junior\Exam System\EAS-DataBase\bin\Debug\EntityFramework.SqlServe
 D:\salim\DONE\Junior\Exam System\EAS-DataBase\obj\Debug\EAS-DataBase.dll
 D:\salim\DONE\Junior\Exam System\EAS-DataBase\obj\Debug\EAS-DataBase.pdb
 D:\salim\DONE\Junior\Exam System\EAS-DataBase\obj\Debug\EAS-DataBase.csprojResolveAssemblyReference.cache
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\EAS-DataBase\bin\Debug\EAS-DataBase.dll.config
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\EAS-DataBase\bin\Debug\EAS-DataBase.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\EAS-DataBase\bin\Debug\EAS-DataBase.pdb
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\EAS-DataBase\bin\Debug\EntityFramework.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\EAS-DataBase\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\EAS-DataBase\bin\Debug\EntityFramework.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\EAS-DataBase\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\EAS-DataBase\obj\Debug\EAS-DataBase.csprojResolveAssemblyReference.cache
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\EAS-DataBase\obj\Debug\EAS-DataBase.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\EAS-DataBase\obj\Debug\EAS-DataBase.pdb

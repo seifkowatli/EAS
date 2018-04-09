@@ -6,11 +6,12 @@ using System.Web.Mvc;
 
 namespace Portal.Controllers
 {
-    public class StudnetController : Controller
+    public class StudentController : Controller
     {
-        // GET: Studnet
-        public ActionResult Index()
+       
+        public  ActionResult Info()
         {
+
             return View();
         }
     }
