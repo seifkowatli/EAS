@@ -14,5 +14,10 @@ namespace Portal.Controllers
 
             return View();
         }
+
+        public ActionResult Marks()
+        {
+            return View();
+        }
     }
 }

@@ -182,6 +182,7 @@
     <Content Include="img\team3.jpg" />
     <Content Include="img\work5.jpg" />
     <Content Include="img\work6.jpg" />
+    <Content Include="Scripts\amcharts.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -193,6 +194,7 @@
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Chart-pie.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -203,12 +205,15 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\light.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\owl.carousel.min.js" />
+    <Content Include="Scripts\radar.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\scripts.js" />
+    <Content Include="Scripts\serial.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -231,6 +236,10 @@
     <Content Include="Views\Admin\_ViewStart.cshtml" />
     <Content Include="Views\Student\Info.cshtml" />
     <Content Include="Views\Admin\Courses.cshtml" />
+    <Content Include="Views\Teacher\Courses.cshtml" />
+    <Content Include="Views\Admin\AddCourse.cshtml" />
+    <Content Include="Views\Admin\AddUser.cshtml" />
+    <Content Include="Views\Student\Marks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

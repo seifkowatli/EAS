@@ -13,5 +13,17 @@ namespace Portal.Controllers
         {
             return View();
         }
+
+        public ActionResult AddCourse()
+        {
+            return View();
+        }
+
+        public ActionResult AddUser()
+        {
+            return View();
+        }
+
+
     }
 }
