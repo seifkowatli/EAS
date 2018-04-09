@@ -1,7 +1,9 @@
 ﻿
+
 @{
     ViewBag.Title = "Add User";
 }
+@Scripts.Render("~/Scripts/Admin.js")
 
 
 <!--//outer-wp-->
@@ -16,18 +18,22 @@
     <!--/sub-heard-part-->
     <!--/forms-->
     <div class="forms-main">
-        <h2 class="inner-tittle">Add Course</h2>
+        <h2 class="inner-tittle">Add User</h2>
         <div class="graph-form">
             <div class="validation-form">
                 <!---->
 
-                <form>
                     <br>
                     <div class="vali-form vali-form1">
 
                         <div class="col-md-12 form-group1">
-                            <label class="control-label">Name</label>
-                            <input type="text">
+                            <label class="control-label">First Name</label>
+                            <input id="F_Name" class="form-control" type="text">
+
+                        </div>
+                        <div class="col-md-12 form-group1">
+                            <label class="control-label">Last Name</label>
+                            <input id="L_Name" class="form-control" type="text">
 
                         </div>
 
@@ -36,14 +42,14 @@
 
                         <div class="col-md-12 form-group1">
                             <label class="control-label">Username</label>
-                            <input type="text">
+                            <input id="TextUserName" class="form-control" type="text">
                         </div>
                         <div class="clearfix"></div>
 
 
                         <div class="col-md-12 form-group1">
                             <label class="control-label">Eamil</label>
-                            <input type="text">
+                            <input id="TextEmail" class="form-control" type="email">
                         </div>
                         <div class="clearfix"></div>
 
@@ -53,22 +59,24 @@
                             <label class="control-label">Password</label><br />
                             <label class="control-label" style="opacity:0.5;">RandomlyGenerated Passwrod</label>
                         </div>
+                       
                         <div class="clearfix"></div>
                        
 
                         <div class="col-md-12 form-group1">
                             <label class="control-label">Phone Number</label>
-                            <input type="text">
+                            <input id="TextPhone" class="form-control">
+
                         </div>
                         <div class="clearfix"></div>
                         
 
                         <div class="col-md-12 form-group2 group-mail">
                             <label class="control-label">Type</label>
-                            <select>
+                            <select id="TextRole">
                                 <option value=""></option>
                                 <option value="">Student</option>
-                                <option value="">Teacher</option>
+                                <option value="">teacher</option>
                             </select>
                         </div>
 
@@ -76,15 +84,30 @@
                         <div class="clearfix"></div>
                     
                         <div class="col-md-12 form-group button-2">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button class="btn btn-primary" id="btnRegister">Submit</button>
                             <button type="reset" class="btn btn-default">Reset</button>
                         </div>
 
                         <div class="clearfix"> </div>
 
+                        <div id="successText" class="alert alert-success ">
+                            <button onclick="Close_Alert_Div()" type="button" class="close" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <strong>Success!</strong> .
+
+                        </div>
+
+                        <div id="errortxt" class="alert alert-danger ">
+                            <button onclick="Close_Alert_Div()" type="button" class="close" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <p id="P_error" ></p>
+                        </div>
+
 
                     </div>
-                </form>
+               
 
             </div>
 
@@ -92,4 +115,6 @@
     </div>
     <!--//forms-->
 </div>
+
+
 

@@ -182,6 +182,7 @@
     <Content Include="img\team3.jpg" />
     <Content Include="img\work5.jpg" />
     <Content Include="img\work6.jpg" />
+    <Content Include="Scripts\Admin.js" />
     <Content Include="Scripts\amcharts.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
