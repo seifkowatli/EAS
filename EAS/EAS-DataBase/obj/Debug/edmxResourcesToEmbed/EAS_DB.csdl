@@ -59,8 +59,9 @@
     <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
     <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
-    <NavigationProperty Name="Course_User" Relationship="Self.FK__Course_Us__UserI__4C364F0E" FromRole="AspNetUsers" ToRole="Course_User" />
-    <NavigationProperty Name="Students_Exams" Relationship="Self.FK__Students___Stude__42ACE4D4" FromRole="AspNetUsers" ToRole="Students_Exams" />
+    <NavigationProperty Name="Course_Students" Relationship="Self.FK__Course_St__Stude__63D8CE75" FromRole="AspNetUsers" ToRole="Course_Students" />
+    <NavigationProperty Name="Course_Teacher" Relationship="Self.FK__Course_Te__Teach__67A95F59" FromRole="AspNetUsers" ToRole="Course_Teacher" />
+    <NavigationProperty Name="Students_Exams" Relationship="Self.FK__Students___Stude__7ABC33CD" FromRole="AspNetUsers" ToRole="Students_Exams" />
     <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
   </EntityType>
   <EntityType Name="Course">
@@ -82,17 +83,29 @@
     <Property Name="Quiz" Type="Int32" />
     <Property Name="Final" Type="Int32" />
   </EntityType>
-  <EntityType Name="Course_User">
+  <EntityType Name="Course_Students">
     <Key>
       <PropertyRef Name="CourseID" />
-      <PropertyRef Name="UserID" />
+      <PropertyRef Name="Student_ID" />
       <PropertyRef Name="Semester" />
     </Key>
     <Property Name="CourseID" Type="Int32" Nullable="false" />
-    <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Student_ID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Semester" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="C_Drop" Type="Boolean" />
     <Property Name="Prohibited" Type="Boolean" />
+    <Property Name="Student_Mark" Type="Double" />
+  </EntityType>
+  <EntityType Name="Course_Teacher">
+    <Key>
+      <PropertyRef Name="CourseID" />
+      <PropertyRef Name="Teacher_ID" />
+      <PropertyRef Name="Semester" />
+    </Key>
+    <Property Name="CourseID" Type="Int32" Nullable="false" />
+    <Property Name="Teacher_ID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Semester" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Success_rate" Type="Double" />
   </EntityType>
   <EntityType Name="Exam">
     <Key>
@@ -103,7 +116,7 @@
     <Property Name="Exam_Time" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Exam_Date" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Exam_Semester" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Exam_Type" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Exam_Type" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="number_Of_Students" Type="Int32" />
     <Property Name="Exam_Period" Type="Int32" />
     <Property Name="Exam_Notes" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
@@ -113,8 +126,9 @@
       <PropertyRef Name="ILOs_ID" />
     </Key>
     <Property Name="ILOs_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Topic_ID" Type="Int32" />
     <Property Name="ILOs_Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Topics" Relationship="Self.Topic_ILOS" FromRole="ILOS" ToRole="Topic" />
+    <Property Name="C_week" Type="Int32" />
   </EntityType>
   <EntityType Name="Question_Answers">
     <Key>
@@ -125,6 +139,7 @@
     <Property Name="Answer_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Answer_Text" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="is_trueAnswer" Type="Boolean" />
+    <NavigationProperty Name="Questions_Bank" Relationship="Self.FK__Question___Quest__75F77EB0" FromRole="Question_Answers" ToRole="Questions_Bank" />
   </EntityType>
   <EntityType Name="Questions_Bank">
     <Key>
@@ -149,6 +164,8 @@
     <Property Name="Question_ID" Type="Int32" Nullable="false" />
     <Property Name="Student_Answer" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="IsTrue" Type="Boolean" />
+    <NavigationProperty Name="Questions_Bank" Relationship="Self.FK__Student_A__Quest__7E8CC4B1" FromRole="Student_Answers" ToRole="Questions_Bank" />
+    <NavigationProperty Name="Students_Exams" Relationship="Self.FK__Student_Answers__7D98A078" FromRole="Student_Answers" ToRole="Students_Exams" />
   </EntityType>
   <EntityType Name="Students_Exams">
     <Key>
@@ -176,7 +193,8 @@
     <Property Name="Topic_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Course_ID" Type="Int32" Nullable="false" />
     <Property Name="Topic_Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="C_week" Type="Int32" />
+    <NavigationProperty Name="Course" Relationship="Self.FK__Topic__Course_ID__6A85CC04" FromRole="Topic" ToRole="Course" />
+    <NavigationProperty Name="ILOS" Relationship="Self.FK__ILOS__Topic_ID__6D6238AF" FromRole="Topic" ToRole="ILOS" />
   </EntityType>
   <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
     <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
@@ -206,19 +224,31 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Course_Us__UserI__4C364F0E">
+  <Association Name="FK__Course_St__Stude__63D8CE75">
     <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
-    <End Role="Course_User" Type="Self.Course_User" Multiplicity="*" />
+    <End Role="Course_Students" Type="Self.Course_Students" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AspNetUsers">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Course_User">
-        <PropertyRef Name="UserID" />
+      <Dependent Role="Course_Students">
+        <PropertyRef Name="Student_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Students___Stude__42ACE4D4">
+  <Association Name="FK__Course_Te__Teach__67A95F59">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+    <End Role="Course_Teacher" Type="Self.Course_Teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Course_Teacher">
+        <PropertyRef Name="Teacher_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Students___Stude__7ABC33CD">
     <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
     <End Role="Students_Exams" Type="Self.Students_Exams" Multiplicity="*" />
     <ReferentialConstraint>
@@ -230,7 +260,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Course_EM__ECour__36470DEF">
+  <Association Name="FK__Course_EM__ECour__703EA55A">
     <End Role="Course" Type="Self.Course" Multiplicity="1" />
     <End Role="Course_EM" Type="Self.Course_EM" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -242,19 +272,43 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Course_Us__Cours__4B422AD5">
+  <Association Name="FK__Course_St__Cours__62E4AA3C">
     <End Role="Course" Type="Self.Course" Multiplicity="1" />
-    <End Role="Course_User" Type="Self.Course_User" Multiplicity="*" />
+    <End Role="Course_Students" Type="Self.Course_Students" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Course">
         <PropertyRef Name="Course_ID" />
       </Principal>
-      <Dependent Role="Course_User">
+      <Dependent Role="Course_Students">
         <PropertyRef Name="CourseID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Topic__Course_ID__336AA144">
+  <Association Name="FK__Course_Te__Cours__66B53B20">
+    <End Role="Course" Type="Self.Course" Multiplicity="1" />
+    <End Role="Course_Teacher" Type="Self.Course_Teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Course_ID" />
+      </Principal>
+      <Dependent Role="Course_Teacher">
+        <PropertyRef Name="CourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Exam__Course_ID__5E1FF51F">
+    <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
+    <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Course_ID" />
+      </Principal>
+      <Dependent Role="Exam">
+        <PropertyRef Name="Course_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Topic__Course_ID__6A85CC04">
     <End Role="Course" Type="Self.Course" Multiplicity="1" />
     <End Role="Topic" Type="Self.Topic" Multiplicity="*" />
     <ReferentialConstraint>
@@ -266,7 +320,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Students___Exam___41B8C09B">
+  <Association Name="FK__Students___Exam___79C80F94">
     <End Role="Exam" Type="Self.Exam" Multiplicity="1" />
     <End Role="Students_Exams" Type="Self.Students_Exams" Multiplicity="*" />
     <ReferentialConstraint>
@@ -278,7 +332,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Question___Quest__3BFFE745">
+  <Association Name="FK__ILOS__Topic_ID__6D6238AF">
+    <End Role="Topic" Type="Self.Topic" Multiplicity="0..1" />
+    <End Role="ILOS" Type="Self.ILO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Topic">
+        <PropertyRef Name="Topic_ID" />
+      </Principal>
+      <Dependent Role="ILOS">
+        <PropertyRef Name="Topic_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Question___Quest__75F77EB0">
     <End Role="Questions_Bank" Type="Self.Questions_Bank" Multiplicity="1" />
     <End Role="Question_Answers" Type="Self.Question_Answers" Multiplicity="*" />
     <ReferentialConstraint>
@@ -290,7 +356,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Student_A__Quest__467D75B8">
+  <Association Name="FK__Student_A__Quest__7E8CC4B1">
     <End Role="Questions_Bank" Type="Self.Questions_Bank" Multiplicity="1" />
     <End Role="Student_Answers" Type="Self.Student_Answers" Multiplicity="*" />
     <ReferentialConstraint>
@@ -302,7 +368,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Student_Answers__4589517F">
+  <Association Name="FK__Student_Answers__7D98A078">
     <End Role="Students_Exams" Type="Self.Students_Exams" Multiplicity="1" />
     <End Role="Student_Answers" Type="Self.Student_Answers" Multiplicity="*" />
     <ReferentialConstraint>
@@ -320,13 +386,9 @@
     <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
     <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
   </Association>
-  <Association Name="Topic_ILOS">
+  <Association Name="ILO_Question">
     <End Role="ILOS" Type="Self.ILO" Multiplicity="*" />
-    <End Role="Topic" Type="Self.Topic" Multiplicity="*" />
-  </Association>
-  <Association Name="Topic_Question">
     <End Role="Questions_Bank" Type="Self.Questions_Bank" Multiplicity="*" />
-    <End Role="Topic" Type="Self.Topic" Multiplicity="*" />
   </Association>
   <EntityContainer Name="EAS_DatabaseEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
@@ -336,7 +398,8 @@
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
     <EntitySet Name="Courses" EntityType="Self.Course" />
     <EntitySet Name="Course_EM" EntityType="Self.Course_EM" />
-    <EntitySet Name="Course_User" EntityType="Self.Course_User" />
+    <EntitySet Name="Course_Students" EntityType="Self.Course_Students" />
+    <EntitySet Name="Course_Teacher" EntityType="Self.Course_Teacher" />
     <EntitySet Name="Exams" EntityType="Self.Exam" />
     <EntitySet Name="ILOS" EntityType="Self.ILO" />
     <EntitySet Name="Question_Answers" EntityType="Self.Question_Answers" />
@@ -353,39 +416,55 @@
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
     </AssociationSet>
-    <AssociationSet Name="FK__Course_Us__UserI__4C364F0E" Association="Self.FK__Course_Us__UserI__4C364F0E">
+    <AssociationSet Name="FK__Course_St__Stude__63D8CE75" Association="Self.FK__Course_St__Stude__63D8CE75">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="Course_User" EntitySet="Course_User" />
+      <End Role="Course_Students" EntitySet="Course_Students" />
     </AssociationSet>
-    <AssociationSet Name="FK__Students___Stude__42ACE4D4" Association="Self.FK__Students___Stude__42ACE4D4">
+    <AssociationSet Name="FK__Course_Te__Teach__67A95F59" Association="Self.FK__Course_Te__Teach__67A95F59">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Course_Teacher" EntitySet="Course_Teacher" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Students___Stude__7ABC33CD" Association="Self.FK__Students___Stude__7ABC33CD">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="Students_Exams" EntitySet="Students_Exams" />
     </AssociationSet>
-    <AssociationSet Name="FK__Course_EM__ECour__36470DEF" Association="Self.FK__Course_EM__ECour__36470DEF">
+    <AssociationSet Name="FK__Course_EM__ECour__703EA55A" Association="Self.FK__Course_EM__ECour__703EA55A">
       <End Role="Course" EntitySet="Courses" />
       <End Role="Course_EM" EntitySet="Course_EM" />
     </AssociationSet>
-    <AssociationSet Name="FK__Course_Us__Cours__4B422AD5" Association="Self.FK__Course_Us__Cours__4B422AD5">
+    <AssociationSet Name="FK__Course_St__Cours__62E4AA3C" Association="Self.FK__Course_St__Cours__62E4AA3C">
       <End Role="Course" EntitySet="Courses" />
-      <End Role="Course_User" EntitySet="Course_User" />
+      <End Role="Course_Students" EntitySet="Course_Students" />
     </AssociationSet>
-    <AssociationSet Name="FK__Topic__Course_ID__336AA144" Association="Self.FK__Topic__Course_ID__336AA144">
+    <AssociationSet Name="FK__Course_Te__Cours__66B53B20" Association="Self.FK__Course_Te__Cours__66B53B20">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="Course_Teacher" EntitySet="Course_Teacher" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Exam__Course_ID__5E1FF51F" Association="Self.FK__Exam__Course_ID__5E1FF51F">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="Exam" EntitySet="Exams" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Topic__Course_ID__6A85CC04" Association="Self.FK__Topic__Course_ID__6A85CC04">
       <End Role="Course" EntitySet="Courses" />
       <End Role="Topic" EntitySet="Topics" />
     </AssociationSet>
-    <AssociationSet Name="FK__Students___Exam___41B8C09B" Association="Self.FK__Students___Exam___41B8C09B">
+    <AssociationSet Name="FK__Students___Exam___79C80F94" Association="Self.FK__Students___Exam___79C80F94">
       <End Role="Exam" EntitySet="Exams" />
       <End Role="Students_Exams" EntitySet="Students_Exams" />
     </AssociationSet>
-    <AssociationSet Name="FK__Question___Quest__3BFFE745" Association="Self.FK__Question___Quest__3BFFE745">
+    <AssociationSet Name="FK__ILOS__Topic_ID__6D6238AF" Association="Self.FK__ILOS__Topic_ID__6D6238AF">
+      <End Role="Topic" EntitySet="Topics" />
+      <End Role="ILOS" EntitySet="ILOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Question___Quest__75F77EB0" Association="Self.FK__Question___Quest__75F77EB0">
       <End Role="Questions_Bank" EntitySet="Questions_Bank" />
       <End Role="Question_Answers" EntitySet="Question_Answers" />
     </AssociationSet>
-    <AssociationSet Name="FK__Student_A__Quest__467D75B8" Association="Self.FK__Student_A__Quest__467D75B8">
+    <AssociationSet Name="FK__Student_A__Quest__7E8CC4B1" Association="Self.FK__Student_A__Quest__7E8CC4B1">
       <End Role="Questions_Bank" EntitySet="Questions_Bank" />
       <End Role="Student_Answers" EntitySet="Student_Answers" />
     </AssociationSet>
-    <AssociationSet Name="FK__Student_Answers__4589517F" Association="Self.FK__Student_Answers__4589517F">
+    <AssociationSet Name="FK__Student_Answers__7D98A078" Association="Self.FK__Student_Answers__7D98A078">
       <End Role="Students_Exams" EntitySet="Students_Exams" />
       <End Role="Student_Answers" EntitySet="Student_Answers" />
     </AssociationSet>
@@ -393,13 +472,9 @@
       <End Role="AspNetRoles" EntitySet="AspNetRoles" />
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
     </AssociationSet>
-    <AssociationSet Name="Topic_ILOS" Association="Self.Topic_ILOS">
+    <AssociationSet Name="ILO_Question" Association="Self.ILO_Question">
       <End Role="ILOS" EntitySet="ILOS" />
-      <End Role="Topic" EntitySet="Topics" />
-    </AssociationSet>
-    <AssociationSet Name="Topic_Question" Association="Self.Topic_Question">
       <End Role="Questions_Bank" EntitySet="Questions_Bank" />
-      <End Role="Topic" EntitySet="Topics" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

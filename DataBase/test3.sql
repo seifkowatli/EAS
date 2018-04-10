@@ -51,9 +51,18 @@ create table Topic(
 Topic_ID int not null identity(1,1),
 Course_ID int not null,
 Topic_Description varchar(200)not null,
-_week int,
 primary key (Topic_ID),
 foreign key (Course_ID) references Course
+)
+
+
+create table ILOS(
+ILOs_ID int identity(1,1),
+Topic_ID int ,
+ILOs_Description varchar(200),
+_week int,
+primary key(ILOs_ID),
+foreign key (Topic_ID) references Topic
 )
 
 -- Please Add commment explains the work of this table
@@ -92,11 +101,7 @@ foreign key (Question_ID) references Questions_Bank
 
 
 -- This table hold the ILOs of certain topic
-create table ILOS(
-ILOs_ID int identity(1,1),
-ILOs_Description varchar(200),
-primary key(ILOs_ID)
-)
+
 
 
 
@@ -129,18 +134,12 @@ foreign key(Question_ID) references  Questions_Bank(Question_ID)
 
 
 
-create table Topic_Question(
-Topic_ID int not null,
+create table ILO_Question(
+ILOs_ID int not null,
 Question_ID int not null,
-primary key(Topic_ID,Question_ID),
-foreign key (Topic_ID) references Topic,
+primary key(ILOs_ID,Question_ID),
+foreign key (ILOs_ID) references ILOS,
 foreign key (Question_ID) references Questions_Bank,
 )
 
-create table Topic_ILOS(
-Topic_ID int not null,
-ILOs_ID int not null,
-primary key(Topic_ID,ILOs_ID),
-foreign key (Topic_ID) references Topic,
-foreign key (ILOs_ID) references ILOS,
-)
+

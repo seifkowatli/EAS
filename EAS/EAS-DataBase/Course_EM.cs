@@ -19,7 +19,5 @@ namespace EAS_DataBase
         public Nullable<int> Lab { get; set; }
         public Nullable<int> Quiz { get; set; }
         public Nullable<int> Final { get; set; }
-    
-        public virtual Course Course { get; set; }
     }
 }
