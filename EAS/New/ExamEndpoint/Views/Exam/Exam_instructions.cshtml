@@ -11,8 +11,24 @@
 @Styles.Render("~/Styles/style.css")
 @Styles.Render("~/Styles/bootstrap.css")
 
-<!DOCTYPE html>
+<script>
+    var se = sessionStorage.getItem('accessToken');
+    if (se == null)
+        window.location = "http://localhost:46253/";
 
+    $(document).ready(function () {
+        document.getElementById('spanUsername').innerHTML = '  hello,' + localStorage.getItem('UserName');
+        $('#start_exam').click(function () {
+
+
+            window.location = 'http://localhost:46253/Exam/Exam_Page';
+
+
+        })
+    })
+</script>
+
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Exam_instructions</title>
@@ -89,36 +105,7 @@
 
 	</body>
 </html>
-<script>
 
-    $.ajax({
-        method: 'Get',
-        url: 'http://localhost:2199/api/Authintecation/STD_Auth',
-        contentType: "application/json",
-        headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
-        success: function (data) {
-
-        },
-        error: function (jqXHR) {
-
-            window.alert("Pleas Login To continue")
-            window.location = "http://localhost:46253/";
-
-
-        },
-
-    });
-    $(document).ready(function () {
-        document.getElementById('spanUsername').innerHTML = '  hello,' + localStorage.getItem('UserName');
-        $('#start_exam').click(function () {
-
-           
-            window.location = 'http://localhost:46253/Exam/Exam_Page';
-           
-
-        })
-    })
-</script>
 
 
 
