@@ -222,7 +222,6 @@
     <Content Include="Views\Exam\Exam_Page.cshtml" />
     <Content Include="Views\Exam\Exam_instructions.cshtml" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

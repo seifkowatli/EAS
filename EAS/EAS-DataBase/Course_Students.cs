@@ -20,8 +20,5 @@ namespace EAS_DataBase
         public Nullable<bool> C_Drop { get; set; }
         public Nullable<bool> Prohibited { get; set; }
         public Nullable<double> Student_Mark { get; set; }
-    
-        public virtual AspNetUser AspNetUser { get; set; }
-        public virtual Course Course { get; set; }
     }
 }
