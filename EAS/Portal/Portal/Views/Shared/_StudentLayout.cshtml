@@ -281,10 +281,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <a href="index.html"><span class=" name-caret">Username</span></a>
                 <p></p>
                 <ul>
-                    <li><a class="tooltips" href="index.html"><span>Profile</span><i class="lnr lnr-user"></i></a></li>
-                    <li><a class="tooltips" href="index.html"><span>Settings</span><i class="lnr lnr-cog"></i></a></li>
-                    <li><a class="tooltips" href="index.html"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
+                    <li><a class="tooltips" href="@Url.Action("Index" ,"Student")"><span>Profile</span><i class="lnr lnr-user"></i></a></li>
+                    <li><a class="tooltips" href="@Url.Action("Index" ,"Home")"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
                 </ul>
+
             </div>
             <!--//down-->
             <div class="menu">
@@ -292,25 +292,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                     <li id="menu-academico">
-                        <a href="#"><i class="fa fa-table"></i> <span> Semester Schedual</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+                        <a href="#"><i class="fa fa-table"></i> <span> Semester</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                         <ul id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="tabs.html"> Tabs &amp; Panels</a></li>
-                            <li id="menu-academico-boletim"><a href="widget.html">Widgets</a></li>
-                            <li id="menu-academico-avaliacoes"><a href="calender.html">Calender</a></li>
+                            <li id="menu-academico-avaliacoes"><a href="@Url.Action("Calendar" , "Student")">Calendar</a></li>
+                            <li id="menu-academico-boletim"><a href="@Url.Action("Dates" ,"Student")">Important Files</a></li>
 
                         </ul>
                     </li>
 
-                    <li id="menu-academico">
-                        <a href="#"><i class="fa fa-file-text-o"></i> <span>Courses</span> <span class="fa fa-angle-right" style="float: right"></span></a>
-                        <ul id="menu-academico-sub">
-                            <li id="menu-academico-boletim"><a href="widget.html">Show Courses</a></li>
-                            <li id="menu-academico-avaliacoes"><a href="calender.html">Statistics</a></li>
-
-                        </ul>
-
-                    </li>
-                    <li><a href="typography.html"><i class="lnr lnr-pencil"></i> <span>Add Question</span></a></li>
+                    
+                    <li><a href="@Url.Action("Marks" , "Student")"><i class="lnr lnr-pencil"></i> <span>Marks</span></a></li>
 
 
 
