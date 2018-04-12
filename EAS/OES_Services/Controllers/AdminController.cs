@@ -64,8 +64,26 @@ namespace OES_Services.Controllers
 
 
         }
+        [HttpPost]
+        public void Add_Topic(List<Topic> T)
+        {
+            using (EAS_DatabaseEntities entities = new EAS_DatabaseEntities())
+            {
+
+                int Course_ID = (from c in entities.Courses
+                                 orderby c.Course_ID descending
+                                 select c.Course_ID).Take(1).SingleOrDefault();
+
+                foreach (var item in T)
+                {
+                    item.Course_ID = Course_ID;
+                    entities.Topics.Add(item);
+                }
+                entities.SaveChanges();
 
 
+            }
+        }
 
 
         //for get all teachers when we add new course 

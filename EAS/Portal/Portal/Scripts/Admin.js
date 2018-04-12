@@ -35,6 +35,7 @@ function randomPassword(length) {
 }
 
 
+var Number_of_Topic;
 $(document).ready(function () {
 
     $('#successText').hide();
@@ -136,6 +137,7 @@ $(document).ready(function () {
 
     var x = 1; //initlal text box count
     $(add_button).click(function (e) { //on add input button click
+        Number_of_Topic = x;
         e.preventDefault(); //undo event
         if (x < max_fields) { //max input box allowed
             x++; //text box increment
@@ -160,39 +162,53 @@ function Add_Course() {
 
 
     //Add Course{Name ,Credit Hour, Description}
-    var New_Course = {};
+    //var New_Course = {};
 
-    New_Course['Course_Name'] = $('#Course_Name').val();
-    New_Course['Credit_Hours'] = $("#Credit_Hours option:selected").text();
-    New_Course['Course_Description'] = $('#Course_Description').val();
+    //New_Course['Course_Name'] = $('#Course_Name').val();
+    //New_Course['Credit_Hours'] = $("#Credit_Hours option:selected").text();
+    //New_Course['Course_Description'] = $('#Course_Description').val();
 
-    var Course_Teacher = {};
-    Course_Teacher['Teacher_ID'] = $('#teacher_select').children(":selected").attr("id");
-    Course_Teacher['Semester'] = $('#Semester_id').val();
+    //var Course_Teacher = {};
+    //Course_Teacher['Teacher_ID'] = $('#teacher_select').children(":selected").attr("id");
+    //Course_Teacher['Semester'] = $('#Semester_id').val();
 
-      
+    var Topics = [];
+    Number_of_Topic++;
+    window.alert(Number_of_Topic);
+    for (var i = 1; i <= Number_of_Topic; i++) {
 
-    $.ajax({
+        var Topic_Descraption = {};
+        Topic_Descraption['Topic_Description'] = $('#text' + i).val();
+        Topics.push(Topic_Descraption);
+        console.log(Topics);
+
+    }
 
 
-        type: "Post",
-        data: JSON.stringify(New_Course),
-        url: "http://localhost:2199/api/Teacher/Add_New_Question",
-        contentType: "application/json",
-        headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
+    //$.ajax({
 
-        success: function (response) {
-            $.ajax({
 
-                type: "Post",
-                data: JSON.stringify(New_Course),
-                url: "http://localhost:2199/api/Admin/Add_Course",
-                contentType: "application/json",
-                headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
+    //    type: "Post",
+    //    data: JSON.stringify(New_Course),
+    //    url: "http://localhost:2199/api/Teacher/Add_New_Question",
+    //    contentType: "application/json",
+    //    headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
 
-                success: function () {
-                    //Add Course {Teacher, Semester}
+<<<<<<< HEAD
+    //    success: function (response) {
+    //        $.ajax({
 
+    //            type: "Post",
+    //            data: JSON.stringify(New_Course),
+    //            url: "http://localhost:2199/api/Admin/Add_Course",
+    //            contentType: "application/json",
+    //            headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
+
+    //            success: function () {
+    //                //Add Course {Teacher, Semester}
+
+    //                $.ajax({
+=======
                     $.ajax({
                         
                         type: "Post",
@@ -201,34 +217,43 @@ function Add_Course() {
                         contentType: "application/json",
                         headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
                         success: function () {
-
-                            $('#successText').show('fade');
-
-
-                        },
+>>>>>>> 853801fe96630dfbd77ee53c387104224f3c501a
 
 
 
-                    })
-                },
+    //                    type: "Post",
+    //                    data: JSON.stringify(Course_Teacher),
+    //                    url: "http://localhost:2199/api/Admin/Add_Course_Teacher",
+    //                    contentType: "application/json",
+    //                    headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
+    //                    success: function () {
+
+    //                        $('#successText').show('fade');
 
 
-            })
+    //                    },
 
 
-        },
-        error: function (jqXHR) {
-            $('#P_error').text(jqXHR.responseText);
-            $('#errortxt').show('fade');
 
-        }
+    //                })
+    //            },
+
+
+    //        })
+
+
+    //    },
+    //    error: function (jqXHR) {
+    //        $('#P_error').text(jqXHR.responseText);
+    //        $('#errortxt').show('fade');
+
+    //    }
        
-    });
+    //});
 
 
 
 
-    console.log(New_Course);
 
 }
 
