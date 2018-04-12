@@ -224,17 +224,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 </div>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="task-info">
-                                                    <span class="task-desc">Issues fixed</span><span class="percentage">80%</span>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                                <div class="progress progress-striped active">
-                                                    <div class="bar  blue" style="width: 80%;"></div>
-                                                </div>
-                                            </a>
-                                        </li>
+                                      
                                         <li>
                                             <div class="notification_bottom">
                                                 <a href="#">See all pending task</a>
@@ -281,9 +271,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <a href="index.html"><span class=" name-caret">Username</span></a>
                 <p></p>
                 <ul>
-                    <li><a class="tooltips" href="index.html"><span>Profile</span><i class="lnr lnr-user"></i></a></li>
-                    <li><a class="tooltips" href="index.html"><span>Settings</span><i class="lnr lnr-cog"></i></a></li>
-                    <li><a class="tooltips" href="index.html"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
+                    <li><a class="tooltips" href="@Url.Action("Index" , "Teacher")"><span>Profile</span><i class="lnr lnr-user"></i></a></li>                   
+                    <li><a class="tooltips" href="@Url.Action("Index" , "Home")"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
                 </ul>
             </div>
             <!--//down-->
@@ -292,25 +281,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                     <li id="menu-academico">
-                        <a href="#"><i class="fa fa-table"></i> <span> Semester Schedual</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+                        <a href="#"><i class="fa fa-table"></i> <span> Semester</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                         <ul id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="tabs.html"> Tabs &amp; Panels</a></li>
-                            <li id="menu-academico-boletim"><a href="widget.html">Widgets</a></li>
-                            <li id="menu-academico-avaliacoes"><a href="calender.html">Calender</a></li>
+                            <li id="menu-academico-avaliacoes"><a href="@Url.Action("AcademicCalendar" , "Teacher")">Calendar</a></li>
+                            <li id="menu-academico-boletim"><a href="@Url.Action("Dates" ,"Teacher")">Important Files</a></li>
+                            
 
                         </ul>
                     </li>
 
-                    <li id="menu-academico">
-                        <a href="#"><i class="fa fa-file-text-o"></i> <span>Courses</span> <span class="fa fa-angle-right" style="float: right"></span></a>
-                        <ul id="menu-academico-sub">
-                            <li id="menu-academico-boletim"><a href="widget.html">Show Courses</a></li>
-                            <li id="menu-academico-avaliacoes"><a href="calender.html">Statistics</a></li>
-
-                        </ul>
-                  
-                    </li>
-                    <li><a href="typography.html"><i class="lnr lnr-pencil"></i> <span>Add Question</span></a></li>
+                    <li><a href="@Url.Action("Courses", "Teacher")"><i class="fa fa-book"></i> <span>Courses</span></a></li>
+                   
+                    <li><a href="@Url.Action("AddQuestion","Teacher" )"><i class="fa fa-question"></i> <span>Add Question</span></a></li>
 
 
 

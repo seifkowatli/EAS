@@ -93,7 +93,6 @@ $(document).ready(function () {
 
                 })
 
-
             },
             error: function (jqXHR) {
                 $('#errortxt').text(jqXHR.responseText);

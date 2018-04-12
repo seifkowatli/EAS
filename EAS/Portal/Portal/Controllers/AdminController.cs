@@ -8,6 +8,13 @@ namespace Portal.Controllers
 {
     public class AdminController : Controller
     {
+
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+
       
         public ActionResult Courses()
         {
