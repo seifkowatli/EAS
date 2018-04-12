@@ -14,9 +14,8 @@ namespace Portal.Controllers
             return View();
         }
 
-
-      
-        public ActionResult Courses()
+        
+        public ActionResult Statistics()
         {
             return View();
         }
@@ -31,6 +30,30 @@ namespace Portal.Controllers
             return View();
         }
 
+        public ActionResult AllCourses()
+        {
+            return View();
+        }
 
+
+        public ActionResult AllUsers()
+        {
+            return View();
+        }
+
+        public ActionResult AddQuestion()
+        {
+            return View();
+        }
+
+        public ActionResult AddExam()
+        {
+            return View();
+        }
+
+        public ActionResult AllExams()
+        {
+            return View();
+        }
     }
 }

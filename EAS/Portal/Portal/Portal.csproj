@@ -237,7 +237,6 @@
     <Content Include="Views\Shared\_StudentLayout.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Admin\_ViewStart.cshtml" />
-    <Content Include="Controllers\Courses.cshtml" />
     <Content Include="Views\Teacher\Courses.cshtml" />
     <Content Include="Views\Admin\AddCourse.cshtml" />
     <Content Include="Views\Admin\AddUser.cshtml" />
@@ -247,6 +246,13 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Teacher\AcademicCalendar.cshtml" />
     <Content Include="Views\Teacher\Dates.cshtml" />
+    <Content Include="Views\Admin\Statistics.cshtml" />
+    <Content Include="Views\Admin\AllCourses.cshtml" />
+    <Content Include="Views\Admin\AllUsers.cshtml" />
+    <Content Include="Views\Admin\AddQuestion.cshtml" />
+    <Content Include="Views\Admin\AllExams.cshtml" />
+    <Content Include="Views\Admin\CreateExam.cshtml" />
+    <Content Include="Views\Admin\AddExam.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
