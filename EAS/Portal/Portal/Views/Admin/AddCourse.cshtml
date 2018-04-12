@@ -2,7 +2,9 @@
 @{
     ViewBag.Title = "AddCourse";
 }
-
+@Scripts.Render("~/Scripts/jquery-1.10.2.min.js")
+@Scripts.Render("~/Scripts/jquery-1.10.2.js")
+@Scripts.Render("~/Scripts/Admin.js")
 
 <!--//outer-wp-->
 <div class="outter-wp">
@@ -26,13 +28,13 @@
                             
                             <div class="col-md-6 form-group1">
                                 <label class="control-label">Name</label>
-                                <input type="text" >
+                                <input type="text" id="Course_Name" >
                             </div>
 
 
                             <div class="col-md-6 form-group2 group-mail">
                                 <label class="control-label">Cridt Hours</label>
-                                <select>
+                                <select id="Credit_Hours">
                                     <option value=""></option>
                                     <option value="">1</option>
                                     <option value="">2</option>
@@ -40,24 +42,33 @@
                                 </select>
                             </div>
 
-                           <div class="clearfix"></div>
 
+
+
+
+                           <div class="clearfix"></div>
                             <div class="col-md-12 form-group2 group-mail">
                                 <label class="control-label">Teacher</label>
-                                <select>
+                                <select id="teacher_select">
                                     <option value=""></option>
-                                    <option value="">Talal</option>
-                                    <option value="">Adnan</option>
-                                    <option value="">Mohamad</option>
                                 </select>
                             </div>
-                            
 
+                          
+                            <br>
+                            <div class="clearfix"></div>
+                            <div class="col-md-6 form-group2">
+                                <label class="control-label">Semester</label><br>
+                                <input  id="Semester_id" placeholder="Semester ">
+                            </div>
 
+                            <br>
+
+                            <br>
                                <div class="clearfix"></div>
                                <div class="col-md-12 form-group1 ">
                                    <label class="control-label">Description</label>
-                                   <textarea placeholder="Description ..."></textarea>
+                                   <textarea id="Course_Description" placeholder="Description ..."></textarea>
                                </div>
 
                             <br>
@@ -65,18 +76,35 @@
                             <div class="graph-form" >
                                 <label class="control-label">Topic:</label>
                                 <div class="input_fields_wrap">
-                                    <div><input class="form-control" type="text" name=""></div><br>
-                                    <button class="btn btn-primary">Add More Topic</button>
+                                    <div class="fields">
+                                        <button class="btn btn-primary" id="add_field">Add More Topic</button>
+                                        <input class="form-control" type="text" id="text1" name=""><br>
+                                        </div>
                                 </div>
                             </div> 
 
                                 
                            <div class="col-md-12 form-group button-2">
                                <br>
-                               <button type="submit" class="btn btn-primary">Submit</button>
+                               <button onclick="Add_Course()" class="btn btn-primary">Submit</button>
                                <button type="reset" class="btn btn-default">Reset</button>
                            </div>
 
+
+                            <div id="successText" class="alert alert-success ">
+                                <button onclick="Close_Alert_Div()" type="button" class="close" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <strong>Success!</strong> .
+
+                            </div>
+
+                            <div id="errortxt" class="alert alert-danger ">
+                                <button onclick="Close_Alert_Div()" type="button" class="close" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <p id="P_error"></p>
+                            </div>
                            <div class="clearfix"> </div>
 
 

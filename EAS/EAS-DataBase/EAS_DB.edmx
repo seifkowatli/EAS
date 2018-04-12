@@ -600,12 +600,6 @@
           <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
           <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
           <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
-          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
-          <NavigationProperty Name="Course_Students" Relationship="Self.FK__Course_St__Stude__63D8CE75" FromRole="AspNetUsers" ToRole="Course_Students" />
-          <NavigationProperty Name="Course_Teacher" Relationship="Self.FK__Course_Te__Teach__67A95F59" FromRole="AspNetUsers" ToRole="Course_Teacher" />
-          <NavigationProperty Name="Students_Exams" Relationship="Self.FK__Students___Stude__7ABC33CD" FromRole="AspNetUsers" ToRole="Students_Exams" />
-          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
         </EntityType>
         <EntityType Name="Course">
           <Key>
