@@ -20,8 +20,7 @@ namespace Portal.Controllers
             return View();
         }
 
-
-
+        
         public ActionResult Courses()
         {
 

@@ -162,8 +162,8 @@
     <Content Include="Content\style.css" />
     <Content Include="Content\style1.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Controllers\fonts\fontawesome-webfont.svg" />
+    <Content Include="Controllers\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="img\2222.png" />
@@ -189,11 +189,11 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.woff2" />
-    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Controllers\fonts\fontawesome-webfont.eot" />
+    <Content Include="Controllers\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Controllers\fonts\fontawesome-webfont.woff" />
+    <Content Include="Controllers\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Controllers\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Chart-pie.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -237,7 +237,6 @@
     <Content Include="Views\Shared\_StudentLayout.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Admin\_ViewStart.cshtml" />
-    <Content Include="Controllers\Courses.cshtml" />
     <Content Include="Views\Teacher\Courses.cshtml" />
     <Content Include="Views\Admin\AddCourse.cshtml" />
     <Content Include="Views\Admin\AddUser.cshtml" />
@@ -247,19 +246,28 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Teacher\AcademicCalendar.cshtml" />
     <Content Include="Views\Teacher\Dates.cshtml" />
+    <Content Include="Views\Admin\Statistics.cshtml" />
+    <Content Include="Views\Admin\AllCourses.cshtml" />
+    <Content Include="Views\Admin\AllUsers.cshtml" />
+    <Content Include="Views\Admin\AddQuestion.cshtml" />
+    <Content Include="Views\Admin\AllExams.cshtml" />
+    <Content Include="Views\Admin\CreateExam.cshtml" />
+    <Content Include="Views\Admin\AddExam.cshtml" />
+    <Content Include="Views\Student\Calendar.cshtml" />
+    <Content Include="Views\Student\Dates.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Controllers\fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Controllers\fonts\glyphicons-halflings-regular.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Controllers\fonts\glyphicons-halflings-regular.eot" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

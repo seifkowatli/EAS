@@ -12,14 +12,19 @@ namespace Portal.Controllers
         {
             return View();
         }
-       
-        public  ActionResult Info()
-        {
+            
 
+        public ActionResult Marks()
+        {
             return View();
         }
 
-        public ActionResult Marks()
+        public ActionResult Calendar()
+        {
+            return View();
+        }
+
+        public ActionResult Dates()
         {
             return View();
         }
