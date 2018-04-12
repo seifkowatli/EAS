@@ -64,6 +64,7 @@ namespace OES_Services.Controllers
 
 
         }
+        [Route("Add_Topic")]
         [HttpPost]
         public void Add_Topic(List<Topic> T)
         {
