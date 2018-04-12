@@ -8,7 +8,12 @@ namespace Portal.Controllers
 {
     public class TeacherController : Controller
     {
-        
+
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         public ActionResult AddQuestion()
         {
 
@@ -23,5 +28,15 @@ namespace Portal.Controllers
             return View();
         }
 
+
+        public ActionResult AcademicCalendar()
+        {
+            return View();
+        }
+
+        public ActionResult Dates()
+        {
+            return View();
+        }
     }
 }

@@ -43,11 +43,8 @@ $(document).ready(function () {
 
     $('#btnRegister').click(function () {
 
-
         var Random_Password = randomPassword(4);
         console.log(Random_Password);
-       
-
    
         $.ajax({
             url: 'http://localhost:2199/api/account/register',
@@ -89,7 +86,7 @@ $(document).ready(function () {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Add New Course///////
+/////// Add New Course ///////
 
 $(document).ready(function () {
 
@@ -127,12 +124,10 @@ $(document).ready(function () {
 
 
             },
-
-
+            
         });
     }
-
-
+    
 
     //Add more than topic
    
@@ -157,11 +152,7 @@ $(document).ready(function () {
         $(this).parent('div').remove(); x--;
     });
 
-
-
-
-   
-
+    
 
     //request 
       Get_Teachers();
@@ -203,6 +194,7 @@ function Add_Course() {
     //    contentType: "application/json",
     //    headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
 
+<<<<<<< HEAD
     //    success: function (response) {
     //        $.ajax({
 
@@ -216,6 +208,16 @@ function Add_Course() {
     //                //Add Course {Teacher, Semester}
 
     //                $.ajax({
+=======
+                    $.ajax({
+                        
+                        type: "Post",
+                        data: JSON.stringify(Course_Teacher),
+                        url: "http://localhost:2199/api/Admin/Add_Course_Teacher",
+                        contentType: "application/json",
+                        headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
+                        success: function () {
+>>>>>>> 853801fe96630dfbd77ee53c387104224f3c501a
 
 
 
