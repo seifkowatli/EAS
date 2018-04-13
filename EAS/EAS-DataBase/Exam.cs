@@ -16,10 +16,10 @@ namespace EAS_DataBase
     {
         public int Exam_ID { get; set; }
         public Nullable<int> Course_ID { get; set; }
+        public Nullable<int> Semster_ID { get; set; }
+        public string Exam_Type { get; set; }
         public string Exam_Time { get; set; }
         public string Exam_Date { get; set; }
-        public string Exam_Semester { get; set; }
-        public string Exam_Type { get; set; }
         public Nullable<int> number_Of_Students { get; set; }
         public Nullable<int> Exam_Period { get; set; }
         public string Exam_Notes { get; set; }

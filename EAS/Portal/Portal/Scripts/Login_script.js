@@ -33,8 +33,7 @@ $(document).ready(function () {
             },
             success: function (response) {
                 sessionStorage.setItem('accessToken', response.access_token);
-
-
+                localStorage.setItem('UserName', response.userName);
                 $.ajax({
 
                     type: "Get",

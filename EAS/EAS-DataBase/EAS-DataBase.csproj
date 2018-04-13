@@ -65,13 +65,7 @@
     <Compile Include="Course.cs">
       <DependentUpon>EAS_DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Course_EM.cs">
-      <DependentUpon>EAS_DB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Course_Students.cs">
-      <DependentUpon>EAS_DB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Course_Teacher.cs">
       <DependentUpon>EAS_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="C__MigrationHistory.cs">
@@ -103,6 +97,12 @@
       <DependentUpon>EAS_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Question_Answers.cs">
+      <DependentUpon>EAS_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Semester.cs">
+      <DependentUpon>EAS_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Semester_Courses.cs">
       <DependentUpon>EAS_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Students_Exams.cs">

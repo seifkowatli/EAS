@@ -1,4 +1,4 @@
--- Exam table holds the data for Exam
+
 
 
 -- Course table holds the data of a course
@@ -10,40 +10,54 @@ Course_Description varchar(255),
 primary key (Course_ID)
 )
 
+--University Semesters
+create table Semesters(
+Semster_ID int identity(1,1),
+Semester int not null ,
+_Year varchar(128),
+primary key(Semster_ID)
+)
+
+-- hold the data about the semester courses ,courses Teacher,number of student in course and Success_rate
+Create table Semester_Courses(
+
+Semster_ID int,
+Course_ID int,
+Teacher_ID nvarchar(128),
+Number_of_Student int,
+Success_rate float,
+primary key(Semster_ID,Course_ID),
+foreign key(Semster_ID) references Semesters,
+foreign key(Course_ID)references Course,
+foreign key (Teacher_ID) references AspNetUsers
+)
+
+--hold the data about Exam
 create table Exam(
 Exam_ID int identity(1,1),
 Course_ID int,
+Semster_ID int,
+Exam_Type varchar(128) check (Exam_Type in('Final','Midterm','Quiz' )) not null,
 Exam_Time varchar(128) not null,
 Exam_Date varchar(128) not null,
-Exam_Semester varchar(128)not null,
-Exam_Type varchar(128) not null,
 number_Of_Students int,
 Exam_Period int ,
 Exam_Notes varchar(200),
 primary key(Exam_ID),
-foreign key (Course_ID) references Course,
+foreign key(Course_ID,Semster_ID)references Semester_Courses
 )
---
+
+--hold the date about students courses in semester
 create table Course_Students(
-CourseID int,  
+Course_ID int,  
 Student_ID nvarchar(128),
-Semester varchar(200),
+Semster_ID int,
 _Drop bit default(0),
 Prohibited bit default(0),
 Student_Mark float,
-primary key(CourseID,Student_ID,Semester),
-foreign key (CourseID) references Course,
+primary key(Course_ID,Student_ID,Semster_ID),
+foreign key (Course_ID,Semster_ID) references Semester_Courses,
 foreign key (Student_ID) references AspNetUsers
-)
---hold the data about teacher and his course  
-create table Course_Teacher(
-CourseID int,  
-Teacher_ID nvarchar(128),
-Semester varchar(200),
-Success_rate float,
-primary key(CourseID,Teacher_ID,Semester),
-foreign key (CourseID) references Course,
-foreign key (Teacher_ID) references AspNetUsers
 )
 
 -- holds the Data of certain topic
@@ -55,7 +69,7 @@ primary key (Topic_ID),
 foreign key (Course_ID) references Course
 )
 
-
+-- holds the Data of Intended Learning Outcomes
 create table ILOS(
 ILOs_ID int identity(1,1),
 Topic_ID int ,
@@ -65,16 +79,6 @@ primary key(ILOs_ID),
 foreign key (Topic_ID) references Topic
 )
 
--- Please Add commment explains the work of this table
-create table Course_EM(
-ECourse_ID int ,
-Midterm int,
-Lab int,
-Quiz int,
-Final int,
-primary key (ECourse_ID),
-foreign key(ECourse_ID) references Course
-)
 
 -- This table hold the questions
 create table Questions_Bank(
@@ -99,16 +103,7 @@ primary key(Question_ID,Answer_ID),
 foreign key (Question_ID) references Questions_Bank 
 )
 
-
--- This table hold the ILOs of certain topic
-
-
-
-
-
-
-
-
+-- This table hold the student Exam Result
 create table Students_Exams(
 Student_ID nvarchar(128),
 Exam_ID int,
@@ -118,7 +113,7 @@ foreign key(Exam_ID) references  Exam,
 foreign key(Student_ID) references  AspNetUsers,
 )
 
-
+-- This table hold the student Answer Details
 create table Student_Answers(
 Exam_ID int, 
 Student_ID nvarchar(128),
@@ -129,9 +124,6 @@ primary key(Exam_ID,Student_ID,Question_ID),
 foreign key(Exam_ID,Student_ID) references  Students_Exams,
 foreign key(Question_ID) references  Questions_Bank(Question_ID)
 )
-
-
-
 
 
 create table ILO_Question(

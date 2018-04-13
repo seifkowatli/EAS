@@ -20,20 +20,20 @@ namespace OES_Services.Controllers
 
                 if (User.IsInRole("Student"))
                 {
-                    role = "http://localhost:51103/Student/Marks";
+                    role = "http://localhost:51103/Student/Index";
                     return role;
 
                 }
                 if (User.IsInRole("Admin"))
                 {
 
-                    role = "http://localhost:51103/Admin/AddUser";
+                    role = "http://localhost:51103/Admin/Index#";
 
                     return role;
                 }
                 if (User.IsInRole("teacher"))
                 {
-                    role = "http://localhost:51103/Teacher/AddQuestion";
+                    role = "http://localhost:51103/Teacher/Index";
                     return role;
                 }
                 else

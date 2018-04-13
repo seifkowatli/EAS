@@ -31,13 +31,13 @@ namespace EAS_DataBase
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
-        public virtual DbSet<Course_EM> Course_EM { get; set; }
         public virtual DbSet<Course_Students> Course_Students { get; set; }
-        public virtual DbSet<Course_Teacher> Course_Teacher { get; set; }
         public virtual DbSet<Exam> Exams { get; set; }
         public virtual DbSet<ILO> ILOS { get; set; }
         public virtual DbSet<Question_Answers> Question_Answers { get; set; }
         public virtual DbSet<Questions_Bank> Questions_Bank { get; set; }
+        public virtual DbSet<Semester_Courses> Semester_Courses { get; set; }
+        public virtual DbSet<Semester> Semesters { get; set; }
         public virtual DbSet<Student_Answers> Student_Answers { get; set; }
         public virtual DbSet<Students_Exams> Students_Exams { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }

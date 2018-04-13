@@ -12,11 +12,10 @@ namespace EAS_DataBase
     using System;
     using System.Collections.Generic;
     
-    public partial class Course_Teacher
+    public partial class Semester
     {
-        public int CourseID { get; set; }
-        public string Teacher_ID { get; set; }
-        public string Semester { get; set; }
-        public Nullable<double> Success_rate { get; set; }
+        public int Semster_ID { get; set; }
+        public int Semester1 { get; set; }
+        public string C_Year { get; set; }
     }
 }
