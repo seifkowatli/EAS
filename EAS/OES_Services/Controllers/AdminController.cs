@@ -41,9 +41,9 @@ namespace OES_Services.Controllers
 
 
 
-        [Route("Add_Course_Teacher")]
+        [Route("Add_Semester_Course")]
         [HttpPost]
-        public void Add_Course_Teacher(Course_Teacher CT)
+        public void Add_Course_Teacher(Semester_Courses SC)
         {
 
 
@@ -56,9 +56,8 @@ namespace OES_Services.Controllers
                           select c.Course_ID).Take(1).SingleOrDefault();
 
 
-                CT.CourseID = Course_ID;
-                CT.Success_rate = -1;
-                entities.Course_Teacher.Add(CT);
+                SC.Course_ID = Course_ID;
+                entities.Semester_Courses.Add(SC);
                 entities.SaveChanges();
             }
 

@@ -68,36 +68,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Course_EM">
-      <EntityTypeMapping TypeName="EAS_DatabaseModel.Course_EM">
-        <MappingFragment StoreEntitySet="Course_EM">
-          <ScalarProperty Name="ECourse_ID" ColumnName="ECourse_ID" />
-          <ScalarProperty Name="Midterm" ColumnName="Midterm" />
-          <ScalarProperty Name="Lab" ColumnName="Lab" />
-          <ScalarProperty Name="Quiz" ColumnName="Quiz" />
-          <ScalarProperty Name="Final" ColumnName="Final" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Course_Students">
       <EntityTypeMapping TypeName="EAS_DatabaseModel.Course_Students">
         <MappingFragment StoreEntitySet="Course_Students">
-          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="Course_ID" ColumnName="Course_ID" />
           <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
-          <ScalarProperty Name="Semester" ColumnName="Semester" />
+          <ScalarProperty Name="Semster_ID" ColumnName="Semster_ID" />
           <ScalarProperty Name="C_Drop" ColumnName="_Drop" />
           <ScalarProperty Name="Prohibited" ColumnName="Prohibited" />
           <ScalarProperty Name="Student_Mark" ColumnName="Student_Mark" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Course_Teacher">
-      <EntityTypeMapping TypeName="EAS_DatabaseModel.Course_Teacher">
-        <MappingFragment StoreEntitySet="Course_Teacher">
-          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
-          <ScalarProperty Name="Teacher_ID" ColumnName="Teacher_ID" />
-          <ScalarProperty Name="Semester" ColumnName="Semester" />
-          <ScalarProperty Name="Success_rate" ColumnName="Success_rate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -106,10 +85,10 @@
         <MappingFragment StoreEntitySet="Exam">
           <ScalarProperty Name="Exam_ID" ColumnName="Exam_ID" />
           <ScalarProperty Name="Course_ID" ColumnName="Course_ID" />
+          <ScalarProperty Name="Semster_ID" ColumnName="Semster_ID" />
+          <ScalarProperty Name="Exam_Type" ColumnName="Exam_Type" />
           <ScalarProperty Name="Exam_Time" ColumnName="Exam_Time" />
           <ScalarProperty Name="Exam_Date" ColumnName="Exam_Date" />
-          <ScalarProperty Name="Exam_Semester" ColumnName="Exam_Semester" />
-          <ScalarProperty Name="Exam_Type" ColumnName="Exam_Type" />
           <ScalarProperty Name="number_Of_Students" ColumnName="number_Of_Students" />
           <ScalarProperty Name="Exam_Period" ColumnName="Exam_Period" />
           <ScalarProperty Name="Exam_Notes" ColumnName="Exam_Notes" />
@@ -146,6 +125,26 @@
           <ScalarProperty Name="Question_Frequency" ColumnName="Question_Frequency" />
           <ScalarProperty Name="Thinking_Skills" ColumnName="Thinking_Skills" />
           <ScalarProperty Name="Question_Mark" ColumnName="Question_Mark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Semester_Courses">
+      <EntityTypeMapping TypeName="EAS_DatabaseModel.Semester_Courses">
+        <MappingFragment StoreEntitySet="Semester_Courses">
+          <ScalarProperty Name="Semster_ID" ColumnName="Semster_ID" />
+          <ScalarProperty Name="Course_ID" ColumnName="Course_ID" />
+          <ScalarProperty Name="Teacher_ID" ColumnName="Teacher_ID" />
+          <ScalarProperty Name="Number_of_Student" ColumnName="Number_of_Student" />
+          <ScalarProperty Name="Success_rate" ColumnName="Success_rate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Semesters">
+      <EntityTypeMapping TypeName="EAS_DatabaseModel.Semester">
+        <MappingFragment StoreEntitySet="Semesters">
+          <ScalarProperty Name="Semster_ID" ColumnName="Semster_ID" />
+          <ScalarProperty Name="Semester1" ColumnName="Semester" />
+          <ScalarProperty Name="C_Year" ColumnName="_Year" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
