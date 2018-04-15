@@ -168,9 +168,11 @@ function Add_Course() {
     New_Course['Credit_Hours'] = $("#Credit_Hours option:selected").text();
     New_Course['Course_Description'] = $('#Course_Description').val();
 
-    var Course_Teacher = {};
-    Course_Teacher['Teacher_ID'] = $('#teacher_select').children(":selected").attr("id");
-    Course_Teacher['Semester'] = "2018-1";
+    var Semester_Course = {};
+    Semester_Course['Teacher_ID'] = $('#teacher_select').children(":selected").attr("id");
+    Semester_Course['Semster_ID'] = 1;
+    Semester_Course['Number_of_Student'] = 0;
+    Semester_Course['Success_rate'] = -1;
 
     var Topics = [];
     Number_of_Topic++;
@@ -194,8 +196,8 @@ function Add_Course() {
                     $.ajax({
                         
                         type: "Post",
-                        data: JSON.stringify(Course_Teacher),
-                        url: "http://localhost:2199/api/Admin/Add_Course_Teacher",
+                        data: JSON.stringify(Semester_Course),
+                        url: "http://localhost:2199/api/Admin/Add_Semester_Course",
                         contentType: "application/json",
                         headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
                         success: function () {
