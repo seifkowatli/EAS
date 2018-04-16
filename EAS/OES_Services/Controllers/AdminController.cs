@@ -41,28 +41,28 @@ namespace OES_Services.Controllers
 
 
 
-        [Route("Add_Semester_Course")]
-        [HttpPost]
-        public void Add_Course_Teacher(Semester_Courses SC)
-        {
+        //[Route("Add_Semester_Course")]
+        //[HttpPost]
+        //public void Add_Course_Teacher(Semester_Courses SC)
+        //{
 
 
 
-            using (EAS_DatabaseEntities entities = new EAS_DatabaseEntities())
-            {
+        //    using (EAS_DatabaseEntities entities = new EAS_DatabaseEntities())
+        //    {
 
-                int Course_ID = (from c in entities.Courses
-                          orderby c.Course_ID descending
-                          select c.Course_ID).Take(1).SingleOrDefault();
-
-
-                SC.Course_ID = Course_ID;
-                entities.Semester_Courses.Add(SC);
-                entities.SaveChanges();
-            }
+        //        int Course_ID = (from c in entities.Courses
+        //                  orderby c.Course_ID descending
+        //                  select c.Course_ID).Take(1).SingleOrDefault();
 
 
-        }
+        //        SC.Course_ID = Course_ID;
+        //        entities.Semester_Courses.Add(SC);
+        //        entities.SaveChanges();
+        //    }
+
+
+        //}
         [Route("Add_Topic")]
         [HttpPost]
         public void Add_Topic(List<Topic> T)
