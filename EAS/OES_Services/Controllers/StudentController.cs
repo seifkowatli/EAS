@@ -10,78 +10,83 @@ using Microsoft.AspNet.Identity;
 
 namespace OES_Services.Controllers
 {
-    
+
+
     [RoutePrefix("api/Student")]
     public class StudentController : ApiController
     {
 
-        public class Type
-        {
-            public int Final;
-            public int Mid;
-            public int Practical;
+        public List<Semester> s_list;
 
-
-
-        }
 
         class Semester_Courses
         {
             public string Year { get; set; }
-            public List<string> S_Courses;
-            public List<Type> Student_Marks;
+            public int semester { get; set; }
+            public string Course_Name { get; set; }
+            public string Exam_Type { get; set; }
+            public int Exam_Result { get; set; }
+            public int Student_Practical { get; set; }
 
-            public Semester_Courses()
-            {
-
-                S_Courses = new List<string>();
-                Student_Marks = new List<Type>();
-
-            }
+            public   int Course_ID { get; set; }
 
 
         }
 
 
-        //for get student course mark in each year
+        //for get student's mark for each year
         [Route("Get_Student_Courses")]
         [HttpGet]
        public string Get_Student_Courses()
         {
             string User_ID = User.Identity.GetUserId();
+            List<Semester_Courses>  student_marks = new List<Semester_Courses>();
 
             using (EAS_DatabaseEntities entites = new EAS_DatabaseEntities())
             {
 
 
-                var ALL_Course = from sc in entites.Semester_Courses
-                                 join c in entites.Courses on sc.Course_ID equals c.Course_ID
-                                 join cs in entites.Course_Students on new {sc.Semster_ID,sc.Course_ID} equals new {cs.Semster_ID,cs.Course_ID }
-                                 join sr in entites.Semesters on cs.Semster_ID equals sr.Semster_ID
-                                 join Em2 in entites.Exams on cs.Semster_ID equals Em2.Semster_ID
-                                 join Em in entites.Students_Exams on new { Em2.Semster_ID, Em2. } equals new { Em.Exam_Result, Em.Exam_ID }
+                var ALL_Course = from CR in entites.Course_Students where(CR.Student_ID== "07e90ee9-3ccc-40ec-8a39-0179fadfcfe9")
+                                 from C in entites.Courses where( CR.Course_ID == C.Course_ID)
 
-                                 // join SE in entites.Students_Exams on Em.Exam_ID equals SE.Exam_ID
 
-                                    where cs.Semster_ID="1"
+                                 from SR in entites.Semesters where( CR.Semster_ID == SR.Semster_ID)
+                                 from Em in entites.Exams where (Em.Course_ID ==CR.Course_ID&&Em.Semster_ID==CR.Semster_ID)
+                                 from SE in entites.Students_Exams where(SE.Exam_ID==Em.Exam_ID)
                                  select new
                                  {
-                                     sr.C_Year,
-                                     sr.Semester1,
-                                     c.Course_Name,
+                                     SR.C_Year,
+                                     SR.Semester1,
+                                     C.Course_Name,
                                      Em.Exam_Type,
                                      SE.Exam_Result,
-                                     cs.Student_Practical
+                                     CR.Course_ID
                                  };
 
 
 
+               
 
 
-         
                 foreach (var item in ALL_Course)
                 {
-                    string ss = item.C_Year;
+                    Semester_Courses sc = new Semester_Courses();
+
+                    sc.Year= item.C_Year;
+                    sc.semester = item.Semester1;
+                    sc.Course_Name = item.Course_Name;
+                    sc.Exam_Type = item.Exam_Type;
+                    sc.Exam_Result = (int)item.Exam_Result;
+                    sc.Course_ID = item.Course_ID;
+                    student_marks.Add(sc);
+
+                }
+                foreach (var item in student_marks)
+                {
+                   int Student_Practical=(int)(from c in entites.Course_Students
+                     where c.Course_ID == item.Course_ID
+                     select c.Student_Practical).FirstOrDefault();
+                    item.Student_Practical = Student_Practical;
                 }
 
                 return "ss";
@@ -90,7 +95,32 @@ namespace OES_Services.Controllers
             }
         }
 
+        [Route("Get_Semester")]
+        [HttpGet]
+        public List<Semester> Get_Student_Semester()
+        {
+             s_list = new List<Semester>();
+            using (EAS_DatabaseEntities entites = new EAS_DatabaseEntities())
+            {
 
+              List<int> Semester_Id =  (from c in entites.Course_Students
+                 where c.Student_ID == "07e90ee9-3ccc-40ec-8a39-0179fadfcfe9"
+                 select c.Semster_ID).ToList();
+
+                foreach (var item in Semester_Id)
+                {
+                    Semester s = new Semester();
+                    s = (from c in entites.Semesters
+                         where c.Semster_ID == item
+                         select c).First();
+
+                     s_list.Add(s);
+                }
+            }
+
+            return s_list;
+
+        }
 
 
     }
