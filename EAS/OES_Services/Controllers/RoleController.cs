@@ -16,8 +16,7 @@ namespace OES_Services.Controllers
             using (OES_DatabaseEntities1 entities = new OES_DatabaseEntities1())
             {
                 string role = "";
-
-
+               
                 if (User.IsInRole("Student"))
                 {
                     role = "http://localhost:51103/Student/Index";

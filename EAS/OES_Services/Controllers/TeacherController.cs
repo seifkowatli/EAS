@@ -12,6 +12,8 @@ namespace OES_Services.Controllers
     [RoutePrefix("api/Teacher")]
     public class TeacherController : ApiController
     {
+
+
         [Route("Add_New_Question")]
         [HttpPost]
         public void Add_New_Question(Questions_Bank Nq)
