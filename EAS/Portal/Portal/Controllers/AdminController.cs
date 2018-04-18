@@ -14,7 +14,7 @@ namespace Portal.Controllers
             return View();
         }
 
-        
+        string aa;
         public ActionResult Statistics()
         {
             return View();
