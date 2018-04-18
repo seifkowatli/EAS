@@ -16,8 +16,7 @@ namespace OES_Services.Controllers
         public int Exam_Result { get; set; }
 
         public Student_Exam_Details() {
-
-
+            
             sa =new List<Student_Answers>();
 
 
@@ -26,7 +25,6 @@ namespace OES_Services.Controllers
     }
 
     [RoutePrefix("api/Questions_Correction")]
-
     public class Questions_CorrectionController : ApiController
     {
         [Route("correction")]

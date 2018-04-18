@@ -128,3 +128,42 @@ D:\salim\sunior\EAS1\EAS\EAS\Portal EndPoint\bin\Newtonsoft.Json.xml
 D:\salim\sunior\EAS1\EAS\EAS\Portal EndPoint\obj\Debug\Portal EndPoint.csprojResolveAssemblyReference.cache
 D:\salim\sunior\EAS1\EAS\EAS\Portal EndPoint\obj\Debug\Portal EndPoint.dll
 D:\salim\sunior\EAS1\EAS\EAS\Portal EndPoint\obj\Debug\Portal EndPoint.pdb
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\ApplicationInsights.config
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\Portal EndPoint.dll.config
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\Portal EndPoint.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\Portal EndPoint.pdb
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\Antlr3.Runtime.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\Microsoft.AI.Web.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\Newtonsoft.Json.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\System.Web.Helpers.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\System.Web.Mvc.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\System.Web.Optimization.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\System.Web.Razor.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\System.Web.WebPages.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\System.Web.WebPages.Razor.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\WebGrease.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\Microsoft.AI.Web.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\System.Web.Helpers.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\System.Web.Mvc.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\System.Web.Optimization.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\System.Web.Razor.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\System.Web.WebPages.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\System.Web.WebPages.Razor.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\Antlr3.Runtime.pdb
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\bin\Newtonsoft.Json.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\obj\Debug\Portal EndPoint.csprojResolveAssemblyReference.cache
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\obj\Debug\Portal EndPoint.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Portal EndPoint\obj\Debug\Portal EndPoint.pdb
