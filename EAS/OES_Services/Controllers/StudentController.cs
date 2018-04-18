@@ -19,7 +19,7 @@ namespace OES_Services.Controllers
         public List<Semester> s_list;
 
 
-        class Semester_Courses
+  public class Semester_Courses
         {
             public string Year { get; set; }
             public int semester { get; set; }
@@ -37,7 +37,7 @@ namespace OES_Services.Controllers
         //for get student's mark for each year
         [Route("Get_Student_Courses")]
         [HttpGet]
-       public string Get_Student_Courses()
+       public List<Semester_Courses> Get_Student_Courses()
         {
             string User_ID = User.Identity.GetUserId();
             List<Semester_Courses>  student_marks = new List<Semester_Courses>();
@@ -89,11 +89,15 @@ namespace OES_Services.Controllers
                     item.Student_Practical = Student_Practical;
                 }
 
-                return "ss";
 
 
             }
+            return student_marks;
+
         }
+
+
+
 
         [Route("Get_Semester")]
         [HttpGet]
