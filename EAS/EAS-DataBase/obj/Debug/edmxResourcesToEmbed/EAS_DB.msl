@@ -71,12 +71,12 @@
     <EntitySetMapping Name="Course_Students">
       <EntityTypeMapping TypeName="EAS_DatabaseModel.Course_Students">
         <MappingFragment StoreEntitySet="Course_Students">
+          <ScalarProperty Name="Semster_ID" ColumnName="Semster_ID" />
           <ScalarProperty Name="Course_ID" ColumnName="Course_ID" />
           <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
-          <ScalarProperty Name="Semster_ID" ColumnName="Semster_ID" />
           <ScalarProperty Name="C_Drop" ColumnName="_Drop" />
           <ScalarProperty Name="Prohibited" ColumnName="Prohibited" />
-          <ScalarProperty Name="Student_Mark" ColumnName="Student_Mark" />
+          <ScalarProperty Name="Student_Practical" ColumnName="Student_Practical" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -89,7 +89,6 @@
           <ScalarProperty Name="Exam_Type" ColumnName="Exam_Type" />
           <ScalarProperty Name="Exam_Time" ColumnName="Exam_Time" />
           <ScalarProperty Name="Exam_Date" ColumnName="Exam_Date" />
-          <ScalarProperty Name="number_Of_Students" ColumnName="number_Of_Students" />
           <ScalarProperty Name="Exam_Period" ColumnName="Exam_Period" />
           <ScalarProperty Name="Exam_Notes" ColumnName="Exam_Notes" />
         </MappingFragment>

@@ -40,23 +40,22 @@ Semster_ID int,
 Exam_Type varchar(128) check (Exam_Type in('Final','Midterm','Quiz' )) not null,
 Exam_Time varchar(128) not null,
 Exam_Date varchar(128) not null,
-number_Of_Students int,
 Exam_Period int ,
 Exam_Notes varchar(200),
 primary key(Exam_ID),
-foreign key(Course_ID,Semster_ID)references Semester_Courses
+foreign key(Semster_ID,Course_ID)references Semester_Courses(Semster_ID,Course_ID)
 )
 
 --hold the date about students courses in semester
 create table Course_Students(
+Semster_ID int,
 Course_ID int,  
 Student_ID nvarchar(128),
-Semster_ID int,
 _Drop bit default(0),
 Prohibited bit default(0),
-Student_Mark float,
+Student_Practical int,
 primary key(Course_ID,Student_ID,Semster_ID),
-foreign key (Course_ID,Semster_ID) references Semester_Courses,
+foreign key(Semster_ID,Course_ID)references Semester_Courses(Semster_ID,Course_ID),
 foreign key (Student_ID) references AspNetUsers
 )
 
@@ -121,7 +120,7 @@ Question_ID int ,
 Student_Answer varchar(200),
 IsTrue bit,
 primary key(Exam_ID,Student_ID,Question_ID),
-foreign key(Exam_ID,Student_ID) references  Students_Exams,
+foreign key(Exam_ID,Student_ID) references  Students_Exams(Exam_ID,Student_ID),
 foreign key(Question_ID) references  Questions_Bank(Question_ID)
 )
 

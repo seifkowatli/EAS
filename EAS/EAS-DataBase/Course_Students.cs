@@ -14,11 +14,11 @@ namespace EAS_DataBase
     
     public partial class Course_Students
     {
+        public int Semster_ID { get; set; }
         public int Course_ID { get; set; }
         public string Student_ID { get; set; }
-        public int Semster_ID { get; set; }
         public Nullable<bool> C_Drop { get; set; }
         public Nullable<bool> Prohibited { get; set; }
-        public Nullable<double> Student_Mark { get; set; }
+        public Nullable<int> Student_Practical { get; set; }
     }
 }

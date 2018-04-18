@@ -279,9 +279,9 @@ namespace OES_Services.Controllers
 
 
 
-                //var query = entities.Questions_Bank.Join(entities.Question_Answers,
-                //    r => r.Question_ID, p => p.Question_ID, 
-                //    (r, p) => new { r.Question_ID,r.Question_Text,p.Answer_Text });
+                var query = entities.Questions_Bank.Join(entities.Question_Answers,
+                    r => r.Question_ID, p => p.Question_ID,
+                    (r, p) => new { r.Question_ID, r.Question_Text, p.Answer_Text });
 
 
 
