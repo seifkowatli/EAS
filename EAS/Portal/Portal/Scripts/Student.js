@@ -1,5 +1,6 @@
 ﻿
 var Semester = [];
+var Courses_Marks = [];
 $(document).ready(function(){
     $.ajax({
 
@@ -35,12 +36,47 @@ $(document).ready(function(){
         }
 
     });
+    $.ajax({
+
+
+        type: "Get",
+        url: "http://localhost:2199/api/Student/Get_Student_Courses",
+        contentType: "application/json",
+        headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
+
+        success: function (data) {
+            Courses_Marks = data;
+            
+
+        },
+        error: function (jqXHR) {
+            $('#errortxt').text(jqXHR.responseText);
+            $('#errortxt').show('fade');
+
+        },
+        complete: function (jqXHR) {
+
+
+
+
+            if (jqXHR.status == '401') {
+
+                ////ulEmployee.append('<li style ="color:red">' + jqXHR.status + ':' + jqXHR.statusText + '</li>')
+                window.alert(+jqXHR.status + ':' + jqXHR.statusText);
+                window.location.href = "http://localhost:3923/test1.html"
+
+
+            }
+        }
+
+    });
 
 
     function load() {
         // get the last DIV which ID starts with ^= "klon"
         var $div = $('div[id^="contanier"]:last');
         document.getElementById("semester_Name").innerHTML = Semester[0].C_Year + '-' + Semester[0].Semester1;
+        document.getElementById("a0").innerHTML = Courses_Marks[0].Course_Name;
         // Read the Number from that DIV's ID (i.e: 3 from "klon3")
         // And increment that number by 1
 

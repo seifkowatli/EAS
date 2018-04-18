@@ -256,7 +256,6 @@
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\DeleteController.cs" />
     <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\Get_QuestionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

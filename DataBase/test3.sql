@@ -1,6 +1,4 @@
 
-
-
 -- Course table holds the data of a course
 create table Course(
 Course_ID int not null identity(1,1),
@@ -43,19 +41,19 @@ Exam_Date varchar(128) not null,
 Exam_Period int ,
 Exam_Notes varchar(200),
 primary key(Exam_ID),
-foreign key(Semster_ID,Course_ID)references Semester_Courses(Semster_ID,Course_ID)
+foreign key(Semster_ID)references Semesters,
+foreign key(Course_ID)references Course
 )
 
 --hold the date about students courses in semester
 create table Course_Students(
-Semster_ID int,
 Course_ID int,  
 Student_ID nvarchar(128),
 _Drop bit default(0),
 Prohibited bit default(0),
 Student_Practical int,
-primary key(Course_ID,Student_ID,Semster_ID),
-foreign key(Semster_ID,Course_ID)references Semester_Courses(Semster_ID,Course_ID),
+primary key(Course_ID,Student_ID),
+foreign key(Course_ID)references Course,
 foreign key (Student_ID) references AspNetUsers
 )
 
@@ -88,7 +86,9 @@ Difficulty_Level int,
 Question_Frequency int default(0),
 Thinking_Skills varchar(200),
 Question_Mark int,
+ILO_ID int 
 primary key(Question_ID)
+foreign key(ILO_ID)references ILOS
 )
 
 
@@ -124,13 +124,11 @@ foreign key(Exam_ID,Student_ID) references  Students_Exams(Exam_ID,Student_ID),
 foreign key(Question_ID) references  Questions_Bank(Question_ID)
 )
 
+create table Calander(
 
-create table ILO_Question(
-ILOs_ID int not null,
-Question_ID int not null,
-primary key(ILOs_ID,Question_ID),
-foreign key (ILOs_ID) references ILOS,
-foreign key (Question_ID) references Questions_Bank,
+Star_Date date,
+Ene_Date date
 )
+
 
 
