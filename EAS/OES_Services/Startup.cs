@@ -14,7 +14,7 @@ namespace OES_Services
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-           // createRolesandUsers();
+           createRolesandUsers();
 
         }
 
