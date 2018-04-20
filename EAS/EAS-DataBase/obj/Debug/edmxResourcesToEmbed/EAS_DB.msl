@@ -124,6 +124,7 @@
           <ScalarProperty Name="Question_Frequency" ColumnName="Question_Frequency" />
           <ScalarProperty Name="Thinking_Skills" ColumnName="Thinking_Skills" />
           <ScalarProperty Name="Question_Mark" ColumnName="Question_Mark" />
+          <ScalarProperty Name="ILO_ID" ColumnName="ILO_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -193,14 +194,6 @@
       </EndProperty>
       <EndProperty Name="AspNetUsers">
         <ScalarProperty Name="Id" ColumnName="UserId" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="ILO_Question" TypeName="EAS_DatabaseModel.ILO_Question" StoreEntitySet="ILO_Question">
-      <EndProperty Name="ILOS">
-        <ScalarProperty Name="ILOs_ID" ColumnName="ILOs_ID" />
-      </EndProperty>
-      <EndProperty Name="Questions_Bank">
-        <ScalarProperty Name="Question_ID" ColumnName="Question_ID" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

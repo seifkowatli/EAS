@@ -256,20 +256,12 @@
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\ExamController.cs" />
-    <Compile Include="Controllers\Get_QuestionController.cs" />
+    <Compile Include="Controllers\QuestionAlgorithms.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\QuestionController.cs" />
-    <Compile Include="Controllers\AuthintecationController.cs" />
     <Compile Include="Controllers\Questions_CorrectionController.cs" />
-    <Compile Include="Controllers\ResultController.cs" />
-    <Compile Include="Controllers\RoleController.cs" />
-    <Compile Include="Controllers\STD_AnsController.cs" />
+    <Compile Include="Controllers\RouteController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
-    <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>OES_DB.tt</DependentUpon>
     </Compile>

@@ -47,14 +47,16 @@ foreign key(Course_ID)references Course
 
 --hold the date about students courses in semester
 create table Course_Students(
+Semster_ID int,
 Course_ID int,  
 Student_ID nvarchar(128),
 _Drop bit default(0),
 Prohibited bit default(0),
 Student_Practical int,
-primary key(Course_ID,Student_ID),
+primary key(Semster_ID,Course_ID,Student_ID),
 foreign key(Course_ID)references Course,
-foreign key (Student_ID) references AspNetUsers
+foreign key (Student_ID) references AspNetUsers,
+foreign key(Semster_ID)references Semesters,
 )
 
 -- holds the Data of certain topic

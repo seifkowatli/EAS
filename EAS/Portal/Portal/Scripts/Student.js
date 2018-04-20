@@ -1,64 +1,34 @@
-﻿
-var Semester = [];
-var Courses_Marks = [];
-$(document).ready(function(){
+﻿var SemesteWithCourse;
+var NumberOfYears;
+var NumberOfCoursInYear= []
+
+
+$(document).ready(function () {
+$('#contanierd0').hide();
     $.ajax({
-
-
         type: "Get",
-        url: "http://localhost:2199/api/Student/Get_Semester",
+        url: "http://localhost:2199/api/Student/GetAllCourse",
         contentType: "application/json",
         headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
 
         success: function (data) {
-            Semester = data;
-            load();
-
-        },
-        error: function (jqXHR) {
-            $('#errortxt').text(jqXHR.responseText);
-            $('#errortxt').show('fade');
-
-        },
-        complete: function (jqXHR) {
-
-
-
-
-            if (jqXHR.status == '401') {
-
-                ////ulEmployee.append('<li style ="color:red">' + jqXHR.status + ':' + jqXHR.statusText + '</li>')
-                window.alert(+jqXHR.status + ':' + jqXHR.statusText);
-                window.location.href = "http://localhost:3923/test1.html"
-
-
+            SemesteWithCourse = data;
+            NumberOfYears = data.length;
+            for (var i = 0; i < data.length; i++) {
+                NumberOfCoursInYear[i] = data[i].CWM.length;
             }
-        }
+           
 
-    });
-    $.ajax({
+           
+            AddNewSemester();
 
-
-        type: "Get",
-        url: "http://localhost:2199/api/Student/Get_Student_Courses",
-        contentType: "application/json",
-        headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
-
-        success: function (data) {
-            Courses_Marks = data;
-            
 
         },
         error: function (jqXHR) {
             $('#errortxt').text(jqXHR.responseText);
             $('#errortxt').show('fade');
-
         },
         complete: function (jqXHR) {
-
-
-
-
             if (jqXHR.status == '401') {
 
                 ////ulEmployee.append('<li style ="color:red">' + jqXHR.status + ':' + jqXHR.statusText + '</li>')
@@ -72,29 +42,84 @@ $(document).ready(function(){
     });
 
 
-    function load() {
-        // get the last DIV which ID starts with ^= "klon"
-        var $div = $('div[id^="contanier"]:last');
-        document.getElementById("semester_Name").innerHTML = Semester[0].C_Year + '-' + Semester[0].Semester1;
-        document.getElementById("a0").innerHTML = Courses_Marks[0].Course_Name;
-        // Read the Number from that DIV's ID (i.e: 3 from "klon3")
-        // And increment that number by 1
+    function AddNewSemester() {
 
-        if (Semester.length > 1) {
-            for (var i = 1; i < Semester.length; i++) {
-                // Clone it and assign the new ID (i.e: from num 4 to ID "klon4")
-                var $klon = $div.clone().prop('id', 'contanier' + i);
+        console.log(NumberOfYears);
+        console.log(NumberOfCoursInYear);
 
-                $klon.find("#a0").attr("href", "#collapse"+i);
-                $klon.find("#collapse0").attr("id", "collapse" + i);
-                // Finally insert $klon wherever you want
-                $div.append($klon);
 
-                $('#contanier' + i).find("#semester_Name").attr("id", "h" + i);
-                document.getElementById("h" + i).innerHTML = Semester[i].C_Year + '-' + Semester[i].Semester1;
+        var All_Contanier = $('#All_Container');
+        var CourseCountanier = $('#AllCourse0');
+        var Course0 = $('#course0');
 
+        $('#course0').remove();
+       
+
+        for (var i = 0; i < NumberOfYears; i++){
+
+            var Contanier = $('#contanierd0').clone().prop('id', 'contanier' + i);
+                Contanier.show();
+                Contanier.find('#AllCourse0').attr('id', 'AllCourse' + i ); 
+                Contanier.find('#semester_Name').attr('id', 'semester_Name' + i); 
+
+            for (var j = 0; j < NumberOfCoursInYear[i]; j++) {
+
+              
+                $clon = Course0.clone().prop('id', 'course' + i + '-' + j);
+
+               
+
+
+                $clon.find("#CourseName0").attr("id", "CourseName" + i + '-' + j);
+                $clon.find("#Practical0").attr("id", "Practical" + i + '-' + j);
+                $clon.find("#mid0").attr("id", "mid" + i + '-' + j);
+                $clon.find("#final0").attr("id", "final" + i + '-' + j);
+                $clon.find("#CourseName" + i + '-' + j ).attr("href", "#collapse" + i + '-' + j);
+                $clon.find("#collapse0").attr("id", "collapse" + i + '-' + j);
+
+                Contanier.find('#AllCourse' + i ).append($clon);
             }
+
+            All_Contanier.append(Contanier);
+
+
+
+
+
         }
+        $('#contanierd0').remove();
+        Display_Marks();
+
+
+
 
     }
+
+
+
+    function Display_Marks(){
+
+        console.log(SemesteWithCourse);
+        for (var i = 0; i < NumberOfYears; i++) {
+
+            document.getElementById("semester_Name" + i).innerHTML = SemesteWithCourse[i].semester.C_Year + '-' + SemesteWithCourse[i].semester.Semester1;
+            for (var j = 0; j < NumberOfCoursInYear[i]; j++) 
+            {
+                document.getElementById("CourseName" + i + '-' + j).innerHTML = SemesteWithCourse[i].CWM[j].CourseName;
+
+                document.getElementById("Practical" + i + '-' + j).innerHTML = SemesteWithCourse[i].CWM[j].StudentPractical;
+                document.getElementById("mid" + i + '-' + j).innerHTML = SemesteWithCourse[i].CWM[j].MidMark;
+                document.getElementById("final" + i + '-' + j).innerHTML = SemesteWithCourse[i].CWM[j].FinalMark;
+
+
+
+            }
+
+        }
+
+
+    }
+
+
+
 })
