@@ -40,7 +40,6 @@ namespace EAS_DataBase
         public virtual DbSet<Semester> Semesters { get; set; }
         public virtual DbSet<Student_Answers> Student_Answers { get; set; }
         public virtual DbSet<Students_Exams> Students_Exams { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Topic> Topics { get; set; }
     }
 }

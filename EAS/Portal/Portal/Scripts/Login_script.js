@@ -37,7 +37,7 @@ $(document).ready(function () {
                 $.ajax({
 
                     type: "Get",
-                    url: "http://localhost:2199/api/Role",
+                    url: "http://localhost:2199/api/Route",
                     contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                     headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
                     success: function (data) {

@@ -111,9 +111,6 @@
     <Compile Include="Student_Answers.cs">
       <DependentUpon>EAS_DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>EAS_DB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Topic.cs">
       <DependentUpon>EAS_DB.tt</DependentUpon>
     </Compile>

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0f34a8195f0a427fbf447b361f453934" Name="Diagram1">
+      <Diagram DiagramId="90ddd5cdeb134762945140548acecd03" Name="Diagram1">
         <EntityTypeShape EntityType="EAS_DatabaseModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EAS_DatabaseModel.AspNetRole" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="EAS_DatabaseModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
@@ -16,30 +16,29 @@
         <EntityTypeShape EntityType="EAS_DatabaseModel.ILO" Width="1.5" PointX="6" PointY="21.625" IsExpanded="true" />
         <EntityTypeShape EntityType="EAS_DatabaseModel.Question_Answers" Width="1.5" PointX="10.5" PointY="21.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EAS_DatabaseModel.Questions_Bank" Width="1.5" PointX="8.25" PointY="21.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="EAS_DatabaseModel.Semester_Courses" Width="1.5" PointX="8.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EAS_DatabaseModel.Semester_Courses" Width="1.5" PointX="8.25" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="EAS_DatabaseModel.Semester" Width="1.5" PointX="6" PointY="13.375" IsExpanded="true" />
         <EntityTypeShape EntityType="EAS_DatabaseModel.Student_Answers" Width="1.5" PointX="10.5" PointY="11.625" IsExpanded="true" />
         <EntityTypeShape EntityType="EAS_DatabaseModel.Students_Exams" Width="1.5" PointX="8.25" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="EAS_DatabaseModel.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EAS_DatabaseModel.Topic" Width="1.5" PointX="3.75" PointY="21.75" IsExpanded="true" />
         <AssociationConnector Association="EAS_DatabaseModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="EAS_DatabaseModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="EAS_DatabaseModel.FK__Course_St__Stude__09946309" ManuallyRouted="false" />
-        <AssociationConnector Association="EAS_DatabaseModel.FK__Semester___Teach__7F16D496" ManuallyRouted="false" />
-        <AssociationConnector Association="EAS_DatabaseModel.FK__Students___Stude__1BB31344" ManuallyRouted="false" />
-        <AssociationConnector Association="EAS_DatabaseModel.FK__Course_St__Cours__08A03ED0" ManuallyRouted="false" />
-        <AssociationConnector Association="EAS_DatabaseModel.FK__Exam__Course_ID__03DB89B3" ManuallyRouted="false" />
-        <AssociationConnector Association="EAS_DatabaseModel.FK__Semester___Cours__7E22B05D" ManuallyRouted="false" />
-        <AssociationConnector Association="EAS_DatabaseModel.FK__Topic__Course_ID__0D64F3ED" ManuallyRouted="false" />
-        <AssociationConnector Association="EAS_DatabaseModel.FK__Course_St__Semst__0A888742" ManuallyRouted="false" />
-        <AssociationConnector Association="EAS_DatabaseModel.FK__Exam__Semster_ID__02E7657A" ManuallyRouted="false" />
-        <AssociationConnector Association="EAS_DatabaseModel.FK__Students___Exam___1ABEEF0B" ManuallyRouted="false" />
-        <AssociationConnector Association="EAS_DatabaseModel.FK__ILOS__Topic_ID__10416098" ManuallyRouted="false" />
-        <AssociationConnector Association="EAS_DatabaseModel.FK__Questions__ILO_I__1411F17C" ManuallyRouted="false" />
-        <AssociationConnector Association="EAS_DatabaseModel.FK__Question___Quest__16EE5E27" ManuallyRouted="false" />
-        <AssociationConnector Association="EAS_DatabaseModel.FK__Student_A__Quest__1F83A428" ManuallyRouted="false" />
-        <AssociationConnector Association="EAS_DatabaseModel.FK__Semester___Semst__7D2E8C24" ManuallyRouted="false" />
-        <AssociationConnector Association="EAS_DatabaseModel.FK__Student_Answers__1E8F7FEF" ManuallyRouted="false" />
+        <AssociationConnector Association="EAS_DatabaseModel.FK__Course_St__Stude__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="EAS_DatabaseModel.FK__Semester___Teach__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="EAS_DatabaseModel.FK__Students___Stude__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="EAS_DatabaseModel.FK__Course_St__Cours__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="EAS_DatabaseModel.FK__Exam__Course_ID__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="EAS_DatabaseModel.FK__Semester___Cours__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="EAS_DatabaseModel.FK__Topic__Course_ID__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="EAS_DatabaseModel.FK__Course_St__Semst__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="EAS_DatabaseModel.FK__Exam__Semster_ID__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="EAS_DatabaseModel.FK__Students___Exam___44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="EAS_DatabaseModel.FK__ILOS__Topic_ID__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="EAS_DatabaseModel.FK__Questions__ILO_I__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="EAS_DatabaseModel.FK__Question___Quest__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="EAS_DatabaseModel.FK__Student_A__Quest__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="EAS_DatabaseModel.FK__Semester___Semst__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="EAS_DatabaseModel.FK__Student_Answers__48CFD27E" ManuallyRouted="false" />
         <AssociationConnector Association="EAS_DatabaseModel.AspNetUserRoles" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

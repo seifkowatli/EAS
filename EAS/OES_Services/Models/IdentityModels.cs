@@ -12,7 +12,6 @@ namespace OES_Services.Models
 
         public string F_Name { get; set; }
         public string L_Name { get; set; }
-
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
         {
             

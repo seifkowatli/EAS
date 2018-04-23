@@ -23,11 +23,11 @@ function randomPassword(length) {
     for (var x = 0; x < length; x++) {
         var i = Math.floor(Math.random() * chars.length);
         pass += chars.charAt(i);
-        var i = Math.floor(Math.random() * chars2.length);
+         i = Math.floor(Math.random() * chars2.length);
         pass += chars2.charAt(i);
-        var i = Math.floor(Math.random() * chars3.length);
+         i = Math.floor(Math.random() * chars3.length);
         pass += chars3.charAt(i);
-        var i = Math.floor(Math.random() * number.length);
+         i = Math.floor(Math.random() * number.length);
         pass += number.charAt(i);
 
     }
@@ -38,6 +38,7 @@ function randomPassword(length) {
 var Number_of_Topic;
 $(document).ready(function () {
 
+    window.alert($('#TextPhone').val());
     $('#successText').hide();
     $('#errortxt').hide();
 
@@ -52,7 +53,7 @@ $(document).ready(function () {
             headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
             data: {
                 UserName: $('#TextUserName').val(),
-                Phone: $('#TextPhone').val(),
+                PhoneNumber: $('#TextPhone').val(),
                 Email: $('#TextEmail').val(),
                 UserRole: $('#TextRole').find(":selected").text(),
                 password: Random_Password,

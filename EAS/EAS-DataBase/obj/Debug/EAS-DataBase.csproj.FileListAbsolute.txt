@@ -18,7 +18,6 @@ C:\Users\Seif\Desktop\Senior Project\EAS\EAS\EAS-DataBase\bin\Debug\EntityFramew
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\EAS-DataBase\obj\Debug\EAS-DataBase.csprojResolveAssemblyReference.cache
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\EAS-DataBase\obj\Debug\EAS-DataBase.dll
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\EAS-DataBase\obj\Debug\EAS-DataBase.pdb
-D:\salim\sunior\EAS1\EAS\EAS\EAS-DataBase\obj\Debug\EAS-DataBase.csprojResolveAssemblyReference.cache
 D:\salim\sunior\EAS1\EAS\EAS\EAS-DataBase\obj\Debug\EAS-DataBase.pdb
 D:\salim\sunior\EAS1\EAS\EAS\EAS-DataBase\bin\Debug\EAS-DataBase.dll.config
 D:\salim\sunior\EAS1\EAS\EAS\EAS-DataBase\bin\Debug\EAS-DataBase.dll

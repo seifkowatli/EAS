@@ -52,6 +52,9 @@ namespace OES_Services.Models
         [Display(Name = "L_Name")]
         public string L_Name { get; set; }
 
+        
+        [Display(Name = "PhoneNumber")]
+        public string PhoneNumber { get; set; }
 
         [Required]
         [Display(Name = "User Role")]

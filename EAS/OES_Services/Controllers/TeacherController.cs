@@ -21,7 +21,7 @@ namespace OES_Services.Controllers
 
             using (EAS_DatabaseEntities entities = new EAS_DatabaseEntities())
             {
-                
+
                 entities.Questions_Bank.Add(Nq);
                 entities.SaveChanges();
             }
@@ -54,14 +54,14 @@ namespace OES_Services.Controllers
                 Answers[2].Question_ID = id;
                 Answers[3].Question_ID = id;
 
-                
 
-                foreach(var item in Answers)
+
+                foreach (var item in Answers)
                 {
 
                     entities.Question_Answers.Add(item);
                 }
-                
+
                 entities.SaveChanges();
 
             }

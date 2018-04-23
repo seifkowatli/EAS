@@ -7,7 +7,7 @@ $(document).ready(function () {
 $('#contanierd0').hide();
     $.ajax({
         type: "Get",
-        url: "http://localhost:2199/api/Student/GetAllCourse",
+        url: "http://localhost:2199/api/Student/GetAllCourseMarks",
         contentType: "application/json",
         headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
 

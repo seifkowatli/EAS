@@ -12,12 +12,13 @@ namespace OES_Services.Controllers
 
     public class Student_Exam_Details
     {
-        public List<Student_Answers>  sa;
+        public List<Student_Answers> sa;
         public int Exam_Result { get; set; }
 
-        public Student_Exam_Details() {
-            
-            sa =new List<Student_Answers>();
+        public Student_Exam_Details()
+        {
+
+            sa = new List<Student_Answers>();
 
 
         }
@@ -29,14 +30,14 @@ namespace OES_Services.Controllers
     {
         [Route("correction")]
         [HttpPost]
-        public void correction( List<Student_Answers> SA)
+        public void correction(List<Student_Answers> SA)
         {
             using (EAS_DatabaseEntities entities = new EAS_DatabaseEntities())
             {
 
-                
-               
-               
+
+
+
                 int Final_Result = 0; //to save all marks here 
                 foreach (var item in SA)
                 {
@@ -59,18 +60,18 @@ namespace OES_Services.Controllers
                     else
                         item.IsTrue = false;
 
-                    item.Student_ID= User.Identity.GetUserId();//Get User ID From LogIn Section
+                    item.Student_ID = User.Identity.GetUserId();//Get User ID From LogIn Section
                     entities.Student_Answers.Add(item);
                     entities.SaveChanges();
 
-                   
+
 
                 }
 
 
-                //Update and insert Final Result In DataBase 
+            //    Update and insert Final Result In DataBase
                 var SE = (from c in entities.Students_Exams
-                                     where c.Student_ID == "07e90ee9-3ccc-40ec-8a39-0179fadfcfe9"
+                          where c.Student_ID == "07e90ee9-3ccc-40ec-8a39-0179fadfcfe9"
                           where c.Exam_ID == 1
 
                           select c).FirstOrDefault();
@@ -99,9 +100,9 @@ namespace OES_Services.Controllers
 
 
                 SED.Exam_Result = (int)(from c in entities.Students_Exams
-                          where c.Student_ID == "07e90ee9-3ccc-40ec-8a39-0179fadfcfe9"
+                                        where c.Student_ID == "07e90ee9-3ccc-40ec-8a39-0179fadfcfe9"
                                         where c.Exam_ID == 1
-                          select c.Exam_Result).FirstOrDefault();
+                                        select c.Exam_Result).FirstOrDefault();
 
             }
             return SED;

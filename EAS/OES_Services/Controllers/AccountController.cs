@@ -330,7 +330,7 @@ namespace OES_Services.Controllers
 
 
 
-            var user = new ApplicationUser() { UserName = model.Username, Email = model.Email  , F_Name = model.F_Name , L_Name = model.L_Name};
+            var user = new ApplicationUser() { UserName = model.Username, Email = model.Email  , F_Name = model.F_Name , L_Name = model.L_Name, PhoneNumber= model.PhoneNumber};
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
