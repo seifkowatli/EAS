@@ -13,6 +13,12 @@ namespace OES_Services
     {
         public static void Register(HttpConfiguration config)
         {
+
+            //config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
+            EnableCorsAttribute cors = new EnableCorsAttribute(origins: "*", headers: "*", methods: "*");
+            config.EnableCors(cors);
+
+
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();
@@ -28,9 +34,7 @@ namespace OES_Services
             );
 
 
-            //config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
-            EnableCorsAttribute cors = new EnableCorsAttribute(origins: "*", headers: "*", methods: "*");
-            config.EnableCors();
+            
 
         }
     }

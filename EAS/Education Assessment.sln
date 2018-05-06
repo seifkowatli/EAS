@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EAS-DataBase", "EAS-DataBas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portal", "Portal\Portal\Portal.csproj", "{52A0C56B-4E4F-4FC4-B18C-7E15B853A19A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exam Endpoint", "ExamEndpoint\Exam Endpoint.csproj", "{01134D2C-46D4-48AF-B9C5-E4FB39E29144}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examination EndPoint", "New\ExamEndpoint\Examination EndPoint.csproj", "{8CFAE4C6-13D4-4DAE-B658-B1D8D147C396}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{52A0C56B-4E4F-4FC4-B18C-7E15B853A19A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52A0C56B-4E4F-4FC4-B18C-7E15B853A19A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52A0C56B-4E4F-4FC4-B18C-7E15B853A19A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{01134D2C-46D4-48AF-B9C5-E4FB39E29144}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{01134D2C-46D4-48AF-B9C5-E4FB39E29144}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{01134D2C-46D4-48AF-B9C5-E4FB39E29144}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{01134D2C-46D4-48AF-B9C5-E4FB39E29144}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CFAE4C6-13D4-4DAE-B658-B1D8D147C396}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CFAE4C6-13D4-4DAE-B658-B1D8D147C396}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CFAE4C6-13D4-4DAE-B658-B1D8D147C396}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CFAE4C6-13D4-4DAE-B658-B1D8D147C396}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

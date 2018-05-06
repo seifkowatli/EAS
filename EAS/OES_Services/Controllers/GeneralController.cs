@@ -18,6 +18,7 @@ namespace OES_Services.Controllers
     {
 
         [Route("GetUserInformatin")]
+        [HttpGet]
         public ApplicationUser GetUserInformatin()
         {
            string UserID =User.Identity.GetUserId();

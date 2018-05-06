@@ -15,7 +15,7 @@ namespace OES_Services
         {
 
            ConfigureAuth(app);
-          createRolesandUsers();
+          //createRolesandUsers();
 
         }
 

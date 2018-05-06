@@ -10,3 +10,16 @@ C:\Users\Seif\Desktop\Senior Project\EAS\EAS\New\ExamEndpoint\bin\EntityFramewor
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\New\ExamEndpoint\obj\Debug\Examination EndPoint.csprojResolveAssemblyReference.cache
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\New\ExamEndpoint\obj\Debug\Client-Side.dll
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\New\ExamEndpoint\obj\Debug\Client-Side.pdb
+D:\salim\sunior\EAS1\EAS\EAS\New\ExamEndpoint\bin\Client-Side.dll.config
+D:\salim\sunior\EAS1\EAS\EAS\New\ExamEndpoint\bin\Client-Side.dll
+D:\salim\sunior\EAS1\EAS\EAS\New\ExamEndpoint\bin\Client-Side.pdb
+D:\salim\sunior\EAS1\EAS\EAS\New\ExamEndpoint\bin\EntityFramework.dll
+D:\salim\sunior\EAS1\EAS\EAS\New\ExamEndpoint\bin\EntityFramework.SqlServer.dll
+D:\salim\sunior\EAS1\EAS\EAS\New\ExamEndpoint\bin\Newtonsoft.Json.dll
+D:\salim\sunior\EAS1\EAS\EAS\New\ExamEndpoint\bin\System.Web.Cors.dll
+D:\salim\sunior\EAS1\EAS\EAS\New\ExamEndpoint\bin\System.Web.Mvc.dll
+D:\salim\sunior\EAS1\EAS\EAS\New\ExamEndpoint\bin\EntityFramework.xml
+D:\salim\sunior\EAS1\EAS\EAS\New\ExamEndpoint\bin\EntityFramework.SqlServer.xml
+D:\salim\sunior\EAS1\EAS\EAS\New\ExamEndpoint\obj\Debug\Examination EndPoint.csprojResolveAssemblyReference.cache
+D:\salim\sunior\EAS1\EAS\EAS\New\ExamEndpoint\obj\Debug\Client-Side.dll
+D:\salim\sunior\EAS1\EAS\EAS\New\ExamEndpoint\obj\Debug\Client-Side.pdb

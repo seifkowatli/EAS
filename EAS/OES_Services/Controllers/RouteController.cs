@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using EAS_DataBase;
 
 namespace OES_Services.Controllers
 {
@@ -13,7 +14,7 @@ namespace OES_Services.Controllers
 
         public string Get()
         {
-            using (OES_DatabaseEntities1 entities = new OES_DatabaseEntities1())
+            using (EAS_DatabaseEntities entities = new EAS_DatabaseEntities())
             {
                 string role = "";
                

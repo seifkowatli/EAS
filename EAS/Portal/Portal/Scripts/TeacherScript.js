@@ -3,12 +3,52 @@ function Close_Alert_Div() {
 
     $('#successText').hide();
     $('#errortxt').hide();
+  
+
 }
 
+function GetILOS() {
+
+   
+}
+
+function GetCourse() {
+  
+    $.ajax({
+        url: 'http://localhost:2199/api/Teacher/Get_Courses',
+        method: 'Get',
+        headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
+
+
+        success: function (data) {
+
+            $.each(data, function (i, item) {
+                $('#CourseID1').append($('<option>', {
+                    id: item.Course_ID,
+                    text: item.Course_Name
+                }));
+            })
+
+
+        },
+
+    });
+
+
+  
+
+   
+
+}
+
+
+
+
+//Add Question
 $(document).ready(function () {
 
-
-
+  
+    GetCourse();
     $('#successText').hide();
     $('#errortxt').hide();
 
@@ -17,8 +57,48 @@ $(document).ready(function () {
     //        Ans3: $('#A3').val(),
     //            TrueAns: $('#TA').val(),
 
+
+    //Get_ILOS
+    $('#CourseID1').on('change', function () {
+
+        //empty ILOS 
+        $('#ILOS')
+            .find('option')
+            .remove()
+            .end();
+   
+
+        var CourseID =$('#CourseID1').children(":selected").attr("id");
+
+        $.ajax({
+            type: 'Get',
+            url: 'http://localhost:2199/api/Teacher/Get_ILOs/'+ CourseID,
+            headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
+            dataType: "json",
+
+
+            success: function (data) {
+                
+                $.each(data, function (i, item) {
+                    $('#ILOS').append($('<option>', {
+                        id: item.ILOs_ID,
+                        text: item.ILOs_Description
+                    }));
+                })
+
+
+            },
+
+        });
+
+
+
+       
+    })
+
     $('#BtnSave').click(function () {
 
+      
         var Answers = [];
 
         console.log(Answers);
@@ -46,13 +126,16 @@ $(document).ready(function () {
         Answers.push(Answer2);
         Answers.push(Answer3);
 
-        console.log(Answers);
+      
 
         var T = document.getElementById("TS");
         var S = T.options[T.selectedIndex].text;
 
         var D = document.getElementById("DY");
         var Y = D.options[D.selectedIndex].text;
+
+        var ILO = $('#ILOS').children(":selected").attr("id");
+
 
 
         var N_quest = {
@@ -62,6 +145,8 @@ $(document).ready(function () {
             Difficulty_Level: Y,
             Question_Mark: $('#mk').val(),
             Question_Frequency: 0,
+            ILO_ID:ILO,
+
 
 
 
