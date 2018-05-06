@@ -96,4 +96,57 @@ D:\salim\sunior\EAS1\EAS\EAS\ExamEndpoint\bin\System.Web.WebPages.Razor.xml
 D:\salim\sunior\EAS1\EAS\EAS\ExamEndpoint\bin\Antlr3.Runtime.pdb
 D:\salim\sunior\EAS1\EAS\EAS\ExamEndpoint\obj\Debug\Client-Side.dll
 D:\salim\sunior\EAS1\EAS\EAS\ExamEndpoint\obj\Debug\Client-Side.pdb
+<<<<<<< HEAD
 D:\salim\sunior\EAS1\EAS\EAS\ExamEndpoint\obj\Debug\Exam Endpoint.csprojResolveAssemblyReference.cache
+=======
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\Client-Side.dll.config
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\Client-Side.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\Client-Side.pdb
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\Antlr3.Runtime.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\EntityFramework.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\EntityFramework.SqlServer.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\Microsoft.Owin.Cors.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\Microsoft.Owin.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\Microsoft.Owin.Security.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\Newtonsoft.Json.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\Owin.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\System.Net.Http.Formatting.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\System.Web.Cors.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\System.Web.Helpers.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\System.Web.Http.Cors.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\System.Web.Http.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\System.Web.Mvc.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\System.Web.Optimization.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\System.Web.Razor.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\System.Web.WebPages.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\System.Web.WebPages.Razor.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\WebGrease.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\EntityFramework.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\EntityFramework.SqlServer.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\Microsoft.Owin.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\Microsoft.Owin.Cors.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\Microsoft.Owin.Security.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\Newtonsoft.Json.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\System.Net.Http.Formatting.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\System.Web.Http.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\System.Web.Http.Cors.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\System.Web.Helpers.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\System.Web.Mvc.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\System.Web.Optimization.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\System.Web.Razor.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\System.Web.WebPages.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\System.Web.WebPages.Razor.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\bin\Antlr3.Runtime.pdb
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\obj\Debug\Exam Endpoint.csprojResolveAssemblyReference.cache
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\obj\Debug\Client-Side.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\ExamEndpoint\obj\Debug\Client-Side.pdb
+>>>>>>> adb5fcb72f6f9b3b559417da54d043db5ab00611
