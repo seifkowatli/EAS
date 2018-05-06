@@ -32,21 +32,17 @@
 
                     <div class="col-md-6 form-group2 group-mail">
                         <label class="control-label">Course Name</label>
-                        <select id="Credit_Hours">
+                        <select id="Course_select">
                             <option value=""></option>
-                            <option value="">Course1</option>
-                            <option value="">Course2</option>
-                            <option value="">Course3</option>
+                          
                         </select>
                     </div>
 
                     <div class="col-md-6 form-group2 group-mail">
                         <label class="control-label">Teacher</label>
-                        <select id="Credit_Hours">
+                        <select id="teacher_select" >
                             <option value=""></option>
-                            <option value="">Teacher1</option>
-                            <option value="">Teacher2</option>
-                            <option value="">Teacher3</option>
+                           
                         </select>
                     </div>
 
@@ -61,11 +57,24 @@
 
                     <div class="clearfix"></div>
                     <div class="col-md-12 form-group button-2">
-                        <button class="btn btn-primary" id="btnRegister">Submit</button>
+                        <button class="btn btn-primary" id="AddSemestersCours">Submit</button>
                         <button type="reset" class="btn btn-default">Reset</button>
                     </div>
 
+                    <div id="successText" class="alert alert-success ">
+                        <button onclick="Close_Alert_Div()" type="button" class="close" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>Success!</strong> .
 
+                    </div>
+
+                    <div id="errortxt" class="alert alert-danger ">
+                        <button onclick="Close_Alert_Div()" type="button" class="close" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <p id="P_error"></p>
+                    </div>
                 </div>
 
             </div>

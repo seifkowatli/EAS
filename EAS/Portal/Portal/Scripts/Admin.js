@@ -174,8 +174,7 @@ $(document).ready(function () {
 
     
 
-    //request 
-      Get_Teachers();
+  
 
 });
 function Add_Course() {
@@ -188,11 +187,7 @@ function Add_Course() {
     New_Course['Credit_Hours'] = $("#Credit_Hours option:selected").text();
     New_Course['Course_Description'] = $('#Course_Description').val();
 
-    var Semester_Course = {};
-    Semester_Course['Teacher_ID'] = $('#teacher_select').children(":selected").attr("id");
-    Semester_Course['Semster_ID'] = 1;
-    Semester_Course['Number_of_Student'] = 0;
-    Semester_Course['Success_rate'] = -1;
+   
 
     var Topics = [];
     Number_of_Topic++;
@@ -213,43 +208,31 @@ function Add_Course() {
                 headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
 
                 success: function () {
+                    window.alert(1);
+
+
                     $.ajax({
-                        
+
+                       
                         type: "Post",
-                        data: JSON.stringify(Semester_Course),
-                        url: "http://localhost:2199/api/Admin/Add_Semester_Course",
+                        data: JSON.stringify(Topics),
+                        url: "http://localhost:2199/api/Admin/Add_Topic",
                         contentType: "application/json",
                         headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
                         success: function () {
 
-                            $.ajax({
-
-                                type: "Post",
-                                data: JSON.stringify(Topics),
-                                url: "http://localhost:2199/api/Admin/Add_Topic",
-                                contentType: "application/json",
-                                headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
-                                success: function () {
-
-
-                                    $('#successText').show();
-
-                                },
-                                error: function (jqXHR) {
-                                    $('#P_error').text(jqXHR.responseText);
-                                    $('#errortxt').show('fade');
-
-                                }
-
-                            })
-
-                    
+                            $('#successText').show();
                         },
+                        error: function (jqXHR) {
+                            $('#P_error').text(jqXHR.responseText);
+                            $('#errortxt').show('fade');
 
+                        }
 
-
-                    })
+                        })
                 },
+
+
         error: function (jqXHR) {
             $('#P_error').text(jqXHR.responseText);
             $('#errortxt').show('fade');
@@ -266,5 +249,110 @@ function Add_Course() {
 
     
     
-    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Semesters Course
+
+
+$(document).ready(function () {
+
+    //Get Teachers
+    function Get_Teachers() {
+
+        $.ajax({
+            url: 'http://localhost:2199/api/Admin/Get_Teachers',
+            method: 'Get',
+            headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
+
+
+            success: function (data) {
+
+                $.each(data, function (i, item) {
+                    $('#teacher_select').append($('<option>', {
+                        id: item.UserId,
+                        text: item.F_Name + " " + item.L_Name
+                    }));
+                })
+
+
+            },
+
+        });
+    }
+
+
+    //Get Courses
+    function Get_Courses() {
+
+        $.ajax({
+            url: 'http://localhost:2199/api/Admin/Get_Courses',
+            method: 'Get',
+            headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
+
+
+            success: function (data) {
+
+                $.each(data, function (i, item) {
+                    $('#Course_select').append($('<option>', {
+                        id: item.Course_ID,
+                        text: item.Course_Name
+                    }));
+                })
+
+
+            },
+
+        });
+    }
+
+    //request 
+    Get_Teachers();
+    Get_Courses()
+
+
+
+   
+
+  
+
+    $('#AddSemestersCours').on('click', function () {
+
+
+        var Semester_Course = {};
+        Semester_Course['Teacher_ID'] = $('#teacher_select').children(":selected").attr("id");
+        Semester_Course['Course_ID'] = $('#Course_select').children(":selected").attr("id");
+        Semester_Course['Semster_ID'] = 4;
+        Semester_Course['Number_of_Student'] = 0;
+        Semester_Course['Success_rate'] = -1;
+
+        $.ajax({
+
+            type: "Post",
+            data: JSON.stringify(Semester_Course),
+            url: "http://localhost:2199/api/Admin/Add_Semester_Course",
+            contentType: "application/json",
+            headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
+            success: function () {
+
+                $('#successText').show();
+            },
+
+
+            error: function (jqXHR) {
+                $('#P_error').text(jqXHR.responseText);
+                $('#errortxt').show('fade');
+
+            }
+        })
+
+
+    })
+
+ 
+
+
+
+
+
+})
     

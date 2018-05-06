@@ -260,10 +260,6 @@
     <Content Include="Views\Student\Calendar.cshtml" />
     <Content Include="Views\Student\Dates.cshtml" />
     <Content Include="Views\Admin\SemestersCourse.cshtml" />
-<<<<<<< HEAD
-    <Content Include="Views\Account.cshtml" />
-=======
->>>>>>> 89c0d0b699560be0bf189358a7d4c5eccfaff33c
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
