@@ -40,28 +40,21 @@ namespace OES_Services.Controllers
 
 
 
-        //[Route("Add_Semester_Course")]
-        //[HttpPost]
-        //public void Add_Course_Teacher(Semester_Courses SC)
-        //{
+        [Route("Add_Semester_Course")]
+        [HttpPost]
+        public void Add_Course_Teacher(Semester_Courses SC)
+        {
 
 
 
-        //    using (EAS_DatabaseEntities entities = new EAS_DatabaseEntities())
-        //    {
-
-        //        int Course_ID = (from c in entities.Courses
-        //                  orderby c.Course_ID descending
-        //                  select c.Course_ID).Take(1).SingleOrDefault();
-
-
-        //        SC.Course_ID = Course_ID;
-        //        entities.Semester_Courses.Add(SC);
-        //        entities.SaveChanges();
-        //    }
+            using (EAS_DatabaseEntities entities = new EAS_DatabaseEntities())
+            {
+                entities.Semester_Courses.Add(SC);
+                entities.SaveChanges();
+            }
 
 
-        //}
+        }
         [Route("Add_Topic")]
         [HttpPost]
         public void Add_Topic(List<Topic> T)
@@ -118,16 +111,38 @@ namespace OES_Services.Controllers
 
             foreach (var item in usersWithRoles)
             {
-                Users_With_Role A = new Users_With_Role();
-                A.UserId = item.UserId;
-                A.F_Name = item.F_Name;
-                A.Role = item.Role;
-                A.L_Name = item.L_Name;
-                UR.Add(A);
+                if (item.Role == "teacher")
+                {
+                    Users_With_Role A = new Users_With_Role();
+                    A.UserId = item.UserId;
+                    A.F_Name = item.F_Name;
+                    A.Role = item.Role;
+                    A.L_Name = item.L_Name;
+                    UR.Add(A);
+                }
             }
 
             return UR;
         }
 
+
+
+        [Route("Get_Courses")]
+        [HttpGet]
+        public List<Course> Get_Courses()
+        {
+
+
+            using (EAS_DatabaseEntities entity=new EAS_DatabaseEntities())
+            {
+                List<Course> ALLCourses = new List<Course>();
+
+                ALLCourses = (from c in entity.Courses select c).ToList();
+                return ALLCourses;
+
+            }
+
+
+        }
     }
 }
