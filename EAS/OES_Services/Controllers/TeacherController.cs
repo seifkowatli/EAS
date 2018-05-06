@@ -68,5 +68,55 @@ namespace OES_Services.Controllers
 
 
         }
+
+
+        [Route("Get_ILOs/{CourseID:int}")]
+        [HttpGet]
+        public List<ILO>Get_ILOs(int CourseID)
+        {
+            
+            List<ILO> All_ILOS = new List<ILO>();
+            using (EAS_DatabaseEntities entity = new EAS_DatabaseEntities())
+            {
+
+                var temp = (from c in entity.Topics
+                            where c.Course_ID== CourseID
+
+                            select c.Topic_ID).ToList();
+
+
+                foreach (var item in temp)
+                {
+                   var temp2= (from c in entity.ILOS
+                                where c.Topic_ID == item
+                                select c).ToList();
+
+                    foreach (var item2 in temp2)
+                    {
+                        All_ILOS.Add(item2);
+                    }
+                }
+            }
+            return All_ILOS;
+            }
+
+
+
+        [Route("Get_Courses")]
+        [HttpGet]
+        public List<Course> Get_Courses()
+        {
+            List<Course> All_Courses = new List<Course>();
+            using (EAS_DatabaseEntities entity = new EAS_DatabaseEntities())
+            {
+                All_Courses = (from c in entity.Courses
+                               select c).ToList();
+
+
+
+            }
+            return All_Courses;
+        }
     }
+
 }

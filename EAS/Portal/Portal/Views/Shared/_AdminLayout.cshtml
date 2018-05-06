@@ -5,13 +5,14 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 
+
 <!DOCTYPE HTML>
-@*<script>
+<script>
     if (sessionStorage.getItem('accessToken') == null) {
         window.alert("Please Login To continue")
         window.location = "http://localhost:51103/Home/Login/";
     }
-</script>*@
+</script>
 <html>
 <head>
     <title>@ViewBag.Title</title>
@@ -289,7 +290,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!--/down-->
             <div class="down">
                 <a href="index.html"><img src="~/img/avatar.png"></a>
-                <a href="index.html"><span class=" name-caret">Username</span></a>
+                <a href="index.html"><span class=" name-caret" id="spanUsername">Username</span></a>
                 <p></p>
                 <ul>
                     <li><a class="tooltips" href="@Url.Action("Index" , "Admin")"><span>Profile</span><i class="lnr lnr-user"></i></a></li>
@@ -363,5 +364,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="~/Scripts/jquery.nicescroll.js"></script>
     <script src="~/Scripts/scripts.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    @Scripts.Render("~/Scripts/Admin.js")
 </body>
 </html>

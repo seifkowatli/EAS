@@ -299,7 +299,7 @@ function Get_All_Questions() {
     $.ajax({
 
         method: 'Get',
-        url: 'http://localhost:2199/api/Get_Question/',
+        url: 'http://localhost:2199/api/QuestionAlgorithms/LoadQuestions',
         contentType: "application/json",
         headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
         success: function (data) {

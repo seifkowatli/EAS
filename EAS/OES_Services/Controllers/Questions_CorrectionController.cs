@@ -71,7 +71,7 @@ namespace OES_Services.Controllers
 
             //    Update and insert Final Result In DataBase
                 var SE = (from c in entities.Students_Exams
-                          where c.Student_ID == "07e90ee9-3ccc-40ec-8a39-0179fadfcfe9"
+                          where c.Student_ID == "f723e108-ba10-407a-8cfc-4a85a8258f85"
                           where c.Exam_ID == 1
 
                           select c).FirstOrDefault();
@@ -93,14 +93,14 @@ namespace OES_Services.Controllers
             {
 
                 SED.sa = (from c in entities.Student_Answers
-                          where c.Student_ID == "07e90ee9-3ccc-40ec-8a39-0179fadfcfe9"
+                          where c.Student_ID == "f723e108-ba10-407a-8cfc-4a85a8258f85"
                           where c.Exam_ID == 1
                           select c).ToList();
 
 
 
                 SED.Exam_Result = (int)(from c in entities.Students_Exams
-                                        where c.Student_ID == "07e90ee9-3ccc-40ec-8a39-0179fadfcfe9"
+                                        where c.Student_ID == "f723e108-ba10-407a-8cfc-4a85a8258f85"
                                         where c.Exam_ID == 1
                                         select c.Exam_Result).FirstOrDefault();
 

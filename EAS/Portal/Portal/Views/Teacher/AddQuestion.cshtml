@@ -2,7 +2,7 @@
     ViewBag.Title = "Add Question";
 }
 
-@Scripts.Render("~/Scripts/TeacherScript.js")
+
 
 <!--//outer-wp-->
  <div class="outter-wp">
@@ -21,8 +21,14 @@
                 <div class="validation-form">
                     <!---->
 
-                  
-
+                    <div class="col-md-12 form-group2 group-mail">
+                        <label class="control-label">Course</label>
+                        <select id="CourseID1">
+                            <option value=""> </option>
+                            
+                        </select>
+                    </div>
+                    <br>
                         <div class="col-md-12 form-group1 ">
                             <label class="control-label">Question</label>
                             <textarea id="qt" placeholder ="Question Text..." required=""></textarea>
@@ -88,7 +94,14 @@
                             <input type="text" id="ans3" placeholder="Answer 3" required="">
                         </div>
                    
+                    <div class="col-md-12 form-group2 group-mail">
+                        <label class="control-label">ILO</label>
+                        <select id="ILOS">
+                            <option value=""> </option>
 
+                        </select>
+                    </div>
+                    </div>
 
                         <div id="divErrorText"></div>
                         <div class="col-md-12 form-group button-2">

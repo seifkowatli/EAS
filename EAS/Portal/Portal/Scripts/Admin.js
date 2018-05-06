@@ -13,6 +13,25 @@ function Close_Alert_Div() {
     $('#errortxt').hide();
 }
 
+function Logout()
+{
+
+    bootbox.confirm("Are you sure?", function (result) {
+        if (result) {
+            sessionStorage.removeItem('accessToken');
+            window.location.href = "http://localhost:3923/result.html";
+            window.location.href = "http://localhost:46253/Result/Result";
+
+
+        }
+
+
+    })
+
+    window.alert(222);
+
+}
+
 //for generate randomPassword
 function randomPassword(length) {
     var chars = "abcdefghijklmnopqrstuvwxyz1234567890";
@@ -38,7 +57,7 @@ function randomPassword(length) {
 var Number_of_Topic;
 $(document).ready(function () {
 
-    window.alert($('#TextPhone').val());
+   
     $('#successText').hide();
     $('#errortxt').hide();
 
@@ -231,20 +250,6 @@ function Add_Course() {
 
                     })
                 },
-
-
-           
-
-
-       
-
-
-
-
-
-
-
-
         error: function (jqXHR) {
             $('#P_error').text(jqXHR.responseText);
             $('#errortxt').show('fade');
