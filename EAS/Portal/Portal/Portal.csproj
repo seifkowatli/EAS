@@ -257,6 +257,7 @@
     <Content Include="Views\Admin\AddExam.cshtml" />
     <Content Include="Views\Student\Calendar.cshtml" />
     <Content Include="Views\Student\Dates.cshtml" />
+    <Content Include="Views\Admin\SemestersCourse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

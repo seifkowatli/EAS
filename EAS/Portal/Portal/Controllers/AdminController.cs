@@ -55,5 +55,11 @@ namespace Portal.Controllers
         {
             return View();
         }
+
+
+        public ActionResult SemestersCourse()
+        {
+            return View();
+        }
     }
 }
