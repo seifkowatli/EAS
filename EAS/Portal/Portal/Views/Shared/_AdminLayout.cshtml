@@ -22,19 +22,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
-
-
-    <!-- Links -->
-    @Scripts.Render("~/Scripts/Admin.js")
-    @Styles.Render("~/Content/bootstrap.min.css")
-    @Styles.Render("~/Content/style.css")
-    @Styles.Render("~/Content/font-awesome.css")
-    @Styles.Render("~/Content/icon-font.min.css")
+    <!-- jQuery -->
     <link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'>
-    @Scripts.Render("~/Scripts/jquery-1.10.2.min.js")
 
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/icon-font.min.css" rel="stylesheet" />
 
-    @* /// links*@
 </head>
 <body>
     <div class="page-container">
@@ -315,6 +311,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <a href="#"><i class="fa fa-file-text-o"></i> <span>Courses</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                         <ul id="menu-academico-sub">
                             <li id="menu-academico-boletim"><a href="@Url.Action("Addcourse", "Admin")">Add Course</a></li>
+                            <li id="menu-academico-boletim"><a href="@Url.Action("SemestersCourse", "Admin")">Semesters Course</a></li>                            
                             <li id="menu-academico-avaliacoes"><a href="@Url.Action("Statistics", "Admin")">Statistics</a></li>
                             <li id="menu-academico-avaliacoes"><a href="@Url.Action("AllCourses", "Admin")">All courses</a></li>
 
