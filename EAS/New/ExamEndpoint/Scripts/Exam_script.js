@@ -8,11 +8,18 @@ if (accessToken == null)
 
 
 /////////////////////////////////////////////////////////Exam Script//////////////////
+$(document).ready(function () {
+
+    $('#ExamFinash').hide();
+
+});
+
 var temps = [];
 var Timer1, Timer2;
 var distance2;
 var Questions = [];//to save  question from server before apply filter1
 var Questions_F1 = [];// to save  question from server after apply filter1
+var StudentAnswers = [];
 var allow = [];
 var question_ID;
 var StartExam = false;
@@ -191,88 +198,100 @@ function QFU(q) {
 
     document.getElementById("Q_ans4").textContent = q.Q_ans4;
 
+    clearInterval(Timer2);
     Start_Question_time(q.remaining_minutes, q.remaining_seconds);
 
+
 }
+//Sttrat Exam Time
+
+
+
 
 
 
 function Next_Question() {
 
-    save_Student_Answer();
-    if (current_Question < Questions_F1.length - 1) {
+   
+
+   
+        save_Student_Answer();
+        if (current_Question < Questions_F1.length - 1) {
 
 
-        for (var i = current_Question + 1; i <= Questions_F1.length - 1; i++) {
+            for (var i = current_Question + 1; i <= Questions_F1.length - 1; i++) {
 
-            if (Questions_F1[i].is_Time_Expered == false) {
-                if (Questions_F1[current_Question].is_Time_Expered == false) {
-                    xx = distance2;
-                    var minutes = Math.floor((xx % (1000 * 60 * 60)) / (1000 * 60));
-                    var seconds = Math.floor((xx % (1000 * 60)) / 1000);
-                    Questions_F1[current_Question].remaining_minutes = minutes;
-                    Questions_F1[current_Question].remaining_seconds = seconds;
+                if (Questions_F1[i].is_Time_Expered == false) {
+                    if (Questions_F1[current_Question].is_Time_Expered == false) {
+                        xx = distance2;
+                        var minutes = Math.floor((xx % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((xx % (1000 * 60)) / 1000);
+                        Questions_F1[current_Question].remaining_minutes = minutes;
+                        Questions_F1[current_Question].remaining_seconds = seconds;
 
-                    clearInterval(Timer2);
+                        
+                    }
+
+                    current_Question = i;
+                    //clear previous Answer
+                    jQuery('input:checked').removeProp('checked');
+                    QFU(Questions_F1[current_Question]);
+                    Previous_SA(Questions_F1[current_Question]);
+                    break;
                 }
-
-                current_Question = i;
-                //clear previous Answer
-                jQuery('input:checked').removeProp('checked');
-                QFU(Questions_F1[current_Question]);
-                Previous_SA(Questions_F1[current_Question]);
-                break;
             }
+
+
+
+
+
+
+
+            console.log(Questions_F1);
         }
-
-
-
-
-
-
-
-        console.log(Questions_F1);
-    }
-    else
-        window.alert("Last One");
+        else
+            window.alert("Last One");
+    
 }
 
 
 function Previous_Question() {
 
 
-    if (current_Question > 0 ) {
-       
+   
+    
 
-        for (var i=current_Question-1; i >= 0;i--)
-        {
+        if (current_Question > 0) {
 
-            if (Questions_F1[i].is_Time_Expered == false)
-            {
-                if (Questions_F1[current_Question].is_Time_Expered == false) {
-                    xx = distance2;
-                    var minutes = Math.floor((xx % (1000 * 60 * 60)) / (1000 * 60));
-                    var seconds = Math.floor((xx % (1000 * 60)) / 1000);
-                    Questions_F1[current_Question].remaining_minutes = minutes;
-                    Questions_F1[current_Question].remaining_seconds = seconds;
-                     //clear timer 
-                    clearInterval(Timer2);
+
+            for (var i = current_Question - 1; i >= 0; i--) {
+
+                if (Questions_F1[i].is_Time_Expered == false) {
+                    if (Questions_F1[current_Question].is_Time_Expered == false) {
+                        xx = distance2;
+                        var minutes = Math.floor((xx % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((xx % (1000 * 60)) / 1000);
+                        Questions_F1[current_Question].remaining_minutes = minutes;
+                        Questions_F1[current_Question].remaining_seconds = seconds;
+                        //clear timer 
+                        clearInterval(Timer2);
+                    }
+
+                    current_Question = i;
+
+                    QFU(Questions_F1[current_Question]);
+
+                    Previous_SA(Questions_F1[current_Question]);
+                    break;
                 }
-
-                current_Question = i;
-
-                QFU(Questions_F1[current_Question]);
-
-                Previous_SA(Questions_F1[current_Question]);
-                break;
             }
-        }
-        
-    }
-    else
-        window.alert("First One");
 
-}
+        }
+        else
+            window.alert("First One");
+    }
+
+
 
 //save Previous  student anser
 function Previous_SA(q) {
@@ -387,7 +406,7 @@ function Save_Student_Answer_in_DB() {
 
         method: 'Post',
         data: JSON.stringify(Student_Answer),
-        url: 'http://localhost:2199/api/Questions_Correction/correction',
+        url: 'http://localhost:2199/api/QuestionsCorrection/correction',
         contentType: "application/json",
         headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
         success: function () {
@@ -395,13 +414,46 @@ function Save_Student_Answer_in_DB() {
         },
         complete: function (jqXHR) {
 
-            window.alert("ok");
-
             if (jqXHR.status == '401') {
+                window.alert("ok");
             }
         }
     })
 }
+
+
+function SubmitQuestion() {
+
+   
+
+  
+    if (Questions_F1.length == 1) {
+        $('#ExamDiv').hide();
+        $('#ExamFinash').show();
+        window.location = ('http://localhost:46253/Result/Result');
+    }
+    
+     else if (Questions_F1.length > 1 && current_Question < Questions_F1.length - 1) {
+
+            Questions_F1.splice(current_Question, 1);
+
+            QFU(Questions_F1[current_Question]);
+            console.log(Questions_F1.length);
+        }
+
+     else if (current_Question == Questions_F1.length - 1) {
+
+            Questions_F1.splice(Questions_F1.length - 1, 1);
+
+            jQuery('input:checked').removeProp('checked');
+            QFU(Questions_F1[--current_Question]);
+            console.log(Questions_F1.length);
+        }
+
+    }
+
+
+
 
     
 /////////////////////////////////////////////////////////////////////////////////////////////////////
