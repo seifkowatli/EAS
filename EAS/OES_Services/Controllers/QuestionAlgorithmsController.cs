@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Xml;
 using EAS_DataBase;
+using OES_Services.Security;
 
 namespace OES_Services.Controllers
 {
@@ -214,6 +215,8 @@ namespace OES_Services.Controllers
 
 
 
+               
+
                 var query = entities.Questions_Bank.Join(entities.Question_Answers,
                     r => r.Question_ID, p => p.Question_ID,
                     (r, p) => new { r.Question_ID, r.Question_Text, p.Answer_Text });
@@ -230,7 +233,7 @@ namespace OES_Services.Controllers
                     qes = new Student_Question();
 
                     qes.Question_ID = item1.Question_ID;
-                    qes.Question_Text = item1.Question_Text;
+                    qes.Question_Text = DES.Decrypt( item1.Question_Text);
                     qes.Expected_Time = item1.Expected_Time;
                     Question_Answer = (from c in entities.Question_Answers
                                        where c.Question_ID == item1.Question_ID
@@ -244,10 +247,10 @@ namespace OES_Services.Controllers
 
 
                     }
-                    qes.Question_Answer1 = Answers[0];
-                    qes.Question_Answer2 = Answers[1];
-                    qes.Question_Answer3 = Answers[2];
-                    qes.Question_Answer4 = Answers[3];
+                    qes.Question_Answer1 = DES.Decrypt(Answers[0]); //Decrypt answer 
+                    qes.Question_Answer2 =DES.Decrypt(Answers[1]);
+                    qes.Question_Answer3 =DES.Decrypt(Answers[2]);
+                    qes.Question_Answer4 = DES.Decrypt(Answers[3]);
                     qes1.Add(qes);
 
 
@@ -270,6 +273,8 @@ namespace OES_Services.Controllers
 
                 if (qestions_list.Count == 0)
                     qestions_list_null = true;
+
+                
 
                 return qes1;
 

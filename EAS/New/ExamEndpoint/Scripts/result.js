@@ -35,7 +35,7 @@ $(document).ready(function () {
         $("#div1")
         $.ajax({
             method: 'Get',
-            url: "http://localhost:2199/api/Questions_Correction/Student_Exam_Details",
+            url: "http://localhost:2199/api/QuestionsCorrection/Student_Exam_Details",
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
             headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
             success: function (data)

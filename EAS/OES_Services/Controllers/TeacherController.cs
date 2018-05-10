@@ -5,6 +5,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using EAS_DataBase;
+using OES_Services.Security;
+
 namespace OES_Services.Controllers
 {
 
@@ -18,7 +20,7 @@ namespace OES_Services.Controllers
         [HttpPost]
         public void Add_New_Question(Questions_Bank Nq)
         {
-
+            Nq.Question_Text= DES.Encrypt(Nq.Question_Text);
             using (EAS_DatabaseEntities entities = new EAS_DatabaseEntities())
             {
 
@@ -58,7 +60,7 @@ namespace OES_Services.Controllers
 
                 foreach (var item in Answers)
                 {
-
+                    item.Answer_Text= DES.Encrypt(item.Answer_Text);
                     entities.Question_Answers.Add(item);
                 }
 

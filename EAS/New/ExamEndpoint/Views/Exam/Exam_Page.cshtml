@@ -85,7 +85,7 @@
 				</div>
 			</div> <!-- end of my side bar -->
 			
-			<div class="Exam jumbotron  col-lg-6">
+			<div class="Exam jumbotron  col-lg-6" id="ExamDiv">
 				
 				
 
@@ -99,7 +99,7 @@
 
 					</div>
 					<div class="text-center">
-					<input style="" class="btn btn-success" type="submit" name="submit" value="Submit Questions" >
+					<input style="" class="btn btn-success" type="submit" name="submit" value="Submit Questions"  onclick=" SubmitQuestion()">
 
 					<div class="btn btn-group" id="p1">
 					<button style="width: 100px;" onclick="Previous_Question()" class="btn btn-default" type="submit" name="Next"  id="p11"> <span class="glyphicon glyphicon-step-backward"></span> previous</button>
@@ -117,15 +117,17 @@
 				
 			</div> <!-- end of the exam division -->
 			
+            <div class="Exam jumbotron  col-lg-6" id="ExamFinash">
+                <p >Thank You,redirect you to Exam Result........</p>
+            </div>
+                <div class="Timer  col-lg-3">
 
-			<div class="Timer  col-lg-3">
-				
-					<p class="list-group-item" id="cd"></p>
-					<p class="list-group-item" id="cdq" ></p>
+                    <p class="list-group-item" id="cd"></p>
+                    <p class="list-group-item" id="cdq"></p>
 
-			</div> <!-- end of the timer code -->
+                </div> <!-- end of the timer code -->
 
-		</div> <!-- end of the page content division -- >
+            </div> <!-- end of the page content division -- >
 
 		</div>
 
