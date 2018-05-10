@@ -37,5 +37,10 @@ namespace Portal.Controllers
         {
             return View();
         }
+
+        public ActionResult CreateExam()
+        {
+            return View();
+        }
     }
 }
