@@ -3,5 +3,108 @@
     ViewBag.Title = "AddExam";
 }
 
-<h2>Herer goes the add AddExam</h2>
+<div class="outter-wp">
+    <!--/sub-heard-part-->
+    <div class="sub-heard-part">
+        <ol class="breadcrumb m-b-0">
+            <li><a href="index.html">Home</a></li>
+            <li class="active">AddExam</li>
+        </ol>
+    </div>
+    <!--/sub-heard-part-->
+    <!--/forms-->
+    <div class="forms-main">
+        <h2 class="inner-tittle">AddExam</h2>
+        <div class="graph-form">
+            <div class="validation-form">
+                <!---->
+                <br>
+                <div class="vali-form vali-form1">
 
+
+
+                    <div class="col-md-6 form-group2 ">
+                        <label class="control-label">Course</label>
+                        <select id="CourseExamID">
+                            <option value=""></option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 form-group2 group-mail">
+                        <label class="control-label">Exam Type</label>
+                        <select id="CourseExamType">
+                            <option value=""></option>
+                            <option value="">Midterm</option>
+                            <option value="">Final</option>
+                        </select>
+                    </div>
+
+
+
+                    <div class="col-md-6 form-group1 ">
+                        <label class="control-label">Date</label>
+                        <input type="text" id="ExamDate">
+                    </div>
+
+
+                    <div class="col-md-6 form-group1">
+                        <label class="control-label">Time</label>
+                        <input type="text" id="ExamTime">
+
+                    </div>
+
+                 
+
+
+                    <div class="clearfix"></div>
+
+
+
+                    <div class="clearfix"></div>
+
+
+                    <br>
+                    <div class="clearfix"></div>
+                    <div class="col-md-12 form-group1 ">
+                        <label class="control-label">Notes</label>
+                        <textarea id="ExamNotes" placeholder="Notes ..."></textarea>
+                    </div>
+
+                    <br>
+
+                   
+                    
+
+
+                    <div class="col-md-12 form-group button-2">
+                        <br>
+                        <button id="AddExam" class="btn btn-primary">Add Exam</button>
+                        <button type="reset" class="btn btn-default">Reset</button>
+                    </div>
+
+
+                    <div id="successText" class="alert alert-success ">
+                        <button onclick="Close_Alert_Div()" type="button" class="close" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>Success!</strong> .
+
+                    </div>
+
+                    <div id="errortxt" class="alert alert-danger ">
+                        <button onclick="Close_Alert_Div()" type="button" class="close" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <p id="P_error"></p>
+                    </div>
+                    <div class="clearfix"> </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!--//forms-->
+</div>

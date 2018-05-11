@@ -25,7 +25,7 @@ namespace OES_Services.Controllers
 
     }
 
-    [RoutePrefix("api/Questions_Correction")]
+    [RoutePrefix("api/QuestionsCorrection")]
     public class QuestionsCorrectionController : ApiController
     {
         [Route("correction")]

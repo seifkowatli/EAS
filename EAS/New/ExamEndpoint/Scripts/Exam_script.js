@@ -24,6 +24,7 @@ var allow = [];
 var question_ID;
 var StartExam = false;
 var current_Question = 0;
+var SubmitedQuestion = [];
 
 
 /////////////////////////////////////////////////   Start the Exam on load page
@@ -247,7 +248,7 @@ function Next_Question() {
 
 
 
-            console.log(Questions_F1);
+           
         }
         else
             window.alert("Last One");
@@ -344,11 +345,12 @@ function Get_All_Questions() {
 
 function save_Student_Answer()
 {
-   
     if ($('#Ans1').is(':checked'))
     {
+
         Questions_F1[current_Question].Student_Answer = document.getElementById("Q_ans1").textContent;
-        Questions_F1[current_Question].Answer_number = 1;  
+        Questions_F1[current_Question].Answer_number = 1;
+       
     }
     else if ($('#Ans2').is(':checked')) {
         Questions_F1[current_Question].Student_Answer = document.getElementById("Q_ans2").textContent;
@@ -384,24 +386,20 @@ function Time_EXPIRED()
 }
 
 function Save_Student_Answer_in_DB() {
-
-   
-
+    save_Student_Answer();
+    var Result = $.merge($.merge([], Questions_F1), SubmitedQuestion);  
     var Student_Answer = [];
     var singleObj = {};
-
-
-    for (var i = 0; i < Questions_F1.length; i++) {
+    console.log(Result);
+    for (var i = 0; i < Result.length; i++) {
 
         var singleObj = {};
-        singleObj['Question_ID'] = Questions_F1[i].Q_ID;
+        singleObj['Question_ID'] = Result[i].Q_ID;
         singleObj['Exam_ID'] = 1;
-        singleObj['Student_Answer'] = Questions_F1[i].Student_Answer;
+        singleObj['Student_Answer'] = Result[i].Student_Answer;
         Student_Answer.push(singleObj);
 
     }
-    console.log(Student_Answer);
-
     $.ajax({
 
         method: 'Post',
@@ -424,30 +422,30 @@ function Save_Student_Answer_in_DB() {
 
 function SubmitQuestion() {
 
-   
-
-  
     if (Questions_F1.length == 1) {
         $('#ExamDiv').hide();
         $('#ExamFinash').show();
-        window.location = ('http://localhost:46253/Result/Result');
+        Save_Student_Answer_in_DB();
     }
     
      else if (Questions_F1.length > 1 && current_Question < Questions_F1.length - 1) {
 
-            Questions_F1.splice(current_Question, 1);
+        save_Student_Answer();
+        SubmitedQuestion.push(Questions_F1[current_Question]);
+        Questions_F1.splice(current_Question, 1);
+        jQuery('input:checked').removeProp('checked');
 
             QFU(Questions_F1[current_Question]);
-            console.log(Questions_F1.length);
         }
 
      else if (current_Question == Questions_F1.length - 1) {
 
+        save_Student_Answer();
+        SubmitedQuestion.push(Questions_F1[current_Question]);
             Questions_F1.splice(Questions_F1.length - 1, 1);
 
             jQuery('input:checked').removeProp('checked');
             QFU(Questions_F1[--current_Question]);
-            console.log(Questions_F1.length);
         }
 
     }
