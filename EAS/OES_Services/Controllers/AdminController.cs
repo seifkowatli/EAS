@@ -160,5 +160,22 @@ namespace OES_Services.Controllers
 
 
         }
+
+
+
+        [Route("AddNewExam")]
+        [HttpPost]
+        public void AddNewExam(Exam NewExam)
+        {
+
+            using (EAS_DatabaseEntities entity = new EAS_DatabaseEntities())
+            {
+
+                entity.Exams.Add(NewExam);
+                entity.SaveChanges();
+
+            }
+
+        }
     }
 }

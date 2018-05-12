@@ -251,7 +251,7 @@ function Add_Course() {
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Semesters Course
+// join between  Semester and his Courses
 
 
 $(document).ready(function () {
@@ -356,3 +356,77 @@ $(document).ready(function () {
 
 })
     
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//Add New Exam 
+
+
+function Get_Courses() {
+
+    $.ajax({
+        url: 'http://localhost:2199/api/Admin/Get_Courses',
+        method: 'Get',
+        headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
+
+
+        success: function (data) {
+
+            $.each(data, function (i, item) {
+                $('#CourseExamID').append($('<option>', {
+                    id: item.Course_ID,
+                    text: item.Course_Name
+                }));
+            })
+
+
+        },
+
+    });
+}
+
+
+
+$(document).ready(function () {
+
+    Get_Courses();
+    $('#AddExam').on('click', function () {
+
+
+        NewExam = {};
+        NewExam['Course_ID'] = $('#CourseExamID').children(":selected").attr("id");
+        NewExam['Semster_ID'] = 1
+        NewExam['Exam_Type'] = $("#CourseExamType option:selected").text();
+        NewExam['Exam_Time'] = $('#ExamTime').val();
+        NewExam['Exam_Date'] = $('#ExamDate').val();
+        NewExam['Exam_Notes'] = $('#ExamNotes').val();
+
+
+        $.ajax({
+
+            type: "Post",
+            data: JSON.stringify(NewExam),
+            url: "http://localhost:2199/api/Admin/AddNewExam",
+            contentType: "application/json",
+            headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
+            success: function () {
+
+                $('#successText').show();
+            },
+
+
+            error: function (jqXHR) {
+                $('#P_error').text(jqXHR.responseText);
+                $('#errortxt').show('fade');
+
+            }
+        })
+
+
+
+
+    })
+
+
+
+
+
+})
