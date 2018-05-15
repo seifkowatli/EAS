@@ -132,5 +132,14 @@ Star_Date date,
 Ene_Date date
 )
 
+Create table ExamQuestions(
+
+Exam_ID int,
+Question_ID int,
+primary key(Exam_ID,Question_ID),
+foreign key(Exam_ID)references Exam,
+foreign key(Question_ID)references Questions_Bank 
+)
+
 
 

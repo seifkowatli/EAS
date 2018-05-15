@@ -153,6 +153,7 @@
     <Compile Include="Responses\RegisterResponse .cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="APIScript\Share.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
@@ -184,7 +185,7 @@
     <Content Include="img\team3.jpg" />
     <Content Include="img\work5.jpg" />
     <Content Include="img\work6.jpg" />
-    <Content Include="Scripts\Admin.js" />
+    <Content Include="APIScript\Admin.js" />
     <Content Include="Scripts\amcharts.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -210,7 +211,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\light.js" />
-    <Content Include="Scripts\Login_script.js" />
+    <Content Include="APIScript\Login.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\owl.carousel.min.js" />
@@ -219,8 +220,8 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\scripts.js" />
     <Content Include="Scripts\serial.js" />
-    <Content Include="Scripts\Student.js" />
-    <Content Include="Scripts\TeacherScript.js" />
+    <Content Include="APIScript\Student.js" />
+    <Content Include="APIScript\Teacher.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
