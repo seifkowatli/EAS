@@ -9,7 +9,7 @@ $('#contanierd0').hide();
         type: "Get",
         url: "http://localhost:2199/api/Student/GetAllCourseMarks",
         contentType: "application/json",
-        headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
+        headers: { 'Authorization': 'Bearer' + sessionStorage.getItem('accessToken') },
 
         success: function (data) {
             SemesteWithCourse = data;
@@ -18,12 +18,10 @@ $('#contanierd0').hide();
                 NumberOfCoursInYear[i] = data[i].CWM.length;
             }
            
-
-           
             AddNewSemester();
-
-
+            
         },
+
         error: function (jqXHR) {
             $('#errortxt').text(jqXHR.responseText);
             $('#errortxt').show('fade');
@@ -46,8 +44,7 @@ $('#contanierd0').hide();
 
         console.log(NumberOfYears);
         console.log(NumberOfCoursInYear);
-
-
+        
         var All_Contanier = $('#All_Container');
         var CourseCountanier = $('#AllCourse0');
         var Course0 = $('#course0');
@@ -67,8 +64,6 @@ $('#contanierd0').hide();
               
                 $clon = Course0.clone().prop('id', 'course' + i + '-' + j);
 
-               
-
 
                 $clon.find("#CourseName0").attr("id", "CourseName" + i + '-' + j);
                 $clon.find("#Practical0").attr("id", "Practical" + i + '-' + j);
@@ -82,10 +77,6 @@ $('#contanierd0').hide();
 
             All_Contanier.append(Contanier);
 
-
-
-
-
         }
         $('#contanierd0').remove();
         Display_Marks();
@@ -94,9 +85,7 @@ $('#contanierd0').hide();
 
 
     }
-
-
-
+    
     function Display_Marks(){
 
         console.log(SemesteWithCourse);
@@ -110,16 +99,9 @@ $('#contanierd0').hide();
                 document.getElementById("Practical" + i + '-' + j).innerHTML = SemesteWithCourse[i].CWM[j].StudentPractical;
                 document.getElementById("mid" + i + '-' + j).innerHTML = SemesteWithCourse[i].CWM[j].MidMark;
                 document.getElementById("final" + i + '-' + j).innerHTML = SemesteWithCourse[i].CWM[j].FinalMark;
-
-
-
+                
             }
-
         }
-
-
     }
-
-
 
 })

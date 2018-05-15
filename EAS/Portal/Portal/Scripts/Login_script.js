@@ -8,7 +8,6 @@
 ////////////////////////////////////////////////////////////
 function Close_Alert_Div() {
 
-
     $('#errortxt').hide();
 }
 
@@ -26,7 +25,6 @@ $(document).ready(function () {
             method: 'POST',
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
             data: {
-
                 UserName: $('#user-name').val(),
                 PassWord: $('#password').val(),
                 grant_type: 'password',
@@ -35,7 +33,6 @@ $(document).ready(function () {
                 sessionStorage.setItem('accessToken', response.access_token);
                 localStorage.setItem('UserName', response.userName);
                 $.ajax({
-
                     type: "Get",
                     url: "http://localhost:2199/api/Route",
                     contentType: 'application/x-www-form-urlencoded; charset=UTF-8',

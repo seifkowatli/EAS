@@ -34,11 +34,7 @@ function GetCourse() {
 
     });
 
-
-  
-
-   
-
+    
 }
 
 
@@ -91,18 +87,13 @@ $(document).ready(function () {
 
         });
 
-
-
        
     })
 
     $('#BtnSave').click(function () {
 
-      
         var Answers = [];
-
         console.log(Answers);
-
 
 
         var true_Answer = {
@@ -201,12 +192,6 @@ $(document).ready(function () {
 
 
 
-
-
-
-
-
-
         });
 
 
@@ -217,7 +202,6 @@ $(document).ready(function () {
 
         sessionStorage.removeItem('accessToken');
         window.location.href = "http://localhost:3923/test1.html";
-
     }
 
 
