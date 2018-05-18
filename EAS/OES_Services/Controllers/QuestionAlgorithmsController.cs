@@ -26,11 +26,10 @@ namespace OES_Services.Controllers
             public String Question_Answer3;
             public String Question_Answer4;
             public string Expected_Time;
-
-
-
-
+            
         }
+
+
         static public int[] list = { 5, 4, 3, 2, 1 };
         static List<int> temp = new List<int>();
         static public List<int> qestions_list = new List<int>();

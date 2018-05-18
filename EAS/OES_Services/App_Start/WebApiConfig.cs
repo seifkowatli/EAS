@@ -15,7 +15,7 @@ namespace OES_Services
         {
 
             //config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
-            EnableCorsAttribute cors = new EnableCorsAttribute(origins: "*", headers: "*", methods: "*");
+            EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*","*");
             config.EnableCors(cors);
 
 

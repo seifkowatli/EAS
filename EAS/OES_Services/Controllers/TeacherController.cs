@@ -101,19 +101,20 @@ namespace OES_Services.Controllers
                       ).Take(1).SingleOrDefault();
 
 
-                Answers[0].is_trueAnswer = true;
-                Answers[1].is_trueAnswer = false;
-                Answers[2].is_trueAnswer = false;
-                Answers[3].is_trueAnswer = false;
 
 
-                Answers[0].Question_ID = id;
-                Answers[1].Question_ID = id;
-                Answers[2].Question_ID = id;
-                Answers[3].Question_ID = id;
+                for(int i = 0; i <Answers.Count(); i++)
+                {
+                    if (i == 0)
+                        Answers[i].is_trueAnswer = true;
+                    else
+                        Answers[i].is_trueAnswer = false;
+                }
 
+                for (int i = 0; i < Answers.Count(); i++)
+                    Answers[i].Question_ID = id;
 
-
+                
                 foreach (var item in Answers)
                 {
                     item.Answer_Text= DES.Encrypt(item.Answer_Text);
