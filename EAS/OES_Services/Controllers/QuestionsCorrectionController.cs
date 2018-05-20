@@ -19,10 +19,12 @@ namespace OES_Services.Controllers
         {
 
             sa = new List<Student_Answers>();
+
+
         }
 
     }
-    
+
     [RoutePrefix("api/QuestionsCorrection")]
     public class QuestionsCorrectionController : ApiController
     {
@@ -32,6 +34,10 @@ namespace OES_Services.Controllers
         {
             using (EAS_DatabaseEntities entities = new EAS_DatabaseEntities())
             {
+
+
+
+
                 int Final_Result = 0; //to save all marks here 
                 foreach (var item in SA)
                 {
@@ -57,7 +63,11 @@ namespace OES_Services.Controllers
                     item.Student_ID = User.Identity.GetUserId();//Get User ID From LogIn Section
                     entities.Student_Answers.Add(item);
                     entities.SaveChanges();
+
+
+
                 }
+
 
             //    Update and insert Final Result In DataBase
                 var SE = (from c in entities.Students_Exams
