@@ -11,21 +11,19 @@ namespace OES_Services.Controllers
 {
    public class CourseExam
     {
-
         public int Exam_ID;
         public string Exam_Type;
         public string Course_Name;
         public int Semster_ID;
         public int Course_ID;
-
-
+        
 }
     public class TopicPercentage
     {
         public String Text;
         public String percentage;
-
     }
+
     public class Difficulty
     {
         public String VeryEasy;
@@ -33,9 +31,6 @@ namespace OES_Services.Controllers
         public String Avarage;
         public String Difficult;
         public String VeryDifficult;
-
-
-
     }
     public class ThinkingSkills
     {
@@ -158,9 +153,7 @@ namespace OES_Services.Controllers
             }
             return All_ILOS;
             }
-
-
-
+        
         [Route("Get_Courses")]
         [HttpGet]
         public List<Course> Get_Courses()

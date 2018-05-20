@@ -23,6 +23,8 @@ namespace EAS_Servies.Controllers
 
 
     }
+
+
     [RoutePrefix("api/Charts")]
     public class ChartsController : ApiController
     {

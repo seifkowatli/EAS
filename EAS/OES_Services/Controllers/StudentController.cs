@@ -17,8 +17,8 @@ namespace OES_Services.Controllers
         public int FinalMark { get; set; }
         public int MidMark { get; set; }
         public int StudentPractical { get; set; }
-
     }
+
 
     public class SemesterCourses
     {
@@ -27,9 +27,7 @@ namespace OES_Services.Controllers
 
         public SemesterCourses()
         {
-
             CWM = new List<CourseWithMark>();
-
         }
 
     }
@@ -110,18 +108,12 @@ namespace OES_Services.Controllers
 
 
                         sc.CWM.Add(cwm);
-
-
-
-
+                        
                     }
                     semestercourses.Add(sc);
-
-
+                    
                 }
-
-
-
+                
             }
             return semestercourses;
 

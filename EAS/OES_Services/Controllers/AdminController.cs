@@ -33,13 +33,10 @@ namespace OES_Services.Controllers
                 entities.Courses.Add(c);
                 entities.SaveChanges();
             }
-
-
+            
         }
-
-
-
-
+        
+        
         [Route("Add_Semester_Course")]
         [HttpPost]
         public void Add_Course_Teacher(Semester_Courses SC)
