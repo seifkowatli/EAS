@@ -1,6 +1,12 @@
 
 
+function Close_Alert_Div() {
+
+    $('#divErrorText').hide();
+}
 $(document).ready(function () {
+
+    $('#divErrorText').hide();
 
     $('#btnLogin').click(function () {
         var user = $('#TextUserName').val();
@@ -24,8 +30,8 @@ $(document).ready(function () {
 
             },
             error: function (jqXHR) {
-                $('#divErrorText').text(jqXHR.responseText);
-                $('#divError').show('fade');
+                $("#P_error").text(jqXHR.responseText);
+                $('#divErrorText').show('fade');
             }
 
 

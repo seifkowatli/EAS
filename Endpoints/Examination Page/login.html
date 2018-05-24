@@ -16,6 +16,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!--web-fonts-->
 </head>
 
+
+@{
+    ViewBag.Title = "Home-Page";
+}
+
+@Scripts.Render("~/Scripts/jquery-1.10.2.js")
+@Scripts.Render("~/Scripts/loginscript.js")
+@Scripts.Render("~/Scripts/spin.min.js")
+@Scripts.Render("~/Scripts/ladda.min.js")
+
+@Styles.Render("~/Styles/Home-Style.css")
+@Styles.Render("~/Content/bootstrap.css")
+
+@Styles.Render("~/Styles/demo.css")
+@Styles.Render("~/Styles/ladda.min.css")
+
+
 <body>
 <!--header-->
 	<div class="header-w3l">
@@ -27,9 +44,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <div class="main-content-agile">
 	<div class="sub-main-w3">	
 		<form action="Examination.html" method="post">
-			<input placeholder="Username or E-mail" name="Name" class="user" type="text" required=""><br>
-			<input  placeholder="Password" name="Password" class="pass" type="password" required=""><br>
-			<input type="submit" value="">
+			<input placeholder="Username or E-mail" name="Name" id="TextUserName" class="user" type="text" required=""><br>
+			<input  placeholder="Password" name="Password" class="pass" id="TextPassWord" type="password" required=""><br>
+			<input type="submit" id="btnLogin" value="">
 		</form>
 	</div>
 </div>
