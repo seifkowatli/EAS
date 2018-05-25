@@ -19,9 +19,12 @@ namespace EAS_DataBase
         public string Teacher_ID { get; set; }
         public Nullable<int> Number_of_Student { get; set; }
         public Nullable<double> Success_rate { get; set; }
+<<<<<<< HEAD
     
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual Course Course { get; set; }
         public virtual Semester Semester { get; set; }
+=======
+>>>>>>> f0bbe600bddb1581549f1e674c7a777e5f078ec5
     }
 }

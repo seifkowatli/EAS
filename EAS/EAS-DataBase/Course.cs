@@ -14,6 +14,7 @@ namespace EAS_DataBase
     
     public partial class Course
     {
+<<<<<<< HEAD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Course()
         {
@@ -23,10 +24,13 @@ namespace EAS_DataBase
             this.Topics = new HashSet<Topic>();
         }
     
+=======
+>>>>>>> f0bbe600bddb1581549f1e674c7a777e5f078ec5
         public int Course_ID { get; set; }
         public string Course_Name { get; set; }
         public int Credit_Hours { get; set; }
         public string Course_Description { get; set; }
+<<<<<<< HEAD
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Course_Students> Course_Students { get; set; }
@@ -36,5 +40,7 @@ namespace EAS_DataBase
         public virtual ICollection<Semester_Courses> Semester_Courses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Topic> Topics { get; set; }
+=======
+>>>>>>> f0bbe600bddb1581549f1e674c7a777e5f078ec5
     }
 }

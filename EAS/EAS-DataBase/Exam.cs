@@ -14,6 +14,7 @@ namespace EAS_DataBase
     
     public partial class Exam
     {
+<<<<<<< HEAD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Exam()
         {
@@ -21,6 +22,8 @@ namespace EAS_DataBase
             this.Questions_Bank = new HashSet<Questions_Bank>();
         }
     
+=======
+>>>>>>> f0bbe600bddb1581549f1e674c7a777e5f078ec5
         public int Exam_ID { get; set; }
         public Nullable<int> Course_ID { get; set; }
         public Nullable<int> Semster_ID { get; set; }
@@ -29,6 +32,7 @@ namespace EAS_DataBase
         public string Exam_Date { get; set; }
         public Nullable<int> Exam_Period { get; set; }
         public string Exam_Notes { get; set; }
+<<<<<<< HEAD
     
         public virtual Course Course { get; set; }
         public virtual Semester Semester { get; set; }
@@ -36,5 +40,7 @@ namespace EAS_DataBase
         public virtual ICollection<Students_Exams> Students_Exams { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Questions_Bank> Questions_Bank { get; set; }
+=======
+>>>>>>> f0bbe600bddb1581549f1e674c7a777e5f078ec5
     }
 }
