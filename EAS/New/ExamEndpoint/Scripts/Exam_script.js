@@ -2,9 +2,9 @@
 
 ////////////////////////////////////////////////////////////
 // if you dont log in !!you Be referred to login page  
-var accessToken = sessionStorage.getItem('accessToken');
-if (accessToken == null)
-    window.location = "http://localhost:46253/";
+//var accessToken = sessionStorage.getItem('accessToken');
+//if (accessToken == null)
+//    window.location = "http://localhost:46253/";
 
 
 /////////////////////////////////////////////////////////Exam Script//////////////////
@@ -450,7 +450,10 @@ function SubmitQuestion() {
 
     }
 
+function change() {
 
+
+}
 
 
     

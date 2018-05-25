@@ -185,5 +185,13 @@
         <ScalarProperty Name="Id" ColumnName="UserId" />
       </EndProperty>
     </AssociationSetMapping>
+    <AssociationSetMapping Name="ExamQuestions" TypeName="EAS_DatabaseModel.ExamQuestions" StoreEntitySet="ExamQuestions">
+      <EndProperty Name="Exam">
+        <ScalarProperty Name="Exam_ID" ColumnName="Exam_ID" />
+      </EndProperty>
+      <EndProperty Name="Questions_Bank">
+        <ScalarProperty Name="Question_ID" ColumnName="Question_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

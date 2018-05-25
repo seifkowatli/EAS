@@ -104,6 +104,14 @@ warning 6013: The table/view 'EAS_Database.dbo.Calander' does not have a primary
     <Property Name="Exam_Period" Type="int" />
     <Property Name="Exam_Notes" Type="varchar" MaxLength="200" />
   </EntityType>
+  <EntityType Name="ExamQuestions">
+    <Key>
+      <PropertyRef Name="Exam_ID" />
+      <PropertyRef Name="Question_ID" />
+    </Key>
+    <Property Name="Exam_ID" Type="int" Nullable="false" />
+    <Property Name="Question_ID" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="ILOS">
     <Key>
       <PropertyRef Name="ILOs_ID" />
@@ -241,6 +249,30 @@ warning 6013: The table/view 'EAS_Database.dbo.Calander' does not have a primary
       </Principal>
       <Dependent Role="Exam">
         <PropertyRef Name="Semster_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ExamQuest__Exam___5CD6CB2B">
+    <End Role="Exam" Type="Self.Exam" Multiplicity="1" />
+    <End Role="ExamQuestions" Type="Self.ExamQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exam">
+        <PropertyRef Name="Exam_ID" />
+      </Principal>
+      <Dependent Role="ExamQuestions">
+        <PropertyRef Name="Exam_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ExamQuest__Quest__5DCAEF64">
+    <End Role="Questions_Bank" Type="Self.Questions_Bank" Multiplicity="1" />
+    <End Role="ExamQuestions" Type="Self.ExamQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Questions_Bank">
+        <PropertyRef Name="Question_ID" />
+      </Principal>
+      <Dependent Role="ExamQuestions">
+        <PropertyRef Name="Question_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -444,6 +476,7 @@ warning 6013: The table/view 'EAS_Database.dbo.Calander' does not have a primary
     <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Course_Students" EntityType="Self.Course_Students" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Exam" EntityType="Self.Exam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExamQuestions" EntityType="Self.ExamQuestions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ILOS" EntityType="Self.ILOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Question_Answers" EntityType="Self.Question_Answers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Questions_Bank" EntityType="Self.Questions_Bank" Schema="dbo" store:Type="Tables" />
@@ -471,6 +504,14 @@ warning 6013: The table/view 'EAS_Database.dbo.Calander' does not have a primary
     <AssociationSet Name="FK__Exam__Semster_ID__2D27B809" Association="Self.FK__Exam__Semster_ID__2D27B809">
       <End Role="Semesters" EntitySet="Semesters" />
       <End Role="Exam" EntitySet="Exam" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ExamQuest__Exam___5CD6CB2B" Association="Self.FK__ExamQuest__Exam___5CD6CB2B">
+      <End Role="Exam" EntitySet="Exam" />
+      <End Role="ExamQuestions" EntitySet="ExamQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ExamQuest__Quest__5DCAEF64" Association="Self.FK__ExamQuest__Quest__5DCAEF64">
+      <End Role="Questions_Bank" EntitySet="Questions_Bank" />
+      <End Role="ExamQuestions" EntitySet="ExamQuestions" />
     </AssociationSet>
     <AssociationSet Name="FK__ILOS__Topic_ID__3A81B327" Association="Self.FK__ILOS__Topic_ID__3A81B327">
       <End Role="Topic" EntitySet="Topic" />

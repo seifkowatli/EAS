@@ -5,6 +5,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
 <<<<<<< HEAD
+      <Diagram DiagramId="3fed3f12d29941528616771e086427f1" Name="Diagram1">
+=======
+<<<<<<< HEAD
       <Diagram DiagramId="90ddd5cdeb134762945140548acecd03" Name="Diagram1" ZoomLevel="97">
         <EntityTypeShape EntityType="EAS_DatabaseModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="EAS_DatabaseModel.AspNetRole" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
@@ -24,6 +27,7 @@
         <EntityTypeShape EntityType="EAS_DatabaseModel.Topic" Width="1.5" PointX="1.25" PointY="15.25" IsExpanded="true" />
 =======
       <Diagram DiagramId="90ddd5cdeb134762945140548acecd03" Name="Diagram1" ZoomLevel="74">
+>>>>>>> f0bbe600bddb1581549f1e674c7a777e5f078ec5
         <EntityTypeShape EntityType="EAS_DatabaseModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EAS_DatabaseModel.AspNetRole" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="EAS_DatabaseModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
@@ -31,16 +35,27 @@
         <EntityTypeShape EntityType="EAS_DatabaseModel.AspNetUser" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="EAS_DatabaseModel.Course" Width="1.5" PointX="6" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="EAS_DatabaseModel.Course_Students" Width="1.5" PointX="8.25" PointY="7.375" IsExpanded="true" />
+<<<<<<< HEAD
+        <EntityTypeShape EntityType="EAS_DatabaseModel.Exam" Width="1.5" PointX="6" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EAS_DatabaseModel.ILO" Width="1.5" PointX="6" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EAS_DatabaseModel.Question_Answers" Width="1.5" PointX="10.5" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EAS_DatabaseModel.Questions_Bank" Width="1.5" PointX="8.25" PointY="22.125" IsExpanded="true" />
+=======
         <EntityTypeShape EntityType="EAS_DatabaseModel.Exam" Width="1.5" PointX="6" PointY="17.25" IsExpanded="true" />
         <EntityTypeShape EntityType="EAS_DatabaseModel.ILO" Width="1.5" PointX="6" PointY="21.625" IsExpanded="true" />
         <EntityTypeShape EntityType="EAS_DatabaseModel.Question_Answers" Width="1.5" PointX="10.5" PointY="21.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EAS_DatabaseModel.Questions_Bank" Width="1.5" PointX="8.25" PointY="21.25" IsExpanded="true" />
+>>>>>>> f0bbe600bddb1581549f1e674c7a777e5f078ec5
         <EntityTypeShape EntityType="EAS_DatabaseModel.Semester_Courses" Width="1.5" PointX="8.25" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="EAS_DatabaseModel.Semester" Width="1.5" PointX="6" PointY="13.375" IsExpanded="true" />
         <EntityTypeShape EntityType="EAS_DatabaseModel.Student_Answers" Width="1.5" PointX="10.5" PointY="11.625" IsExpanded="true" />
         <EntityTypeShape EntityType="EAS_DatabaseModel.Students_Exams" Width="1.5" PointX="8.25" PointY="11.625" IsExpanded="true" />
+<<<<<<< HEAD
+        <EntityTypeShape EntityType="EAS_DatabaseModel.Topic" Width="1.5" PointX="3.75" PointY="22.75" IsExpanded="true" />
+=======
         <EntityTypeShape EntityType="EAS_DatabaseModel.Topic" Width="1.5" PointX="3.75" PointY="21.75" IsExpanded="true" />
 >>>>>>> 8534b98fbdfa047545ecc689528713d960c93d87
+>>>>>>> f0bbe600bddb1581549f1e674c7a777e5f078ec5
         <AssociationConnector Association="EAS_DatabaseModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="EAS_DatabaseModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="EAS_DatabaseModel.FK__Course_St__Stude__33D4B598" ManuallyRouted="false" />
@@ -60,6 +75,10 @@
         <AssociationConnector Association="EAS_DatabaseModel.FK__Semester___Semst__276EDEB3" ManuallyRouted="false" />
         <AssociationConnector Association="EAS_DatabaseModel.FK__Student_Answers__48CFD27E" ManuallyRouted="false" />
         <AssociationConnector Association="EAS_DatabaseModel.AspNetUserRoles" ManuallyRouted="false" />
+<<<<<<< HEAD
+        <AssociationConnector Association="EAS_DatabaseModel.ExamQuestions" ManuallyRouted="false" />
+=======
+>>>>>>> f0bbe600bddb1581549f1e674c7a777e5f078ec5
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
