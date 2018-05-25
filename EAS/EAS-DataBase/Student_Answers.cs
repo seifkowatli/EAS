@@ -19,11 +19,8 @@ namespace EAS_DataBase
         public int Question_ID { get; set; }
         public string Student_Answer { get; set; }
         public Nullable<bool> IsTrue { get; set; }
-<<<<<<< HEAD
     
         public virtual Questions_Bank Questions_Bank { get; set; }
         public virtual Students_Exams Students_Exams { get; set; }
-=======
->>>>>>> f0bbe600bddb1581549f1e674c7a777e5f078ec5
     }
 }

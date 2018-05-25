@@ -14,7 +14,6 @@ namespace EAS_DataBase
     
     public partial class AspNetUser
     {
-<<<<<<< HEAD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public AspNetUser()
         {
@@ -26,8 +25,6 @@ namespace EAS_DataBase
             this.AspNetRoles = new HashSet<AspNetRole>();
         }
     
-=======
->>>>>>> f0bbe600bddb1581549f1e674c7a777e5f078ec5
         public string Id { get; set; }
         public string F_Name { get; set; }
         public string L_Name { get; set; }
@@ -42,7 +39,6 @@ namespace EAS_DataBase
         public bool LockoutEnabled { get; set; }
         public int AccessFailedCount { get; set; }
         public string UserName { get; set; }
-<<<<<<< HEAD
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetUserClaim> AspNetUserClaims { get; set; }
@@ -56,7 +52,5 @@ namespace EAS_DataBase
         public virtual ICollection<Students_Exams> Students_Exams { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
-=======
->>>>>>> f0bbe600bddb1581549f1e674c7a777e5f078ec5
     }
 }

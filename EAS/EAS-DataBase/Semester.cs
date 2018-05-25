@@ -14,7 +14,6 @@ namespace EAS_DataBase
     
     public partial class Semester
     {
-<<<<<<< HEAD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Semester()
         {
@@ -33,10 +32,5 @@ namespace EAS_DataBase
         public virtual ICollection<Exam> Exams { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Semester_Courses> Semester_Courses { get; set; }
-=======
-        public int Semster_ID { get; set; }
-        public int Semester1 { get; set; }
-        public string C_Year { get; set; }
->>>>>>> f0bbe600bddb1581549f1e674c7a777e5f078ec5
     }
 }

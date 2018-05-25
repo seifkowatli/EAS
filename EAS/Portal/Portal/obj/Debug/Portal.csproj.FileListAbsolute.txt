@@ -198,3 +198,4 @@ D:\salim\sunior\EAS1\EAS\EAS\Portal\Portal\bin\Microsoft.AI.WindowsServer.xml
 D:\salim\sunior\EAS1\EAS\EAS\Portal\Portal\bin\Microsoft.AI.Web.xml
 D:\salim\sunior\EAS1\EAS\EAS\Portal\Portal\obj\Debug\Portal.dll
 D:\salim\sunior\EAS1\EAS\EAS\Portal\Portal\obj\Debug\Portal.pdb
+D:\salim\sunior\EAS1\EAS\EAS\Portal\Portal\obj\Debug\Portal.csprojResolveAssemblyReference.cache

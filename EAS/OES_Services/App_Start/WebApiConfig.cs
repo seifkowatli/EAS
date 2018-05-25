@@ -6,6 +6,7 @@ using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 using System.Web.Http.Cors;
+using WebApiContrib.Formatting.Jsonp;
 
 namespace OES_Services
 {
@@ -15,8 +16,7 @@ namespace OES_Services
         {
 
             //config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
-            EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*","*");
-            config.EnableCors(cors);
+            
 
 
             // Web API configuration and services
@@ -34,7 +34,12 @@ namespace OES_Services
             );
 
 
-            
+            EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
+            //var jsonpFormatter = new JsonpMediaTypeFormatter(config.Formatters.JsonFormatter);
+            //config.Formatters.Insert(0, jsonpFormatter);
+
+
 
         }
     }
