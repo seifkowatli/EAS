@@ -77,3 +77,6 @@ D:\salim\sunior\EAS1\EAS\EAS\EAS_Servies\obj\Debug\EAS_Servies.pdb
 D:\salim\sunior\EAS1\EAS\EAS\EAS_Servies\bin\System.Web.Cors.dll
 D:\salim\sunior\EAS1\EAS\EAS\EAS_Servies\bin\System.Web.Http.Cors.dll
 D:\salim\sunior\EAS1\EAS\EAS\EAS_Servies\bin\System.Web.Http.Cors.xml
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\EAS_Servies\obj\Debug\EAS_Servies.csprojResolveAssemblyReference.cache
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\EAS_Servies\obj\Debug\EAS_Servies.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\EAS_Servies\obj\Debug\EAS_Servies.pdb

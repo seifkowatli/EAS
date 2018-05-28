@@ -14,17 +14,12 @@ namespace EAS_DataBase
     
     public partial class Questions_Bank
     {
-<<<<<<< HEAD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Questions_Bank()
         {
             this.Question_Answers = new HashSet<Question_Answers>();
-            this.Student_Answers = new HashSet<Student_Answers>();
-            this.Exams = new HashSet<Exam>();
         }
     
-=======
->>>>>>> f0bbe600bddb1581549f1e674c7a777e5f078ec5
         public int Question_ID { get; set; }
         public string Question_Text { get; set; }
         public string Expected_Time { get; set; }
@@ -32,17 +27,12 @@ namespace EAS_DataBase
         public Nullable<int> Question_Frequency { get; set; }
         public string Thinking_Skills { get; set; }
         public Nullable<int> Question_Mark { get; set; }
-        public Nullable<int> ILO_ID { get; set; }
-<<<<<<< HEAD
+        public int Topic_Id { get; set; }
+        public Nullable<int> Exam_Id { get; set; }
     
-        public virtual ILO ILO { get; set; }
+        public virtual Exam Exam { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Question_Answers> Question_Answers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Student_Answers> Student_Answers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Exam> Exams { get; set; }
-=======
->>>>>>> f0bbe600bddb1581549f1e674c7a777e5f078ec5
+        public virtual Topic Topic { get; set; }
     }
 }
