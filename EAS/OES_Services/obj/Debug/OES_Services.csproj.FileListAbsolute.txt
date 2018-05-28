@@ -299,7 +299,6 @@ D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\OES_Services.dll.config
 D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\OES_Services.dll
 D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\OES_Services.pdb
 D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\Antlr3.Runtime.dll
-D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\EAS-DataBase.dll
 D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\EntityFramework.dll
 D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\EntityFramework.SqlServer.dll
 D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\Microsoft.AI.Agent.Intercept.dll
@@ -339,8 +338,6 @@ D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\System.Web.WebPages.Deployment.dll
 D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\System.Web.WebPages.dll
 D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\System.Web.WebPages.Razor.dll
 D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\WebGrease.dll
-D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\EAS-DataBase.pdb
-D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\EAS-DataBase.dll.config
 D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\EntityFramework.xml
 D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\EntityFramework.SqlServer.xml
 D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\Microsoft.AI.DependencyCollector.xml
@@ -380,3 +377,6 @@ D:\salim\sunior\EAS1\EAS\EAS\OES_Services\obj\Debug\OES_Services.dll
 D:\salim\sunior\EAS1\EAS\EAS\OES_Services\obj\Debug\OES_Services.pdb
 D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\WebApiContrib.Formatting.Jsonp.dll
 D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\WebApiContrib.Formatting.Jsonp.pdb
+D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\Database.dll
+D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\Database.pdb
+D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\Database.dll.config
