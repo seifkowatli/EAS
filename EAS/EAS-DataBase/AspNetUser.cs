@@ -22,7 +22,6 @@ namespace EAS_DataBase
             this.Course_Students = new HashSet<Course_Students>();
             this.Semester_Courses = new HashSet<Semester_Courses>();
             this.Students_Exams = new HashSet<Students_Exams>();
-            this.Students_Answers = new HashSet<Students_Answers>();
             this.AspNetRoles = new HashSet<AspNetRole>();
         }
     
@@ -51,8 +50,6 @@ namespace EAS_DataBase
         public virtual ICollection<Semester_Courses> Semester_Courses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Students_Exams> Students_Exams { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Students_Answers> Students_Answers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
     }

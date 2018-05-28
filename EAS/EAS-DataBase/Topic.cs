@@ -15,6 +15,11 @@ namespace EAS_DataBase
     public partial class Topic
     {
 <<<<<<< HEAD
+        public int Topic_ID { get; set; }
+        public int Course_ID { get; set; }
+        public string Topic_Description { get; set; }
+=======
+<<<<<<< HEAD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Topic()
         {
@@ -37,5 +42,6 @@ namespace EAS_DataBase
         public int Id { get; set; }
         public string Topic_Name { get; set; }
 >>>>>>> 7141463f045bd038efbd3c5a56cbd2b460e3aca3
+>>>>>>> 9229c6cf2bcfc022a4ebaf1673f2fe59a9b92b50
     }
 }

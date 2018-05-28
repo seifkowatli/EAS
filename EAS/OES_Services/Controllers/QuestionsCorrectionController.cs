@@ -12,25 +12,25 @@ namespace OES_Services.Controllers
 
     public class Student_Exam_Details
     {
-        public List<Students_Answers> sa;
+        public List<Student_Answers> sa;
         public int Exam_Result { get; set; }
 
         public Student_Exam_Details()
         {
 
-            sa = new List<Students_Answers>();
+            sa = new List<Student_Answers>();
 
 
         }
 
     }
 
-    [RoutePrefix("api/QuestionsCorrection")]
-    public class QuestionsCorrectionController : ApiController
+    [RoutePrefix("api/Questions_Correction")]
+    public class Questions_CorrectionController : ApiController
     {
         [Route("correction")]
         [HttpPost]
-        public void correction(List<Students_Answers> SA)
+        public void correction(List<Student_Answers> SA)
         {
             using (EAS_DatabaseEntities entities = new EAS_DatabaseEntities())
             {
@@ -41,25 +41,27 @@ namespace OES_Services.Controllers
                 int Final_Result = 0; //to save all marks here 
                 foreach (var item in SA)
                 {
-                    int true_Answer = (from c in entities.Question_Answers
+                    string true_Answer = (from c in entities.Question_Answers
 
-                                          where c.Question_ID == item.Question_Id
+                                          where c.Question_ID == item.Question_ID
                                           where c.is_trueAnswer == true
-                                          select c.Answer_ID).FirstOrDefault();
+                                          select c.Answer_Text).FirstOrDefault();
 
-                    if (item.Answer_Id == true_Answer)
+                    if (item.Student_Answer == true_Answer)
                     {
+                        item.IsTrue = true;
 
                         int q_Mark = (int)(from c in entities.Questions_Bank
-                                           where c.Question_ID == item.Question_Id
+                                           where c.Question_ID == item.Question_ID
                                            select c.Question_Mark).FirstOrDefault();
 
                         Final_Result = Final_Result + q_Mark;
                     }
-                    
+                    else
+                        item.IsTrue = false;
 
-                    item.Std_Id = User.Identity.GetUserId();//Get User ID From LogIn Section
-                    entities.Students_Answers.Add(item);
+                    item.Student_ID = User.Identity.GetUserId();//Get User ID From LogIn Section
+                    entities.Student_Answers.Add(item);
                     entities.SaveChanges();
 
 
@@ -90,9 +92,9 @@ namespace OES_Services.Controllers
             using (EAS_DatabaseEntities entities = new EAS_DatabaseEntities())
             {
 
-                SED.sa = (from c in entities.Students_Answers
-                          where c.Std_Id == "f723e108-ba10-407a-8cfc-4a85a8258f85"
-                          where c.Exam_Id == 1
+                SED.sa = (from c in entities.Student_Answers
+                          where c.Student_ID == "f723e108-ba10-407a-8cfc-4a85a8258f85"
+                          where c.Exam_ID == 1
                           select c).ToList();
 
 

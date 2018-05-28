@@ -29,6 +29,8 @@ namespace EAS_DataBase
         public string Student_ID { get; set; }
         public int Exam_ID { get; set; }
         public Nullable<int> Exam_Result { get; set; }
+<<<<<<< HEAD
+=======
     
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual Exam Exam { get; set; }
@@ -40,5 +42,6 @@ namespace EAS_DataBase
 >>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6
 =======
 >>>>>>> 7141463f045bd038efbd3c5a56cbd2b460e3aca3
+>>>>>>> 9229c6cf2bcfc022a4ebaf1673f2fe59a9b92b50
     }
 }

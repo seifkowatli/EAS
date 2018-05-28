@@ -14,19 +14,9 @@ namespace EAS_DataBase
     
     public partial class Question_Answers
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Question_Answers()
-        {
-            this.Students_Answers = new HashSet<Students_Answers>();
-        }
-    
         public int Question_ID { get; set; }
         public int Answer_ID { get; set; }
         public string Answer_Text { get; set; }
         public Nullable<bool> is_trueAnswer { get; set; }
-    
-        public virtual Questions_Bank Questions_Bank { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Students_Answers> Students_Answers { get; set; }
     }
 }

@@ -14,19 +14,12 @@ namespace EAS_DataBase
     
     public partial class Course
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Course()
-        {
-            this.Course_Students = new HashSet<Course_Students>();
-            this.Exams = new HashSet<Exam>();
-            this.Semester_Courses = new HashSet<Semester_Courses>();
-            this.ILOs = new HashSet<ILO>();
-        }
-    
         public int Course_ID { get; set; }
         public string Course_Name { get; set; }
         public int Credit_Hours { get; set; }
         public string Course_Description { get; set; }
+<<<<<<< HEAD
+=======
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Course_Students> Course_Students { get; set; }
@@ -44,5 +37,6 @@ namespace EAS_DataBase
 =======
         public virtual ICollection<ILO> ILOs { get; set; }
 >>>>>>> 7141463f045bd038efbd3c5a56cbd2b460e3aca3
+>>>>>>> 9229c6cf2bcfc022a4ebaf1673f2fe59a9b92b50
     }
 }
