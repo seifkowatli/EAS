@@ -27,12 +27,23 @@ namespace EAS_DataBase
         public Nullable<int> Question_Frequency { get; set; }
         public string Thinking_Skills { get; set; }
         public Nullable<int> Question_Mark { get; set; }
+<<<<<<< HEAD
         public int Topic_Id { get; set; }
         public Nullable<int> Exam_Id { get; set; }
+=======
+        public Nullable<int> ILO_ID { get; set; }
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6
     
         public virtual Exam Exam { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Question_Answers> Question_Answers { get; set; }
+<<<<<<< HEAD
         public virtual Topic Topic { get; set; }
+=======
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Student_Answers> Student_Answers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Exam> Exams { get; set; }
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6
     }
 }

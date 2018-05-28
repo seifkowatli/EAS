@@ -105,10 +105,17 @@
     <Compile Include="Semester_Courses.cs">
       <DependentUpon>EAS_Database.tt</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Students_Answers.cs">
       <DependentUpon>EAS_Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Students_Exams.cs">
+=======
+    <Compile Include="Students_Exams.cs">
+      <DependentUpon>EAS_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Student_Answers.cs">
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6
       <DependentUpon>EAS_Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Topic.cs">

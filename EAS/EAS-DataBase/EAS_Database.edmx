@@ -109,9 +109,23 @@ warning 6013: The table/view 'EAS_Database.dbo.Calander' does not have a primary
           <Property Name="Exam_Period" Type="int" />
           <Property Name="Exam_Notes" Type="varchar" MaxLength="200" />
         </EntityType>
+<<<<<<< HEAD:EAS/EAS-DataBase/EAS_Database.edmx
         <EntityType Name="ILOs">
           <Key>
             <PropertyRef Name="Id" />
+=======
+        <EntityType Name="ExamQuestions">
+          <Key>
+            <PropertyRef Name="Exam_ID" />
+            <PropertyRef Name="Question_ID" />
+          </Key>
+          <Property Name="Exam_ID" Type="int" Nullable="false" />
+          <Property Name="Question_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ILOS">
+          <Key>
+            <PropertyRef Name="ILOs_ID" />
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6:EAS/EAS-DataBase/EAS_Database.edmx
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Course_Id" Type="int" Nullable="false" />
@@ -268,6 +282,45 @@ warning 6013: The table/view 'EAS_Database.dbo.Calander' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
+<<<<<<< HEAD:EAS/EAS-DataBase/EAS_Database.edmx
+=======
+        <Association Name="FK__ExamQuest__Exam___5CD6CB2B">
+          <End Role="Exam" Type="Self.Exam" Multiplicity="1" />
+          <End Role="ExamQuestions" Type="Self.ExamQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exam">
+              <PropertyRef Name="Exam_ID" />
+            </Principal>
+            <Dependent Role="ExamQuestions">
+              <PropertyRef Name="Exam_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ExamQuest__Quest__5DCAEF64">
+          <End Role="Questions_Bank" Type="Self.Questions_Bank" Multiplicity="1" />
+          <End Role="ExamQuestions" Type="Self.ExamQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions_Bank">
+              <PropertyRef Name="Question_ID" />
+            </Principal>
+            <Dependent Role="ExamQuestions">
+              <PropertyRef Name="Question_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ILOS__Topic_ID__3A81B327">
+          <End Role="Topic" Type="Self.Topic" Multiplicity="0..1" />
+          <End Role="ILOS" Type="Self.ILOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Topic">
+              <PropertyRef Name="Topic_ID" />
+            </Principal>
+            <Dependent Role="ILOS">
+              <PropertyRef Name="Topic_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6:EAS/EAS-DataBase/EAS_Database.edmx
         <Association Name="FK__Question___Quest__412EB0B6">
           <End Role="Questions_Bank" Type="Self.Questions_Bank" Multiplicity="1" />
           <End Role="Question_Answers" Type="Self.Question_Answers" Multiplicity="*" />
@@ -492,7 +545,12 @@ warning 6013: The table/view 'EAS_Database.dbo.Calander' does not have a primary
           <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Course_Students" EntityType="Self.Course_Students" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Exam" EntityType="Self.Exam" Schema="dbo" store:Type="Tables" />
+<<<<<<< HEAD:EAS/EAS-DataBase/EAS_Database.edmx
           <EntitySet Name="ILOs" EntityType="Self.ILOs" Schema="dbo" store:Type="Tables" />
+=======
+          <EntitySet Name="ExamQuestions" EntityType="Self.ExamQuestions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ILOS" EntityType="Self.ILOS" Schema="dbo" store:Type="Tables" />
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6:EAS/EAS-DataBase/EAS_Database.edmx
           <EntitySet Name="Question_Answers" EntityType="Self.Question_Answers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Questions_Bank" EntityType="Self.Questions_Bank" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Semester_Courses" EntityType="Self.Semester_Courses" Schema="dbo" store:Type="Tables" />
@@ -525,6 +583,21 @@ warning 6013: The table/view 'EAS_Database.dbo.Calander' does not have a primary
             <End Role="Semesters" EntitySet="Semesters" />
             <End Role="Exam" EntitySet="Exam" />
           </AssociationSet>
+<<<<<<< HEAD:EAS/EAS-DataBase/EAS_Database.edmx
+=======
+          <AssociationSet Name="FK__ExamQuest__Exam___5CD6CB2B" Association="Self.FK__ExamQuest__Exam___5CD6CB2B">
+            <End Role="Exam" EntitySet="Exam" />
+            <End Role="ExamQuestions" EntitySet="ExamQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ExamQuest__Quest__5DCAEF64" Association="Self.FK__ExamQuest__Quest__5DCAEF64">
+            <End Role="Questions_Bank" EntitySet="Questions_Bank" />
+            <End Role="ExamQuestions" EntitySet="ExamQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ILOS__Topic_ID__3A81B327" Association="Self.FK__ILOS__Topic_ID__3A81B327">
+            <End Role="Topic" EntitySet="Topic" />
+            <End Role="ILOS" EntitySet="ILOS" />
+          </AssociationSet>
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6:EAS/EAS-DataBase/EAS_Database.edmx
           <AssociationSet Name="FK__Question___Quest__412EB0B6" Association="Self.FK__Question___Quest__412EB0B6">
             <End Role="Questions_Bank" EntitySet="Questions_Bank" />
             <End Role="Question_Answers" EntitySet="Question_Answers" />
@@ -675,7 +748,11 @@ warning 6013: The table/view 'EAS_Database.dbo.Calander' does not have a primary
           <NavigationProperty Name="Course_Students" Relationship="Self.FK__Course_St__Cours__32E0915F" FromRole="Course" ToRole="Course_Students" />
           <NavigationProperty Name="Exams" Relationship="Self.FK__Exam__Course_ID__2E1BDC42" FromRole="Course" ToRole="Exam" />
           <NavigationProperty Name="Semester_Courses" Relationship="Self.FK__Semester___Cours__286302EC" FromRole="Course" ToRole="Semester_Courses" />
+<<<<<<< HEAD:EAS/EAS-DataBase/EAS_Database.edmx
           <NavigationProperty Name="ILOs" Relationship="Self.FK_ILOs_Course" FromRole="Course" ToRole="ILOs" />
+=======
+          <NavigationProperty Name="Topics" Relationship="Self.FK__Topic__Course_ID__37A5467C" FromRole="Course" ToRole="Topic" />
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6:EAS/EAS-DataBase/EAS_Database.edmx
         </EntityType>
         <EntityType Name="Course_Students">
           <Key>
@@ -709,17 +786,30 @@ warning 6013: The table/view 'EAS_Database.dbo.Calander' does not have a primary
           <NavigationProperty Name="Questions_Bank" Relationship="Self.Exam_Question_FK" FromRole="Exam" ToRole="Questions_Bank" />
           <NavigationProperty Name="Semester" Relationship="Self.FK__Exam__Semster_ID__2D27B809" FromRole="Exam" ToRole="Semesters" />
           <NavigationProperty Name="Students_Exams" Relationship="Self.FK__Students___Exam___44FF419A" FromRole="Exam" ToRole="Students_Exams" />
+<<<<<<< HEAD:EAS/EAS-DataBase/EAS_Database.edmx
           <NavigationProperty Name="Students_Answers" Relationship="Self.Students_Answers_Exam_FK" FromRole="Exam" ToRole="Students_Answers" />
+=======
+          <NavigationProperty Name="Questions_Bank" Relationship="Self.ExamQuestions" FromRole="Exam" ToRole="Questions_Bank" />
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6:EAS/EAS-DataBase/EAS_Database.edmx
         </EntityType>
         <EntityType Name="ILO">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
+<<<<<<< HEAD:EAS/EAS-DataBase/EAS_Database.edmx
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Course_Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Course" Relationship="Self.FK_ILOs_Course" FromRole="ILOs" ToRole="Course" />
           <NavigationProperty Name="Topics" Relationship="Self.Topics_ILOs" FromRole="ILOs" ToRole="Topics" />
+=======
+          <Property Name="ILOs_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Topic_ID" Type="Int32" />
+          <Property Name="ILOs_Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="C_week" Type="Int32" />
+          <NavigationProperty Name="Topic" Relationship="Self.FK__ILOS__Topic_ID__3A81B327" FromRole="ILOS" ToRole="Topic" />
+          <NavigationProperty Name="Questions_Bank" Relationship="Self.FK__Questions__ILO_I__3E52440B" FromRole="ILOS" ToRole="Questions_Bank" />
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6:EAS/EAS-DataBase/EAS_Database.edmx
         </EntityType>
         <EntityType Name="Question_Answers">
           <Key>
@@ -744,11 +834,19 @@ warning 6013: The table/view 'EAS_Database.dbo.Calander' does not have a primary
           <Property Name="Question_Frequency" Type="Int32" />
           <Property Name="Thinking_Skills" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Question_Mark" Type="Int32" />
+<<<<<<< HEAD:EAS/EAS-DataBase/EAS_Database.edmx
           <Property Name="Topic_Id" Type="Int32" Nullable="false" />
           <Property Name="Exam_Id" Type="Int32" />
           <NavigationProperty Name="Exam" Relationship="Self.Exam_Question_FK" FromRole="Questions_Bank" ToRole="Exam" />
           <NavigationProperty Name="Question_Answers" Relationship="Self.FK__Question___Quest__412EB0B6" FromRole="Questions_Bank" ToRole="Question_Answers" />
           <NavigationProperty Name="Topic" Relationship="Self.FK_Question_Topic" FromRole="Questions_Bank" ToRole="Topics" />
+=======
+          <Property Name="ILO_ID" Type="Int32" />
+          <NavigationProperty Name="ILO" Relationship="Self.FK__Questions__ILO_I__3E52440B" FromRole="Questions_Bank" ToRole="ILOS" />
+          <NavigationProperty Name="Question_Answers" Relationship="Self.FK__Question___Quest__412EB0B6" FromRole="Questions_Bank" ToRole="Question_Answers" />
+          <NavigationProperty Name="Student_Answers" Relationship="Self.FK__Student_A__Quest__49C3F6B7" FromRole="Questions_Bank" ToRole="Student_Answers" />
+          <NavigationProperty Name="Exams" Relationship="Self.ExamQuestions" FromRole="Questions_Bank" ToRole="Exam" />
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6:EAS/EAS-DataBase/EAS_Database.edmx
         </EntityType>
         <EntityType Name="Semester_Courses">
           <Key>
@@ -782,6 +880,7 @@ warning 6013: The table/view 'EAS_Database.dbo.Calander' does not have a primary
             <PropertyRef Name="Answer_Id" />
             <PropertyRef Name="Question_Id" />
           </Key>
+<<<<<<< HEAD:EAS/EAS-DataBase/EAS_Database.edmx
           <Property Name="Std_Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Exam_Id" Type="Int32" Nullable="false" />
           <Property Name="Answer_Id" Type="Int32" Nullable="false" />
@@ -789,6 +888,15 @@ warning 6013: The table/view 'EAS_Database.dbo.Calander' does not have a primary
           <NavigationProperty Name="AspNetUser" Relationship="Self.Students_Answers_Std_FK" FromRole="Students_Answers" ToRole="AspNetUsers" />
           <NavigationProperty Name="Exam" Relationship="Self.Students_Answers_Exam_FK" FromRole="Students_Answers" ToRole="Exam" />
           <NavigationProperty Name="Question_Answers" Relationship="Self.Students_Answers_Ans" FromRole="Students_Answers" ToRole="Question_Answers" />
+=======
+          <Property Name="Exam_ID" Type="Int32" Nullable="false" />
+          <Property Name="Student_ID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Question_ID" Type="Int32" Nullable="false" />
+          <Property Name="Student_Answer" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IsTrue" Type="Boolean" />
+          <NavigationProperty Name="Questions_Bank" Relationship="Self.FK__Student_A__Quest__49C3F6B7" FromRole="Student_Answers" ToRole="Questions_Bank" />
+          <NavigationProperty Name="Students_Exams" Relationship="Self.FK__Student_Answers__48CFD27E" FromRole="Student_Answers" ToRole="Students_Exams" />
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6:EAS/EAS-DataBase/EAS_Database.edmx
         </EntityType>
         <EntityType Name="Students_Exams">
           <Key>
@@ -800,15 +908,27 @@ warning 6013: The table/view 'EAS_Database.dbo.Calander' does not have a primary
           <Property Name="Exam_Result" Type="Int32" />
           <NavigationProperty Name="AspNetUser" Relationship="Self.FK__Students___Stude__45F365D3" FromRole="Students_Exams" ToRole="AspNetUsers" />
           <NavigationProperty Name="Exam" Relationship="Self.FK__Students___Exam___44FF419A" FromRole="Students_Exams" ToRole="Exam" />
+<<<<<<< HEAD:EAS/EAS-DataBase/EAS_Database.edmx
+=======
+          <NavigationProperty Name="Student_Answers" Relationship="Self.FK__Student_Answers__48CFD27E" FromRole="Students_Exams" ToRole="Student_Answers" />
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6:EAS/EAS-DataBase/EAS_Database.edmx
         </EntityType>
         <EntityType Name="Topic">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
+<<<<<<< HEAD:EAS/EAS-DataBase/EAS_Database.edmx
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Topic_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Questions_Bank" Relationship="Self.FK_Question_Topic" FromRole="Topics" ToRole="Questions_Bank" />
           <NavigationProperty Name="ILOs" Relationship="Self.Topics_ILOs" FromRole="Topics" ToRole="ILOs" />
+=======
+          <Property Name="Topic_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Course_ID" Type="Int32" Nullable="false" />
+          <Property Name="Topic_Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Course" Relationship="Self.FK__Topic__Course_ID__37A5467C" FromRole="Topic" ToRole="Course" />
+          <NavigationProperty Name="ILOS" Relationship="Self.FK__ILOS__Topic_ID__3A81B327" FromRole="Topic" ToRole="ILOS" />
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6:EAS/EAS-DataBase/EAS_Database.edmx
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
@@ -1048,9 +1168,15 @@ warning 6013: The table/view 'EAS_Database.dbo.Calander' does not have a primary
           <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
         </Association>
+<<<<<<< HEAD:EAS/EAS-DataBase/EAS_Database.edmx
         <Association Name="Topics_ILOs">
           <End Role="ILOs" Type="Self.ILO" Multiplicity="*" />
           <End Role="Topics" Type="Self.Topic" Multiplicity="*" />
+=======
+        <Association Name="ExamQuestions">
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <End Role="Questions_Bank" Type="Self.Questions_Bank" Multiplicity="*" />
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6:EAS/EAS-DataBase/EAS_Database.edmx
         </Association>
         <EntityContainer Name="EAS_DatabaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
@@ -1149,9 +1275,15 @@ warning 6013: The table/view 'EAS_Database.dbo.Calander' does not have a primary
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+<<<<<<< HEAD:EAS/EAS-DataBase/EAS_Database.edmx
           <AssociationSet Name="Topics_ILOs" Association="Self.Topics_ILOs">
             <End Role="ILOs" EntitySet="ILOs" />
             <End Role="Topics" EntitySet="Topics" />
+=======
+          <AssociationSet Name="ExamQuestions" Association="Self.ExamQuestions">
+            <End Role="Exam" EntitySet="Exams" />
+            <End Role="Questions_Bank" EntitySet="Questions_Bank" />
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6:EAS/EAS-DataBase/EAS_Database.edmx
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -1342,9 +1474,15 @@ warning 6013: The table/view 'EAS_Database.dbo.Calander' does not have a primary
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
+<<<<<<< HEAD:EAS/EAS-DataBase/EAS_Database.edmx
           <AssociationSetMapping Name="Topics_ILOs" TypeName="EAS_DatabaseModel.Topics_ILOs" StoreEntitySet="Topics_ILOs">
             <EndProperty Name="ILOs">
               <ScalarProperty Name="Id" ColumnName="ILO_Id" />
+=======
+          <AssociationSetMapping Name="ExamQuestions" TypeName="EAS_DatabaseModel.ExamQuestions" StoreEntitySet="ExamQuestions">
+            <EndProperty Name="Exam">
+              <ScalarProperty Name="Exam_ID" ColumnName="Exam_ID" />
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6:EAS/EAS-DataBase/EAS_Database.edmx
             </EndProperty>
             <EndProperty Name="Topics">
               <ScalarProperty Name="Id" ColumnName="Topic_Id" />

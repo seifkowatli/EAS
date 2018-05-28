@@ -14,11 +14,25 @@ namespace EAS_DataBase
     
     public partial class Students_Exams
     {
+<<<<<<< HEAD
+=======
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Students_Exams()
+        {
+            this.Student_Answers = new HashSet<Student_Answers>();
+        }
+    
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6
         public string Student_ID { get; set; }
         public int Exam_ID { get; set; }
         public Nullable<int> Exam_Result { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual Exam Exam { get; set; }
+<<<<<<< HEAD
+=======
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Student_Answers> Student_Answers { get; set; }
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6
     }
 }

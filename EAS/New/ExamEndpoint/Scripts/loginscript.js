@@ -12,7 +12,6 @@ $(document).ready(function () {
         var user = $('#TextUserName').val();
 
         $.ajax({
-     
             url: 'http://localhost:2199/token',
             method: 'POST',
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -26,13 +25,11 @@ $(document).ready(function () {
                 sessionStorage.setItem('accessToken', response.access_token);
                 localStorage.setItem('UserName', response.userName);
                 window.location = 'http://localhost:46253/Exam/Exam_instructions';
-
-
             },
             error: function (jqXHR) {
                 $("#P_error").text(jqXHR.responseText);
                 $('#divErrorText').show('fade');
-            }
+            },
 
 
         });

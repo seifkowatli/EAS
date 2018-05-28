@@ -38,6 +38,10 @@ namespace EAS_DataBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Students_Exams> Students_Exams { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+<<<<<<< HEAD
         public virtual ICollection<Students_Answers> Students_Answers { get; set; }
+=======
+        public virtual ICollection<Questions_Bank> Questions_Bank { get; set; }
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6
     }
 }

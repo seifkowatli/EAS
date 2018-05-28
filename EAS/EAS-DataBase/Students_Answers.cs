@@ -14,6 +14,7 @@ namespace EAS_DataBase
     
     public partial class Students_Answers
     {
+<<<<<<< HEAD:EAS/EAS-DataBase/Students_Answers.cs
         public string Std_Id { get; set; }
         public int Exam_Id { get; set; }
         public int Answer_Id { get; set; }
@@ -22,5 +23,15 @@ namespace EAS_DataBase
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual Exam Exam { get; set; }
         public virtual Question_Answers Question_Answers { get; set; }
+=======
+        public int Exam_ID { get; set; }
+        public string Student_ID { get; set; }
+        public int Question_ID { get; set; }
+        public string Student_Answer { get; set; }
+        public Nullable<bool> IsTrue { get; set; }
+    
+        public virtual Questions_Bank Questions_Bank { get; set; }
+        public virtual Students_Exams Students_Exams { get; set; }
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6:EAS/EAS-DataBase/Student_Answers.cs
     }
 }

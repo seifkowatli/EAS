@@ -25,8 +25,12 @@ namespace EAS_DataBase
         public string Topic_Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+<<<<<<< HEAD
         public virtual ICollection<Questions_Bank> Questions_Bank { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ILO> ILOs { get; set; }
+=======
+        public virtual ICollection<ILO> ILOS { get; set; }
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6
     }
 }
