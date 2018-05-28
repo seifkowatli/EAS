@@ -14,6 +14,22 @@ namespace EAS_DataBase
     
     public partial class Exam
     {
+<<<<<<< HEAD
+=======
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Exam()
+        {
+<<<<<<< HEAD
+=======
+            this.Students_Exams = new HashSet<Students_Exams>();
+            this.Students_Answers = new HashSet<Students_Answers>();
+>>>>>>> 7141463f045bd038efbd3c5a56cbd2b460e3aca3
+            this.Questions_Bank = new HashSet<Questions_Bank>();
+            this.Students_Exams = new HashSet<Students_Exams>();
+            this.Students_Answers = new HashSet<Students_Answers>();
+        }
+    
+>>>>>>> 9229c6cf2bcfc022a4ebaf1673f2fe59a9b92b50
         public int Exam_ID { get; set; }
         public Nullable<int> Course_ID { get; set; }
         public Nullable<int> Semster_ID { get; set; }
@@ -22,5 +38,26 @@ namespace EAS_DataBase
         public string Exam_Date { get; set; }
         public Nullable<int> Exam_Period { get; set; }
         public string Exam_Notes { get; set; }
+<<<<<<< HEAD
+=======
+    
+        public virtual Course Course { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Questions_Bank> Questions_Bank { get; set; }
+        public virtual Semester Semester { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Students_Exams> Students_Exams { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+<<<<<<< HEAD
+<<<<<<< HEAD
+        public virtual ICollection<Students_Answers> Students_Answers { get; set; }
+=======
+=======
+        public virtual ICollection<Students_Answers> Students_Answers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+>>>>>>> 7141463f045bd038efbd3c5a56cbd2b460e3aca3
+        public virtual ICollection<Questions_Bank> Questions_Bank { get; set; }
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6
+>>>>>>> 9229c6cf2bcfc022a4ebaf1673f2fe59a9b92b50
     }
 }

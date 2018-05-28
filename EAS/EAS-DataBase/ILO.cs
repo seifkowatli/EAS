@@ -14,9 +14,41 @@ namespace EAS_DataBase
     
     public partial class ILO
     {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ILO()
+        {
+            this.Topics = new HashSet<Topic>();
+        }
+    
+<<<<<<< HEAD
+        public int Id { get; set; }
+        public int Course_Id { get; set; }
+        public string Name { get; set; }
+=======
+>>>>>>> 9229c6cf2bcfc022a4ebaf1673f2fe59a9b92b50
         public int ILOs_ID { get; set; }
         public Nullable<int> Topic_ID { get; set; }
         public string ILOs_Description { get; set; }
         public Nullable<int> C_week { get; set; }
+<<<<<<< HEAD
+=======
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6
+    
+        public virtual Course Course { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+<<<<<<< HEAD
+        public virtual ICollection<Topic> Topics { get; set; }
+=======
+        public virtual ICollection<Questions_Bank> Questions_Bank { get; set; }
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6
+=======
+        public int Id { get; set; }
+        public int Course_Id { get; set; }
+        public string Name { get; set; }
+>>>>>>> 7141463f045bd038efbd3c5a56cbd2b460e3aca3
+>>>>>>> 9229c6cf2bcfc022a4ebaf1673f2fe59a9b92b50
     }
 }

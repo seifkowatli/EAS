@@ -14,8 +14,34 @@ namespace EAS_DataBase
     
     public partial class Topic
     {
+<<<<<<< HEAD
         public int Topic_ID { get; set; }
         public int Course_ID { get; set; }
         public string Topic_Description { get; set; }
+=======
+<<<<<<< HEAD
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Topic()
+        {
+            this.Questions_Bank = new HashSet<Questions_Bank>();
+            this.ILOs = new HashSet<ILO>();
+        }
+    
+        public int Id { get; set; }
+        public string Topic_Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+<<<<<<< HEAD
+        public virtual ICollection<Questions_Bank> Questions_Bank { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ILO> ILOs { get; set; }
+=======
+        public virtual ICollection<ILO> ILOS { get; set; }
+>>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6
+=======
+        public int Id { get; set; }
+        public string Topic_Name { get; set; }
+>>>>>>> 7141463f045bd038efbd3c5a56cbd2b460e3aca3
+>>>>>>> 9229c6cf2bcfc022a4ebaf1673f2fe59a9b92b50
     }
 }
