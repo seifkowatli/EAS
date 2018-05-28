@@ -106,6 +106,7 @@
       <DependentUpon>EAS_Database.tt</DependentUpon>
     </Compile>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Compile Include="Students_Answers.cs">
       <DependentUpon>EAS_Database.tt</DependentUpon>
     </Compile>
@@ -116,6 +117,12 @@
     </Compile>
     <Compile Include="Student_Answers.cs">
 >>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6
+=======
+    <Compile Include="Students_Answers.cs">
+      <DependentUpon>EAS_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Students_Exams.cs">
+>>>>>>> 7141463f045bd038efbd3c5a56cbd2b460e3aca3
       <DependentUpon>EAS_Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Topic.cs">

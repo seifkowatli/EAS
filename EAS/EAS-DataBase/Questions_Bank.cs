@@ -18,6 +18,10 @@ namespace EAS_DataBase
         public Questions_Bank()
         {
             this.Question_Answers = new HashSet<Question_Answers>();
+<<<<<<< HEAD
+=======
+            this.Exams = new HashSet<Exam>();
+>>>>>>> 7141463f045bd038efbd3c5a56cbd2b460e3aca3
         }
     
         public int Question_ID { get; set; }
@@ -27,6 +31,7 @@ namespace EAS_DataBase
         public Nullable<int> Question_Frequency { get; set; }
         public string Thinking_Skills { get; set; }
         public Nullable<int> Question_Mark { get; set; }
+<<<<<<< HEAD
 <<<<<<< HEAD
         public int Topic_Id { get; set; }
         public Nullable<int> Exam_Id { get; set; }
@@ -42,6 +47,13 @@ namespace EAS_DataBase
 =======
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Student_Answers> Student_Answers { get; set; }
+=======
+        public int Topic_Id { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Question_Answers> Question_Answers { get; set; }
+        public virtual Topic Topic { get; set; }
+>>>>>>> 7141463f045bd038efbd3c5a56cbd2b460e3aca3
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Exam> Exams { get; set; }
 >>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6

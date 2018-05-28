@@ -94,13 +94,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ILOS">
+    <EntitySetMapping Name="ILOs">
       <EntityTypeMapping TypeName="EAS_DatabaseModel.ILO">
-        <MappingFragment StoreEntitySet="ILOS">
-          <ScalarProperty Name="ILOs_ID" ColumnName="ILOs_ID" />
-          <ScalarProperty Name="Topic_ID" ColumnName="Topic_ID" />
-          <ScalarProperty Name="ILOs_Description" ColumnName="ILOs_Description" />
-          <ScalarProperty Name="C_week" ColumnName="_week" />
+        <MappingFragment StoreEntitySet="ILOs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Course_Id" ColumnName="Course_Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -124,7 +123,7 @@
           <ScalarProperty Name="Question_Frequency" ColumnName="Question_Frequency" />
           <ScalarProperty Name="Thinking_Skills" ColumnName="Thinking_Skills" />
           <ScalarProperty Name="Question_Mark" ColumnName="Question_Mark" />
-          <ScalarProperty Name="ILO_ID" ColumnName="ILO_ID" />
+          <ScalarProperty Name="Topic_Id" ColumnName="Topic_Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -148,14 +147,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Student_Answers">
-      <EntityTypeMapping TypeName="EAS_DatabaseModel.Student_Answers">
-        <MappingFragment StoreEntitySet="Student_Answers">
-          <ScalarProperty Name="Exam_ID" ColumnName="Exam_ID" />
-          <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
-          <ScalarProperty Name="Question_ID" ColumnName="Question_ID" />
-          <ScalarProperty Name="Student_Answer" ColumnName="Student_Answer" />
-          <ScalarProperty Name="IsTrue" ColumnName="IsTrue" />
+    <EntitySetMapping Name="Students_Answers">
+      <EntityTypeMapping TypeName="EAS_DatabaseModel.Students_Answers">
+        <MappingFragment StoreEntitySet="Students_Answers">
+          <ScalarProperty Name="Std_Id" ColumnName="Std_Id" />
+          <ScalarProperty Name="Exam_Id" ColumnName="Exam_Id" />
+          <ScalarProperty Name="Answer_Id" ColumnName="Answer_Id" />
+          <ScalarProperty Name="Question_Id" ColumnName="Question_Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -170,10 +168,9 @@
     </EntitySetMapping>
     <EntitySetMapping Name="Topics">
       <EntityTypeMapping TypeName="EAS_DatabaseModel.Topic">
-        <MappingFragment StoreEntitySet="Topic">
-          <ScalarProperty Name="Topic_ID" ColumnName="Topic_ID" />
-          <ScalarProperty Name="Course_ID" ColumnName="Course_ID" />
-          <ScalarProperty Name="Topic_Description" ColumnName="Topic_Description" />
+        <MappingFragment StoreEntitySet="Topics">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Topic_Name" ColumnName="Topic_Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -185,12 +182,20 @@
         <ScalarProperty Name="Id" ColumnName="UserId" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="ExamQuestions" TypeName="EAS_DatabaseModel.ExamQuestions" StoreEntitySet="ExamQuestions">
+    <AssociationSetMapping Name="Exam_Questions" TypeName="EAS_DatabaseModel.Exam_Questions" StoreEntitySet="Exam_Questions">
       <EndProperty Name="Exam">
-        <ScalarProperty Name="Exam_ID" ColumnName="Exam_ID" />
+        <ScalarProperty Name="Exam_ID" ColumnName="Exam_Id" />
       </EndProperty>
       <EndProperty Name="Questions_Bank">
-        <ScalarProperty Name="Question_ID" ColumnName="Question_ID" />
+        <ScalarProperty Name="Question_ID" ColumnName="Question_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Topics_ILOs" TypeName="EAS_DatabaseModel.Topics_ILOs" StoreEntitySet="Topics_ILOs">
+      <EndProperty Name="ILOs">
+        <ScalarProperty Name="Id" ColumnName="ILO_Id" />
+      </EndProperty>
+      <EndProperty Name="Topics">
+        <ScalarProperty Name="Id" ColumnName="Topic_Id" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

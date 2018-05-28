@@ -14,6 +14,7 @@ namespace EAS_DataBase
     
     public partial class ILO
     {
+<<<<<<< HEAD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ILO()
         {
@@ -38,5 +39,10 @@ namespace EAS_DataBase
 =======
         public virtual ICollection<Questions_Bank> Questions_Bank { get; set; }
 >>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6
+=======
+        public int Id { get; set; }
+        public int Course_Id { get; set; }
+        public string Name { get; set; }
+>>>>>>> 7141463f045bd038efbd3c5a56cbd2b460e3aca3
     }
 }

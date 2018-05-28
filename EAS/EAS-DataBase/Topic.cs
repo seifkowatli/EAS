@@ -14,6 +14,7 @@ namespace EAS_DataBase
     
     public partial class Topic
     {
+<<<<<<< HEAD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Topic()
         {
@@ -32,5 +33,9 @@ namespace EAS_DataBase
 =======
         public virtual ICollection<ILO> ILOS { get; set; }
 >>>>>>> 4987323c2b2daedd19efbc4d6b77dd89b5d82df6
+=======
+        public int Id { get; set; }
+        public string Topic_Name { get; set; }
+>>>>>>> 7141463f045bd038efbd3c5a56cbd2b460e3aca3
     }
 }
