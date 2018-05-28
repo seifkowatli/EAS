@@ -105,8 +105,7 @@
     <Compile Include="Semester_Courses.cs">
       <DependentUpon>EAS_Database.tt</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-<<<<<<< HEAD
+    
     <Compile Include="Students_Answers.cs">
       <DependentUpon>EAS_Database.tt</DependentUpon>
     </Compile>
