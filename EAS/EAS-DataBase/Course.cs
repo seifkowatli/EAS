@@ -20,7 +20,7 @@ namespace EAS_DataBase
             this.Course_Students = new HashSet<Course_Students>();
             this.Exams = new HashSet<Exam>();
             this.Semester_Courses = new HashSet<Semester_Courses>();
-            this.Topics = new HashSet<Topic>();
+            this.ILOs = new HashSet<ILO>();
         }
     
         public int Course_ID { get; set; }
@@ -35,6 +35,6 @@ namespace EAS_DataBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Semester_Courses> Semester_Courses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Topic> Topics { get; set; }
+        public virtual ICollection<ILO> ILOs { get; set; }
     }
 }

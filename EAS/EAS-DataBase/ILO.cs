@@ -14,19 +14,8 @@ namespace EAS_DataBase
     
     public partial class ILO
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ILO()
-        {
-            this.Questions_Bank = new HashSet<Questions_Bank>();
-        }
-    
-        public int ILOs_ID { get; set; }
-        public Nullable<int> Topic_ID { get; set; }
-        public string ILOs_Description { get; set; }
-        public Nullable<int> C_week { get; set; }
-    
-        public virtual Topic Topic { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Questions_Bank> Questions_Bank { get; set; }
+        public int Id { get; set; }
+        public int Course_Id { get; set; }
+        public string Name { get; set; }
     }
 }

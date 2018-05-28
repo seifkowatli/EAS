@@ -18,6 +18,7 @@ namespace EAS_DataBase
         public Exam()
         {
             this.Students_Exams = new HashSet<Students_Exams>();
+            this.Students_Answers = new HashSet<Students_Answers>();
             this.Questions_Bank = new HashSet<Questions_Bank>();
         }
     
@@ -34,6 +35,8 @@ namespace EAS_DataBase
         public virtual Semester Semester { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Students_Exams> Students_Exams { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Students_Answers> Students_Answers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Questions_Bank> Questions_Bank { get; set; }
     }

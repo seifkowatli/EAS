@@ -68,7 +68,6 @@ namespace OES_Services.Controllers
 
                 foreach (var item in T)
                 {
-                    item.Course_ID = Course_ID;
                     entities.Topics.Add(item);
                 }
                 entities.SaveChanges();
