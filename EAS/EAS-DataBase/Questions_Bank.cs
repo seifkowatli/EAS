@@ -14,13 +14,6 @@ namespace EAS_DataBase
     
     public partial class Questions_Bank
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Questions_Bank()
-        {
-            this.Question_Answers = new HashSet<Question_Answers>();
-            this.Exams = new HashSet<Exam>();
-        }
-    
         public int Question_ID { get; set; }
         public string Question_Text { get; set; }
         public string Expected_Time { get; set; }
@@ -28,12 +21,6 @@ namespace EAS_DataBase
         public Nullable<int> Question_Frequency { get; set; }
         public string Thinking_Skills { get; set; }
         public Nullable<int> Question_Mark { get; set; }
-        public int Topic_Id { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Question_Answers> Question_Answers { get; set; }
-        public virtual Topic Topic { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Exam> Exams { get; set; }
+        public Nullable<int> ILO_ID { get; set; }
     }
 }

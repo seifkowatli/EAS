@@ -109,21 +109,22 @@ warning 6013: The table/view 'EAS_Database.dbo.Calander' does not have a primary
           <Property Name="Exam_Period" Type="int" />
           <Property Name="Exam_Notes" Type="varchar" MaxLength="200" />
         </EntityType>
-        <EntityType Name="Exam_Questions">
+        <EntityType Name="ExamQuestions">
           <Key>
-            <PropertyRef Name="Exam_Id" />
-            <PropertyRef Name="Question_Id" />
+            <PropertyRef Name="Exam_ID" />
+            <PropertyRef Name="Question_ID" />
           </Key>
-          <Property Name="Exam_Id" Type="int" Nullable="false" />
-          <Property Name="Question_Id" Type="int" Nullable="false" />
+          <Property Name="Exam_ID" Type="int" Nullable="false" />
+          <Property Name="Question_ID" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="ILOs">
+        <EntityType Name="ILOS">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="ILOs_ID" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Course_Id" Type="int" Nullable="false" />
-          <Property Name="Name" Type="text" Nullable="false" />
+          <Property Name="ILOs_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Topic_ID" Type="int" />
+          <Property Name="ILOs_Description" Type="varchar" MaxLength="200" />
+          <Property Name="_week" Type="int" />
         </EntityType>
         <EntityType Name="Question_Answers">
           <Key>
@@ -140,13 +141,13 @@ warning 6013: The table/view 'EAS_Database.dbo.Calander' does not have a primary
             <PropertyRef Name="Question_ID" />
           </Key>
           <Property Name="Question_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Question_Text" Type="nvarchar(max)" />
+          <Property Name="Question_Text" Type="varchar" MaxLength="255" />
           <Property Name="Expected_Time" Type="varchar" MaxLength="128" />
           <Property Name="Difficulty_Level" Type="int" />
           <Property Name="Question_Frequency" Type="int" />
           <Property Name="Thinking_Skills" Type="varchar" MaxLength="200" />
           <Property Name="Question_Mark" Type="int" />
-          <Property Name="Topic_Id" Type="int" Nullable="false" />
+          <Property Name="ILO_ID" Type="int" />
         </EntityType>
         <EntityType Name="Semester_Courses">
           <Key>
@@ -167,17 +168,17 @@ warning 6013: The table/view 'EAS_Database.dbo.Calander' does not have a primary
           <Property Name="Semester" Type="int" Nullable="false" />
           <Property Name="_Year" Type="varchar" MaxLength="128" />
         </EntityType>
-        <EntityType Name="Students_Answers">
+        <EntityType Name="Student_Answers">
           <Key>
-            <PropertyRef Name="Std_Id" />
-            <PropertyRef Name="Exam_Id" />
-            <PropertyRef Name="Answer_Id" />
-            <PropertyRef Name="Question_Id" />
+            <PropertyRef Name="Exam_ID" />
+            <PropertyRef Name="Student_ID" />
+            <PropertyRef Name="Question_ID" />
           </Key>
-          <Property Name="Std_Id" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Exam_Id" Type="int" Nullable="false" />
-          <Property Name="Answer_Id" Type="int" Nullable="false" />
-          <Property Name="Question_Id" Type="int" Nullable="false" />
+          <Property Name="Exam_ID" Type="int" Nullable="false" />
+          <Property Name="Student_ID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Question_ID" Type="int" Nullable="false" />
+          <Property Name="Student_Answer" Type="varchar" MaxLength="200" />
+          <Property Name="IsTrue" Type="bit" />
         </EntityType>
         <EntityType Name="Students_Exams">
           <Key>
@@ -188,48 +189,15 @@ warning 6013: The table/view 'EAS_Database.dbo.Calander' does not have a primary
           <Property Name="Exam_ID" Type="int" Nullable="false" />
           <Property Name="Exam_Result" Type="int" />
         </EntityType>
-        <EntityType Name="Topics">
+        <EntityType Name="Topic">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="Topic_ID" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Topic_Name" Type="text" Nullable="false" />
+          <Property Name="Topic_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Course_ID" Type="int" Nullable="false" />
+          <Property Name="Topic_Description" Type="varchar" MaxLength="200" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="Topics_ILOs">
-          <Key>
-            <PropertyRef Name="ILO_Id" />
-            <PropertyRef Name="Topic_Id" />
-          </Key>
-          <Property Name="ILO_Id" Type="int" Nullable="false" />
-          <Property Name="Topic_Id" Type="int" Nullable="false" />
-        </EntityType>
-        <Association Name="Exam_Questions_Exam">
-          <End Role="Exam" Type="Self.Exam" Multiplicity="1" />
-          <End Role="Exam_Questions" Type="Self.Exam_Questions" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Exam">
-              <PropertyRef Name="Exam_ID" />
-            </Principal>
-            <Dependent Role="Exam_Questions">
-              <PropertyRef Name="Exam_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Exam_Questions_Question">
-          <End Role="Questions_Bank" Type="Self.Questions_Bank" Multiplicity="1" />
-          <End Role="Exam_Questions" Type="Self.Exam_Questions" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Questions_Bank">
-              <PropertyRef Name="Question_ID" />
-            </Principal>
-            <Dependent Role="Exam_Questions">
-              <PropertyRef Name="Question_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Course_St__Cours__09A971A2">
+        <Association Name="FK__Course_St__Cours__4B7734FF">
           <End Role="Course" Type="Self.Course" Multiplicity="1" />
           <End Role="Course_Students" Type="Self.Course_Students" Multiplicity="*" />
           <ReferentialConstraint>
@@ -241,7 +209,7 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Course_St__Semst__0A9D95DB">
+        <Association Name="FK__Course_St__Semst__4D5F7D71">
           <End Role="Semesters" Type="Self.Semesters" Multiplicity="1" />
           <End Role="Course_Students" Type="Self.Course_Students" Multiplicity="*" />
           <ReferentialConstraint>
@@ -253,7 +221,7 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Course_St__Stude__0B91BA14">
+        <Association Name="FK__Course_St__Stude__4C6B5938">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
           <End Role="Course_Students" Type="Self.Course_Students" Multiplicity="*" />
           <ReferentialConstraint>
@@ -265,7 +233,7 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Exam__Course_ID__0C85DE4D">
+        <Association Name="FK__Exam__Course_ID__46B27FE2">
           <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
           <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
           <ReferentialConstraint>
@@ -277,7 +245,7 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Exam__Semster_ID__0D7A0286">
+        <Association Name="FK__Exam__Semster_ID__45BE5BA9">
           <End Role="Semesters" Type="Self.Semesters" Multiplicity="0..1" />
           <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
           <ReferentialConstraint>
@@ -289,7 +257,43 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Question___Quest__0F624AF8">
+        <Association Name="FK__ExamQuest__Exam___662B2B3B">
+          <End Role="Exam" Type="Self.Exam" Multiplicity="1" />
+          <End Role="ExamQuestions" Type="Self.ExamQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exam">
+              <PropertyRef Name="Exam_ID" />
+            </Principal>
+            <Dependent Role="ExamQuestions">
+              <PropertyRef Name="Exam_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ExamQuest__Quest__671F4F74">
+          <End Role="Questions_Bank" Type="Self.Questions_Bank" Multiplicity="1" />
+          <End Role="ExamQuestions" Type="Self.ExamQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions_Bank">
+              <PropertyRef Name="Question_ID" />
+            </Principal>
+            <Dependent Role="ExamQuestions">
+              <PropertyRef Name="Question_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ILOS__Topic_ID__531856C7">
+          <End Role="Topic" Type="Self.Topic" Multiplicity="0..1" />
+          <End Role="ILOS" Type="Self.ILOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Topic">
+              <PropertyRef Name="Topic_ID" />
+            </Principal>
+            <Dependent Role="ILOS">
+              <PropertyRef Name="Topic_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Question___Quest__59C55456">
           <End Role="Questions_Bank" Type="Self.Questions_Bank" Multiplicity="1" />
           <End Role="Question_Answers" Type="Self.Question_Answers" Multiplicity="*" />
           <ReferentialConstraint>
@@ -301,7 +305,19 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Semester___Cours__123EB7A3">
+        <Association Name="FK__Questions__ILO_I__56E8E7AB">
+          <End Role="ILOS" Type="Self.ILOS" Multiplicity="0..1" />
+          <End Role="Questions_Bank" Type="Self.Questions_Bank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ILOS">
+              <PropertyRef Name="ILOs_ID" />
+            </Principal>
+            <Dependent Role="Questions_Bank">
+              <PropertyRef Name="ILO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Semester___Cours__40F9A68C">
           <End Role="Course" Type="Self.Course" Multiplicity="1" />
           <End Role="Semester_Courses" Type="Self.Semester_Courses" Multiplicity="*" />
           <ReferentialConstraint>
@@ -313,7 +329,7 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Semester___Semst__1332DBDC">
+        <Association Name="FK__Semester___Semst__40058253">
           <End Role="Semesters" Type="Self.Semesters" Multiplicity="1" />
           <End Role="Semester_Courses" Type="Self.Semester_Courses" Multiplicity="*" />
           <ReferentialConstraint>
@@ -325,7 +341,7 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Semester___Teach__14270015">
+        <Association Name="FK__Semester___Teach__41EDCAC5">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
           <End Role="Semester_Courses" Type="Self.Semester_Courses" Multiplicity="*" />
           <ReferentialConstraint>
@@ -337,7 +353,33 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Students___Exam___17F790F9">
+        <Association Name="FK__Student_A__Quest__625A9A57">
+          <End Role="Questions_Bank" Type="Self.Questions_Bank" Multiplicity="1" />
+          <End Role="Student_Answers" Type="Self.Student_Answers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions_Bank">
+              <PropertyRef Name="Question_ID" />
+            </Principal>
+            <Dependent Role="Student_Answers">
+              <PropertyRef Name="Question_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Student_Answers__6166761E">
+          <End Role="Students_Exams" Type="Self.Students_Exams" Multiplicity="1" />
+          <End Role="Student_Answers" Type="Self.Student_Answers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students_Exams">
+              <PropertyRef Name="Exam_ID" />
+              <PropertyRef Name="Student_ID" />
+            </Principal>
+            <Dependent Role="Student_Answers">
+              <PropertyRef Name="Exam_ID" />
+              <PropertyRef Name="Student_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Students___Exam___5D95E53A">
           <End Role="Exam" Type="Self.Exam" Multiplicity="1" />
           <End Role="Students_Exams" Type="Self.Students_Exams" Multiplicity="*" />
           <ReferentialConstraint>
@@ -349,7 +391,7 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Students___Stude__18EBB532">
+        <Association Name="FK__Students___Stude__5E8A0973">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
           <End Role="Students_Exams" Type="Self.Students_Exams" Multiplicity="*" />
           <ReferentialConstraint>
@@ -358,6 +400,18 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             </Principal>
             <Dependent Role="Students_Exams">
               <PropertyRef Name="Student_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Topic__Course_ID__503BEA1C">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="Topic" Type="Self.Topic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="Course_ID" />
+            </Principal>
+            <Dependent Role="Topic">
+              <PropertyRef Name="Course_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -417,92 +471,6 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ILOs_Course">
-          <End Role="Course" Type="Self.Course" Multiplicity="1" />
-          <End Role="ILOs" Type="Self.ILOs" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Course">
-              <PropertyRef Name="Course_ID" />
-            </Principal>
-            <Dependent Role="ILOs">
-              <PropertyRef Name="Course_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ILOs_Topics_ILOs">
-          <End Role="ILOs" Type="Self.ILOs" Multiplicity="1" />
-          <End Role="Topics_ILOs" Type="Self.Topics_ILOs" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ILOs">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Topics_ILOs">
-              <PropertyRef Name="ILO_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Question_Topic">
-          <End Role="Topics" Type="Self.Topics" Multiplicity="1" />
-          <End Role="Questions_Bank" Type="Self.Questions_Bank" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Topics">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Questions_Bank">
-              <PropertyRef Name="Topic_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Topics_Topics_ILOs">
-          <End Role="Topics" Type="Self.Topics" Multiplicity="1" />
-          <End Role="Topics_ILOs" Type="Self.Topics_ILOs" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Topics">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Topics_ILOs">
-              <PropertyRef Name="Topic_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Students_Answers_Ans">
-          <End Role="Question_Answers" Type="Self.Question_Answers" Multiplicity="1" />
-          <End Role="Students_Answers" Type="Self.Students_Answers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Question_Answers">
-              <PropertyRef Name="Question_ID" />
-              <PropertyRef Name="Answer_ID" />
-            </Principal>
-            <Dependent Role="Students_Answers">
-              <PropertyRef Name="Answer_Id" />
-              <PropertyRef Name="Question_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Students_Answers_Exam_FK">
-          <End Role="Exam" Type="Self.Exam" Multiplicity="1" />
-          <End Role="Students_Answers" Type="Self.Students_Answers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Exam">
-              <PropertyRef Name="Exam_ID" />
-            </Principal>
-            <Dependent Role="Students_Answers">
-              <PropertyRef Name="Exam_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Students_Answers_Std_FK">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
-          <End Role="Students_Answers" Type="Self.Students_Answers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Students_Answers">
-              <PropertyRef Name="Std_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="EAS_DatabaseModelStoreContainer">
           <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
@@ -513,72 +481,86 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
           <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Course_Students" EntityType="Self.Course_Students" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Exam" EntityType="Self.Exam" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Exam_Questions" EntityType="Self.Exam_Questions" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ILOs" EntityType="Self.ILOs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExamQuestions" EntityType="Self.ExamQuestions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ILOS" EntityType="Self.ILOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Question_Answers" EntityType="Self.Question_Answers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Questions_Bank" EntityType="Self.Questions_Bank" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Semester_Courses" EntityType="Self.Semester_Courses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Semesters" EntityType="Self.Semesters" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Students_Answers" EntityType="Self.Students_Answers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student_Answers" EntityType="Self.Student_Answers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Students_Exams" EntityType="Self.Students_Exams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Topics" EntityType="Self.Topics" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Topics_ILOs" EntityType="Self.Topics_ILOs" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Topics_ILOs].[ILO_Id] AS [ILO_Id], 
-    [Topics_ILOs].[Topic_Id] AS [Topic_Id]
-    FROM [dbo].[Topics_ILOs] AS [Topics_ILOs]</DefiningQuery>
-          </EntitySet>
-          <AssociationSet Name="Exam_Questions_Exam" Association="Self.Exam_Questions_Exam">
-            <End Role="Exam" EntitySet="Exam" />
-            <End Role="Exam_Questions" EntitySet="Exam_Questions" />
-          </AssociationSet>
-          <AssociationSet Name="Exam_Questions_Question" Association="Self.Exam_Questions_Question">
-            <End Role="Questions_Bank" EntitySet="Questions_Bank" />
-            <End Role="Exam_Questions" EntitySet="Exam_Questions" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Course_St__Cours__09A971A2" Association="Self.FK__Course_St__Cours__09A971A2">
+          <EntitySet Name="Topic" EntityType="Self.Topic" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Course_St__Cours__4B7734FF" Association="Self.FK__Course_St__Cours__4B7734FF">
             <End Role="Course" EntitySet="Course" />
             <End Role="Course_Students" EntitySet="Course_Students" />
           </AssociationSet>
-          <AssociationSet Name="FK__Course_St__Semst__0A9D95DB" Association="Self.FK__Course_St__Semst__0A9D95DB">
+          <AssociationSet Name="FK__Course_St__Semst__4D5F7D71" Association="Self.FK__Course_St__Semst__4D5F7D71">
             <End Role="Semesters" EntitySet="Semesters" />
             <End Role="Course_Students" EntitySet="Course_Students" />
           </AssociationSet>
-          <AssociationSet Name="FK__Course_St__Stude__0B91BA14" Association="Self.FK__Course_St__Stude__0B91BA14">
+          <AssociationSet Name="FK__Course_St__Stude__4C6B5938" Association="Self.FK__Course_St__Stude__4C6B5938">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Course_Students" EntitySet="Course_Students" />
           </AssociationSet>
-          <AssociationSet Name="FK__Exam__Course_ID__0C85DE4D" Association="Self.FK__Exam__Course_ID__0C85DE4D">
+          <AssociationSet Name="FK__Exam__Course_ID__46B27FE2" Association="Self.FK__Exam__Course_ID__46B27FE2">
             <End Role="Course" EntitySet="Course" />
             <End Role="Exam" EntitySet="Exam" />
           </AssociationSet>
-          <AssociationSet Name="FK__Exam__Semster_ID__0D7A0286" Association="Self.FK__Exam__Semster_ID__0D7A0286">
+          <AssociationSet Name="FK__Exam__Semster_ID__45BE5BA9" Association="Self.FK__Exam__Semster_ID__45BE5BA9">
             <End Role="Semesters" EntitySet="Semesters" />
             <End Role="Exam" EntitySet="Exam" />
           </AssociationSet>
-          <AssociationSet Name="FK__Question___Quest__0F624AF8" Association="Self.FK__Question___Quest__0F624AF8">
+          <AssociationSet Name="FK__ExamQuest__Exam___662B2B3B" Association="Self.FK__ExamQuest__Exam___662B2B3B">
+            <End Role="Exam" EntitySet="Exam" />
+            <End Role="ExamQuestions" EntitySet="ExamQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ExamQuest__Quest__671F4F74" Association="Self.FK__ExamQuest__Quest__671F4F74">
+            <End Role="Questions_Bank" EntitySet="Questions_Bank" />
+            <End Role="ExamQuestions" EntitySet="ExamQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ILOS__Topic_ID__531856C7" Association="Self.FK__ILOS__Topic_ID__531856C7">
+            <End Role="Topic" EntitySet="Topic" />
+            <End Role="ILOS" EntitySet="ILOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Question___Quest__59C55456" Association="Self.FK__Question___Quest__59C55456">
             <End Role="Questions_Bank" EntitySet="Questions_Bank" />
             <End Role="Question_Answers" EntitySet="Question_Answers" />
           </AssociationSet>
-          <AssociationSet Name="FK__Semester___Cours__123EB7A3" Association="Self.FK__Semester___Cours__123EB7A3">
+          <AssociationSet Name="FK__Questions__ILO_I__56E8E7AB" Association="Self.FK__Questions__ILO_I__56E8E7AB">
+            <End Role="ILOS" EntitySet="ILOS" />
+            <End Role="Questions_Bank" EntitySet="Questions_Bank" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Semester___Cours__40F9A68C" Association="Self.FK__Semester___Cours__40F9A68C">
             <End Role="Course" EntitySet="Course" />
             <End Role="Semester_Courses" EntitySet="Semester_Courses" />
           </AssociationSet>
-          <AssociationSet Name="FK__Semester___Semst__1332DBDC" Association="Self.FK__Semester___Semst__1332DBDC">
+          <AssociationSet Name="FK__Semester___Semst__40058253" Association="Self.FK__Semester___Semst__40058253">
             <End Role="Semesters" EntitySet="Semesters" />
             <End Role="Semester_Courses" EntitySet="Semester_Courses" />
           </AssociationSet>
-          <AssociationSet Name="FK__Semester___Teach__14270015" Association="Self.FK__Semester___Teach__14270015">
+          <AssociationSet Name="FK__Semester___Teach__41EDCAC5" Association="Self.FK__Semester___Teach__41EDCAC5">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Semester_Courses" EntitySet="Semester_Courses" />
           </AssociationSet>
-          <AssociationSet Name="FK__Students___Exam___17F790F9" Association="Self.FK__Students___Exam___17F790F9">
+          <AssociationSet Name="FK__Student_A__Quest__625A9A57" Association="Self.FK__Student_A__Quest__625A9A57">
+            <End Role="Questions_Bank" EntitySet="Questions_Bank" />
+            <End Role="Student_Answers" EntitySet="Student_Answers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Student_Answers__6166761E" Association="Self.FK__Student_Answers__6166761E">
+            <End Role="Students_Exams" EntitySet="Students_Exams" />
+            <End Role="Student_Answers" EntitySet="Student_Answers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Students___Exam___5D95E53A" Association="Self.FK__Students___Exam___5D95E53A">
             <End Role="Exam" EntitySet="Exam" />
             <End Role="Students_Exams" EntitySet="Students_Exams" />
           </AssociationSet>
-          <AssociationSet Name="FK__Students___Stude__18EBB532" Association="Self.FK__Students___Stude__18EBB532">
+          <AssociationSet Name="FK__Students___Stude__5E8A0973" Association="Self.FK__Students___Stude__5E8A0973">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Students_Exams" EntitySet="Students_Exams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Topic__Course_ID__503BEA1C" Association="Self.FK__Topic__Course_ID__503BEA1C">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Topic" EntitySet="Topic" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -595,34 +577,6 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
           <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ILOs_Course" Association="Self.FK_ILOs_Course">
-            <End Role="Course" EntitySet="Course" />
-            <End Role="ILOs" EntitySet="ILOs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ILOs_Topics_ILOs" Association="Self.FK_ILOs_Topics_ILOs">
-            <End Role="ILOs" EntitySet="ILOs" />
-            <End Role="Topics_ILOs" EntitySet="Topics_ILOs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Question_Topic" Association="Self.FK_Question_Topic">
-            <End Role="Topics" EntitySet="Topics" />
-            <End Role="Questions_Bank" EntitySet="Questions_Bank" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Topics_Topics_ILOs" Association="Self.FK_Topics_Topics_ILOs">
-            <End Role="Topics" EntitySet="Topics" />
-            <End Role="Topics_ILOs" EntitySet="Topics_ILOs" />
-          </AssociationSet>
-          <AssociationSet Name="Students_Answers_Ans" Association="Self.Students_Answers_Ans">
-            <End Role="Question_Answers" EntitySet="Question_Answers" />
-            <End Role="Students_Answers" EntitySet="Students_Answers" />
-          </AssociationSet>
-          <AssociationSet Name="Students_Answers_Exam_FK" Association="Self.Students_Answers_Exam_FK">
-            <End Role="Exam" EntitySet="Exam" />
-            <End Role="Students_Answers" EntitySet="Students_Answers" />
-          </AssociationSet>
-          <AssociationSet Name="Students_Answers_Std_FK" Association="Self.Students_Answers_Std_FK">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Students_Answers" EntitySet="Students_Answers" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -667,7 +621,6 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
           <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
         </EntityType>
         <EntityType Name="AspNetUser">
           <Key>
@@ -689,10 +642,9 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
           <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
-          <NavigationProperty Name="Course_Students" Relationship="Self.FK__Course_St__Stude__0B91BA14" FromRole="AspNetUsers" ToRole="Course_Students" />
-          <NavigationProperty Name="Semester_Courses" Relationship="Self.FK__Semester___Teach__14270015" FromRole="AspNetUsers" ToRole="Semester_Courses" />
-          <NavigationProperty Name="Students_Exams" Relationship="Self.FK__Students___Stude__18EBB532" FromRole="AspNetUsers" ToRole="Students_Exams" />
-          <NavigationProperty Name="Students_Answers" Relationship="Self.Students_Answers_Std_FK" FromRole="AspNetUsers" ToRole="Students_Answers" />
+          <NavigationProperty Name="Course_Students" Relationship="Self.FK__Course_St__Stude__4C6B5938" FromRole="AspNetUsers" ToRole="Course_Students" />
+          <NavigationProperty Name="Semester_Courses" Relationship="Self.FK__Semester___Teach__41EDCAC5" FromRole="AspNetUsers" ToRole="Semester_Courses" />
+          <NavigationProperty Name="Students_Exams" Relationship="Self.FK__Students___Stude__5E8A0973" FromRole="AspNetUsers" ToRole="Students_Exams" />
           <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
         </EntityType>
         <EntityType Name="Course">
@@ -703,10 +655,6 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
           <Property Name="Course_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Credit_Hours" Type="Int32" Nullable="false" />
           <Property Name="Course_Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Course_Students" Relationship="Self.FK__Course_St__Cours__09A971A2" FromRole="Course" ToRole="Course_Students" />
-          <NavigationProperty Name="Exams" Relationship="Self.FK__Exam__Course_ID__0C85DE4D" FromRole="Course" ToRole="Exam" />
-          <NavigationProperty Name="Semester_Courses" Relationship="Self.FK__Semester___Cours__123EB7A3" FromRole="Course" ToRole="Semester_Courses" />
-          <NavigationProperty Name="ILOs" Relationship="Self.FK_ILOs_Course" FromRole="Course" ToRole="ILOs" />
         </EntityType>
         <EntityType Name="Course_Students">
           <Key>
@@ -720,9 +668,6 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
           <Property Name="C_Drop" Type="Boolean" />
           <Property Name="Prohibited" Type="Boolean" />
           <Property Name="Student_Practical" Type="Int32" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__Course_St__Stude__0B91BA14" FromRole="Course_Students" ToRole="AspNetUsers" />
-          <NavigationProperty Name="Course" Relationship="Self.FK__Course_St__Cours__09A971A2" FromRole="Course_Students" ToRole="Course" />
-          <NavigationProperty Name="Semester" Relationship="Self.FK__Course_St__Semst__0A9D95DB" FromRole="Course_Students" ToRole="Semesters" />
         </EntityType>
         <EntityType Name="Exam">
           <Key>
@@ -736,19 +681,15 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
           <Property Name="Exam_Date" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Exam_Period" Type="Int32" />
           <Property Name="Exam_Notes" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Course" Relationship="Self.FK__Exam__Course_ID__0C85DE4D" FromRole="Exam" ToRole="Course" />
-          <NavigationProperty Name="Semester" Relationship="Self.FK__Exam__Semster_ID__0D7A0286" FromRole="Exam" ToRole="Semesters" />
-          <NavigationProperty Name="Students_Exams" Relationship="Self.FK__Students___Exam___17F790F9" FromRole="Exam" ToRole="Students_Exams" />
-          <NavigationProperty Name="Students_Answers" Relationship="Self.Students_Answers_Exam_FK" FromRole="Exam" ToRole="Students_Answers" />
-          <NavigationProperty Name="Questions_Bank" Relationship="Self.Exam_Questions" FromRole="Exam" ToRole="Questions_Bank" />
         </EntityType>
         <EntityType Name="ILO">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="ILOs_ID" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Course_Id" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ILOs_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Topic_ID" Type="Int32" />
+          <Property Name="ILOs_Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="C_week" Type="Int32" />
         </EntityType>
         <EntityType Name="Question_Answers">
           <Key>
@@ -759,24 +700,19 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
           <Property Name="Answer_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Answer_Text" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="is_trueAnswer" Type="Boolean" />
-          <NavigationProperty Name="Questions_Bank" Relationship="Self.FK__Question___Quest__0F624AF8" FromRole="Question_Answers" ToRole="Questions_Bank" />
-          <NavigationProperty Name="Students_Answers" Relationship="Self.Students_Answers_Ans" FromRole="Question_Answers" ToRole="Students_Answers" />
         </EntityType>
         <EntityType Name="Questions_Bank">
           <Key>
             <PropertyRef Name="Question_ID" />
           </Key>
           <Property Name="Question_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Question_Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Question_Text" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Expected_Time" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
           <Property Name="Difficulty_Level" Type="Int32" />
           <Property Name="Question_Frequency" Type="Int32" />
           <Property Name="Thinking_Skills" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Question_Mark" Type="Int32" />
-          <Property Name="Topic_Id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Question_Answers" Relationship="Self.FK__Question___Quest__0F624AF8" FromRole="Questions_Bank" ToRole="Question_Answers" />
-          <NavigationProperty Name="Topic" Relationship="Self.FK_Question_Topic" FromRole="Questions_Bank" ToRole="Topics" />
-          <NavigationProperty Name="Exams" Relationship="Self.Exam_Questions" FromRole="Questions_Bank" ToRole="Exam" />
+          <Property Name="ILO_ID" Type="Int32" />
         </EntityType>
         <EntityType Name="Semester_Courses">
           <Key>
@@ -788,9 +724,6 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
           <Property Name="Teacher_ID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Number_of_Student" Type="Int32" />
           <Property Name="Success_rate" Type="Double" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__Semester___Teach__14270015" FromRole="Semester_Courses" ToRole="AspNetUsers" />
-          <NavigationProperty Name="Course" Relationship="Self.FK__Semester___Cours__123EB7A3" FromRole="Semester_Courses" ToRole="Course" />
-          <NavigationProperty Name="Semester" Relationship="Self.FK__Semester___Semst__1332DBDC" FromRole="Semester_Courses" ToRole="Semesters" />
         </EntityType>
         <EntityType Name="Semester">
           <Key>
@@ -799,24 +732,18 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
           <Property Name="Semster_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Semester1" Type="Int32" Nullable="false" />
           <Property Name="C_Year" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Course_Students" Relationship="Self.FK__Course_St__Semst__0A9D95DB" FromRole="Semesters" ToRole="Course_Students" />
-          <NavigationProperty Name="Exams" Relationship="Self.FK__Exam__Semster_ID__0D7A0286" FromRole="Semesters" ToRole="Exam" />
-          <NavigationProperty Name="Semester_Courses" Relationship="Self.FK__Semester___Semst__1332DBDC" FromRole="Semesters" ToRole="Semester_Courses" />
         </EntityType>
-        <EntityType Name="Students_Answers">
+        <EntityType Name="Student_Answers">
           <Key>
-            <PropertyRef Name="Std_Id" />
-            <PropertyRef Name="Exam_Id" />
-            <PropertyRef Name="Answer_Id" />
-            <PropertyRef Name="Question_Id" />
+            <PropertyRef Name="Exam_ID" />
+            <PropertyRef Name="Student_ID" />
+            <PropertyRef Name="Question_ID" />
           </Key>
-          <Property Name="Std_Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Exam_Id" Type="Int32" Nullable="false" />
-          <Property Name="Answer_Id" Type="Int32" Nullable="false" />
-          <Property Name="Question_Id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.Students_Answers_Std_FK" FromRole="Students_Answers" ToRole="AspNetUsers" />
-          <NavigationProperty Name="Exam" Relationship="Self.Students_Answers_Exam_FK" FromRole="Students_Answers" ToRole="Exam" />
-          <NavigationProperty Name="Question_Answers" Relationship="Self.Students_Answers_Ans" FromRole="Students_Answers" ToRole="Question_Answers" />
+          <Property Name="Exam_ID" Type="Int32" Nullable="false" />
+          <Property Name="Student_ID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Question_ID" Type="Int32" Nullable="false" />
+          <Property Name="Student_Answer" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IsTrue" Type="Boolean" />
         </EntityType>
         <EntityType Name="Students_Exams">
           <Key>
@@ -826,15 +753,14 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
           <Property Name="Student_ID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Exam_ID" Type="Int32" Nullable="false" />
           <Property Name="Exam_Result" Type="Int32" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__Students___Stude__18EBB532" FromRole="Students_Exams" ToRole="AspNetUsers" />
-          <NavigationProperty Name="Exam" Relationship="Self.FK__Students___Exam___17F790F9" FromRole="Students_Exams" ToRole="Exam" />
         </EntityType>
         <EntityType Name="Topic">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="Topic_ID" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Topic_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Topic_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Course_ID" Type="Int32" Nullable="false" />
+          <Property Name="Topic_Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
@@ -864,7 +790,7 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Course_St__Stude__0B91BA14">
+        <Association Name="FK__Course_St__Stude__4C6B5938">
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
           <End Role="Course_Students" Type="Self.Course_Students" Multiplicity="*" />
           <ReferentialConstraint>
@@ -876,7 +802,7 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Semester___Teach__14270015">
+        <Association Name="FK__Semester___Teach__41EDCAC5">
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
           <End Role="Semester_Courses" Type="Self.Semester_Courses" Multiplicity="*" />
           <ReferentialConstraint>
@@ -888,7 +814,7 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Students___Stude__18EBB532">
+        <Association Name="FK__Students___Stude__5E8A0973">
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
           <End Role="Students_Exams" Type="Self.Students_Exams" Multiplicity="*" />
           <ReferentialConstraint>
@@ -900,19 +826,7 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Students_Answers_Std_FK">
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
-          <End Role="Students_Answers" Type="Self.Students_Answers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Students_Answers">
-              <PropertyRef Name="Std_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Course_St__Cours__09A971A2">
+        <Association Name="FK__Course_St__Cours__4B7734FF">
           <End Role="Course" Type="Self.Course" Multiplicity="1" />
           <End Role="Course_Students" Type="Self.Course_Students" Multiplicity="*" />
           <ReferentialConstraint>
@@ -924,7 +838,7 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Exam__Course_ID__0C85DE4D">
+        <Association Name="FK__Exam__Course_ID__46B27FE2">
           <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
           <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
           <ReferentialConstraint>
@@ -936,7 +850,7 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Semester___Cours__123EB7A3">
+        <Association Name="FK__Semester___Cours__40F9A68C">
           <End Role="Course" Type="Self.Course" Multiplicity="1" />
           <End Role="Semester_Courses" Type="Self.Semester_Courses" Multiplicity="*" />
           <ReferentialConstraint>
@@ -948,19 +862,19 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ILOs_Course">
+        <Association Name="FK__Topic__Course_ID__503BEA1C">
           <End Role="Course" Type="Self.Course" Multiplicity="1" />
-          <End Role="ILOs" Type="Self.ILO" Multiplicity="*" />
+          <End Role="Topic" Type="Self.Topic" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Course">
               <PropertyRef Name="Course_ID" />
             </Principal>
-            <Dependent Role="ILOs">
-              <PropertyRef Name="Course_Id" />
+            <Dependent Role="Topic">
+              <PropertyRef Name="Course_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Course_St__Semst__0A9D95DB">
+        <Association Name="FK__Course_St__Semst__4D5F7D71">
           <End Role="Semesters" Type="Self.Semester" Multiplicity="1" />
           <End Role="Course_Students" Type="Self.Course_Students" Multiplicity="*" />
           <ReferentialConstraint>
@@ -972,7 +886,7 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Exam__Semster_ID__0D7A0286">
+        <Association Name="FK__Exam__Semster_ID__45BE5BA9">
           <End Role="Semesters" Type="Self.Semester" Multiplicity="0..1" />
           <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
           <ReferentialConstraint>
@@ -984,7 +898,7 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Students___Exam___17F790F9">
+        <Association Name="FK__Students___Exam___5D95E53A">
           <End Role="Exam" Type="Self.Exam" Multiplicity="1" />
           <End Role="Students_Exams" Type="Self.Students_Exams" Multiplicity="*" />
           <ReferentialConstraint>
@@ -996,19 +910,31 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Students_Answers_Exam_FK">
-          <End Role="Exam" Type="Self.Exam" Multiplicity="1" />
-          <End Role="Students_Answers" Type="Self.Students_Answers" Multiplicity="*" />
+        <Association Name="FK__ILOS__Topic_ID__531856C7">
+          <End Role="Topic" Type="Self.Topic" Multiplicity="0..1" />
+          <End Role="ILOS" Type="Self.ILO" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Exam">
-              <PropertyRef Name="Exam_ID" />
+            <Principal Role="Topic">
+              <PropertyRef Name="Topic_ID" />
             </Principal>
-            <Dependent Role="Students_Answers">
-              <PropertyRef Name="Exam_Id" />
+            <Dependent Role="ILOS">
+              <PropertyRef Name="Topic_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Question___Quest__0F624AF8">
+        <Association Name="FK__Questions__ILO_I__56E8E7AB">
+          <End Role="ILOS" Type="Self.ILO" Multiplicity="0..1" />
+          <End Role="Questions_Bank" Type="Self.Questions_Bank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ILOS">
+              <PropertyRef Name="ILOs_ID" />
+            </Principal>
+            <Dependent Role="Questions_Bank">
+              <PropertyRef Name="ILO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Question___Quest__59C55456">
           <End Role="Questions_Bank" Type="Self.Questions_Bank" Multiplicity="1" />
           <End Role="Question_Answers" Type="Self.Question_Answers" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1020,33 +946,19 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Students_Answers_Ans">
-          <End Role="Question_Answers" Type="Self.Question_Answers" Multiplicity="1" />
-          <End Role="Students_Answers" Type="Self.Students_Answers" Multiplicity="*" />
+        <Association Name="FK__Student_A__Quest__625A9A57">
+          <End Role="Questions_Bank" Type="Self.Questions_Bank" Multiplicity="1" />
+          <End Role="Student_Answers" Type="Self.Student_Answers" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Question_Answers">
+            <Principal Role="Questions_Bank">
               <PropertyRef Name="Question_ID" />
-              <PropertyRef Name="Answer_ID" />
             </Principal>
-            <Dependent Role="Students_Answers">
-              <PropertyRef Name="Answer_Id" />
-              <PropertyRef Name="Question_Id" />
+            <Dependent Role="Student_Answers">
+              <PropertyRef Name="Question_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Question_Topic">
-          <End Role="Topics" Type="Self.Topic" Multiplicity="1" />
-          <End Role="Questions_Bank" Type="Self.Questions_Bank" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Topics">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Questions_Bank">
-              <PropertyRef Name="Topic_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Semester___Semst__1332DBDC">
+        <Association Name="FK__Semester___Semst__40058253">
           <End Role="Semesters" Type="Self.Semester" Multiplicity="1" />
           <End Role="Semester_Courses" Type="Self.Semester_Courses" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1058,17 +970,27 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Student_Answers__6166761E">
+          <End Role="Students_Exams" Type="Self.Students_Exams" Multiplicity="1" />
+          <End Role="Student_Answers" Type="Self.Student_Answers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students_Exams">
+              <PropertyRef Name="Exam_ID" />
+              <PropertyRef Name="Student_ID" />
+            </Principal>
+            <Dependent Role="Student_Answers">
+              <PropertyRef Name="Exam_ID" />
+              <PropertyRef Name="Student_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="AspNetUserRoles">
           <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
         </Association>
-        <Association Name="Exam_Questions">
+        <Association Name="ExamQuestions">
           <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
           <End Role="Questions_Bank" Type="Self.Questions_Bank" Multiplicity="*" />
-        </Association>
-        <Association Name="Topics_ILOs">
-          <End Role="ILOs" Type="Self.ILO" Multiplicity="*" />
-          <End Role="Topics" Type="Self.Topic" Multiplicity="*" />
         </Association>
         <EntityContainer Name="EAS_DatabaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
@@ -1079,12 +1001,12 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
           <EntitySet Name="Courses" EntityType="Self.Course" />
           <EntitySet Name="Course_Students" EntityType="Self.Course_Students" />
           <EntitySet Name="Exams" EntityType="Self.Exam" />
-          <EntitySet Name="ILOs" EntityType="Self.ILO" />
+          <EntitySet Name="ILOS" EntityType="Self.ILO" />
           <EntitySet Name="Question_Answers" EntityType="Self.Question_Answers" />
           <EntitySet Name="Questions_Bank" EntityType="Self.Questions_Bank" />
           <EntitySet Name="Semester_Courses" EntityType="Self.Semester_Courses" />
           <EntitySet Name="Semesters" EntityType="Self.Semester" />
-          <EntitySet Name="Students_Answers" EntityType="Self.Students_Answers" />
+          <EntitySet Name="Student_Answers" EntityType="Self.Student_Answers" />
           <EntitySet Name="Students_Exams" EntityType="Self.Students_Exams" />
           <EntitySet Name="Topics" EntityType="Self.Topic" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
@@ -1095,81 +1017,77 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
           </AssociationSet>
-          <AssociationSet Name="FK__Course_St__Stude__0B91BA14" Association="Self.FK__Course_St__Stude__0B91BA14">
+          <AssociationSet Name="FK__Course_St__Stude__4C6B5938" Association="Self.FK__Course_St__Stude__4C6B5938">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Course_Students" EntitySet="Course_Students" />
           </AssociationSet>
-          <AssociationSet Name="FK__Semester___Teach__14270015" Association="Self.FK__Semester___Teach__14270015">
+          <AssociationSet Name="FK__Semester___Teach__41EDCAC5" Association="Self.FK__Semester___Teach__41EDCAC5">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Semester_Courses" EntitySet="Semester_Courses" />
           </AssociationSet>
-          <AssociationSet Name="FK__Students___Stude__18EBB532" Association="Self.FK__Students___Stude__18EBB532">
+          <AssociationSet Name="FK__Students___Stude__5E8A0973" Association="Self.FK__Students___Stude__5E8A0973">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Students_Exams" EntitySet="Students_Exams" />
           </AssociationSet>
-          <AssociationSet Name="Students_Answers_Std_FK" Association="Self.Students_Answers_Std_FK">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Students_Answers" EntitySet="Students_Answers" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Course_St__Cours__09A971A2" Association="Self.FK__Course_St__Cours__09A971A2">
+          <AssociationSet Name="FK__Course_St__Cours__4B7734FF" Association="Self.FK__Course_St__Cours__4B7734FF">
             <End Role="Course" EntitySet="Courses" />
             <End Role="Course_Students" EntitySet="Course_Students" />
           </AssociationSet>
-          <AssociationSet Name="FK__Exam__Course_ID__0C85DE4D" Association="Self.FK__Exam__Course_ID__0C85DE4D">
+          <AssociationSet Name="FK__Exam__Course_ID__46B27FE2" Association="Self.FK__Exam__Course_ID__46B27FE2">
             <End Role="Course" EntitySet="Courses" />
             <End Role="Exam" EntitySet="Exams" />
           </AssociationSet>
-          <AssociationSet Name="FK__Semester___Cours__123EB7A3" Association="Self.FK__Semester___Cours__123EB7A3">
+          <AssociationSet Name="FK__Semester___Cours__40F9A68C" Association="Self.FK__Semester___Cours__40F9A68C">
             <End Role="Course" EntitySet="Courses" />
             <End Role="Semester_Courses" EntitySet="Semester_Courses" />
           </AssociationSet>
-          <AssociationSet Name="FK_ILOs_Course" Association="Self.FK_ILOs_Course">
+          <AssociationSet Name="FK__Topic__Course_ID__503BEA1C" Association="Self.FK__Topic__Course_ID__503BEA1C">
             <End Role="Course" EntitySet="Courses" />
-            <End Role="ILOs" EntitySet="ILOs" />
+            <End Role="Topic" EntitySet="Topics" />
           </AssociationSet>
-          <AssociationSet Name="FK__Course_St__Semst__0A9D95DB" Association="Self.FK__Course_St__Semst__0A9D95DB">
+          <AssociationSet Name="FK__Course_St__Semst__4D5F7D71" Association="Self.FK__Course_St__Semst__4D5F7D71">
             <End Role="Semesters" EntitySet="Semesters" />
             <End Role="Course_Students" EntitySet="Course_Students" />
           </AssociationSet>
-          <AssociationSet Name="FK__Exam__Semster_ID__0D7A0286" Association="Self.FK__Exam__Semster_ID__0D7A0286">
+          <AssociationSet Name="FK__Exam__Semster_ID__45BE5BA9" Association="Self.FK__Exam__Semster_ID__45BE5BA9">
             <End Role="Semesters" EntitySet="Semesters" />
             <End Role="Exam" EntitySet="Exams" />
           </AssociationSet>
-          <AssociationSet Name="FK__Students___Exam___17F790F9" Association="Self.FK__Students___Exam___17F790F9">
+          <AssociationSet Name="FK__Students___Exam___5D95E53A" Association="Self.FK__Students___Exam___5D95E53A">
             <End Role="Exam" EntitySet="Exams" />
             <End Role="Students_Exams" EntitySet="Students_Exams" />
           </AssociationSet>
-          <AssociationSet Name="Students_Answers_Exam_FK" Association="Self.Students_Answers_Exam_FK">
-            <End Role="Exam" EntitySet="Exams" />
-            <End Role="Students_Answers" EntitySet="Students_Answers" />
+          <AssociationSet Name="FK__ILOS__Topic_ID__531856C7" Association="Self.FK__ILOS__Topic_ID__531856C7">
+            <End Role="Topic" EntitySet="Topics" />
+            <End Role="ILOS" EntitySet="ILOS" />
           </AssociationSet>
-          <AssociationSet Name="FK__Question___Quest__0F624AF8" Association="Self.FK__Question___Quest__0F624AF8">
+          <AssociationSet Name="FK__Questions__ILO_I__56E8E7AB" Association="Self.FK__Questions__ILO_I__56E8E7AB">
+            <End Role="ILOS" EntitySet="ILOS" />
+            <End Role="Questions_Bank" EntitySet="Questions_Bank" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Question___Quest__59C55456" Association="Self.FK__Question___Quest__59C55456">
             <End Role="Questions_Bank" EntitySet="Questions_Bank" />
             <End Role="Question_Answers" EntitySet="Question_Answers" />
           </AssociationSet>
-          <AssociationSet Name="Students_Answers_Ans" Association="Self.Students_Answers_Ans">
-            <End Role="Question_Answers" EntitySet="Question_Answers" />
-            <End Role="Students_Answers" EntitySet="Students_Answers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Question_Topic" Association="Self.FK_Question_Topic">
-            <End Role="Topics" EntitySet="Topics" />
+          <AssociationSet Name="FK__Student_A__Quest__625A9A57" Association="Self.FK__Student_A__Quest__625A9A57">
             <End Role="Questions_Bank" EntitySet="Questions_Bank" />
+            <End Role="Student_Answers" EntitySet="Student_Answers" />
           </AssociationSet>
-          <AssociationSet Name="FK__Semester___Semst__1332DBDC" Association="Self.FK__Semester___Semst__1332DBDC">
+          <AssociationSet Name="FK__Semester___Semst__40058253" Association="Self.FK__Semester___Semst__40058253">
             <End Role="Semesters" EntitySet="Semesters" />
             <End Role="Semester_Courses" EntitySet="Semester_Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Student_Answers__6166761E" Association="Self.FK__Student_Answers__6166761E">
+            <End Role="Students_Exams" EntitySet="Students_Exams" />
+            <End Role="Student_Answers" EntitySet="Student_Answers" />
           </AssociationSet>
           <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
-          <AssociationSet Name="Exam_Questions" Association="Self.Exam_Questions">
+          <AssociationSet Name="ExamQuestions" Association="Self.ExamQuestions">
             <End Role="Exam" EntitySet="Exams" />
             <End Role="Questions_Bank" EntitySet="Questions_Bank" />
-          </AssociationSet>
-          <AssociationSet Name="Topics_ILOs" Association="Self.Topics_ILOs">
-            <End Role="ILOs" EntitySet="ILOs" />
-            <End Role="Topics" EntitySet="Topics" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -1271,12 +1189,13 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ILOs">
+          <EntitySetMapping Name="ILOS">
             <EntityTypeMapping TypeName="EAS_DatabaseModel.ILO">
-              <MappingFragment StoreEntitySet="ILOs">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Course_Id" ColumnName="Course_Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
+              <MappingFragment StoreEntitySet="ILOS">
+                <ScalarProperty Name="ILOs_ID" ColumnName="ILOs_ID" />
+                <ScalarProperty Name="Topic_ID" ColumnName="Topic_ID" />
+                <ScalarProperty Name="ILOs_Description" ColumnName="ILOs_Description" />
+                <ScalarProperty Name="C_week" ColumnName="_week" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1300,7 +1219,7 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
                 <ScalarProperty Name="Question_Frequency" ColumnName="Question_Frequency" />
                 <ScalarProperty Name="Thinking_Skills" ColumnName="Thinking_Skills" />
                 <ScalarProperty Name="Question_Mark" ColumnName="Question_Mark" />
-                <ScalarProperty Name="Topic_Id" ColumnName="Topic_Id" />
+                <ScalarProperty Name="ILO_ID" ColumnName="ILO_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1324,13 +1243,14 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Students_Answers">
-            <EntityTypeMapping TypeName="EAS_DatabaseModel.Students_Answers">
-              <MappingFragment StoreEntitySet="Students_Answers">
-                <ScalarProperty Name="Std_Id" ColumnName="Std_Id" />
-                <ScalarProperty Name="Exam_Id" ColumnName="Exam_Id" />
-                <ScalarProperty Name="Answer_Id" ColumnName="Answer_Id" />
-                <ScalarProperty Name="Question_Id" ColumnName="Question_Id" />
+          <EntitySetMapping Name="Student_Answers">
+            <EntityTypeMapping TypeName="EAS_DatabaseModel.Student_Answers">
+              <MappingFragment StoreEntitySet="Student_Answers">
+                <ScalarProperty Name="Exam_ID" ColumnName="Exam_ID" />
+                <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
+                <ScalarProperty Name="Question_ID" ColumnName="Question_ID" />
+                <ScalarProperty Name="Student_Answer" ColumnName="Student_Answer" />
+                <ScalarProperty Name="IsTrue" ColumnName="IsTrue" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1345,9 +1265,10 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
           </EntitySetMapping>
           <EntitySetMapping Name="Topics">
             <EntityTypeMapping TypeName="EAS_DatabaseModel.Topic">
-              <MappingFragment StoreEntitySet="Topics">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Topic_Name" ColumnName="Topic_Name" />
+              <MappingFragment StoreEntitySet="Topic">
+                <ScalarProperty Name="Topic_ID" ColumnName="Topic_ID" />
+                <ScalarProperty Name="Course_ID" ColumnName="Course_ID" />
+                <ScalarProperty Name="Topic_Description" ColumnName="Topic_Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1359,20 +1280,12 @@ warning 6002: The table/view 'EAS_Database.dbo.Topics_ILOs' does not have a prim
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="Exam_Questions" TypeName="EAS_DatabaseModel.Exam_Questions" StoreEntitySet="Exam_Questions">
+          <AssociationSetMapping Name="ExamQuestions" TypeName="EAS_DatabaseModel.ExamQuestions" StoreEntitySet="ExamQuestions">
             <EndProperty Name="Exam">
-              <ScalarProperty Name="Exam_ID" ColumnName="Exam_Id" />
+              <ScalarProperty Name="Exam_ID" ColumnName="Exam_ID" />
             </EndProperty>
             <EndProperty Name="Questions_Bank">
-              <ScalarProperty Name="Question_ID" ColumnName="Question_Id" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="Topics_ILOs" TypeName="EAS_DatabaseModel.Topics_ILOs" StoreEntitySet="Topics_ILOs">
-            <EndProperty Name="ILOs">
-              <ScalarProperty Name="Id" ColumnName="ILO_Id" />
-            </EndProperty>
-            <EndProperty Name="Topics">
-              <ScalarProperty Name="Id" ColumnName="Topic_Id" />
+              <ScalarProperty Name="Question_ID" ColumnName="Question_ID" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>

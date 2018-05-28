@@ -14,7 +14,8 @@ namespace EAS_DataBase
     
     public partial class Topic
     {
-        public int Id { get; set; }
-        public string Topic_Name { get; set; }
+        public int Topic_ID { get; set; }
+        public int Course_ID { get; set; }
+        public string Topic_Description { get; set; }
     }
 }

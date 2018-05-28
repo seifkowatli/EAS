@@ -14,8 +14,9 @@ namespace EAS_DataBase
     
     public partial class ILO
     {
-        public int Id { get; set; }
-        public int Course_Id { get; set; }
-        public string Name { get; set; }
+        public int ILOs_ID { get; set; }
+        public Nullable<int> Topic_ID { get; set; }
+        public string ILOs_Description { get; set; }
+        public Nullable<int> C_week { get; set; }
     }
 }

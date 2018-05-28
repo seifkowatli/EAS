@@ -105,10 +105,10 @@
     <Compile Include="Semester_Courses.cs">
       <DependentUpon>EAS_Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Students_Answers.cs">
+    <Compile Include="Students_Exams.cs">
       <DependentUpon>EAS_Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Students_Exams.cs">
+    <Compile Include="Student_Answers.cs">
       <DependentUpon>EAS_Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Topic.cs">

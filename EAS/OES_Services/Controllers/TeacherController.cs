@@ -138,9 +138,23 @@ namespace OES_Services.Controllers
             using (EAS_DatabaseEntities entity = new EAS_DatabaseEntities())
             {
 
-                 All_ILOS = (from c in entity.ILOs
-                            where c.Course_Id== CourseID
-                            select c).ToList();
+                var temp = (from c in entity.Topics
+                            where c.Course_ID== CourseID
+
+                            select c.Topic_ID).ToList();
+
+
+                foreach (var item in temp)
+                {
+                   var temp2= (from c in entity.ILOS
+                                where c.Topic_ID == item
+                                select c).ToList();
+
+                    foreach (var item2 in temp2)
+                    {
+                        All_ILOS.Add(item2);
+                    }
+                }
             }
             return All_ILOS;
             }
@@ -206,24 +220,15 @@ namespace OES_Services.Controllers
         public List<Topic> Get_Topics(int CourseID)
         {
             List<Topic> All_Topics = new List<Topic>();
-            List<ILO> All_ILO = new List<ILO>();
-
             using (EAS_DatabaseEntities entity = new EAS_DatabaseEntities())
             {
 
-                 All_ILO = (from c in entity.ILOs
-                            where c.Id == CourseID
+                var temp = (from c in entity.Topics
+                            where c.Course_ID == CourseID
 
-                            select c).ToList();
-
-
-
-                foreach(var item2 in All_ILO)
-                {
-                    var Topic_ID=(from c in entity.)
+                            select c.Topic_ID).ToList();
 
 
-                }
                 foreach (var item in temp)
                 {
                     var temp2 = (from c in entity.Topics
