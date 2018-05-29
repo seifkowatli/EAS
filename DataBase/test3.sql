@@ -142,4 +142,16 @@ foreign key(Question_ID)references Questions_Bank
 )
 
 
+create table StudentsMarks(
+CourseID int not null,
+SemesterID int not null,
+StudentID nvarchar(128) not null,
+Midterm int not null,
+Final int not null,
+Practical int not null
+primary key(CourseID,SemesterID,StudentID),
+foreign key(CourseID) references Course,
+foreign key(SemesterID) references Semesters,
+foreign key(StudentID) references AspNetUsers
 
+)
