@@ -55,9 +55,9 @@ namespace OES_Services.Controllers
 
 
         }
-        [Route("Add_Topic")]
+        [Route("Add_ILOS")]
         [HttpPost]
-        public void Add_Topic(List<Topic> T)
+        public void Add_Topic(List<ILO> T)
         {
             using (EAS_DatabaseEntities entities = new EAS_DatabaseEntities())
             {
@@ -69,7 +69,7 @@ namespace OES_Services.Controllers
                 foreach (var item in T)
                 {
                     item.Course_ID = Course_ID;
-                    entities.Topics.Add(item);
+                    entities.ILOS.Add(item);
                 }
                 entities.SaveChanges();
 

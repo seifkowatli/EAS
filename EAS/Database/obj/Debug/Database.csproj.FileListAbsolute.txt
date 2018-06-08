@@ -7,3 +7,4 @@ D:\salim\sunior\EAS1\EAS\EAS\Database\bin\Debug\EntityFramework.xml
 D:\salim\sunior\EAS1\EAS\EAS\Database\bin\Debug\EntityFramework.SqlServer.xml
 D:\salim\sunior\EAS1\EAS\EAS\Database\obj\Debug\Database.dll
 D:\salim\sunior\EAS1\EAS\EAS\Database\obj\Debug\Database.pdb
+D:\salim\sunior\EAS1\EAS\EAS\Database\obj\Debug\Database.csprojResolveAssemblyReference.cache

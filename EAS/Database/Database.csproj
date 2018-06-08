@@ -65,9 +65,6 @@
     <Compile Include="Course.cs">
       <DependentUpon>EAS_Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Course_Students.cs">
-      <DependentUpon>EAS_Database.tt</DependentUpon>
-    </Compile>
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>EAS_Database.tt</DependentUpon>
     </Compile>
@@ -89,7 +86,13 @@
     <Compile Include="Exam.cs">
       <DependentUpon>EAS_Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="ExamQuestion.cs">
+      <DependentUpon>EAS_Database.tt</DependentUpon>
+    </Compile>
     <Compile Include="ILO.cs">
+      <DependentUpon>EAS_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ILOS_Topic.cs">
       <DependentUpon>EAS_Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,6 +108,9 @@
     <Compile Include="Semester_Courses.cs">
       <DependentUpon>EAS_Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="StudentsMark.cs">
+      <DependentUpon>EAS_Database.tt</DependentUpon>
+    </Compile>
     <Compile Include="Students_Exams.cs">
       <DependentUpon>EAS_Database.tt</DependentUpon>
     </Compile>
@@ -116,32 +122,30 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="EAS_Database.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EAS_Database.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="EAS_Database.edmx.diagram">
       <DependentUpon>EAS_Database.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="EAS_Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>EAS_Database.Context.cs</LastGenOutput>
       <DependentUpon>EAS_Database.edmx</DependentUpon>
+      <LastGenOutput>EAS_Database.Context.cs</LastGenOutput>
     </Content>
     <Content Include="EAS_Database.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EAS_Database.edmx</DependentUpon>
       <LastGenOutput>EAS_Database.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

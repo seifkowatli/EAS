@@ -12,17 +12,13 @@ namespace Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Course_Students
+    public partial class StudentsMark
     {
-        public int Semster_ID { get; set; }
-        public int Course_ID { get; set; }
-        public string Student_ID { get; set; }
-        public Nullable<bool> C_Drop { get; set; }
-        public Nullable<bool> Prohibited { get; set; }
-        public Nullable<int> Student_Practical { get; set; }
-    
-        public virtual AspNetUser AspNetUser { get; set; }
-        public virtual Course Course { get; set; }
-        public virtual Semester Semester { get; set; }
+        public int CourseID { get; set; }
+        public int SemesterID { get; set; }
+        public string StudentID { get; set; }
+        public int Midterm { get; set; }
+        public int Final { get; set; }
+        public int Practical { get; set; }
     }
 }

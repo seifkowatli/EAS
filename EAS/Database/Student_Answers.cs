@@ -17,10 +17,6 @@ namespace Database
         public int Exam_ID { get; set; }
         public string Student_ID { get; set; }
         public int Question_ID { get; set; }
-        public string Student_Answer { get; set; }
-        public Nullable<bool> IsTrue { get; set; }
-    
-        public virtual Questions_Bank Questions_Bank { get; set; }
-        public virtual Students_Exams Students_Exams { get; set; }
+        public Nullable<int> AnswerID { get; set; }
     }
 }

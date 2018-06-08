@@ -12,15 +12,10 @@ namespace Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Questions_Bank
+    public partial class ILOS_Topic
     {
-        public int Question_ID { get; set; }
-        public Nullable<int> Topic_ID { get; set; }
-        public string Question { get; set; }
-        public string Expected_Time { get; set; }
-        public Nullable<int> Difficulty_Level { get; set; }
-        public Nullable<int> Question_Frequency { get; set; }
-        public string Thinking_Skills { get; set; }
-        public Nullable<int> Question_Mark { get; set; }
+        public int ILOS_ID { get; set; }
+        public int Topic_ID { get; set; }
+        public string C_Description { get; set; }
     }
 }

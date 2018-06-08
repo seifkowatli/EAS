@@ -49,8 +49,8 @@ namespace OES_Services.Controllers
                 List<Semester> AllStudentSemester = new List<Semester>();
 
 
-                var SemesterID = (from c in entities.Course_Students
-                                  where c.Student_ID == "f723e108-ba10-407a-8cfc-4a85a8258f85"
+                var SemesterID = (from c in entities.Semester_Courses
+                                  where c.UserID == "f723e108-ba10-407a-8cfc-4a85a8258f85"
                                   select c.Semster_ID).ToList();
 
                 foreach (var item in SemesterID)
@@ -72,7 +72,7 @@ namespace OES_Services.Controllers
 
                     sc.semester = item;
 
-                    var CourseID = (from c in entities.Course_Students
+                    var CourseID = (from c in entities.Semester_Courses
                                     where c.Semster_ID == item.Semster_ID
                                     select c.Course_ID).ToList();
 
@@ -87,9 +87,9 @@ namespace OES_Services.Controllers
                                           select c.Course_Name).FirstOrDefault();
 
 
-                        cwm.StudentPractical = (int)(from c in entities.Course_Students
-                                                     where c.Course_ID == item2
-                                                     select c.Student_Practical).FirstOrDefault();
+                        cwm.StudentPractical = (int)(from c in entities.StudentsMarks
+                                                     where c.CourseID== item2
+                                                     select c.Practical).FirstOrDefault();
 
                         cwm.FinalMark = (int)(from c in entities.Exams
                                               from p in entities.Students_Exams

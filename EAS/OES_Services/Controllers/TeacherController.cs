@@ -76,7 +76,7 @@ namespace OES_Services.Controllers
         [HttpPost]
         public void Add_New_Question(Questions_Bank Nq)
         {
-            Nq.Question_Text= DES.Encrypt(Nq.Question_Text);
+           Nq.Question= DES.Encrypt(Nq.Question);
             using (EAS_DatabaseEntities entities = new EAS_DatabaseEntities())
             {
 
@@ -106,9 +106,9 @@ namespace OES_Services.Controllers
                 for(int i = 0; i <Answers.Count(); i++)
                 {
                     if (i == 0)
-                        Answers[i].is_trueAnswer = true;
+                        Answers[i].is_True = true;
                     else
-                        Answers[i].is_trueAnswer = false;
+                        Answers[i].is_True = false;
                 }
 
                 for (int i = 0; i < Answers.Count(); i++)
@@ -117,7 +117,7 @@ namespace OES_Services.Controllers
                 
                 foreach (var item in Answers)
                 {
-                    item.Answer_Text= DES.Encrypt(item.Answer_Text);
+                    item.Answer= DES.Encrypt(item.Answer);
                     entities.Question_Answers.Add(item);
                 }
 
@@ -129,35 +129,39 @@ namespace OES_Services.Controllers
         }
 
 
-        [Route("Get_ILOs/{CourseID:int}")]
+        [Route("Get_Topic/{CourseID:int}")]
         [HttpGet]
-        public List<ILO>Get_ILOs(int CourseID)
+        public List<Topic> Get_ILOs(int CourseID)
         {
-            
-            List<ILO> All_ILOS = new List<ILO>();
+
+            List<Topic> All_Topics = new List<Topic>();
             using (EAS_DatabaseEntities entity = new EAS_DatabaseEntities())
             {
 
-                var temp = (from c in entity.Topics
-                            where c.Course_ID== CourseID
+                var temp = (from c in entity.ILOS
+                            where c.Course_ID == CourseID
 
-                            select c.Topic_ID).ToList();
+                            select c.ILOS_ID).ToList();
 
 
                 foreach (var item in temp)
                 {
-                   var temp2= (from c in entity.ILOS
-                                where c.Topic_ID == item
-                                select c).ToList();
+                    var temp2 = (from c in entity.ILOS_Topic
+                                 where c.ILOS_ID == item
+                                 select c).ToList();
 
                     foreach (var item2 in temp2)
                     {
-                        All_ILOS.Add(item2);
+                       var temp3= (from c in entity.Topics
+                        where c.Topic_ID==item2.Topic_ID
+                        select c).FirstOrDefault();
+
+                        All_Topics.Add(temp3);  
                     }
                 }
             }
-            return All_ILOS;
-            }
+            return All_Topics;
+        }
 
 
 
@@ -214,37 +218,37 @@ namespace OES_Services.Controllers
         }
 
 
-        [Route("Get_Topics/{CourseID:int}")]
-        [HttpGet]
+        //[Route("Get_Topics/{CourseID:int}")]
+        //[HttpGet]
 
-        public List<Topic> Get_Topics(int CourseID)
-        {
-            List<Topic> All_Topics = new List<Topic>();
-            using (EAS_DatabaseEntities entity = new EAS_DatabaseEntities())
-            {
+        //public List<Topic> Get_Topics(int CourseID)
+        //{
+        //    List<Topic> All_Topics = new List<Topic>();
+        //    using (EAS_DatabaseEntities entity = new EAS_DatabaseEntities())
+        //    {
 
-                var temp = (from c in entity.Topics
-                            where c.Course_ID == CourseID
+        //        var temp = (from c in entity.Topics
+        //                    where c.Course_ID == CourseID
 
-                            select c.Topic_ID).ToList();
-
-
-                foreach (var item in temp)
-                {
-                    var temp2 = (from c in entity.Topics
-                                 where c.Topic_ID == item
-                                 select c).ToList();
-
-                    foreach (var item2 in temp2)
-                    {
-                        All_Topics.Add(item2);
-                    }
-                }
-            }
-            return All_Topics;
+        //                    select c.Topic_ID).ToList();
 
 
-        }
+        //        foreach (var item in temp)
+        //        {
+        //            var temp2 = (from c in entity.Topics
+        //                         where c.Topic_ID == item
+        //                         select c).ToList();
+
+        //            foreach (var item2 in temp2)
+        //            {
+        //                All_Topics.Add(item2);
+        //            }
+        //        }
+        //    }
+        //    return All_Topics;
+
+
+        //}
 
 
         [Route("GetExamInformation")]
