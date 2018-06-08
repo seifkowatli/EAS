@@ -68,18 +68,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Course_Students">
-      <EntityTypeMapping TypeName="EAS_DatabaseModel.Course_Students">
-        <MappingFragment StoreEntitySet="Course_Students">
-          <ScalarProperty Name="Semster_ID" ColumnName="Semster_ID" />
-          <ScalarProperty Name="Course_ID" ColumnName="Course_ID" />
-          <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
-          <ScalarProperty Name="C_Drop" ColumnName="_Drop" />
-          <ScalarProperty Name="Prohibited" ColumnName="Prohibited" />
-          <ScalarProperty Name="Student_Practical" ColumnName="Student_Practical" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Exams">
       <EntityTypeMapping TypeName="EAS_DatabaseModel.Exam">
         <MappingFragment StoreEntitySet="Exam">
@@ -87,30 +75,46 @@
           <ScalarProperty Name="Course_ID" ColumnName="Course_ID" />
           <ScalarProperty Name="Semster_ID" ColumnName="Semster_ID" />
           <ScalarProperty Name="Exam_Type" ColumnName="Exam_Type" />
-          <ScalarProperty Name="Exam_Time" ColumnName="Exam_Time" />
           <ScalarProperty Name="Exam_Date" ColumnName="Exam_Date" />
           <ScalarProperty Name="Exam_Period" ColumnName="Exam_Period" />
           <ScalarProperty Name="Exam_Notes" ColumnName="Exam_Notes" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ExamQuestions">
+      <EntityTypeMapping TypeName="EAS_DatabaseModel.ExamQuestion">
+        <MappingFragment StoreEntitySet="ExamQuestions">
+          <ScalarProperty Name="Exam_ID" ColumnName="Exam_ID" />
+          <ScalarProperty Name="Question_ID" ColumnName="Question_ID" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="ILOS">
       <EntityTypeMapping TypeName="EAS_DatabaseModel.ILO">
         <MappingFragment StoreEntitySet="ILOS">
-          <ScalarProperty Name="ILOs_ID" ColumnName="ILOs_ID" />
+          <ScalarProperty Name="ILOS_ID" ColumnName="ILOS_ID" />
+          <ScalarProperty Name="Course_ID" ColumnName="Course_ID" />
+          <ScalarProperty Name="ILO_Description" ColumnName="ILO_Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ILOS_Topic">
+      <EntityTypeMapping TypeName="EAS_DatabaseModel.ILOS_Topic">
+        <MappingFragment StoreEntitySet="ILOS_Topic">
+          <ScalarProperty Name="ILOS_ID" ColumnName="ILOS_ID" />
           <ScalarProperty Name="Topic_ID" ColumnName="Topic_ID" />
-          <ScalarProperty Name="ILOs_Description" ColumnName="ILOs_Description" />
-          <ScalarProperty Name="C_week" ColumnName="_week" />
+          <ScalarProperty Name="C_Description" ColumnName="_Description" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Question_Answers">
       <EntityTypeMapping TypeName="EAS_DatabaseModel.Question_Answers">
         <MappingFragment StoreEntitySet="Question_Answers">
-          <ScalarProperty Name="Question_ID" ColumnName="Question_ID" />
           <ScalarProperty Name="Answer_ID" ColumnName="Answer_ID" />
-          <ScalarProperty Name="Answer_Text" ColumnName="Answer_Text" />
-          <ScalarProperty Name="is_trueAnswer" ColumnName="is_trueAnswer" />
+          <ScalarProperty Name="Question_ID" ColumnName="Question_ID" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="is_True" ColumnName="is_True" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -118,13 +122,13 @@
       <EntityTypeMapping TypeName="EAS_DatabaseModel.Questions_Bank">
         <MappingFragment StoreEntitySet="Questions_Bank">
           <ScalarProperty Name="Question_ID" ColumnName="Question_ID" />
-          <ScalarProperty Name="Question_Text" ColumnName="Question_Text" />
+          <ScalarProperty Name="Topic_ID" ColumnName="Topic_ID" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
           <ScalarProperty Name="Expected_Time" ColumnName="Expected_Time" />
           <ScalarProperty Name="Difficulty_Level" ColumnName="Difficulty_Level" />
           <ScalarProperty Name="Question_Frequency" ColumnName="Question_Frequency" />
           <ScalarProperty Name="Thinking_Skills" ColumnName="Thinking_Skills" />
           <ScalarProperty Name="Question_Mark" ColumnName="Question_Mark" />
-          <ScalarProperty Name="ILO_ID" ColumnName="ILO_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -133,7 +137,7 @@
         <MappingFragment StoreEntitySet="Semester_Courses">
           <ScalarProperty Name="Semster_ID" ColumnName="Semster_ID" />
           <ScalarProperty Name="Course_ID" ColumnName="Course_ID" />
-          <ScalarProperty Name="Teacher_ID" ColumnName="Teacher_ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="Number_of_Student" ColumnName="Number_of_Student" />
           <ScalarProperty Name="Success_rate" ColumnName="Success_rate" />
         </MappingFragment>
@@ -154,8 +158,7 @@
           <ScalarProperty Name="Exam_ID" ColumnName="Exam_ID" />
           <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
           <ScalarProperty Name="Question_ID" ColumnName="Question_ID" />
-          <ScalarProperty Name="Student_Answer" ColumnName="Student_Answer" />
-          <ScalarProperty Name="IsTrue" ColumnName="IsTrue" />
+          <ScalarProperty Name="AnswerID" ColumnName="AnswerID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -168,12 +171,24 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="StudentsMarks">
+      <EntityTypeMapping TypeName="EAS_DatabaseModel.StudentsMark">
+        <MappingFragment StoreEntitySet="StudentsMarks">
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="SemesterID" ColumnName="SemesterID" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="Midterm" ColumnName="Midterm" />
+          <ScalarProperty Name="Final" ColumnName="Final" />
+          <ScalarProperty Name="Practical" ColumnName="Practical" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Topics">
       <EntityTypeMapping TypeName="EAS_DatabaseModel.Topic">
         <MappingFragment StoreEntitySet="Topic">
           <ScalarProperty Name="Topic_ID" ColumnName="Topic_ID" />
-          <ScalarProperty Name="Course_ID" ColumnName="Course_ID" />
           <ScalarProperty Name="Topic_Description" ColumnName="Topic_Description" />
+          <ScalarProperty Name="C_week" ColumnName="_week" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -183,14 +198,6 @@
       </EndProperty>
       <EndProperty Name="AspNetUsers">
         <ScalarProperty Name="Id" ColumnName="UserId" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="ExamQuestions" TypeName="EAS_DatabaseModel.ExamQuestions" StoreEntitySet="ExamQuestions">
-      <EndProperty Name="Exam">
-        <ScalarProperty Name="Exam_ID" ColumnName="Exam_ID" />
-      </EndProperty>
-      <EndProperty Name="Questions_Bank">
-        <ScalarProperty Name="Question_ID" ColumnName="Question_ID" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

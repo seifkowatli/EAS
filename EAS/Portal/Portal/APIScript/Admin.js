@@ -216,7 +216,7 @@ function Add_Course() {
                        
                         type: "Post",
                         data: JSON.stringify(Topics),
-                        url: "http://localhost:2199/api/Admin/Add_Topic",
+                        url: "http://localhost:2199/api/Admin/Add_ILOS",
                         contentType: "application/json",
                         headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
                         success: function () {

@@ -218,7 +218,7 @@ namespace OES_Services.Controllers
 
                 var query = entities.Questions_Bank.Join(entities.Question_Answers,
                     r => r.Question_ID, p => p.Question_ID,
-                    (r, p) => new { r.Question_ID, r.Question_Text, p.Answer_Text });
+                    (r, p) => new { r.Question_ID, r.Question, p.Answer });
 
 
 
@@ -232,7 +232,7 @@ namespace OES_Services.Controllers
                     qes = new Student_Question();
 
                     qes.Question_ID = item1.Question_ID;
-                    qes.Question_Text = DES.Decrypt( item1.Question_Text);
+                    qes.Question_Text = DES.Decrypt( item1.Question);
                     qes.Expected_Time = item1.Expected_Time;
                     Question_Answer = (from c in entities.Question_Answers
                                        where c.Question_ID == item1.Question_ID
@@ -242,7 +242,7 @@ namespace OES_Services.Controllers
                     foreach (var item in Question_Answer)
                     {
 
-                        Answers.Add(item.Answer_Text);
+                        Answers.Add(item.Answer);
 
 
                     }

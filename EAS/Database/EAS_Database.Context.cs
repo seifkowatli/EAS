@@ -31,15 +31,17 @@ namespace Database
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
-        public virtual DbSet<Course_Students> Course_Students { get; set; }
         public virtual DbSet<Exam> Exams { get; set; }
+        public virtual DbSet<ExamQuestion> ExamQuestions { get; set; }
         public virtual DbSet<ILO> ILOS { get; set; }
+        public virtual DbSet<ILOS_Topic> ILOS_Topic { get; set; }
         public virtual DbSet<Question_Answers> Question_Answers { get; set; }
         public virtual DbSet<Questions_Bank> Questions_Bank { get; set; }
         public virtual DbSet<Semester_Courses> Semester_Courses { get; set; }
         public virtual DbSet<Semester> Semesters { get; set; }
         public virtual DbSet<Student_Answers> Student_Answers { get; set; }
         public virtual DbSet<Students_Exams> Students_Exams { get; set; }
+        public virtual DbSet<StudentsMark> StudentsMarks { get; set; }
         public virtual DbSet<Topic> Topics { get; set; }
     }
 }

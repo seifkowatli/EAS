@@ -395,7 +395,7 @@ function Save_Student_Answer_in_DB() {
 
         var singleObj = {};
         singleObj['Question_ID'] = Result[i].Q_ID;
-        singleObj['Exam_ID'] = 1;
+        singleObj['Exam_ID'] = 2;
         singleObj['Student_Answer'] = Result[i].Student_Answer;
         Student_Answer.push(singleObj);
 

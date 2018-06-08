@@ -59,11 +59,11 @@ $(document).ready(function () {
     //            TrueAns: $('#TA').val(),
 
 
-    //Get_ILOS
-    $('#CourseID1').on('change', function () {
+    //Get_Topic
+    $('#CourseID1').on('change', function ()     {
 
         //empty ILOS 
-        $('#ILOS')
+        $('#TopicS')
             .find('option')
             .remove()
             .end();
@@ -73,7 +73,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'Get',
-            url: 'http://localhost:2199/api/Teacher/Get_ILOs/'+ CourseID,
+            url: 'http://localhost:2199/api/Teacher/Get_Topic/'+ CourseID,
             headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
             dataType: "json",
 
@@ -81,9 +81,9 @@ $(document).ready(function () {
             success: function (data) {
                 
                 $.each(data, function (i, item) {
-                    $('#ILOS').append($('<option>', {
-                        id: item.ILOs_ID,
-                        text: item.ILOs_Description
+                    $('#TopicS').append($('<option>', {
+                        id: item.Topic_ID,
+                        text: item.Topic_Description
                     }));
                 })
 
@@ -107,16 +107,16 @@ $(document).ready(function () {
 
 
         var true_Answer = {
-            Answer_Text: $('#t-ans').val()
+            Answer: $('#t-ans').val()
         };
         var Answer1 = {
-            Answer_Text: $('#ans1').val()
+            Answer: $('#ans1').val()
         };
         var Answer2 = {
-            Answer_Text: $('#ans2').val()
+            Answer: $('#ans2').val()
         };
         var Answer3 = {
-            Answer_Text: $('#ans3').val()
+            Answer: $('#ans3').val()
         };
 
 
@@ -135,18 +135,18 @@ $(document).ready(function () {
         var D = document.getElementById("DY");
         var Y = D.options[D.selectedIndex].text;
 
-        var ILO = $('#ILOS').children(":selected").attr("id");
+        var Topicid = $('#TopicS').children(":selected").attr("id");
 
 
 
         var N_quest = {
-            Question_Text: $('#qt').val(),
+            Question: $('#qt').val(),
             Thinking_Skills: S,
             Expected_Time: $('#ET').val(),
             Difficulty_Level: Y,
             Question_Mark: $('#mk').val(),
             Question_Frequency: 0,
-            ILO_ID:ILO,
+            Topic_ID: Topicid,
 
 
 

@@ -16,12 +16,8 @@ namespace Database
     {
         public int Semster_ID { get; set; }
         public int Course_ID { get; set; }
-        public string Teacher_ID { get; set; }
+        public string UserID { get; set; }
         public Nullable<int> Number_of_Student { get; set; }
         public Nullable<double> Success_rate { get; set; }
-    
-        public virtual AspNetUser AspNetUser { get; set; }
-        public virtual Course Course { get; set; }
-        public virtual Semester Semester { get; set; }
     }
 }

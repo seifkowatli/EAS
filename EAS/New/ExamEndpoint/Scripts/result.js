@@ -50,7 +50,7 @@ $(document).ready(function () {
                 $.each(data.sa, function (index, value) {
 
                     j = index;
-                    table(j, value.Student_Answer, value.IsTrue);
+                    table(j, value.quetion, value.Answer);
                 });
 
                 sessionStorage.removeItem('accessToken');
