@@ -131,7 +131,7 @@ namespace OES_Services.Controllers
 
         [Route("Get_Topic/{CourseID:int}")]
         [HttpGet]
-        public List<Topic> Get_ILOs(int CourseID)
+        public List<Topic> Get_Topic(int CourseID)
         {
 
             List<Topic> All_Topics = new List<Topic>();

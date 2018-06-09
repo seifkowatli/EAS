@@ -57,7 +57,7 @@ namespace OES_Services.Controllers
         }
         [Route("Add_ILOS")]
         [HttpPost]
-        public void Add_Topic(List<ILO> T)
+        public void Add_ILOS(List<ILO> T)
         {
             using (EAS_DatabaseEntities entities = new EAS_DatabaseEntities())
             {

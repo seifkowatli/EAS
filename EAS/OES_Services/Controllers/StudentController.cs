@@ -74,6 +74,7 @@ namespace OES_Services.Controllers
 
                     var CourseID = (from c in entities.Semester_Courses
                                     where c.Semster_ID == item.Semster_ID
+                                    where c.UserID== "f723e108-ba10-407a-8cfc-4a85a8258f85"
                                     select c.Course_ID).ToList();
 
 
@@ -89,6 +90,8 @@ namespace OES_Services.Controllers
 
                         cwm.StudentPractical = (int)(from c in entities.StudentsMarks
                                                      where c.CourseID== item2
+                                                     where c.StudentID== "f723e108-ba10-407a-8cfc-4a85a8258f85"
+                                                     where c.SemesterID==item.Semster_ID
                                                      select c.Practical).FirstOrDefault();
 
                         cwm.FinalMark = (int)(from c in entities.Exams

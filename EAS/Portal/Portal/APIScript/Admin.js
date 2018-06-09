@@ -54,7 +54,7 @@ function randomPassword(length) {
 }
 
 
-var Number_of_Topic;
+var Number_of_ILOS=1;
 $(document).ready(function () {
 
    
@@ -149,7 +149,7 @@ $(document).ready(function () {
     }
     
 
-    //Add more than topic
+    //Add more than ILOS
    
     var max_fields = 10; //maximum input field allowed
     var fields = $(".fields"); //Fields
@@ -157,19 +157,21 @@ $(document).ready(function () {
 
     var x = 1; //initlal text box count
     $(add_button).click(function (e) { //on add input button click
-        Number_of_Topic = x;
+        Number_of_ILOS = x;
         e.preventDefault(); //undo event
         if (x < max_fields) { //max input box allowed
-            x++; //text box increment
+            x++;
+            Number_of_ILOS++//text box increment
             $(fields).append('<div><input class="form-control" type="text"  name="" id=text' + x + '><a href="#" class="remove_field">×</a></div>'); //add input box
-            console.log(x);
+            console.log(Number_of_ILOS);
         }
     });
 
     //remove topic
     $(fields).on("click", ".remove_field", function (e) { //user click on remove text
         e.preventDefault();
-        $(this).parent('div').remove(); x--; Number_of_Topic = x;
+        $(this).parent('div').remove(); x--; Number_of_ILOS = x;
+        console.log(Number_of_ILOS);
     });
 
     
@@ -187,19 +189,18 @@ function Add_Course() {
     New_Course['Credit_Hours'] = $("#Credit_Hours option:selected").text();
     New_Course['Course_Description'] = $('#Course_Description').val();
 
-   
 
-    var Topics = [];
-    Number_of_Topic++;
-    for (var i = 1; i <= Number_of_Topic; i++) {
+    var ILOS = [];
+    Number_of_ILOS++;
+    for (var i = 1; i < Number_of_ILOS; i++) {
 
-        var Topic_Descraption = {};
-        Topic_Descraption['Topic_Description'] = $('#text' + i).val();
-        Topics.push(Topic_Descraption);
+        var ILOS_Descraption = {};
+        ILOS_Descraption['ILO_Description'] = $('#text' + i).val();
+        ILOS.push(ILOS_Descraption);
 
     }
 
-
+    console.log(ILOS);
     $.ajax({
                 type: "Post",
                 data: JSON.stringify(New_Course),
@@ -208,14 +209,13 @@ function Add_Course() {
                 headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
 
                 success: function () {
-                    window.alert(1);
-
+                   
 
                     $.ajax({
 
                        
                         type: "Post",
-                        data: JSON.stringify(Topics),
+                        data: JSON.stringify(ILOS),
                         url: "http://localhost:2199/api/Admin/Add_ILOS",
                         contentType: "application/json",
                         headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
@@ -319,9 +319,9 @@ $(document).ready(function () {
 
 
         var Semester_Course = {};
-        Semester_Course['Teacher_ID'] = $('#teacher_select').children(":selected").attr("id");
+        Semester_Course['UserID'] = $('#teacher_select').children(":selected").attr("id");
         Semester_Course['Course_ID'] = $('#Course_select').children(":selected").attr("id");
-        Semester_Course['Semster_ID'] = 4;
+        Semester_Course['Semster_ID'] = 1;
         Semester_Course['Number_of_Student'] = 0;
         Semester_Course['Success_rate'] = -1;
 
@@ -395,7 +395,6 @@ $(document).ready(function () {
         NewExam['Course_ID'] = $('#CourseExamID').children(":selected").attr("id");
         NewExam['Semster_ID'] = 1
         NewExam['Exam_Type'] = $("#CourseExamType option:selected").text();
-        NewExam['Exam_Time'] = $('#ExamTime').val();
         NewExam['Exam_Date'] = $('#ExamDate').val();
         NewExam['Exam_Notes'] = $('#ExamNotes').val();
 

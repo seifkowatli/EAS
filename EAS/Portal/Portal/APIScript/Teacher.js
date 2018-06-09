@@ -389,7 +389,7 @@ function GetCourseExams() {
             
             $.ajax({
                 type: 'Get',
-                url: 'http://localhost:2199/api/Teacher/Get_Topics/' + CourseID,
+                url: 'http://localhost:2199/api/Teacher/Get_Topic/' + CourseID,
                 headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
                 dataType: "json",
 
