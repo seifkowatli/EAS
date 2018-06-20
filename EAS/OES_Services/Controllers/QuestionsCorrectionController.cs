@@ -47,11 +47,11 @@ namespace OES_Services.Controllers
         {
             using (EAS_DatabaseEntities entities = new EAS_DatabaseEntities())
             {
-              
+
+               String UserID = User.Identity.GetUserId();
 
 
-
-                int Final_Result = 0; //to save all marks here 
+                int Result = 0; //to save all marks here 
                 foreach (var item in SA)
                 {
                     var t = DES.Encrypt(item.Student_Answer);
@@ -65,7 +65,7 @@ namespace OES_Services.Controllers
                     student_Answer.AnswerID = AnswerID;
                     student_Answer.Question_ID = item.Question_ID;
                     student_Answer.Exam_ID = item.Exam_ID;
-                    student_Answer.Student_ID = "f723e108-ba10-407a-8cfc-4a85a8258f85";
+                    student_Answer.Student_ID = UserID;
 
 
                     string true_Answer = (from c in entities.Question_Answers
@@ -74,13 +74,13 @@ namespace OES_Services.Controllers
                                           where c.is_True == true
                                           select c.Answer).FirstOrDefault();
 
-                    if (item.Student_Answer == true_Answer)
+                    if (item.Student_Answer ==DES.Decrypt(true_Answer))
                     {
                         int q_Mark = (int)(from c in entities.Questions_Bank
                                            where c.Question_ID == item.Question_ID
                                            select c.Question_Mark).FirstOrDefault();
-           
-                        Final_Result = Final_Result + q_Mark;
+
+                        Result = Result + q_Mark;
                     }
 
 
@@ -95,11 +95,22 @@ namespace OES_Services.Controllers
 
                 //    Update and insert Final Result In DataBase
 
-                Students_Exams SExam = new Students_Exams();
+                Random random = new Random();
 
+                StudentsMark SM_temp = new StudentsMark();
+                SM_temp.StudentID = UserID;
+                SM_temp.CourseID=1;
+                SM_temp.Midterm = Result;
+                SM_temp.SemesterID = 1;
+                SM_temp.Practical= random.Next(1,30);
+                SM_temp.Final = -1;
+
+                entities.StudentsMarks.Add(SM_temp);
+                entities.SaveChanges();
+                Students_Exams SExam = new Students_Exams();
                 SExam.Exam_ID = 2;
-                SExam.Exam_Result = Final_Result;
-                SExam.Student_ID = "f723e108-ba10-407a-8cfc-4a85a8258f85";
+                SExam.Exam_Result = Result;
+                SExam.Student_ID = UserID;
 
                 entities.Students_Exams.Add(SExam);
                 entities.SaveChanges();
@@ -113,11 +124,13 @@ namespace OES_Services.Controllers
         [HttpGet]
         public Student_Exam_Details Get_Student_Exam_Details()
         {
+            String UserID = User.Identity.GetUserId();
+
             Student_Exam_Details SED = new Student_Exam_Details();
             using (EAS_DatabaseEntities entities = new EAS_DatabaseEntities())
             {
                 var temp= (from c in entities.Student_Answers
-                           where c.Student_ID == "f723e108-ba10-407a-8cfc-4a85a8258f85"
+                           where c.Student_ID == UserID
                            where c.Exam_ID == 2
                            select c).ToList();
 
@@ -144,7 +157,7 @@ namespace OES_Services.Controllers
 
 
                 SED.Exam_Result = (int)(from c in entities.Students_Exams
-                                        where c.Student_ID == "f723e108-ba10-407a-8cfc-4a85a8258f85"
+                                        where c.Student_ID == UserID
                                         where c.Exam_ID == 2
                                         select c.Exam_Result).FirstOrDefault();
 

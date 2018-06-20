@@ -10,7 +10,21 @@ using OES_Services.Models;
 
 namespace OES_Services.Controllers
 {
+    public class StudentMark
+    {
+        public string Id { get; set; }
+        public int Mark { get; set; }
 
+    }
+    public class Mark_Count
+    {
+
+        public int Mark { get; set; }
+        public int Count { get; set; }
+
+
+
+    }
     public class Users_With_Role
     {
         public string UserId { get; set; }
@@ -177,5 +191,46 @@ namespace OES_Services.Controllers
             }
 
         }
+        //  Course Marks Chart
+            [Route("CourseMarks/{CourseID:int}")]
+            [HttpGet]
+            public List<Mark_Count> GetStudentMarks(int CourseID)
+            {
+                List<StudentMark> StudenstMarks = new List<StudentMark>();
+                using (EAS_DatabaseEntities entity = new EAS_DatabaseEntities())
+                {
+                    var SM = (from c in entity.StudentsMarks
+                              where c.SemesterID == 1
+                              where c.CourseID == CourseID
+                              select c).ToList();
+
+                    foreach (var item in SM)
+                    {
+                        StudentMark sm = new StudentMark();
+                        sm.Id = item.StudentID;
+                        sm.Mark = item.Midterm + item.Final + item.Practical;
+                        StudenstMarks.Add(sm);
+
+                    }
+
+                    var result = StudenstMarks.GroupBy(s => s.Mark).Select(g => new { Mark = g.Key, Count = g.Count(), });
+
+                    List<Mark_Count> Marks = new List<Mark_Count>();
+
+                    foreach (var item in result)
+                    {
+                        Mark_Count r = new Mark_Count();
+
+                        r.Mark = item.Mark;
+                        r.Count = item.Count;
+                        Marks.Add(r);
+                    }
+
+                    return Marks;
+                }
+
+
+            }
+        
     }
 }

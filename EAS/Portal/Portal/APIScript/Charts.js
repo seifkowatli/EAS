@@ -38,7 +38,7 @@ $(document).ready(function(){
        
         $.ajax({
             type: 'Get',
-            url: 'http://localhost:60703/api/Charts/GetStudentMarks/' + CourseID,
+            url: 'http://localhost:2199/api/Admin/CourseMarks/' + CourseID,
             headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
             dataType: "json",
 
