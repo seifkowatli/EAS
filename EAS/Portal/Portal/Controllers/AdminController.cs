@@ -61,5 +61,18 @@ namespace Portal.Controllers
         {
             return View();
         }
+
+
+        public ActionResult ExamAnalysis()
+        {
+            return View();
+        }
+
+
+        public ActionResult CourseAnalysis()
+        {
+            return View();
+        }
+        
     }
 }
