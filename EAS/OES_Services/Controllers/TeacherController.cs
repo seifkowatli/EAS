@@ -23,7 +23,7 @@ namespace OES_Services.Controllers
     public class TopicPercentage
     {
         public String Text;
-        public String percentage;
+        public double percentage;
 
     }
     public class Difficulty
@@ -48,8 +48,8 @@ namespace OES_Services.Controllers
     }
     public class ExamInfo
     {
-        public String TotalGrade;
-        public String ExamPeriod;
+        public double TotalGrade;
+        public double ExamPeriod;
         public List<TopicPercentage> TopicPercentage;
         public Difficulty Difficulty ;
         public ThinkingSkills ThinkingSkills ;
@@ -257,7 +257,8 @@ namespace OES_Services.Controllers
         {
 
 
-            ExamInfo a = Exam;
+         
+           
 
 
         }
