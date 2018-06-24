@@ -42,9 +42,8 @@ namespace OES_Services.Controllers
 
         public String Crtical;
         public String Analysis;
-        public String Understanding;
-        public String Recall;
-        public String Compiling;
+        public String Practical;
+        public String Theoratical;
 
     }
     public class ExamInfo

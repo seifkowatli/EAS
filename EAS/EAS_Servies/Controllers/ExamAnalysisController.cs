@@ -8,11 +8,6 @@ using Database;
 
 namespace EAS_Servies.Controllers
 {
-   public class studentMarks
-    {
-        public double Degree;
-        public int StudentNumber;
-    }
     public class Topicpercent
     {
         public Topic TC;
@@ -42,19 +37,15 @@ namespace EAS_Servies.Controllers
 
 
     }
-    public class ExamContent
+    public class CourseContent
     {
         public List<ILOSpercent> CourseIlos;
         public double SuccessRate;
-        public Exam Examinformation;
-        public int  StudentNumber;
-        public List<studentMarks> SMarks;
 
-        public ExamContent()
+        public CourseContent()
         {
             CourseIlos = new List<ILOSpercent>();
-            Examinformation = new Exam();
-            SMarks = new List<studentMarks>();
+
 
         }
 
@@ -63,7 +54,7 @@ namespace EAS_Servies.Controllers
 
     }
 
-    [RoutePrefix("api/AdminAnalysis")]
+    [RoutePrefix("api/ExamAnalysis")]
     public class ExamAnalysisController : ApiController
     {
 
@@ -71,7 +62,7 @@ namespace EAS_Servies.Controllers
         [HttpGet]
        public int ExamAnalysis(int ExamID)
         {
-            ExamContent Examcontent = new ExamContent();
+            CourseContent coursecontent = new CourseContent();
             List<int> TopicID = new List<int>();
             int Topic_Marks = 0;
             double TopicStudentResult = 0;//most be more than 50% to success
@@ -81,28 +72,8 @@ namespace EAS_Servies.Controllers
 
             using (EAS_DatabaseEntities entite = new EAS_DatabaseEntities())
             {
-                var Marks_temp = (from c in entite.Students_Exams
-                                  where c.Exam_ID == ExamID
-                                  select c
-                                ).ToList();
 
 
-                var Marks_temp2 = Marks_temp.GroupBy(r => r.Exam_Result);
-
-
-                Examcontent.Examinformation = (from c in entite.Exams
-                                                 where c.Exam_ID == ExamID
-                                                 select c
-                                               ).FirstOrDefault();
-
-                foreach( var MGroup in Marks_temp2 )
-                  {
-                    studentMarks a = new studentMarks();
-                    a.Degree =(double) MGroup.Key;
-                    a.StudentNumber = MGroup.Count();
-                    Examcontent.SMarks.Add(a);
-
-                  }
 
                 var ExamQuestions = from Exam in entite.ExamQuestions
                                     join question in entite.Questions_Bank on Exam.Question_ID equals question.Question_ID
@@ -145,10 +116,7 @@ namespace EAS_Servies.Controllers
                            var StudentlistID = (from SE in entite.Students_Exams
                                              where SE.Exam_ID == ExamID
                                              select SE.Student_ID).ToList();
-
-                            Examcontent.StudentNumber = StudentlistID.Count;
-
-                           var ExamTopic = (from c in entite.Student_Answers
+                              var ExamTopic = (from c in entite.Student_Answers
                                                  join question in entite.Questions_Bank on c.Question_ID equals question.Question_ID
                                                  join topic_ in entite.Topics on question.Topic_ID equals topic_.Topic_ID
                                                  where c.Exam_ID == ExamID
@@ -209,17 +177,17 @@ namespace EAS_Servies.Controllers
 
                     ILOSpercent_.ILOpercent = ptemp/ ILOSpercent_.Topics.Count;
                     ptemp = 0;
-                    Examcontent.CourseIlos.Add(ILOSpercent_);
+                   coursecontent.CourseIlos.Add(ILOSpercent_);
 
                 }
 
 
-                foreach (var ILO in Examcontent.CourseIlos)
+                foreach (var ILO in coursecontent.CourseIlos)
                 {
                     ptemp2 =ptemp2 + ILO.ILOpercent;
                 }
 
-                Examcontent.SuccessRate = ptemp2/ Examcontent.CourseIlos.Count;
+                coursecontent.SuccessRate = ptemp2/ coursecontent.CourseIlos.Count;
               
                 return 10;
                 

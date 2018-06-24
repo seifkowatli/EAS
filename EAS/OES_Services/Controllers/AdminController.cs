@@ -231,24 +231,6 @@ namespace OES_Services.Controllers
 
 
             }
-
-
-        [Route("GetCourseExams/{CourseID:int}")]
-        [HttpGet]
-       public List<Exam> GetCourseExams(int CourseID)
-        {
-            using (EAS_DatabaseEntities entity = new EAS_DatabaseEntities())
-            {
-                List<Exam> C_Exams = new List<Exam>();
-
-                C_Exams = (from e in entity.Exams
-                           where e.Course_ID == CourseID
-                           select e).ToList();
-
-                return C_Exams;
-            }
-
-        }
         
     }
 }
