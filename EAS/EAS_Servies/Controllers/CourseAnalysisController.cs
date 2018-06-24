@@ -8,7 +8,7 @@ using System.Web.Http;
 namespace EAS_Servies.Controllers
 {
 
-    class Cou
+    //class Cou
     [RoutePrefix ("/api/CourseAnalysis")]
     public class CourseAnalysisController : ApiController
     {

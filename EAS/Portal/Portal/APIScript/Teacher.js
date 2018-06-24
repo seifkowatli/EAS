@@ -343,16 +343,18 @@ function GetCourseExams() {
 
                 'Crtical': $('#Crtical-S').find('option:selected').val(),
                 'Analysis':$('#Analysis-S').find('option:selected').val(),
-               'Practical':$('#Practical-S').find('option:selected').val(),
-             'Theoratical':$('#Theoratical-S').find('option:selected').val()
+               'Understanding':$('#Practical-S').find('option:selected').val(),
+               'Recall': $('#Theoratical-S').find('option:selected').val(),
+              'Compiling': $('#Compiling-S').find('option:selected').val()
 
             }
            
 
             $("#CrticalF").val(ThinkingSkills['Crtical']);
             $("#AnalysisF").val(ThinkingSkills['Analysis']);
-            $("#PracticalF").val(ThinkingSkills['Practical']);
-            $("#TheoraticalF").val(ThinkingSkills['Theoratical']);
+            $("#PracticalF").val(ThinkingSkills['Understanding']);
+            $("#TheoraticalF").val(ThinkingSkills['Recall']);
+            $("#CompilingF").val(ThinkingSkills['Compiling']);
 
 
 
