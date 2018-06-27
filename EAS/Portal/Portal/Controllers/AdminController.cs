@@ -73,6 +73,17 @@ namespace Portal.Controllers
         {
             return View();
         }
-        
+
+        public ActionResult StudentAnalysis()
+        {
+            return View();
+        }
+
+        public ActionResult SemesterAnalysis()
+        {
+            return View();
+        }
+
+
     }
 }
