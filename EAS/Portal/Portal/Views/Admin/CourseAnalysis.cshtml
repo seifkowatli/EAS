@@ -3,7 +3,6 @@
     ViewBag.Title = "Course Analysis";
 }
 
-
 <script src="~/Scripts/chart-pie.js"></script>
 <script src="~/Scripts/amcharts.js"></script>
 <script src="~/Scripts/serial.js"></script>
@@ -11,6 +10,9 @@
 <script src="~/Scripts/radar.js"></script>
 
 @Scripts.Render("~/APIScript/Charts.js")
+@Styles.Render("~/API_CSS/waite.css")
+@Styles.Render("~/API_CSS/bootstrap4.css")
+
 
 <!--//outer-wp-->
 <div class="outter-wp">
@@ -23,7 +25,7 @@
     </div>
     <!--/sub-heard-part-->
     <!--/forms-->
-    <div class="forms-main">
+    <div class="forms-main" id="Course-main1">
         <h2 class="inner-tittle">Course Analysis</h2>
         <div class="graph-form">
             <div class="validation-form">
@@ -33,8 +35,16 @@
                     <div class="clearfix"></div>
 
                     <div class="col-md-12 form-group2 group-mail">
+                        <label class="control-label">Semester</label>
+                        <select id="">
+                            <option value="">2018-1</option>
+
+                        </select>
+                    </div>
+
+                    <div class="col-md-12 form-group2 group-mail">
                         <label class="control-label">Course Name</label>
-                        <select id="Course_select">
+                        <select id="CoursedA-c">
                             <option value=""></option>
 
                         </select>
@@ -45,87 +55,197 @@
 
 
                     <div class="col-md-4 col-md-offset-5 form-group button-2">
-                        <button class="btn btn-primary" id="">Submit</button>
+                        <button class="btn btn-primary" id="AdminCourseAnalysis">Analysis</button>
                     </div>
 
                     <div class="clearfix"></div>
 
 
-                    <div class="grid-charts">
-
-                        <div class="col-md-6 graph-2">
-                            <h3 class="inner-tittle">Line Chart </h3>
-                            <div class="grid-1">
-                                <h4>Line</h4>
-                                <canvas id="line2" height="300" width="500" style="width: 500px; height: 300px;"></canvas>
-                                <script>
-                                    var lineChartData = {
-                                        labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Mon"],
-                                        datasets: [
-                                            {
-                                                fillColor: "#f4f4f4",
-                                                strokeColor: "#052963",
-                                                pointColor: "#00C6D7",
-                                                pointStrokeColor: "#00C6D7",
-                                                data: [20, 35, 45, 30, 10, 65, 40]
-                                            }
-                                        ]
-
-                                    };
-                                    new Chart(document.getElementById("line2").getContext("2d")).Line(lineChartData);
-                                </script>
-                            </div>
-                        </div>
-
-
-                        <div class="col-md-6 graph-2 second">
-                            <h3 class="inner-tittle">Pie Chart </h3>
-                            <div class="grid-1">
-                                <div class="text-1">
-                                    <h4>Pie</h4>
-                                    <div class="grid-graph">
-                                        <div class="grid-graph1">
-                                            <div id="os-Win-lbl">Chrome <span>100%</span></div>
-                                            <div id="os-Mac-lbl">Internet Explorer <span> 50%</span></div>
-                                            <div id="os-Other-lbl">Safari<span>30%</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="text-2">
-                                    <canvas id="pie" height="315" width="470" style="width: 470px; height: 315px;"></canvas>
-                                    <script>
-                                        var pieData = [
-                                            {
-                                                value: 30,
-                                                color: "#ea4c89"
-                                            },
-                                            {
-                                                value: 50,
-                                                color: "#052963"
-                                            },
-                                            {
-                                                value: 100,
-                                                color: "#00C6D7"
-                                            }
-
-                                        ];
-                                        new Chart(document.getElementById("pie").getContext("2d")).Pie(pieData);
-                                    </script>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                        </div>
-
-                        <div class="clearfix"> </div>
-
-                    </div>
+                    
 
                 </div>
 
             </div>
         </div>
         <!--//forms-->
+        <div class="modal"><!-- Place at bottom of page --></div>
     </div>
+    <div class="forms-main" id="Course-main2">
 
+        <div class="clearfix"></div>
+        <div>
+            <div class="  col-md-4 form-group2">
+                <h3 class="inner-tittle">Course Information </h3>
+                <br>
+                <div class="main-grid3">
+                    <div class="p-20">
+
+                        <div class="about-info-p">
+
+                            <strong>Course Name:</strong>
+                            <p class="text-muted" style="display:inline" id="ExamMarks"></p>
+
+                        </div>
+
+                        <div class="about-info-p">
+                            <strong>Teacher:</strong>
+
+                            <p class="text-muted" style="display:inline" id="ExamType"></p>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="about-info-p">
+                            <strong>Number of Students</strong>
+
+                            <p class="text-muted" style="display:inline" id="ExamDate"></p>
+                        </div>
+                       
+                       
+                        <div class="about-info-p m-b-0">
+                            <strong>Success Rate:</strong>
+
+                            <p class="text-muted" style="display:inline" id="SuccessRate"></p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-8 form-group2">
+                <div>
+                    <h3 class="inner-tittle">Student Marks </h3>
+                    <div class="grid-1">
+                        <table class="table table-dark table-striped">
+                            <thead class="bg-danger" >
+                                <tr>
+                                    <th>Class</th>
+                                    <th>Marks</th>
+                                    <th>NO.of.STudens</th>
+                                    <th>PERCENTAGE</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>A+</td>
+                                    <td>98-100</td>
+                                    <td>0</td>
+                                    <td>0%</td>
+                                    
+
+                                </tr>
+                                <tr>
+                                    <td>A</td>
+                                    <td>98-100</td>
+                                    <td>0</td>
+                                    <td>0%</td>
+                                 
+                                </tr>
+                                <tr>
+                                    <td>A-</td>
+                                    <td>90-97</td>
+                                    <td>0</td>
+                                    <td>0%</td>
+                                   
+
+                                </tr>
+                                <tr>
+                                    <td>B+</td>
+                                    <td>85-89</td>
+                                    <td>0</td>
+                                    <td>0%</td>
+
+
+                                </tr><tr>
+                              <td>B</td>
+                             <td>80-84</td>
+                                         <td>0</td>
+                                         <td>0%</td>
+                                 </tr>
+
+                                <tr>
+                               <td>B-</td>
+                              <td>75-80</td>
+                                    <td>0</td>
+                                    <td>0%</td>
+                                </tr>
+                                <tr>
+                                    <td>C+</td>
+                                    <td>70-74</td>
+                                    <td>0</td>
+                                    <td>0%</td>
+                                </tr>
+                                <tr>
+                                    <td>C</td>
+                                    <td>65-69</td>
+                                    <td>0</td>
+                                    <td>0%</td>
+                                </tr>
+                                <tr>
+                                    <td>C-</td>
+                                    <td>60-64</td>
+                                    <td>0</td>
+                                    <td>0%</td>
+                                </tr>
+                                <tr>
+                                    <td>D</td>
+                                    <td>50-59</td>
+                                    <td>0</td>
+                                    <td>0%</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+
+
+
+
+
+        <div class="col-md-12 " id="EXAMILOS_">
+            <h3 class="inner-tittle" id="head-an">Exam "ILOS </h3>
+            <div>
+                <br>
+                <div class="main-grid3">
+                    <div class="p-20 float-left" id="ILOSDIV_" style=" width:470px;">
+                        <div class="about-info-p" id="CILOS_">
+                            <div class="clearfix"> </div>
+                            <strong id="IlosNumber" style="display:inline"></strong>
+                            <div class="clearfix"> </div>
+
+                            <p class="text-muted" id="ILOSTEXT" style="display:inline"></p>
+                        </div>
+
+                    </div>
+                    <div class="float-right" id="ILOSCHARDIV" height="315" width="400" style="width: 470px; height: 315px;"></div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="IlosTopicDiv">
+
+        </div>
+        <div class="col-md-6 graph-2 second">
+
+            <div class="text-2">
+
+
+            </div>
+            <div class="clearfix"> </div>
+            <div class="clearfix"> </div>
+
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+    </div>
 

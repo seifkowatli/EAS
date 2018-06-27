@@ -433,8 +433,215 @@ $(document).ready(function () {
     -////// Exam Analysis////////////////////////////////////////////////////
 
 
-    function Get_Courses() {
+   
 
+$(document).ready(function () {
+    $body = $("body");
+    $(document).on({
+        ajaxStart: function () { $body.addClass("loading"); },
+        ajaxStop: function () { $body.removeClass("loading"); }
+    });
+
+    var IlosTopicDiv = $('#IlosTopicDiv');
+    var EXAMILOS_ = $('#EXAMILOS_').clone().prop('id', 'EXAMILOS_2');
+   
+
+    var CoursILOS = [];
+    function DisplayStudentMarks(StudentMarks) {
+        var Data1 = [];
+
+        StudentMarks.forEach(function (element) {
+            
+            var Data2 = {
+                "y": element.Degree,
+                "label":  element.StudentNumber
+
+            }
+
+            Data1.push(Data2)
+
+        })
+
+        
+        console.log(Data1)
+        
+       
+           
+
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            theme: "light2", // "light1", "light2", "dark1", "dark2"
+            title: {
+                text: "Student Marks"
+            },
+            axisY: {
+                title: "Marks"
+            },
+            axisX: {
+                title: "Count"
+            },
+            data: [{
+                type: "column",
+                showInLegend: true,
+                legendMarkerColor: "grey",
+
+                dataPoints: Data1 
+            }]
+         
+        });
+        chart.render();
+               
+                             
+    }
+    function DisplayIlos(ILOS_) {
+
+        $.each(ILOS_, function (index, value) {
+
+            var ILOs = {
+                'index': index + 1,
+                'ILOS': value.ilo,
+                'percentage': value.ILOpercent
+
+                
+            }
+            CoursILOS.push(ILOs);
+        });
+        console.log(CoursILOS);
+        var ILOS_div = $('#ILOSDIV_');
+        var ILOS_contuner = $('#CILOS_');
+
+        $.each(CoursILOS, function (index, value) {
+
+            var Contanier = ILOS_contuner.clone().prop('id', 'CILOS_' + index);
+            Contanier.find('#IlosNumber').attr('id', 'IlosNumber' + index); 
+            Contanier.find('#ILOSTEXT').attr('id', 'ILOSTEXT' + index);
+            ILOS_div.append(Contanier);
+
+            document.getElementById("IlosNumber" + index).innerHTML = 'ILOS' +value.index+":";
+            document.getElementById("ILOSTEXT" + index).innerHTML = value.ILOS.ILO_Description;
+
+        });
+        
+
+
+    }
+    function DisplayILOSpercentage(CoursILOS_) {
+        var ILOSPERCHAR = [];
+        CoursILOS_.forEach(function (element) {
+           
+            var Data = {
+                "y": element.percentage,
+                "label": element.index + 'ILO'
+
+            }
+            ILOSPERCHAR.push(Data);
+
+        });
+
+
+        var chart = new CanvasJS.Chart("ILOSCHARDIV", {
+            theme: "light2", // "light1", "light2", "dark1", "dark2"
+            exportEnabled: true,
+            animationEnabled: true,
+            title: {
+                text: " ILOS Success Percentage"
+            },
+            data: [{
+                type: "pie",
+                startAngle: 25,
+                toolTipContent: "<b>{label}</b>: {y}%",
+                showInLegend: "true",
+                legendText: "{label}",
+                indexLabelFontSize: 16,
+                indexLabel: "{label} - {y}%",
+                dataPoints: ILOSPERCHAR
+            }]
+        });
+        chart.render();
+
+
+
+
+    }
+    function DisplayTopicPercentage(ILOTO)
+    {
+        $.each(ILOTO, function (index, element) {
+            console.log(element);
+
+            var countener1 = EXAMILOS_.clone().prop("id", 'EXAMTopic' + index);
+            countener1.find("#head-an").attr('id', "head-an" + index);
+            countener1.find("#ILOSDIV_").attr('id', "topicDIV_" + index);
+            countener1.find("#CILOS_").attr('id', "CITopic" + index);
+            countener1.find("#ILOSCHARDIV").attr('id', "CHARDIVTopic" + index);
+
+            element
+
+            IlosTopicDiv.append(countener1);
+            document.getElementById("head-an" + index).innerHTML = 'ILO' + (index + 1) + ":";
+
+        });
+
+       
+
+        $.each(ILOTO, function (index, element) {
+
+            var tdiv = $('#topicDIV_' + index);
+            var tdiv2 = $('#CITopic' + index);
+            var TopicPercentage = [];
+
+            $.each(element.Topics, function (index2, Topic ) {
+
+                var t = { 'y': Topic.TopicSuccessPercent, 'label': 'Topic' + (index2 + 1) };
+                TopicPercentage.push(t);
+                var countener = tdiv2.clone().prop("id", 'CITopic' + index + '-' + index2);
+                countener.find('#IlosNumber').attr('id', 'TopicNumber' + index + '-' + index2);
+                countener.find('#ILOSTEXT').attr('id', 'TopicTEXT' + index + '-' + index2);
+
+               
+                tdiv.append(countener);
+                document.getElementById('TopicNumber' + index + '-' + index2).innerHTML = 'Topic' + (index2 + 1) + ":";
+                document.getElementById('TopicTEXT' + index + '-' + index2).innerHTML = Topic.TC.Topic_Description;
+                
+
+
+
+            })
+            console.log(TopicPercentage);
+            var chart = new CanvasJS.Chart("CHARDIVTopic" + index, {
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                exportEnabled: true,
+                animationEnabled: true,
+                title: {
+                    text: " Topic Success Percentage"
+                },
+                data: [{
+                    type: "pie",
+                    startAngle: 25,
+                    toolTipContent: "<b>{label}</b>: {y}%",
+                    showInLegend: "true",
+                    legendText: "{label}",
+                    indexLabelFontSize: 16,
+                    indexLabel: "{label} - {y}%",
+                    dataPoints: TopicPercentage
+                }]
+            });
+            chart.render();
+
+           
+
+
+
+        })
+       
+
+
+
+    }
+
+    
+
+    function AGet_Courses() {
+       
         $.ajax({
             url: 'http://localhost:2199/api/Admin/Get_Courses',
             method: 'Get',
@@ -442,7 +649,6 @@ $(document).ready(function () {
 
 
             success: function (data) {
-
                 $.each(data, function (i, item) {
                     $("#CoursedA-s").append($('<option>', {
                         id: item.Course_ID,
@@ -455,24 +661,24 @@ $(document).ready(function () {
 
         });
     }
-
-
-$(document).ready(function () {
-
-
-    $('#Exam-main1').hide();
+    var CoursILOS = [];
+    AGet_Courses();
+    $('#Exam-main2').hide();
+    
     var ExamID = null;
-    Get_Courses();
+  
     $("#CoursedA-s").change(function () {
         var CourseID = $(this).children(":selected").attr("id");
 
+       
+      
         $.ajax({
 
             url: "http://localhost:2199/api/Admin/GetCourseExams/" + CourseID,
             method: "Get",
             headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
             success: function (Exams) {
-
+                
                 $.each(Exams, function (i, item) {
                     $("#ExamA-S").append($('<option>', {
                         id: item.Exam_ID,
@@ -490,9 +696,16 @@ $(document).ready(function () {
 
     });
     $("#ExamA-S").change(function () {
-        var ExamID = $(this).children(":selected").attr("id");
+         ExamID =  $(this).children(":selected").attr("id");
+       
     });
-    $("AdminExamAnalysis").on('click', function () {
+    $("#AdminExamAnalysis").on('click', function () {
+
+        $('#Exam-main1').hide();
+       
+
+       
+
 
         if (ExamID != null) {
 
@@ -502,11 +715,22 @@ $(document).ready(function () {
                 method: "Get",
                 headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
                 success: function (data) {
+                    $('#Exam-main2').show();
+                    DisplayStudentMarks(data.SMarks);
+                    DisplayIlos(data.CourseIlos);
+                    DisplayILOSpercentage(CoursILOS);
+                    DisplayTopicPercentage(data.CourseIlos);
+                    data.Examinformation.Exam_Type
+
+                    $('#ExamMarks').text(100);
+                    $('#ExamType').text(data.Examinformation.Exam_Type);
+                    $('#ExamDate').text(data.Examinformation.Exam_Date);
+                    $('#ExamPeriod').text(data.Examinformation.Exam_Period);
+                    $('#StudentNumber').text(data.StudentNumber);
+                    $('#SuccessRate').text(data.ESuccessRate);
 
 
-
-
-
+                    
 
 
                 }
@@ -519,4 +743,85 @@ $(document).ready(function () {
 
 
     });
+    });
+
+
+
+///// Course Analysis
+$(document).ready(function () {
+    var CourseID=null;
+    $body = $("body");
+    $(document).on({
+        ajaxStart: function () { $body.addClass("loading"); },
+        ajaxStop: function () { $body.removeClass("loading"); }
+    });
+
+
+    function ACGet_Courses() {
+
+        $.ajax({
+            url: 'http://localhost:2199/api/Admin/Get_Courses',
+            method: 'Get',
+            headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
+
+
+            success: function (data) {
+                $.each(data, function (i, item) {
+                    $("#CoursedA-c").append($('<option>', {
+                        id: item.Course_ID,
+                        text: item.Course_Name
+                    }));
+                })
+
+
+            },
+
+        });
+    }
+    ACGet_Courses();
+    $("#CoursedA-c").change(function () {
+
+         CourseID = $(this).children(":selected").attr("id");
+
+         console.log(CourseID);
+
+    })
+
+    $("#AdminCourseAnalysis").on('click', function () {
+
+        if (CourseID != null) {
+            $.ajax({
+
+                url: "http://localhost:60703/api/AdminAnalysis/A_CourseAnalysis/" + CourseID,
+                method: "Get",
+                success: function (data) {
+
+                    console.log(data);
+
+
+                }
+
+
+            });
+
+        }
+
+
+
+
+
+
+
+
+
+    });
+
+
+
+
+
+
+
+
+
 });
