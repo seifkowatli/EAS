@@ -203,6 +203,7 @@ C:\Users\Seif\Desktop\Senior Project\EAS\EAS\OES_Services\bin\OES_Services.dll.c
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\OES_Services\bin\OES_Services.dll
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\OES_Services\bin\OES_Services.pdb
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\OES_Services\bin\Antlr3.Runtime.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\OES_Services\bin\EAS-DataBase.dll
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\OES_Services\bin\EntityFramework.dll
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\OES_Services\bin\EntityFramework.SqlServer.dll
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\OES_Services\bin\Microsoft.AI.Agent.Intercept.dll
@@ -242,6 +243,8 @@ C:\Users\Seif\Desktop\Senior Project\EAS\EAS\OES_Services\bin\System.Web.WebPage
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\OES_Services\bin\System.Web.WebPages.dll
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\OES_Services\bin\System.Web.WebPages.Razor.dll
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\OES_Services\bin\WebGrease.dll
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\OES_Services\bin\EAS-DataBase.pdb
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\OES_Services\bin\EAS-DataBase.dll.config
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\OES_Services\bin\EntityFramework.xml
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\OES_Services\bin\EntityFramework.SqlServer.xml
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\OES_Services\bin\Microsoft.AI.DependencyCollector.xml
@@ -377,8 +380,3 @@ D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\WebApiContrib.Formatting.Jsonp.pdb
 D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\Database.dll
 D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\Database.pdb
 D:\salim\sunior\EAS1\EAS\EAS\OES_Services\bin\Database.dll.config
-C:\Users\Seif\Desktop\Senior Project\EAS\EAS\OES_Services\bin\Database.dll
-C:\Users\Seif\Desktop\Senior Project\EAS\EAS\OES_Services\bin\WebApiContrib.Formatting.Jsonp.dll
-C:\Users\Seif\Desktop\Senior Project\EAS\EAS\OES_Services\bin\Database.pdb
-C:\Users\Seif\Desktop\Senior Project\EAS\EAS\OES_Services\bin\Database.dll.config
-C:\Users\Seif\Desktop\Senior Project\EAS\EAS\OES_Services\bin\WebApiContrib.Formatting.Jsonp.pdb

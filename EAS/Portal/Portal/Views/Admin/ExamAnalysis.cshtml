@@ -23,7 +23,7 @@
     </div>
     <!--/sub-heard-part-->
     <!--/forms-->
-    <div class="forms-main">
+    <div class="forms-main" id="Exam-main1">
         <h2 class="inner-tittle">Exam Analysis</h2>
         <div class="graph-form">
             <div class="validation-form">
@@ -31,6 +31,16 @@
 
                 <div class="vali-form vali-form1">
 
+
+                    <div class="col-md-12 form-group2 group-mail">
+                        <label class="control-label">Semester</label>
+                        <select id="Semester_select">
+                            <option value=""></option>
+
+                        </select>
+                    </div>
+
+                    <div class="clearfix"></div>
                     <div class="col-md-12 form-group2 group-mail">
                         <label class="control-label">Course Name</label>
                         <select id="Course_select">
@@ -58,84 +68,198 @@
                     <div class="clearfix"></div>
 
 
-                    <div class="grid-charts">
-
-                        <div class="col-md-6 graph-2">
-                            <h3 class="inner-tittle">Line Chart </h3>
-                            <div class="grid-1">
-                                <h4>Line</h4>
-                                <canvas id="line2" height="300" width="500" style="width: 500px; height: 300px;"></canvas>
-                                <script>
-                                    var lineChartData = {
-                                        labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Mon"],
-                                        datasets: [
-                                            {
-                                                fillColor: "#f4f4f4",
-                                                strokeColor: "#052963",
-                                                pointColor: "#00C6D7",
-                                                pointStrokeColor: "#00C6D7",
-                                                data: [20, 35, 45, 30, 10, 65, 40]
-                                            }
-                                        ]
-
-                                    };
-                                    new Chart(document.getElementById("line2").getContext("2d")).Line(lineChartData);
-                                </script>
-                            </div>
-                        </div>
 
 
-                        <div class="col-md-6 graph-2 second">
-                            <h3 class="inner-tittle">Pie Chart </h3>
-                            <div class="grid-1">
-                                <div class="text-1">
-                                    <h4>Pie</h4>
-                                    <div class="grid-graph">
-                                        <div class="grid-graph1">
-                                            <div id="os-Win-lbl">Chrome <span>100%</span></div>
-                                            <div id="os-Mac-lbl">Internet Explorer <span> 50%</span></div>
-                                            <div id="os-Other-lbl">Safari<span>30%</span></div>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="text-2">
-                                    <canvas id="pie" height="315" width="470" style="width: 470px; height: 315px;"></canvas>
-                                    <script>
-                                        var pieData = [
-                                            {
-                                                value: 30,
-                                                color: "#ea4c89"
-                                            },
-                                            {
-                                                value: 50,
-                                                color: "#052963"
-                                            },
-                                            {
-                                                value: 100,
-                                                color: "#00C6D7"
-                                            }
-
-                                        ];
-                                        new Chart(document.getElementById("pie").getContext("2d")).Pie(pieData);
-                                    </script>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                        </div>
-
-                        <div class="clearfix"> </div>
-
-                    </div>
-
-                   
                 </div>
 
             </div>
 
         </div>
     </div>
+
+
     <!--//forms-->
-</div>
+
+
+
+    <div class="forms-main">
+
+        <div class="clearfix"></div>
+        <div>
+            <div class="  col-md-4 form-group2">
+                <h3 class="inner-tittle">Exam Information </h3>
+                <br>
+                <div class="main-grid3">
+                    <div class="p-20">
+                        <div class="about-info-p">
+                            <strong>Exam Type:</strong>
+                            <br>
+                            <p class="text-muted" id="full_N"></p>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="about-info-p">
+                            <strong>Exam Date:</strong>
+                            <br>
+                            <p class="text-muted" id="MobileID"></p>
+                        </div>
+                        <div class="about-info-p">
+                            <strong>Exam Period:</strong>
+                            <br>
+                            <p class="text-muted" id="EmailID"></p>
+                        </div>
+                        <div class="about-info-p m-b-0">
+                            <strong>Student Number:</strong>
+                            <br>
+                            <p class="text-muted" id="UserNameID"></p>
+                        </div>
+                        <div class="about-info-p m-b-0">
+                            <strong>Success Rate:</strong>
+                            <br>
+                            <p class="text-muted" id="UserNameID"></p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-8 form-group2">
+                <div>
+                    <h3 class="inner-tittle">Student Marks </h3>
+                    <div class="grid-1">
+                        <h4>Mark</h4>
+                        <div id="chartContainer" height="300" width="500" style="width: 500px; height: 300px;"></div>
+                        <script>
+                            window.onload = function () {
+
+                                var chart = new CanvasJS.Chart("chartContainer", {
+                                    animationEnabled: true,
+                                    exportEnabled: true,
+                                    theme: "light1", // "light1", "light2", "dark1", "dark2"
+
+                                    data: [{
+                                        type: "column", //change type to bar, line, area, pie, etc
+                                        //indexLabel: "{y}", //Shows y value on all Data Points
+                                        indexLabelFontColor: "#5A5757",
+                                        indexLabelPlacement: "outside",
+                                        dataPoints: [
+                                            { x: 10, y: 71 },
+                                            { x: 20, y: 55 },
+                                            { x: 30, y: 50 },
+                                            { x: 40, y: 65 },
+                                            { x: 50, y: 92, indexLabel: "Highest" },
+                                            { x: 60, y: 68 },
+                                            { x: 70, y: 38 },
+                                            { x: 80, y: 71 },
+                                            { x: 90, y: 54 },
+                                            { x: 100, y: 60 },
+                                            { x: 110, y: 36 },
+                                            { x: 120, y: 49 },
+                                            { x: 130, y: 21, indexLabel: "Lowest" }
+                                        ]
+                                    }]
+                                });
+                                chart.render();
+
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+
+      
+           
+           
+             
+                            <div class="col-md-6 graph-2">
+                                <h3 class="inner-tittle">Exam ILOS </h3>
+                                <div>
+                                    <br>
+                                    <div class="main-grid3">
+                                        <div class="p-20">
+                                            <div class="about-info-p">
+                                                <strong>Exam Type:</strong>
+                                                <br>
+                                                <p class="text-muted" id="full_N"></p>
+                                            </div>
+                                            <div class="about-info-p">
+                                                <strong>Exam Date:</strong>
+                                                <br>
+                                                <p class="text-muted" id="MobileID"></p>
+                                            </div>
+                                            <div class="about-info-p">
+                                                <strong>Exam Period:</strong>
+                                                <br>
+                                                <p class="text-muted" id="EmailID"></p>
+                                            </div>
+                                            <div class="about-info-p m-b-0">
+                                                <strong>Student Number:</strong>
+                                                <br>
+                                                <p class="text-muted" id="UserNameID"></p>
+                                            </div>
+                                            <div class="about-info-p m-b-0">
+                                                <strong>Success Rate:</strong>
+                                                <br>
+                                                <p class="text-muted" id="UserNameID"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+      
+
+                <div class="col-md-6 graph-2 second">
+                    <h3 class="inner-tittle">Exam ILOS Success Percentage </h3>
+                    <div class="grid-1">
+                        <div class="text-1">
+                            <h4>Pie</h4>
+                            <div class="grid-graph">
+                                <div class="grid-graph1">
+                                    <div id="os-Win-lbl">Chrome <span>100%</span></div>
+                                    <div id="os-Mac-lbl">Internet Explorer <span> 50%</span></div>
+                                    <div id="os-Other-lbl">Safari<span>30%</span></div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                      
+                      
+                        <div class="text-2">
+                            <canvas id="pie" height="315" width="470" style="width: 470px; height: 315px;"></canvas>
+                            <script>
+                                                var pieData = [
+                                                    {
+                                                        value: 30,
+                                                        color: "#ea4c89"
+                                                    },
+                                                    {
+                                                        value: 50,
+                                                        color: "#052963"
+                                                    },
+                                                    {
+                                                        value: 100,
+                                                        color: "#00C6D7"
+                                                    }
+
+                                                ];
+                                                new Chart(document.getElementById("pie").getContext("2d")).Pie(pieData);
+                            </script>
+                        </div>
+                        <div class="clearfix"> </div>
+                        <div class="clearfix"> </div>
+
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+
+                
 
 
