@@ -301,7 +301,7 @@ function GetCourseExams() {
                 Topic['percentage'] = 
 
                 TopicPercentage.push({
-                    'Text': $('#topic-t' + i).text(),
+                    'ID':$("#TS-t" + i + " option:first").attr('id'),
                     'percentage': $('#TS-t' + i).val(),
                 });
 
@@ -410,8 +410,8 @@ function GetCourseExams() {
                         ToicDiv.append(temp);
                        // $("topic-t" + i).show();
 
-                        $('#TS-t'+i+'"option:first").attr("id", item.Topic_ID);
-                        console.log(("#TS-t0").val);
+                        $("#TS-t" + i + " option:first").attr("id", item.Topic_ID);
+                        console.log($("#TS-t" + i + " option:first").attr('id'));
                         document.getElementById("topic-t" + i).innerHTML = item.Topic_Description;
 
 
