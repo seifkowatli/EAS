@@ -341,7 +341,7 @@ function GetCourseExams() {
 
             ThinkingSkills = {
 
-                'Crtical Thinking': $('#Crtical-S').find('option:selected').val(),
+                'CriticalThinking': $('#Crtical-S').find('option:selected').val(),
                 'Analysis':$('#Analysis-S').find('option:selected').val(),
                 'Understanding': $('#Practical-S').find('option:selected').val(),
                 'Recall': $('#Theoratical-S').find('option:selected').val(),
@@ -350,7 +350,7 @@ function GetCourseExams() {
             }
            
 
-            $("#CrticalF").val(ThinkingSkills['Crtical Thinking']);
+            $("#CrticalF").val(ThinkingSkills['CriticalThinking']);
             $("#AnalysisF").val(ThinkingSkills['Analysis']);
             $("#PracticalF").val(ThinkingSkills['Understanding']);
             $("#TheoraticalF").val(ThinkingSkills['Recall']);
@@ -406,10 +406,12 @@ function GetCourseExams() {
 
                         temp.find("#topic-t").attr("id", "topic-t" + i);
                         temp.find("#TS-t").attr("id", "TS-t" + i);
+
                         ToicDiv.append(temp);
                        // $("topic-t" + i).show();
 
-
+                        $('#TS-t'+i+'"option:first").attr("id", item.Topic_ID);
+                        console.log(("#TS-t0").val);
                         document.getElementById("topic-t" + i).innerHTML = item.Topic_Description;
 
 

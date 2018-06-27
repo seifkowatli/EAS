@@ -48,14 +48,8 @@ namespace OES_Services.Controllers
 
     public class TopicPercentage
     {
-<<<<<<< HEAD
         public int ID;
         public double percentage;
-=======
-        public String Text;
-        public String percentage;
-
->>>>>>> c129a03d23545544856792c4abeda89a736e80c9
     }
 
     public class Difficulty
@@ -78,20 +72,16 @@ namespace OES_Services.Controllers
 
     public class ExamInfo
     {
-<<<<<<< HEAD
 
         public double QuestNum;
         public double ExamPeriod;
         public List<TopicPercentage> TopicPercentages;
         public Difficulty Difficulty;
         public ThinkingSkills ThinkingSkills;
-=======
         public String TotalGrade;
-        public String ExamPeriod;
+       
         public List<TopicPercentage> TopicPercentage;
-        public Difficulty Difficulty ;
-        public ThinkingSkills ThinkingSkills ;
->>>>>>> c129a03d23545544856792c4abeda89a736e80c9
+       
         public int ExamID;
 
         public ExamInfo()
@@ -322,12 +312,9 @@ namespace OES_Services.Controllers
                 double id = ei.TopicPercentages[i].ID;
                 double[,] temp = new double[TS_Ratios.Length, Difficulty_Ratios.Length];
 
-<<<<<<< HEAD
                 double[] tempTS = CSP_Functions.GetRelaventtRatios(TS_Ratios , TopicsQuestCount[i]);
                 double[] tempDiff = CSP_Functions.GetRelaventtRatios(Difficulty_Ratios, TopicsQuestCount[i]);
-=======
             ExamInfo a = Exam;
->>>>>>> c129a03d23545544856792c4abeda89a736e80c9
 
                 CSP_Functions.Add2TwoD(ref temp, tempTS, 0);
                 CSP_Functions.Add2TwoD(ref temp, tempDiff, 1);
@@ -337,39 +324,39 @@ namespace OES_Services.Controllers
             
         }
 
-        [Route("GetCSPQuestions")]
-        [HttpGet] 
-        public HttpResponseMessage GetCSPQuestions()
-        {
-            try
-            {
-                if (ExamTree == null)
-                    Request.CreateResponse(HttpStatusCode.MethodNotAllowed, "There are no Exam info you can't request This methode");
+        //[Route("GetCSPQuestions")]
+        //[HttpGet] 
+        //public HttpResponseMessage GetCSPQuestions()
+        //{
+        //    try
+        //    {
+        //        if (ExamTree == null)
+        //            Request.CreateResponse(HttpStatusCode.MethodNotAllowed, "There are no Exam info you can't request This methode");
 
 
-                List<Question> MyQuestions = new List<Question>();
-                using (EAS_DatabaseEntities e = new EAS_DatabaseEntities())
-                {
+        //        List<Question> MyQuestions = new List<Question>();
+        //        using (EAS_DatabaseEntities e = new EAS_DatabaseEntities())
+        //        {
 
-                    for (int i=0; i < ExamTree.Count(); i++)
-                    {
+        //            for (int i=0; i < ExamTree.Count(); i++)
+        //            {
                       
-                    }
+        //            }
 
 
 
-                }
+        //        }
                 
 
-            }
-            catch ( Exception ex)
-            {
+        //    }
+        //    catch ( Exception ex)
+        //    {
 
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
-            }
+        //        return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
+        //    }
 
 
-        }
+        //}
 
 
     }
