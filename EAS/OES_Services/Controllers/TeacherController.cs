@@ -6,77 +6,114 @@ using System.Net.Http;
 using System.Web.Http;
 using Database;
 using OES_Services.Security;
+using OES_Services.System_Algorithms;
 
 namespace OES_Services.Controllers
 {
-   public class CourseExam
-    {
 
+    public class Question
+    {
+        public Question() { }
+
+        public Question(int id, string text, int time, int difficulty, int frequency, string thinkingSkills, int mark, int topic_Id)
+        {
+            Id = id;
+            Topic_Id = topic_Id;
+            Text = text;
+            this.time = time;
+            Difficulty = difficulty;
+            this.frequency = frequency;
+            ThinkingSkills = thinkingSkills;
+            Mark = mark;
+        }
+
+        public int Id { set; get; }
+        public int Topic_Id { set; get; }
+        public string Text { set; get; }
+        public int time { set; get; }
+        public int Difficulty { set; get; }
+        public int frequency { set; get; }
+        public string ThinkingSkills { set; get; }
+        public int Mark { set; get; }
+
+    }
+    public class CourseExam
+    {
         public int Exam_ID;
         public string Exam_Type;
         public string Course_Name;
         public int Semster_ID;
         public int Course_ID;
+    }
 
-
-}
     public class TopicPercentage
     {
+<<<<<<< HEAD
+        public int ID;
+        public double percentage;
+=======
         public String Text;
         public String percentage;
 
+>>>>>>> c129a03d23545544856792c4abeda89a736e80c9
     }
+
     public class Difficulty
     {
-        public String VeryEasy;
-        public String Easy;
-        public String Avarage;
-        public String Difficult;
-        public String VeryDifficult;
-
-
-
+        public double VeryEasy;
+        public double Easy;
+        public double Avarage;
+        public double Difficult;
+        public double VeryDifficult;
     }
+
     public class ThinkingSkills
     {
-
-        public String Crtical;
-        public String Analysis;
-        public String Practical;
-        public String Theoratical;
-
+        public double Recall;
+        public double Analysis;
+        public double Understanding;
+        public double Compiling;
+        public double CriticalThinking;
     }
+
     public class ExamInfo
     {
+<<<<<<< HEAD
+
+        public double QuestNum;
+        public double ExamPeriod;
+        public List<TopicPercentage> TopicPercentages;
+        public Difficulty Difficulty;
+        public ThinkingSkills ThinkingSkills;
+=======
         public String TotalGrade;
         public String ExamPeriod;
         public List<TopicPercentage> TopicPercentage;
         public Difficulty Difficulty ;
         public ThinkingSkills ThinkingSkills ;
+>>>>>>> c129a03d23545544856792c4abeda89a736e80c9
         public int ExamID;
 
         public ExamInfo()
         {
-            TopicPercentage = new List<TopicPercentage>();
-            Difficulty =  new Difficulty ();
+            TopicPercentages = new List<TopicPercentage>();
+            Difficulty = new Difficulty();
             ThinkingSkills = new ThinkingSkills();
         }
-
-
-
-
     }
 
     [RoutePrefix("api/Teacher")]
     public class TeacherController : ApiController
     {
 
-
+        List<KeyValuePair<double, double[,]>> ExamTree = new List<KeyValuePair<double, double[,]>>();
+        
+        
         [Route("Add_New_Question")]
         [HttpPost]
         public void Add_New_Question(Questions_Bank Nq)
         {
-           Nq.Question= DES.Encrypt(Nq.Question);
+            Nq.Question = DES.Encrypt(Nq.Question);
             using (EAS_DatabaseEntities entities = new EAS_DatabaseEntities())
             {
 
@@ -103,7 +140,7 @@ namespace OES_Services.Controllers
 
 
 
-                for(int i = 0; i <Answers.Count(); i++)
+                for (int i = 0; i < Answers.Count(); i++)
                 {
                     if (i == 0)
                         Answers[i].is_True = true;
@@ -114,10 +151,10 @@ namespace OES_Services.Controllers
                 for (int i = 0; i < Answers.Count(); i++)
                     Answers[i].Question_ID = id;
 
-                
+
                 foreach (var item in Answers)
                 {
-                    item.Answer= DES.Encrypt(item.Answer);
+                    item.Answer = DES.Encrypt(item.Answer);
                     entities.Question_Answers.Add(item);
                 }
 
@@ -152,11 +189,11 @@ namespace OES_Services.Controllers
 
                     foreach (var item2 in temp2)
                     {
-                       var temp3= (from c in entity.Topics
-                        where c.Topic_ID==item2.Topic_ID
-                        select c).FirstOrDefault();
+                        var temp3 = (from c in entity.Topics
+                                     where c.Topic_ID == item2.Topic_ID
+                                     select c).FirstOrDefault();
 
-                        All_Topics.Add(temp3);  
+                        All_Topics.Add(temp3);
                     }
                 }
             }
@@ -188,16 +225,16 @@ namespace OES_Services.Controllers
         public List<CourseExam> CourseExams()
         {
 
-          
-            List< CourseExam > CE_List   = new List<CourseExam>();
+
+            List<CourseExam> CE_List = new List<CourseExam>();
 
 
             using (EAS_DatabaseEntities entity = new EAS_DatabaseEntities())
-            {  
-                  var temp = from e in entity.Exams
-                            join c in entity.Courses on e.Course_ID equals c.Course_ID
-                            where e.Semster_ID == 1
-                            select new { Exam_ID=e.Exam_ID, Exam_Type=e.Exam_Type, Course_Name = c.Course_Name, Semster_ID =e.Semster_ID, Course_ID=c.Course_ID};
+            {
+                var temp = from e in entity.Exams
+                           join c in entity.Courses on e.Course_ID equals c.Course_ID
+                           where e.Semster_ID == 1
+                           select new { Exam_ID = e.Exam_ID, Exam_Type = e.Exam_Type, Course_Name = c.Course_Name, Semster_ID = e.Semster_ID, Course_ID = c.Course_ID };
 
 
                 foreach (var item in temp)
@@ -255,14 +292,86 @@ namespace OES_Services.Controllers
         [HttpPost]
         public void GetExamInformation(ExamInfo Exam)
         {
+            ExamInfo ei = Exam;
+            double[] Topics_Ratios = new double[ei.TopicPercentages.Count()] ;
+            
+            for (int i = 0; i < ei.TopicPercentages.Count(); i++)
+            {
+                Topics_Ratios[i] = ei.TopicPercentages[i].percentage;
+            }
 
+            double[] TopicsQuestCount = CSP_Functions.GetRelaventtRatios(Topics_Ratios, ei.QuestNum);
 
+            double[] TS_Ratios = {
+                ei.ThinkingSkills.Recall ,
+                ei.ThinkingSkills.Analysis ,
+                ei.ThinkingSkills.Understanding ,
+                ei.ThinkingSkills.Compiling ,
+                ei.ThinkingSkills.CriticalThinking
+            };
+            double[] Difficulty_Ratios = {
+                ei.Difficulty.VeryDifficult,
+                ei.Difficulty.Easy ,
+                ei.Difficulty.Avarage,
+                ei.Difficulty.Difficult ,
+                ei.Difficulty.VeryDifficult
+            };
+
+            for (int i = 0; i < TopicsQuestCount.Length; i++)
+            {
+                double id = ei.TopicPercentages[i].ID;
+                double[,] temp = new double[TS_Ratios.Length, Difficulty_Ratios.Length];
+
+<<<<<<< HEAD
+                double[] tempTS = CSP_Functions.GetRelaventtRatios(TS_Ratios , TopicsQuestCount[i]);
+                double[] tempDiff = CSP_Functions.GetRelaventtRatios(Difficulty_Ratios, TopicsQuestCount[i]);
+=======
             ExamInfo a = Exam;
+>>>>>>> c129a03d23545544856792c4abeda89a736e80c9
+
+                CSP_Functions.Add2TwoD(ref temp, tempTS, 0);
+                CSP_Functions.Add2TwoD(ref temp, tempDiff, 1);
+
+                ExamTree.Add(new KeyValuePair<double, double[,]>(id, temp));
+            }
+            
+        }
+
+        [Route("GetCSPQuestions")]
+        [HttpGet] 
+        public HttpResponseMessage GetCSPQuestions()
+        {
+            try
+            {
+                if (ExamTree == null)
+                    Request.CreateResponse(HttpStatusCode.MethodNotAllowed, "There are no Exam info you can't request This methode");
+
+
+                List<Question> MyQuestions = new List<Question>();
+                using (EAS_DatabaseEntities e = new EAS_DatabaseEntities())
+                {
+
+                    for (int i=0; i < ExamTree.Count(); i++)
+                    {
+                      
+                    }
+
+
+
+                }
+                
+
+            }
+            catch ( Exception ex)
+            {
+
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
 
 
         }
+
+
     }
-
-
-   
+    
 }

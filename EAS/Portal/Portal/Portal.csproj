@@ -267,6 +267,10 @@
     <Content Include="Views\Teacher\CreateExam.cshtml" />
     <Content Include="Views\Admin\ExamAnalysis.cshtml" />
     <Content Include="Views\Admin\CourseAnalysis.cshtml" />
+    <Content Include="Views\Admin\SemesterAnalysis.cshtml" />
+    <Content Include="Views\Admin\StudentAnalysis.cshtml" />
+    <Content Include="Views\Student\Analysis.cshtml" />
+    <Content Include="Views\Teacher\Analysis.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
