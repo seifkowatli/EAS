@@ -260,33 +260,128 @@ function GetCourseExams() {
 
 
 
-    $(document).ready(function () {
-
-        var NumberOfTopic = 0;
-        var ExamInformation = [];
-        var TopicPercentage = []
-        var ThinkingSkills = [];
-
-        var TestDiv = $('#Topic-t').clone();
-        var TestDivF = $('#Topic-tF').clone();
-
-    
-        $('#state1').hide();
-        $('#state3').hide();
-        GetCourseExams();
-
-        $('#finish-t').on('click', function () {
+$(document).ready(function () {
 
 
-          
+
+    var NumberOfTopic = 0;
+    var ExamInformation = [];
+    var TopicPercentage = []
+    var ThinkingSkills = [];
+    var count1 = 0;
+    var count2 = 0;
+    var count3 = 0;
+
+
+    var TestDiv = $('#Topic-t').clone();
+    var TestDivF = $('#Topic-tF').clone();
+
+
+    $('#state1').hide();
+    $('#state3').hide();
+    GetCourseExams();
+
+    $("#next2").on('click', function () {
+
+
+
+
+
+        currentIndex = $('#theCarousel div.active').index();
+        console.log(currentIndex);
+        if (currentIndex == 1) {
+            count1 = 0;
+            console.log(NumberOfTopic);
+            for (var i = 0; i < NumberOfTopic; i++) {
+
+                count1 = count1 + parseInt($("#TS-t" + i).val())
+
+
+            }
+            console.log(count1);
+
+            if ((count1 < 100) || (count1 > 100)) {
+                window.alert("sum of Difficulty percentage must ne 100% ");
+                $('#theCarousel').carousel(0);
+                $('#theCarousel').carousel(1);
+
+            }
+
+            else if (count1 == 100) {
+
+                $('#theCarousel').carousel(2);
+
+            }
+
+
+
+        }
+
+        if (currentIndex == 2) {
+            count2 = 0;
+
+             count2 = parseInt(parseInt($('#VES').val()) + parseInt($('#EasyS').val()) + parseInt($('#AvarageS').val()) + parseInt($('#DifficultS').val()) + parseInt($('#MDS').val()))
+
+
+             if ((count2 < 100) || (count2 > 100)) {
+                window.alert("sum of Difficulty percentage must ne 100% ");
+                $('#theCarousel').carousel(0);
+                $('#theCarousel').carousel(2);
+
+            }
+
+             else if (count2 == 100) {
+
+                $('#theCarousel').carousel(3);
+
+            }
+
+
+
+        }
+        if (currentIndex == 3) {
+            count3 = 0;
+
+            count3 = parseInt(parseInt($('#Crtical-S').val()) + parseInt($('#Analysis-S').val()) + parseInt($('#Practical-S').val()) + parseInt($('#Theoratical-S').val()) + parseInt($('#Compiling-S').val()))
+
+
+            if ((count3 < 100) || (count3 > 100)) {
+                window.alert("sum of Difficulty percentage must ne 100% ");
+                $('#theCarousel').carousel(0);
+                $('#theCarousel').carousel(3);
+
+            }
+
+            else if (count3 == 100) {
+
+                $('#theCarousel').carousel(3);
+
+            }
+
+
+
+        }
+
+
+
+
+    })
+    $('#finish-t').on('click', function () {
+        console.log(count1);
+        console.log(count2);
+        console.log(count3);
+
+        if (count1 == 100 && count2 == 100 && count3 == 100) {
+
             var EI = [];
             $('#create-t').hide();
-
             $('#state3').show();
+            $('#myModal').modal('hide');
 
 
-          
-            var TotalGrade = document.getElementById('ToatalGrade1').value;   
+
+
+            var TotalGrade = document.getElementById('ToatalGrade1').value;
             var ExamPeriod = document.getElementById('Period1').value;
 
 
@@ -297,31 +392,36 @@ function GetCourseExams() {
 
             for (var i = 0; i < NumberOfTopic; i++) {
                 var Topic = [];
-                Topic['Text'] = 
-                Topic['percentage'] = 
-
-                TopicPercentage.push({
-                    'ID':$("#TS-t" + i + " option:first").attr('id'),
-                    'percentage': $('#TS-t' + i).val(),
-                });
-
-                
-                $('#Topic-tF').hide();
-
-                var temp = TestDivF.clone().prop('id', 'Topic-tF' + i);
-                temp.show();
+                //Topic['Text'] =;
+                  //  Topic['percentage'] =;
+                    
+                if ($('#TS-t' + i).val() > 0) {
+                    TopicPercentage.push({
+                        'ID': $("#TS-t" + i + " option:first").attr('id'),
+                        'percentage': $('#TS-t' + i).val(),
+                        'Text': $('#topic-t' + i).text()
+                    });
 
 
 
-                temp.find("#topic-F").attr("id", "topic-F" + i);
-                temp.find("#TS-tF").attr("id", "TS-tF" + i);
-                ToicDiv.append(temp);
 
-                document.getElementById("topic-F" + i).innerHTML = TopicPercentage[i].Text ;
-                $("#TS-tF" + i).val(TopicPercentage[i].percentage);
+                    $('#Topic-tF').hide();
+
+                    var temp = TestDivF.clone().prop('id', 'Topic-tF' + i);
+                    temp.show();
 
 
-            }            
+
+                    temp.find("#topic-F").attr("id", "topic-F" + i);
+                    temp.find("#TS-tF").attr("id", "TS-tF" + i);
+                    ToicDiv.append(temp);
+
+                    document.getElementById("topic-F" + i).innerHTML = TopicPercentage[i].Text;
+                    $("#TS-tF" + i).val(TopicPercentage[i].percentage);
+                }
+
+            }
+           
             var Difficulty = {
 
                 'VeryEasy': $('#VES').find('option:selected').val(),
@@ -330,7 +430,7 @@ function GetCourseExams() {
                 'Difficult': $('#DifficultS').find('option:selected').val(),
                 'VeryDifficult': $('#MDS').find('option:selected').val()
             };
-            
+
 
             $("#Very_EasyF").val(Difficulty['VeryEasy']);
             $("#EasyF").val(Difficulty['Easy']);
@@ -342,13 +442,13 @@ function GetCourseExams() {
             ThinkingSkills = {
 
                 'CriticalThinking': $('#Crtical-S').find('option:selected').val(),
-                'Analysis':$('#Analysis-S').find('option:selected').val(),
+                'Analysis': $('#Analysis-S').find('option:selected').val(),
                 'Understanding': $('#Practical-S').find('option:selected').val(),
                 'Recall': $('#Theoratical-S').find('option:selected').val(),
                 'Compiling': $('#Compiling-S').find('option:selected').val()
 
             }
-           
+
 
             $("#CrticalF").val(ThinkingSkills['CriticalThinking']);
             $("#AnalysisF").val(ThinkingSkills['Analysis']);
@@ -375,13 +475,22 @@ function GetCourseExams() {
 
 
 
-           $('#Toatal_GradeF').val(TotalGrade);
-           $('#PeriodF').val(ExamPeriod );
+            $('#Toatal_GradeF').val(TotalGrade);
+            $('#PeriodF').val(ExamPeriod);
 
 
-           
+        }
+        else {
+            if (count1 != 100)
+               $('#theCarousel').carousel(1);
+            else if (count2 != 100)
+                $('#theCarousel').carousel(2);
+            else
+                $('#theCarousel').carousel(3);
+        }
         })
-        $('#CourseExam-T').on('change', function () {
+    
+    $('#CourseExam-T').on('change', function () {
 
             var ToicDiv = $('#Topic-div');
             ToicDiv.empty();
@@ -411,7 +520,6 @@ function GetCourseExams() {
                        // $("topic-t" + i).show();
 
                         $("#TS-t" + i + " option:first").attr("id", item.Topic_ID);
-                        console.log($("#TS-t" + i + " option:first").attr('id'));
                         document.getElementById("topic-t" + i).innerHTML = item.Topic_Description;
 
 
@@ -427,7 +535,7 @@ function GetCourseExams() {
 
 
         })
-        $('#GenerateQestionssID').on('click', function () {
+    $('#GenerateQestionssID').on('click', function () {
 
             console.log(ExamInformation.Difficulty);
 
