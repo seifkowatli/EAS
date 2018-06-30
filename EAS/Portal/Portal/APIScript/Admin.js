@@ -432,10 +432,11 @@ $(document).ready(function () {
 
     -////// Exam Analysis////////////////////////////////////////////////////
 
-
-   
-
 $(document).ready(function () {
+
+    
+
+
     $body = $("body");
     $(document).on({
         ajaxStart: function () { $body.addClass("loading"); },
@@ -748,6 +749,101 @@ $(document).ready(function () {
 
 
 ///// Course Analysis
+
+
+
+function DisplayStudents_Marks(Marks) {
+
+    var myTable = document.getElementById('TableMardID');
+
+
+    Marks.forEach(function (element) {
+
+        if (element.Degree >= 98)
+        {
+            myTable.rows[1].cells[2].innerHTML = element.StudentNumber;
+            myTable.rows[1].cells[3].innerHTML = element.DegreePer+'%';
+
+        }
+
+        else if (element.Degree >= 95 && element.Degree < 98) {
+            myTable.rows[2].cells[2].innerHTML = element.StudentNumber;
+            myTable.rows[2].cells[3].innerHTML = element.DegreePer + '%';
+
+        }
+
+        else if (element.Degree >= 90 && element.Degree < 95) {
+            myTable.rows[3].cells[2].innerHTML = element.StudentNumber;
+            myTable.rows[3].cells[3].innerHTML = element.DegreePer + '%';
+
+        }
+
+
+        if (element.Degree >= 85 && element.Degree<90) {
+            myTable.rows[4].cells[2].innerHTML = element.StudentNumber;
+            myTable.rows[4].cells[3].innerHTML = element.DegreePer + '%';
+
+        }
+
+        else if (element.Degree >= 80 && element.Degree < 85) {
+            myTable.rows[5].cells[2].innerHTML = element.StudentNumber;
+            myTable.rows[5].cells[3].innerHTML = element.DegreePer + '%';
+
+        }
+
+        else if (element.Degree >= 75 && element.Degree < 80) {
+            myTable.rows[6].cells[2].innerHTML = element.StudentNumber;
+            myTable.rows[6].cells[3].innerHTML = element.DegreePer + '%';
+
+        }
+
+        if (element.Degree >= 70 && element.Degree < 75) {
+            myTable.rows[7].cells[2].innerHTML = element.StudentNumber;
+            myTable.rows[7].cells[3].innerHTML = element.DegreePer + '%';
+
+        }
+
+        else if (element.Degree >= 65 && element.Degree < 70) {
+            myTable.rows[8].cells[2].innerHTML = element.StudentNumber;
+            myTable.rows[8].cells[3].innerHTML = element.DegreePer + '%';
+
+        }
+
+        else if (element.Degree >= 60 && element.Degree < 65) {
+            myTable.rows[9].cells[2].innerHTML = element.StudentNumber;
+            myTable.rows[9].cells[3].innerHTML = element.DegreePer + '%';
+
+        }
+        else
+            myTable.rows[10].cells[2].innerHTML = element.StudentNumber;
+            myTable.rows[10].cells[3].innerHTML = element.DegreePer + '%';
+
+
+    })
+   
+
+
+
+
+
+
+}
+function DisplaySuccessPer(n,pn,n2,pn2) {
+
+    var myTable = document.getElementById('TableMardID2');
+            myTable.rows[1].cells[2].innerHTML = n;
+            myTable.rows[1].cells[3].innerHTML = pn + '%';
+
+            myTable.rows[2].cells[2].innerHTML = n2;
+            myTable.rows[2].cells[3].innerHTML = pn2 + '%';
+
+
+    }
+        
+        
+        
+        
+
 $(document).ready(function () {
     var CourseID=null;
     $body = $("body");
@@ -796,6 +892,17 @@ $(document).ready(function () {
                 method: "Get",
                 success: function (data) {
 
+                    $("#Course-main1").hide();
+
+                    var temp1 = (data.CourseStudents - data.StudentSusccesNumber)
+                    var temp2 = (100 - data.SuccessRate);
+                    DisplaySuccessPer(data.StudentSusccesNumber,data.SuccessRate, temp1, temp2 )
+
+                    document.getElementById("CourseNameID").innerHTML = data.CourseName ;
+                    document.getElementById("NOSID").innerHTML = data.CourseStudents ;
+
+                   
+                    DisplayStudents_Marks(data.CSM);
                     console.log(data);
 
 

@@ -11,9 +11,9 @@ namespace EAS_Servies.Controllers
     public class Topicpercent
     {
         public Topic TC;
-        public  double TopicSuccessPercent;
+        public double TopicSuccessPercent;
         public double SuccessStudentNumber;
-      
+
 
         public Topicpercent()
         {
@@ -84,10 +84,14 @@ namespace EAS_Servies.Controllers
 
     public class CourseAnalysis
     {
+        public string CourseName;
+        public string TeahcerName;
+        public int CourseStudents;
 
         public List<studentMarks> CSM;
         public CoursCATEGORIES CES;
         public double SuccessRate;
+        public int StudentSusccesNumber;
         public CourseAnalysis()
         {
             CSM = new List<studentMarks>();
@@ -104,7 +108,7 @@ namespace EAS_Servies.Controllers
 
         [Route("ExamAnalysis/{ExamID:int}")]
         [HttpGet]
-       public ExamAnalysis ExamAnalysis(int ExamID)
+        public ExamAnalysis ExamAnalysis(int ExamID)
         {
             ExamAnalysis Examcontent = new ExamAnalysis();
             List<int> TopicID = new List<int>();
@@ -135,9 +139,9 @@ namespace EAS_Servies.Controllers
                 var ExamQuestions = from Exam in entite.ExamQuestions
                                     join question in entite.Questions_Bank on Exam.Question_ID equals question.Question_ID
                                     join ILo in entite.ILOS_Topic on question.Topic_ID equals ILo.Topic_ID
-                                   
-                                     where Exam.Exam_ID == ExamID
-                                     
+
+                                    where Exam.Exam_ID == ExamID
+
                                     select new
                                     {
                                         ILO_ = ILo.ILOS_ID,
@@ -150,12 +154,12 @@ namespace EAS_Servies.Controllers
                                                select c
                                               ).FirstOrDefault();
 
-               
+
 
 
                 var Temp1 = ExamQuestions.GroupBy(g => g.ILO_);
 
-                foreach(var group_ in Temp1)
+                foreach (var group_ in Temp1)
                 {
                     ILOSpercent ILOSpercent_ = new ILOSpercent();
                     ILOSpercent_.ilo = (from c in entite.ILOS
@@ -165,7 +169,7 @@ namespace EAS_Servies.Controllers
 
                     foreach (var T in group_)
                     {
-                        
+
                         if (!TopicID.Contains(T.Topic_))
                         {
                             TopicID.Add(T.Topic_);
@@ -176,28 +180,28 @@ namespace EAS_Servies.Controllers
                                      select c
                                           ).FirstOrDefault();
 
-                           var StudentlistID = (from SE in entite.Students_Exams
-                                             where SE.Exam_ID == ExamID
-                                             select SE.Student_ID).ToList();
+                            var StudentlistID = (from SE in entite.Students_Exams
+                                                 where SE.Exam_ID == ExamID
+                                                 select SE.Student_ID).ToList();
 
 
 
                             Examcontent.StudentNumber = StudentlistID.Count;
 
 
-                              var ExamTopic = (from c in entite.Student_Answers
-                                                 join question in entite.Questions_Bank on c.Question_ID equals question.Question_ID
-                                                 join topic_ in entite.Topics on question.Topic_ID equals topic_.Topic_ID
-                                                 where c.Exam_ID == ExamID
-                                                 where topic_.Topic_ID == T.Topic_
+                            var ExamTopic = (from c in entite.Student_Answers
+                                             join question in entite.Questions_Bank on c.Question_ID equals question.Question_ID
+                                             join topic_ in entite.Topics on question.Topic_ID equals topic_.Topic_ID
+                                             where c.Exam_ID == ExamID
+                                             where topic_.Topic_ID == T.Topic_
 
 
-                                                 select new
-                                                 {
-                                                     questionID = question.Question_ID,
-                                                     quetionMark = question.Question_Mark
+                                             select new
+                                             {
+                                                 questionID = question.Question_ID,
+                                                 quetionMark = question.Question_Mark
 
-                                                 }).Distinct();
+                                             }).Distinct();
 
                             foreach (var q in ExamTopic)
                             {
@@ -216,10 +220,10 @@ namespace EAS_Servies.Controllers
                                     var studentAnswerId = (from c in entite.Student_Answers
                                                            where c.Exam_ID == ExamID
                                                            where c.Student_ID == studentId
-                                                           where c.Question_ID==q.questionID
+                                                           where c.Question_ID == q.questionID
                                                            select c.AnswerID).FirstOrDefault();
                                     if (TrueAnsweId == studentAnswerId)
-                                        TopicStudentResult = TopicStudentResult + (int) q.quetionMark;
+                                        TopicStudentResult = TopicStudentResult + (int)q.quetionMark;
 
 
                                 }
@@ -230,21 +234,21 @@ namespace EAS_Servies.Controllers
                                 }
                                 TopicStudentResult = 0;
                             }
-                            
+
                             tp.TopicSuccessPercent = (tp.SuccessStudentNumber / (StudentlistID.Count)) * 100;
-                            
+
                             Topic_Marks = 0;
 
                             ILOSpercent_.Topics.Add(tp);
 
                         }
                     }
-                    foreach (var Topic  in ILOSpercent_.Topics)
+                    foreach (var Topic in ILOSpercent_.Topics)
                     {
                         ptemp = ptemp + Topic.TopicSuccessPercent;
                     }
 
-                    ILOSpercent_.ILOpercent = ptemp/ ILOSpercent_.Topics.Count;
+                    ILOSpercent_.ILOpercent = ptemp / ILOSpercent_.Topics.Count;
                     ptemp = 0;
                     Examcontent.CourseIlos.Add(ILOSpercent_);
 
@@ -253,13 +257,13 @@ namespace EAS_Servies.Controllers
 
                 foreach (var ILO in Examcontent.CourseIlos)
                 {
-                    ptemp2 =ptemp2 + ILO.ILOpercent;
+                    ptemp2 = ptemp2 + ILO.ILOpercent;
                 }
 
-                Examcontent.ESuccessRate = ptemp2/ Examcontent.CourseIlos.Count;
-              
+                Examcontent.ESuccessRate = ptemp2 / Examcontent.CourseIlos.Count;
+
                 return Examcontent;
-                
+
 
             }
 
@@ -275,9 +279,17 @@ namespace EAS_Servies.Controllers
 
             using (EAS_DatabaseEntities entite = new EAS_DatabaseEntities())
             {
+                CA.CourseName = (from c in entite.Courses
+                                 where c.Course_ID == CourseID
+                                 select c.Course_Name).FirstOrDefault();
+
+
+
                 var StudentList = (from c in entite.StudentsMarks
                                    where c.CourseID == CourseID
                                    select c).ToList();
+                CA.CourseStudents = StudentList.Count;
+
 
                 var temp = StudentList.GroupBy(r => r.Final + r.Midterm + r.Practical);
 
@@ -285,7 +297,7 @@ namespace EAS_Servies.Controllers
 
                 foreach (var Sms in temp)
                 {
-                    
+
 
                     studentMarks s = new studentMarks();
 
@@ -294,8 +306,8 @@ namespace EAS_Servies.Controllers
                     s.DegreePer = ((double)Sms.Count() / StudentList.Count) * 100;
                     CA.CSM.Add(s);
                 }
-                    
-                foreach(var item in StudentList)
+
+                foreach (var item in StudentList)
                 {
                     var finalgrad = (item.Practical + item.Midterm + item.Final);
 
@@ -316,18 +328,19 @@ namespace EAS_Servies.Controllers
 
 
                 foreach (var item in StudentList)
-                { 
+                {
                     var finalgrad = (item.Practical + item.Midterm + item.Final);
                     if (finalgrad >= 50)
-                        count++;
+                        CA.StudentSusccesNumber++;
+
+
+
+                    CA.SuccessRate = (CA.StudentSusccesNumber / StudentList.Count) * 100;
 
                 }
 
-                CA.SuccessRate = (count / StudentList.Count) * 100;
-
+                return CA;
             }
-
-            return CA;
         }
     }
 }
