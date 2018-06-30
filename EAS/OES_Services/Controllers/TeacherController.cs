@@ -35,8 +35,10 @@ namespace OES_Services.Controllers
         public int frequency { set; get; }
         public string ThinkingSkills { set; get; }
         public int Mark { set; get; }
-
     }
+
+
+
     public class CourseExam
     {
         public int Exam_ID;
@@ -48,14 +50,9 @@ namespace OES_Services.Controllers
 
     public class TopicPercentage
     {
-<<<<<<< HEAD
         public int ID;
         public double percentage;
-=======
-        public String Text;
-        public String percentage;
 
->>>>>>> c129a03d23545544856792c4abeda89a736e80c9
     }
 
     public class Difficulty
@@ -78,20 +75,12 @@ namespace OES_Services.Controllers
 
     public class ExamInfo
     {
-<<<<<<< HEAD
 
         public double QuestNum;
         public double ExamPeriod;
         public List<TopicPercentage> TopicPercentages;
         public Difficulty Difficulty;
         public ThinkingSkills ThinkingSkills;
-=======
-        public String TotalGrade;
-        public String ExamPeriod;
-        public List<TopicPercentage> TopicPercentage;
-        public Difficulty Difficulty ;
-        public ThinkingSkills ThinkingSkills ;
->>>>>>> c129a03d23545544856792c4abeda89a736e80c9
         public int ExamID;
 
         public ExamInfo()
@@ -293,6 +282,7 @@ namespace OES_Services.Controllers
         public void GetExamInformation(ExamInfo Exam)
         {
             ExamInfo ei = Exam;
+
             double[] Topics_Ratios = new double[ei.TopicPercentages.Count()] ;
             
             for (int i = 0; i < ei.TopicPercentages.Count(); i++)
@@ -322,12 +312,9 @@ namespace OES_Services.Controllers
                 double id = ei.TopicPercentages[i].ID;
                 double[,] temp = new double[TS_Ratios.Length, Difficulty_Ratios.Length];
 
-<<<<<<< HEAD
                 double[] tempTS = CSP_Functions.GetRelaventtRatios(TS_Ratios , TopicsQuestCount[i]);
                 double[] tempDiff = CSP_Functions.GetRelaventtRatios(Difficulty_Ratios, TopicsQuestCount[i]);
-=======
-            ExamInfo a = Exam;
->>>>>>> c129a03d23545544856792c4abeda89a736e80c9
+
 
                 CSP_Functions.Add2TwoD(ref temp, tempTS, 0);
                 CSP_Functions.Add2TwoD(ref temp, tempDiff, 1);
@@ -336,6 +323,7 @@ namespace OES_Services.Controllers
             }
             
         }
+
 
         [Route("GetCSPQuestions")]
         [HttpGet] 
@@ -348,18 +336,46 @@ namespace OES_Services.Controllers
 
 
                 List<Question> MyQuestions = new List<Question>();
+                Question tempQ = new Question();
                 using (EAS_DatabaseEntities e = new EAS_DatabaseEntities())
                 {
-
-                    for (int i=0; i < ExamTree.Count(); i++)
+                    for (int i = 0; i < ExamTree.Count(); i++)
                     {
-                      
+                        double t_id = ExamTree[i].Key;
+                        int[,] t_quest = CSP_Functions.GetRandmQuest(ExamTree[i].Value);
+                        
+                        for(int j =0; j < t_quest.GetLength(0); i++)
+                        {
+                            var temp = (from t in e.Questions_Bank
+                                        where t.Question_ID == t_id
+                                        && t.Thinking_Skills == CSP_Functions.GetTS(t_quest[j,1])
+                                        && t.Difficulty_Level  == (int)t_quest[j, 0]
+                                        select t).FirstOrDefault();
+
+
+                            MyQuestions.Add(new Question()
+                            {
+                                Id = temp.Question_ID,
+                                Text = DES.Decrypt(temp.Question),
+                                time = int.Parse(temp.Expected_Time),
+                                Difficulty = int.Parse(temp.Expected_Time),
+                                frequency = (int)temp.Question_Frequency,
+                                ThinkingSkills = temp.Thinking_Skills,
+                                Mark = (int)temp.Question_Mark,
+                                Topic_Id = (int)temp.Topic_ID
+                            });
+
+                        }
+                        
                     }
 
-
+                    if (MyQuestions != null)
+                        return Request.CreateResponse(HttpStatusCode.OK, MyQuestions);
+                    else
+                        return Request.CreateResponse(HttpStatusCode.NotFound, "There are no Questions in the Database That Match the Current ExamTree");
 
                 }
-                
+
 
             }
             catch ( Exception ex)
@@ -367,7 +383,6 @@ namespace OES_Services.Controllers
 
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
             }
-
 
         }
 
