@@ -52,7 +52,10 @@ namespace OES_Services.Controllers
     {
         public int ID;
         public double percentage;
+<<<<<<< HEAD
 
+=======
+>>>>>>> a27baba83c5810974b5bf0d71d82b742067514e2
     }
 
     public class Difficulty
@@ -81,6 +84,13 @@ namespace OES_Services.Controllers
         public List<TopicPercentage> TopicPercentages;
         public Difficulty Difficulty;
         public ThinkingSkills ThinkingSkills;
+<<<<<<< HEAD
+=======
+        public String TotalGrade;
+       
+        public List<TopicPercentage> TopicPercentage;
+       
+>>>>>>> a27baba83c5810974b5bf0d71d82b742067514e2
         public int ExamID;
 
         public ExamInfo()
@@ -314,7 +324,11 @@ namespace OES_Services.Controllers
 
                 double[] tempTS = CSP_Functions.GetRelaventtRatios(TS_Ratios , TopicsQuestCount[i]);
                 double[] tempDiff = CSP_Functions.GetRelaventtRatios(Difficulty_Ratios, TopicsQuestCount[i]);
+<<<<<<< HEAD
 
+=======
+            ExamInfo a = Exam;
+>>>>>>> a27baba83c5810974b5bf0d71d82b742067514e2
 
                 CSP_Functions.Add2TwoD(ref temp, tempTS, 0);
                 CSP_Functions.Add2TwoD(ref temp, tempDiff, 1);
@@ -324,6 +338,7 @@ namespace OES_Services.Controllers
             
         }
 
+<<<<<<< HEAD
 
         [Route("GetCSPQuestions")]
         [HttpGet] 
@@ -368,23 +383,53 @@ namespace OES_Services.Controllers
                         }
                         
                     }
+=======
+        //[Route("GetCSPQuestions")]
+        //[HttpGet] 
+        //public HttpResponseMessage GetCSPQuestions()
+        //{
+        //    try
+        //    {
+        //        if (ExamTree == null)
+        //            Request.CreateResponse(HttpStatusCode.MethodNotAllowed, "There are no Exam info you can't request This methode");
+
+
+        //        List<Question> MyQuestions = new List<Question>();
+        //        using (EAS_DatabaseEntities e = new EAS_DatabaseEntities())
+        //        {
+
+        //            for (int i=0; i < ExamTree.Count(); i++)
+        //            {
+                      
+        //            }
+>>>>>>> a27baba83c5810974b5bf0d71d82b742067514e2
 
                     if (MyQuestions != null)
                         return Request.CreateResponse(HttpStatusCode.OK, MyQuestions);
                     else
                         return Request.CreateResponse(HttpStatusCode.NotFound, "There are no Questions in the Database That Match the Current ExamTree");
 
+<<<<<<< HEAD
                 }
 
+=======
+        //        }
+                
+>>>>>>> a27baba83c5810974b5bf0d71d82b742067514e2
 
-            }
-            catch ( Exception ex)
-            {
+        //    }
+        //    catch ( Exception ex)
+        //    {
 
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
-            }
+        //        return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
+        //    }
 
+<<<<<<< HEAD
         }
+=======
+
+        //}
+>>>>>>> a27baba83c5810974b5bf0d71d82b742067514e2
 
 
     }
