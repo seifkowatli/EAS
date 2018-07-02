@@ -2,11 +2,6 @@
 
 
 
-// if you dont log in !!you Be referred to login page 
-//var accessToken = sessionStorage.getItem('accessToken');
-//if (accessToken== null)
-//    window.location = "http://localhost:46253/";
-
 function Close_Alert_Div() {
 
     $('#successText').hide();
@@ -359,7 +354,6 @@ $(document).ready(function () {
 //////////////////////////////////////////////////////////////////////////////////////////////////
 //Add New Exam 
 
-
 function Get_Courses() {
 
     $.ajax({
@@ -382,9 +376,6 @@ function Get_Courses() {
 
     });
 }
-
-
-
 $(document).ready(function () {
 
     Get_Courses();
@@ -433,9 +424,6 @@ $(document).ready(function () {
     -////// Exam Analysis////////////////////////////////////////////////////
 
 $(document).ready(function () {
-
-    
-
 
     $body = $("body");
     $(document).on({
@@ -838,20 +826,78 @@ function DisplaySuccessPer(n,pn,n2,pn2) {
             myTable.rows[2].cells[3].innerHTML = pn2 + '%';
 
 
-    }
-        
-        
-        
+}
+function CoursCluster( ID) {
+
+    var tabel = $("#TableMardID3");
+
+ 
+
+    $.ajax({
+        url: "http://localhost:60703/api/AdminAnalysis/A_CourseCluster/" + ID,
+        method: "Get",
+        headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
+        success: function (data) {
+
+            var clusterData = [];
+            $.each(data, function (index, value) {
+
+                var temp = { 'y': value.Count, 'indexLabel': "Cluster" + value.Number + " C(" + value.lab + "," + value.Midterm + ","+value.Final+")" };
+                clusterData.push(temp);
+                var row = " <tbody><tr><td>Center" + value.Number+"</td><td>" + value.lab + "</td><td>" + value.Midterm +"</td><td>"+value.Final+"</td> </tr></tbody>";
+                tabel.append(row);
+
+
+
+            })
+            var chart = new CanvasJS.Chart("CourseCluster1", {
+                animationEnabled: true,
+                exportEnabled: true,
+                title: {
+                    text: "Course Clusters"
+                },
+                data: [{
+                    type: "pyramid",
+                    indexLabelFontSize: 18,
+                    valueRepresents: "area",
+                    showInLegend: true,
+                    legendText: "{indexLabel}",
+                    toolTipContent: "<b>{indexLabel}:</b> {y}",
+                    dataPoints: clusterData
+                       
+
+                    
+                }]
+            });
+            chart.render();
+            
+        }
+
         
 
+    })
+
+
+
+}
+        
+        
+      
 $(document).ready(function () {
+
+    $("#Course-main2").hide();
     var CourseID=null;
     $body = $("body");
+
     $(document).on({
-        ajaxStart: function () { $body.addClass("loading"); },
+        ajaxStart: function () {   },
         ajaxStop: function () { $body.removeClass("loading"); }
     });
 
+    $(document).ajaxStart(function () {
+        console.log(304050);
+        $body.addClass("loading");
+    });
 
     function ACGet_Courses() {
 
@@ -886,6 +932,7 @@ $(document).ready(function () {
     $("#AdminCourseAnalysis").on('click', function () {
 
         if (CourseID != null) {
+            CoursCluster(CourseID);
             $.ajax({
 
                 url: "http://localhost:60703/api/AdminAnalysis/A_CourseAnalysis/" + CourseID,
@@ -893,6 +940,7 @@ $(document).ready(function () {
                 success: function (data) {
 
                     $("#Course-main1").hide();
+                    $("#Course-main2").show();
 
                     var temp1 = (data.CourseStudents - data.StudentSusccesNumber)
                     var temp2 = (100 - data.SuccessRate);
@@ -932,3 +980,103 @@ $(document).ready(function () {
 
 
 });
+
+
+/////////////// statistics Course Marks Admin
+
+
+// Get ALL Course
+function Get_Courses() {
+
+    $.ajax({
+        url: 'http://localhost:2199/api/Admin/Get_Courses',
+        method: 'Get',
+        headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
+
+
+        success: function (data) {
+
+            $.each(data, function (i, item) {
+                $('#Course_select').append($('<option>', {
+                    id: item.Course_ID,
+                    text: item.Course_Name
+                }));
+            })
+
+
+        },
+
+    });
+}
+
+$(document).ready(function () {
+
+
+
+    $('#Course_select').change(function () {
+
+
+        var CourseID = $('#Course_select').children(":selected").attr("id");
+        var Marks = [];
+
+
+        $.ajax({
+            type: 'Get',
+            url: 'http://localhost:2199/api/Admin/CourseMarks/' + CourseID,
+            headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
+            dataType: "json",
+
+
+            success: function (data) {
+                all = data;
+                $.each(data, function (i, item) {
+                    ab = {
+                        y: item.Mark,
+                        label: item.Count + " Students"
+                    };
+
+
+
+                    Marks.push(ab);
+
+
+                })
+
+                var chart = new CanvasJS.Chart("CourseMark", {
+                    theme: "light2", // "light1", "light2", "dark1", "dark2"
+                    exportEnabled: true,
+                    animationEnabled: true,
+                    title: {
+                        text: "Students Marks in Semester  2018"
+                    },
+                    data: [{
+                        type: "pie",
+                        startAngle: 25,
+                        toolTipContent: "<b>{label}</b>: {y}%",
+                        showInLegend: "true",
+                        legendText: "{label}",
+                        indexLabelFontSize: 16,
+                        indexLabel: "{label} - {y}%",
+
+                        dataPoints: Marks
+
+
+
+                    }]
+                });
+                chart.render();
+
+
+
+
+            },
+
+        });
+
+    })
+
+
+
+})
+
+////////////////

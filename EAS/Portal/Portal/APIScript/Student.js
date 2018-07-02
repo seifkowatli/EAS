@@ -5,11 +5,11 @@ var NumberOfCoursInYear= []
 
 $(document).ready(function () {
 $('#contanierd0').hide();
-    $.ajax({
-        type: "Get",
+$.ajax({
+    method: "Get",
         url: "http://localhost:2199/api/Student/GetAllCourseMarks",
         contentType: "application/json",
-        headers: { 'Authorization': 'Bearer' + sessionStorage.getItem('accessToken') },
+        headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
 
         success: function (data) {
             SemesteWithCourse = data;
@@ -31,7 +31,7 @@ $('#contanierd0').hide();
 
                 ////ulEmployee.append('<li style ="color:red">' + jqXHR.status + ':' + jqXHR.statusText + '</li>')
                 window.alert(+jqXHR.status + ':' + jqXHR.statusText);
-                window.location.href = "http://localhost:3923/test1.html"
+               // window.location.href = "http://localhost:3923/test1.html"
 
 
             }
@@ -105,3 +105,47 @@ $('#contanierd0').hide();
     }
 
 })
+
+    //Student GPA
+$(document).ready(function () {
+
+     var chart = new CanvasJS.Chart("chartContainer2", {
+         animationEnabled: true,
+         theme: "dark1", // "light1", "light2", "dark1", "dark2"
+         title: {
+             text: " Your GPA is: "
+         },
+         subtitles: [{
+             text: "3.3",
+             fontSize: 16
+         }],
+         axisY: {
+
+             scaleBreaks: {
+                
+                 customBreaks: [{
+                     startValue: 10000,
+                     endValue: 35000
+                 }]
+             }
+         },
+         data: [{
+             type: "column",
+             yValueFormatString: "#,##0.00",
+             dataPoints: [
+                 { label: "2016-1", y: 3.5 },
+                 { label: "2016-2", y: 2.8 },
+                 { label: "2017-1", y: 2.9 },
+                 { label: "2017-2", y: 3.4 },
+                 { label: "2018-1", y: 2 },
+                 { label: "2018-2", y: 2.1 },
+                 { label: "2019-1", y: 2.2 },
+                 { label: "2019-2", y: 2.13 },
+                 { label: "2020-2", y: 2.3 },
+                 { label: "2020-3", y: 2.4 },
+
+             ]
+         }]
+     });
+     chart.render();
+    })

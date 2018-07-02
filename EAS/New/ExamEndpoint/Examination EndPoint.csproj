@@ -200,6 +200,7 @@
     <Content Include="Styles\ladda.min.css" />
     <Content Include="Styles\style.css" />
     <Content Include="Styles\StyleSheet1.css" />
+    <Content Include="Styles\waite.css" />
     <Content Include="Yarmouk_Private_University_Logo.png" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

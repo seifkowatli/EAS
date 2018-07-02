@@ -5,7 +5,6 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 
-
 <!DOCTYPE HTML>
 @*<script>
     if (sessionStorage.getItem('accessToken') == null) {
@@ -30,6 +29,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="~/Content/style.css" rel="stylesheet" />
     <link href="~/Content/font-awesome.css" rel="stylesheet" />
     <link href="~/Content/icon-font.min.css" rel="stylesheet" />
+
+
 
 </head>
 <body>
@@ -290,7 +291,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <p></p>
                 <ul>
                     <li><a class="tooltips" href="@Url.Action("Index" , "Admin")"><span>Profile</span><i class="lnr lnr-user"></i></a></li>
-                    <li><a class="tooltips" href="@Url.Action("Index" , "Home")"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
+                    <li><a class="tooltips" id="Logoff" onclick=""><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
                 </ul>
             </div>
             <!--//down-->
@@ -371,6 +372,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="~/Scripts/bootstrap.min.js"></script>
     @Scripts.Render("~/APIScript/Admin.js")
     @Scripts.Render("~/Scripts/canvasjs.min.js")
+
+
+
 
 </body>
 </html>

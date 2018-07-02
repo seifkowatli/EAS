@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Database;
+using ClusteringKMeans;
 
 namespace EAS_Servies.Controllers
 {
@@ -283,8 +284,6 @@ namespace EAS_Servies.Controllers
                                  where c.Course_ID == CourseID
                                  select c.Course_Name).FirstOrDefault();
 
-
-
                 var StudentList = (from c in entite.StudentsMarks
                                    where c.CourseID == CourseID
                                    select c).ToList();
@@ -341,6 +340,41 @@ namespace EAS_Servies.Controllers
 
                 return CA;
             }
+
+           
+        }
+
+        [Route("A_CourseCluster/{CourseID:int}")]
+        [HttpGet]
+        public List<Cluster> A_CourseCluster(int CourseID)
+        {
+            List<Cluster> CourseCluster;
+
+            Random random = new Random();
+
+            double[][] rawData = new double[30][];
+
+            for (int i=0;i<10; i++)
+            {
+                rawData[i] = new double[] { random.Next(1, 30), random.Next(1, 20), random.Next(1, 50) };
+            }
+            for (int i = 10; i < 20; i++)
+            {
+                rawData[i] = new double[] { random.Next(15, 30), random.Next(10, 20), random.Next(25, 50) };
+            }
+            for (int i = 20; i < 30; i++)
+            {
+                rawData[i] = new double[] { random.Next(25, 30), random.Next(15, 20), random.Next(35, 50) };
+            }
+            int numClusters = 3;
+
+            int[] clustering = KMeans.Cluster(rawData, numClusters); // this is it
+
+            CourseCluster=KMeans.ShowClustered(rawData, clustering, numClusters, 1);
+
+
+            return CourseCluster;
+
         }
     }
 }
