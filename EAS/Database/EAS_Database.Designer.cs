@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\salim\sunior\EAS1\EAS\EAS\Database\EAS_Database.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Database\EAS_Database.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
