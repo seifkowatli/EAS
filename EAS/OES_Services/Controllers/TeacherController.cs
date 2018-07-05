@@ -7,6 +7,7 @@ using System.Web.Http;
 using Database;
 using OES_Services.Security;
 using OES_Services.System_Algorithms;
+using Microsoft.AspNet.Identity;
 
 namespace OES_Services.Controllers
 {
@@ -93,6 +94,26 @@ namespace OES_Services.Controllers
     {
 
         List<KeyValuePair<double, double[,]>> ExamTree = new List<KeyValuePair<double, double[,]>>();
+
+
+
+        [Route("TeacherCourse")]
+        [HttpGet]
+       public List<Course> TeacherCource()
+        {
+            String UserID = User.Identity.GetUserId();
+            List<Course> tc = new List<Course>();
+
+            using (EAS_DatabaseEntities entities = new EAS_DatabaseEntities())
+            {
+                tc = (from sc in entities.Semester_Courses
+                      join c in entities.Courses on sc.Course_ID equals c.Course_ID
+                      where sc.UserID == UserID
+                      select c).ToList();
+
+            }
+            return tc;
+        }
 
 
         [Route("Add_New_Question")]

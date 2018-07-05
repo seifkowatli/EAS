@@ -320,17 +320,17 @@ $(document).ready(function () {
         if (currentIndex == 2) {
             count2 = 0;
 
-             count2 = parseInt(parseInt($('#VES').val()) + parseInt($('#EasyS').val()) + parseInt($('#AvarageS').val()) + parseInt($('#DifficultS').val()) + parseInt($('#MDS').val()))
+            count2 = parseInt(parseInt($('#VES').val()) + parseInt($('#EasyS').val()) + parseInt($('#AvarageS').val()) + parseInt($('#DifficultS').val()) + parseInt($('#MDS').val()))
 
 
-             if ((count2 < 100) || (count2 > 100)) {
+            if ((count2 < 100) || (count2 > 100)) {
                 window.alert("sum of Difficulty percentage must ne 100% ");
                 $('#theCarousel').carousel(0);
                 $('#theCarousel').carousel(2);
 
             }
 
-             else if (count2 == 100) {
+            else if (count2 == 100) {
 
                 $('#theCarousel').carousel(3);
 
@@ -393,8 +393,8 @@ $(document).ready(function () {
             for (var i = 0; i < NumberOfTopic; i++) {
                 var Topic = [];
                 //Topic['Text'] =;
-                  //  Topic['percentage'] =;
-                    
+                //  Topic['percentage'] =;
+
                 if ($('#TS-t' + i).val() > 0) {
                     TopicPercentage.push({
                         'ID': $("#TS-t" + i + " option:first").attr('id'),
@@ -421,7 +421,7 @@ $(document).ready(function () {
                 }
 
             }
-           
+
             var Difficulty = {
 
                 'VeryEasy': $('#VES').find('option:selected').val(),
@@ -482,106 +482,106 @@ $(document).ready(function () {
         }
         else {
             if (count1 != 100)
-               $('#theCarousel').carousel(1);
+                $('#theCarousel').carousel(1);
             else if (count2 != 100)
                 $('#theCarousel').carousel(2);
             else
                 $('#theCarousel').carousel(3);
         }
-        })
-    
+    })
+
     $('#CourseExam-T').on('change', function () {
 
-            var ToicDiv = $('#Topic-div');
-            ToicDiv.empty();
-            ToicDiv.append(TestDiv);
+        var ToicDiv = $('#Topic-div');
+        ToicDiv.empty();
+        ToicDiv.append(TestDiv);
 
-            var CourseID = $('#CourseExam-T').children(":selected").attr("value");
-            
-            $.ajax({
-                type: 'Get',
-                url: 'http://localhost:2199/api/Teacher/Get_Topic/' + CourseID,
-                headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
-                dataType: "json",
+        var CourseID = $('#CourseExam-T').children(":selected").attr("value");
 
-
-                success: function (data) {
-                    NumberOfTopic = data.length;
-                    $.each(data, function (i, item) {
-                        $('#Topic-t').hide();
-
-                        var temp = TestDiv.clone().prop('id', 'Topic-t' + i);
-                        temp.show();
-
-                        temp.find("#topic-t").attr("id", "topic-t" + i);
-                        temp.find("#TS-t").attr("id", "TS-t" + i);
-
-                        ToicDiv.append(temp);
-                       // $("topic-t" + i).show();
-
-                        $("#TS-t" + i + " option:first").attr("id", item.Topic_ID);
-                        document.getElementById("topic-t" + i).innerHTML = item.Topic_Description;
+        $.ajax({
+            type: 'Get',
+            url: 'http://localhost:2199/api/Teacher/Get_Topic/' + CourseID,
+            headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
+            dataType: "json",
 
 
-                    })
+            success: function (data) {
+                NumberOfTopic = data.length;
+                $.each(data, function (i, item) {
+                    $('#Topic-t').hide();
+
+                    var temp = TestDiv.clone().prop('id', 'Topic-t' + i);
+                    temp.show();
+
+                    temp.find("#topic-t").attr("id", "topic-t" + i);
+                    temp.find("#TS-t").attr("id", "TS-t" + i);
+
+                    ToicDiv.append(temp);
+                    // $("topic-t" + i).show();
+
+                    $("#TS-t" + i + " option:first").attr("id", item.Topic_ID);
+                    document.getElementById("topic-t" + i).innerHTML = item.Topic_Description;
 
 
-
-
-                },
-
-            });
+                })
 
 
 
-        })
+
+            },
+
+        });
+
+
+
+    })
     $('#GenerateQestionssID').on('click', function () {
 
-            console.log(ExamInformation.Difficulty);
-
-            
-           
-            var ExamInfo = {
-                TotalGrade: ExamInformation[0].TotalGrade,
-                ExamPeriod: ExamInformation[0].ExamPeriod,
-                TopicPercentage: ExamInformation[0].TopicPercentage,
-                Difficulty: ExamInformation[0].Difficulty,
-                ThinkingSkills: ExamInformation[0].ThinkingSkills,
-                ExamID: ExamInformation[0].ExamID,
-                        };
-
-            $.ajax({
-
-
-                type: "Post",
-                data: JSON.stringify(ExamInfo),
-                url: "http://localhost:2199/api/Teacher/GetExamInformation",
-                contentType: "application/json",
-                headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
-
-                success: function (response) {
-                    $('#successText').show();
-
-                },
-                error: function (jqXHR) {
-                    $('#errortxt').text(jqXHR.responseText);
-                    $('#errortxt').show('fade');
-
-                },
-                complete: function (jqXHR) {
+        console.log(ExamInformation.Difficulty);
 
 
 
+        var ExamInfo = {
+            TotalGrade: ExamInformation[0].TotalGrade,
+            ExamPeriod: ExamInformation[0].ExamPeriod,
+            TopicPercentage: ExamInformation[0].TopicPercentage,
+            Difficulty: ExamInformation[0].Difficulty,
+            ThinkingSkills: ExamInformation[0].ThinkingSkills,
+            ExamID: ExamInformation[0].ExamID,
+        };
 
-                    if (jqXHR.status == '401') {
-
-                        ////ulEmployee.append('<li style ="color:red">' + jqXHR.status + ':' + jqXHR.statusText + '</li>')
-                        window.alert(+jqXHR.status + ':' + jqXHR.statusText);
-                        window.location.href = "http://localhost:3923/test1.html"
+        $.ajax({
 
 
-                    }
+            type: "Post",
+            data: JSON.stringify(ExamInfo),
+            url: "http://localhost:2199/api/Teacher/GetExamInformation",
+            contentType: "application/json",
+            headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
+
+            success: function (response) {
+                $('#successText').show();
+
+            },
+            error: function (jqXHR) {
+                $('#errortxt').text(jqXHR.responseText);
+                $('#errortxt').show('fade');
+
+            },
+            complete: function (jqXHR) {
+
+
+
+
+                if (jqXHR.status == '401') {
+
+                    ////ulEmployee.append('<li style ="color:red">' + jqXHR.status + ':' + jqXHR.statusText + '</li>')
+                    window.alert(+jqXHR.status + ':' + jqXHR.statusText);
+                    window.location.href = "http://localhost:3923/test1.html"
+
+
                 }
+            }
 
 
 
@@ -591,24 +591,103 @@ $(document).ready(function () {
 
 
 
-            });
+        });
 
 
 
-
-        })
-
-
-
-
-      
-     
 
     })
 
 
 
 
+
+
+
+})
+
+    // CourseAnalysis
+
+function GetTeacherCourse() {
+
+    $.ajax({
+        url: 'http://localhost:2199/api/Teacher/TeacherCourse',
+        method: 'Get',
+        headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
+
+
+        success: function (data) {
+
+            $.each(data, function (i, item) {
+                $('#TeacherCoursID').append($('<option>', {
+                    id: item.Course_ID,
+                    text: item.Course_Name,
+                }));
+            })
+
+
+        },
+
+    });
+
+}
+
+$(document).ready(function () {
+
+    var CourseID = 1;
+    GetTeacherCourse();
+    $('#TeacherCoursID').on('change', function () {
+        var CourseID = $('#TeacherCoursID').children(":selected").attr("id");
+    })
+
+    $("#C_Analysis").on('click', function () {
+
+        $.ajax({
+            url: 'http://localhost:60703/api/TeacherAnalysis/TeacherCourseAnalysis/' + CourseID,
+            method: 'Get',
+            headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken') },
+
+
+            success: function (data) {
+                $('#swe2').hide();
+                var datapoint = [];
+                var temp1 = { 'label': "MaxMark", 'y': data.MaxMark }
+                datapoint.push(temp1);
+                var temp2 = { 'label': "MinMark", 'y': data.MinMark }
+                datapoint.push(temp2);
+                var temp3 = { 'label': "AvrageMark", 'y': data.AvrageMark }
+                datapoint.push(temp3);
+
+
+                var chart = new CanvasJS.Chart("Courschart3", {
+                    animationEnabled: true,
+                    theme: "light2", // "light1", "light2", "dark1", "dark2"
+                    title: {
+                        text: "Course Analysis"
+                    },
+                    axisY: {
+                        title: "Mark",
+                        
+                        includeZero: false
+                    },
+                    axisX: {
+                        title: "Students Number is " + data.CourseStudents
+                    },
+                    data: [{
+                        type: "column",
+                        yValueFormatString: "#,##0.0#\"%\"",
+                        dataPoints: datapoint
+                    }]
+                });
+                chart.render();
+            }
+
+
+        })
+
+    })
+
+})
 
               //  $(this).closest('select').prop("disabled", false)
 
