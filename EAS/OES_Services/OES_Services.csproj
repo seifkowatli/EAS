@@ -18,7 +18,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44335</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -264,6 +264,7 @@
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Security\DES.cs" />
+    <Compile Include="Security\RequireHttpsAttribute.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="System_Algorithms\CSP_Functions.cs" />
     <Compile Include="System_Algorithms\Grandy_Algoritnm.cs" />
