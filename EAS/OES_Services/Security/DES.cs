@@ -21,7 +21,7 @@ namespace OES_Services.Security
                        ("The string which needs to be encrypted can not be null.");
             }
             DESCryptoServiceProvider cryptoProvider = new DESCryptoServiceProvider();
-            MemoryStream memoryStream = new MemoryStream();
+            MemoryStream memoryStream = new MemoryStream();//reads and writes to the memory ,classes derive from the Stream class
             CryptoStream cryptoStream = new CryptoStream(memoryStream,
                    cryptoProvider.CreateEncryptor(bytes, bytes), CryptoStreamMode.Write);
 
@@ -33,7 +33,10 @@ namespace OES_Services.Security
             return Convert.ToBase64String(memoryStream.GetBuffer(), 0, (int)memoryStream.Length);
 
         }
-
+        //initialization vector (IV) for the symmetric algorithm.   
+        //The IV property is automatically set to a new random value whenever you create ...
+        //a new instance of one of the SymmetricAlgorithm classes or when you manually call the GenerateIV method. The size of the IV property must be the same as the BlockSize property divided by 8.
+        //The classes that derive from the SymmetricAlgorithm class use a chaining mode called cipher block chaining (CBC), which requires a key (Key) and an initialization vector (IV) to perform cryptographic transformations on data
         public static string Decrypt(string String)
         {
             if (String.IsNullOrEmpty(String))
