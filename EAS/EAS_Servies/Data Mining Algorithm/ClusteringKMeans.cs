@@ -22,8 +22,6 @@ namespace ClusteringKMeans
 {
     class KMeans
     {
-
-
         public static int[] Cluster(double[][] rawData, int numClusters)
         {
             // k-means clustering
