@@ -1079,4 +1079,63 @@ $(document).ready(function () {
 
 })
 
-////////////////
+////////////////Student Analysis
+
+
+
+$(document).ready(function () {
+    $('#Student-main2_').hide();
+
+    $('#studentAnalysis_a').on('click', function () {
+
+        $('#Student-main1_').hide();
+        $('#Student-main2_').show();
+
+        var chart = new CanvasJS.Chart("StudentAnalysis", {
+            animationEnabled: true,
+            theme: "dark1", // "light1", "light2", "dark1", "dark2"
+            title: {
+                text: " Student Analysis: "
+            },
+            subtitles: [{
+                fontSize: 16
+            }],
+            axisY: {
+
+                scaleBreaks: {
+
+                    customBreaks: [{
+                        startValue: 10000,
+                        endValue: 35000
+                    }]
+                }
+            },
+            data: [{
+                type: "column",
+                yValueFormatString: "#,##0.00",
+                dataPoints: [
+                    { label: "max-lab:PM", y: 29 },
+                    { label: "min-lab:CN1", y: 10 },
+                    { label: "min-mid:swe2", y: 55 },
+                    { label: "max-mid:IE", y: 18 },
+                    { label: "min-final:DM", y: 25 },
+                    { label: "max-final:IE", y: 45 },
+                    { label: "Best:IE", y: 95 },
+                    { label: "worst:DM", y: 70 },
+
+
+
+
+
+
+
+
+
+                ]
+            }]
+        });
+        chart.render();
+
+
+    })
+})

@@ -1,4 +1,6 @@
-﻿var SemesteWithCourse;
+﻿
+//Student Marks
+var SemesteWithCourse;
 var NumberOfYears;
 var NumberOfCoursInYear= []
 
