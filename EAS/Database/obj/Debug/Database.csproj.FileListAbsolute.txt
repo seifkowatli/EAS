@@ -16,3 +16,4 @@ C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Database\bin\Debug\EntityFramework.
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Database\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Database\obj\Debug\Database.dll
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Database\obj\Debug\Database.pdb
+C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Database\obj\Debug\Database.csprojResolveAssemblyReference.cache
