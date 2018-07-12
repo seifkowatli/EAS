@@ -354,7 +354,8 @@ $(document).ready(function () {
 //////////////////////////////////////////////////////////////////////////////////////////////////
 //Add New Exam 
 
-function Get_Courses() {
+function Get_CoursesExam() {
+
 
     $.ajax({
         url: 'http://localhost:2199/api/Admin/Get_Courses',
@@ -363,7 +364,6 @@ function Get_Courses() {
 
 
         success: function (data) {
-
             $.each(data, function (i, item) {
                 $('#CourseExamID').append($('<option>', {
                     id: item.Course_ID,
@@ -378,7 +378,7 @@ function Get_Courses() {
 }
 $(document).ready(function () {
 
-    Get_Courses();
+    Get_CoursesExam();
     $('#AddExam').on('click', function () {
 
 
