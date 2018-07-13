@@ -1139,3 +1139,75 @@ $(document).ready(function () {
 
     })
 })
+
+
+
+//////SemesterAnalysis
+$(document).ready(function () {
+    $('#semesteradmin').hide();
+    $('#A_semesterAnalysis').on('click', function () {
+        $('#se-main1').hide();
+        $('#semesteradmin').show();
+
+        var data = [];
+        var data1 = [];
+        var data2 = [];
+
+        for (var i = 0; i <10; i++) {
+            var a = Math.floor(Math.random() * 2) + 18; 
+
+            var b = Math.floor(Math.random() * 28) + 70; 
+
+            var temp = { 'x': a, 'y': b }
+            data.push(temp);
+        }
+
+        for (var i = 0; i < 10; i++) {
+            var a = Math.floor(Math.random() * 2) + 20;
+
+            var b = Math.floor(Math.random() * 28) + 80;
+
+            var temp = { 'x': a, 'y': b }
+            data1.push(temp);
+        }
+
+        var chart = new CanvasJS.Chart("SemesterAnalysis", {
+            animationEnabled: true,
+            title: {
+                text: "SemesterAnalysis"
+            },
+            axisX: {
+                title: "Age"
+            },
+            axisY: {
+                title: "Marks"
+            },
+            data: [{
+                type: "scatter",
+                toolTipContent: "<span style=\"color:#4F81BC \"><b>{name}</b></span><br/><b> Load:</b> {x} <br/><b> Response Time:</b></span> {y} ms",
+                name: "Age",
+                showInLegend: true,
+                dataPoints: data
+
+               
+            },
+            {
+                type: "scatter",
+                name: "Age",
+                showInLegend: true,
+                toolTipContent: "<span style=\"color:#C0504E \"><b>{name}</b></span><br/><b></b> {x} <br/><b> </b></span> {y} ",
+                dataPoints: data1
+            }]
+        });
+        chart.render();
+
+
+    })
+    
+
+       
+
+
+
+    
+})
