@@ -92,7 +92,7 @@ namespace OES_Services.Controllers
     [RoutePrefix("api/Teacher")]
     public class TeacherController : ApiController
     {
-
+        string  DESKEY = RSA_DESKey_Encryption.DecryptDESK_Key();
         List<KeyValuePair<double, double[,]>> ExamTree = new List<KeyValuePair<double, double[,]>>();
 
 
@@ -120,7 +120,7 @@ namespace OES_Services.Controllers
         [HttpPost]
         public void Add_New_Question(Questions_Bank Nq)
         {
-            Nq.Question = DES.Encrypt(Nq.Question);
+            Nq.Question = DES.Encrypt(Nq.Question, DESKEY);
             using (EAS_DatabaseEntities entities = new EAS_DatabaseEntities())
             {
 
@@ -161,7 +161,7 @@ namespace OES_Services.Controllers
 
                 foreach (var item in Answers)
                 {
-                    item.Answer = DES.Encrypt(item.Answer);
+                    item.Answer = DES.Encrypt(item.Answer,DESKEY);
                     entities.Question_Answers.Add(item);
                 }
 
@@ -371,7 +371,7 @@ namespace OES_Services.Controllers
                             MyQuestions.Add(new Question()
                             {
                                 Id = temp.Question_ID,
-                                Text = DES.Decrypt(temp.Question),
+                                Text = DES.Decrypt(temp.Question,DESKEY),
                                 time = int.Parse(temp.Expected_Time),
                                 Difficulty = int.Parse(temp.Expected_Time),
                                 frequency = (int)temp.Question_Frequency,

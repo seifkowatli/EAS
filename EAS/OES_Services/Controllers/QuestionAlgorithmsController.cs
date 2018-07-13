@@ -15,6 +15,7 @@ namespace OES_Services.Controllers
     //[Authorize]
     public class QuestionAlgorithmsController : ApiController
     {
+        string DESKEY = RSA_DESKey_Encryption.DecryptDESK_Key();
 
         public class Student_Question
         {
@@ -235,7 +236,7 @@ namespace OES_Services.Controllers
                     qes = new Student_Question();
 
                     qes.Question_ID = item1.Question_ID;
-                    qes.Question_Text = DES.Decrypt( item1.Question);
+                    qes.Question_Text = DES.Decrypt( item1.Question, DESKEY);
                     qes.Expected_Time = item1.Expected_Time;
                     Question_Answer = (from c in entities.Question_Answers
                                        where c.Question_ID == item1.Question_ID
@@ -249,10 +250,10 @@ namespace OES_Services.Controllers
 
 
                     }
-                    qes.Question_Answer1 = DES.Decrypt(Answers[0]); //Decrypt answer 
-                    qes.Question_Answer2 =DES.Decrypt(Answers[1]);
-                    qes.Question_Answer3 =DES.Decrypt(Answers[2]);
-                    qes.Question_Answer4 = DES.Decrypt(Answers[3]);
+                    qes.Question_Answer1 = DES.Decrypt(Answers[0], DESKEY); //Decrypt answer 
+                    qes.Question_Answer2 =DES.Decrypt(Answers[1], DESKEY);
+                    qes.Question_Answer3 =DES.Decrypt(Answers[2], DESKEY);
+                    qes.Question_Answer4 = DES.Decrypt(Answers[3], DESKEY);
                     qes1.Add(qes);
 
 

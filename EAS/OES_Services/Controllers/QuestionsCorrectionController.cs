@@ -41,6 +41,9 @@ namespace OES_Services.Controllers
     [RoutePrefix("api/QuestionsCorrection")]
     public class Questions_CorrectionController : ApiController
     {
+        string DESKEY = RSA_DESKey_Encryption.DecryptDESK_Key();
+
+
         [Route("correction")]
         [HttpPost]
         public void correction(List<StudentAnswersExam> SA)
@@ -54,7 +57,7 @@ namespace OES_Services.Controllers
                 int Result = 0; //to save all marks here 
                 foreach (var item in SA)
                 {
-                    var t = DES.Encrypt(item.Student_Answer);
+                    var t = DES.Encrypt(item.Student_Answer,DESKEY);
                     int AnswerID = (from c in entities.Question_Answers
                                     where c.Question_ID == item.Question_ID
                                     where c.Answer == t
@@ -74,7 +77,7 @@ namespace OES_Services.Controllers
                                           where c.is_True == true
                                           select c.Answer).FirstOrDefault();
 
-                    if (item.Student_Answer ==DES.Decrypt(true_Answer))
+                    if (item.Student_Answer ==DES.Decrypt(true_Answer,DESKEY))
                     {
                         int q_Mark = (int)(from c in entities.Questions_Bank
                                            where c.Question_ID == item.Question_ID
@@ -142,13 +145,13 @@ namespace OES_Services.Controllers
                                  where c.Question_ID == item.Question_ID
                                  select c.Question).FirstOrDefault();
 
-                    temp2.quetion = DES.Decrypt(temp2.quetion);
+                    temp2.quetion = DES.Decrypt(temp2.quetion,DESKEY);
 
                     temp2.Answer= (from c in entities.Question_Answers
                                    where c.Answer_ID == item.AnswerID
                                    select c.Answer).FirstOrDefault();
 
-                    temp2.Answer = DES.Decrypt(temp2.Answer);
+                    temp2.Answer = DES.Decrypt(temp2.Answer,DESKEY);
 
                     SED.sa.Add(temp2);
                 }

@@ -3,6 +3,7 @@ using Owin;
 using OES_Services.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using OES_Services.Security;
 
 
 [assembly: OwinStartup(typeof(OES_Services.Startup))]
@@ -14,8 +15,11 @@ namespace OES_Services
         public void Configuration(IAppBuilder app)
         {
 
-           ConfigureAuth(app);
-          //createRolesandUsers();
+            
+
+            ConfigureAuth(app);
+            //createRolesandUsers();
+
 
         }
 
@@ -27,7 +31,6 @@ namespace OES_Services
 
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-
 
 
             IdentityResult roleResult;

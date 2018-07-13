@@ -10,26 +10,12 @@ namespace OES_Services.Security
 {
     public class RSA
     {
-        private static string _privateKey;
-        private static string _publicKey;
+        private static string _privateKey= File.ReadAllText(@"C:\Users\Al-Doon\Documents\visual studio 2017\Projects\RSA-Encription\RSA-Encription\bin\Debug\_privateKey.xml");
+        private static string _publicKey=File.ReadAllText(@"C:\Users\Al-Doon\Documents\visual studio 2017\Projects\RSA-Encription\RSA-Encription\bin\Debug\_publicKey.xml");
         private static UnicodeEncoding _encoder = new UnicodeEncoding();
 
-        public static string Decrypt(string data)
-        {
-            var rsa = new RSACryptoServiceProvider();
-            var dataArray = data.Split(new char[] { ',' });
-            byte[] dataByte = new byte[dataArray.Length];
-            for (int i = 0; i < dataArray.Length; i++)
-            {
-                dataByte[i] = Convert.ToByte(dataArray[i]);
-            }
 
-            rsa.FromXmlString(_privateKey);
-            var decryptedByte = rsa.Decrypt(dataByte, false);
-            return _encoder.GetString(decryptedByte);
-        }
-
-        public static string Encrypt(string data)
+        public static string RSAEncrypt(string data)
         {
             var rsa = new RSACryptoServiceProvider();
             rsa.FromXmlString(_publicKey);
@@ -50,6 +36,22 @@ namespace OES_Services.Security
             return sb.ToString();
         }
 
+        public static string RSADecrypt(string data)
+        {
+            var rsa = new RSACryptoServiceProvider();
+            var dataArray = data.Split(new char[] { ',' });
+            byte[] dataByte = new byte[dataArray.Length];
+            for (int i = 0; i < dataArray.Length; i++)
+            {
+                dataByte[i] = Convert.ToByte(dataArray[i]);
+            }
+
+            rsa.FromXmlString(_privateKey);
+            var decryptedByte = rsa.Decrypt(dataByte, false);
+            return _encoder.GetString(decryptedByte);
+        }
+
+
 
         static void Main(string[] args)
         {
@@ -68,9 +70,9 @@ namespace OES_Services.Security
 
             var text = "Test12";
             Console.WriteLine("RSA // Text to encrypt: " + text);
-            var enc = Encrypt(text);
+            var enc = RSAEncrypt(text);
             Console.WriteLine("RSA // Encrypted Text: " + enc);
-            var dec = Decrypt(enc);
+            var dec = RSADecrypt(enc);
             Console.WriteLine("RSA // Decrypted Text: " + dec);
         }
     }

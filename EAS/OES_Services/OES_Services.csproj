@@ -265,6 +265,7 @@
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Security\DES.cs" />
     <Compile Include="Security\RSA.cs" />
+    <Compile Include="Security\RSA_DESKey_Encryption.cs" />
     <Compile Include="Security\UseSSLAttribute.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="System_Algorithms\CSP_Functions.cs" />
