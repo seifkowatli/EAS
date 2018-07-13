@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Database;
 using ClusteringKMeans;
+using EAS_Servies.Data_Mining_Algorithm;
 
 namespace EAS_Servies.Controllers
 {
@@ -374,6 +375,47 @@ namespace EAS_Servies.Controllers
 
 
             return CourseCluster;
+
+        }
+
+
+        [Route("A_SemesterCluster/{SemesterID:int}")]
+        [HttpGet]
+        public List<SemesterAnalysis> A_SemesterCluster(int SemesterID)
+        {
+
+            List<SemesterAnalysis> SemesterCluster;
+
+            Random random = new Random();
+
+            double[][] rawData = new double[600][];
+
+            for (int i = 0; i < 200; i++)
+            {
+                rawData[i] = new double[] { random.Next(18,20 ), random.Next(60, 100) };
+            }
+
+            for (int i = 200; i < 400; i++)
+            {
+                rawData[i] = new double[] { random.Next(20, 22), random.Next(60, 100) };
+            }
+
+            for (int i = 400; i < 600; i++)
+            {
+                rawData[i] = new double[] { random.Next(22, 25), random.Next(60, 100) };
+            }
+
+
+            int numClusters = 8;
+
+            int[] clustering = SemesterKMeans.Cluster(rawData, numClusters); // this is it
+
+            SemesterCluster = SemesterKMeans.ShowClustered(rawData, clustering, numClusters, 1);
+
+
+            return SemesterCluster;
+
+
 
         }
     }

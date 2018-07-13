@@ -37,7 +37,7 @@ namespace OES_Services
 
             EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*");
             config.EnableCors(cors);
-            config.Filters.Add(new RequireHttpsAttribute());
+          //  config.Filters.Add(new RequireHttpsAttribute());
             //var jsonpFormatter = new JsonpMediaTypeFormatter(config.Formatters.JsonFormatter);
             //config.Formatters.Insert(0, jsonpFormatter);
 

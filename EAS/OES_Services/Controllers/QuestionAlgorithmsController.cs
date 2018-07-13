@@ -208,7 +208,7 @@ namespace OES_Services.Controllers
             {
                 //all questions with difficlty
                 Selected_Question = (from c in entities.Questions_Bank
-                                         //where c.Difficulty_Level == qestions_list.FirstOrDefault()
+                                     where c.Difficulty_Level == 1
 
                                      select c).ToList();
 
@@ -217,8 +217,11 @@ namespace OES_Services.Controllers
                
 
                 var query = entities.Questions_Bank.Join(entities.Question_Answers,
-                    r => r.Question_ID, p => p.Question_ID,
-                    (r, p) => new { r.Question_ID, r.Question, p.Answer });
+
+                    r => r.Question_ID,p => p.Question_ID,
+                    (r, p) => new { r.Question_ID, r.Question, p.Answer }
+                   
+                    );
 
 
 

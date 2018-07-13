@@ -1,4 +1,6 @@
-﻿
+﻿<!DOCTYPE html>
+
+
 @{
     ViewBag.Title = "Add Exam";
 }
@@ -13,82 +15,78 @@
 </div>
 
 
+<div class="clearfix"></div>
 
 
-                    <div class="col-md-6 form-group2 ">
-                        <label class="control-label">Course</label>
-                        <select id="CourseExamID">
-                            <option value=""></option>
-                        </select>
-                    </div>
-
-                    <div class="col-md-6 form-group2 group-mail">
-                        <label class="control-label">Exam Type</label>
-                        <select id="CourseExamType">
-                            <option value=""></option>
-                            <option value="">Midterm</option>
-                            <option value="">Final</option>
-                        </select>
-                    </div>
-
-
-
-                    <div class="col-md-12 form-group1 ">
-                        <label class="control-label">Date</label>
-                        <input type="text" id="ExamDate">
-                    </div>
-
-
-                   <div class="clearfix"></div>
-                  <div class="col-md-12 form-group1 ">
-                  <label class="control-label">Notes</label>
-                  <textarea id="ExamNotes" placeholder="Notes ..."></textarea>
-                  </div>
-
-                 
-
-
-                    <div class="clearfix"></div>
-
-
-
-                    <div class="clearfix"></div>
-
-
-                 
-                   
-                    
-
-
-                    <div class="col-md-12 form-group button-2">
-                        <br>
-                        <button id="AddExam" class="btn btn-primary">Add Exam</button>
-                        <button type="reset" class="btn btn-default">Reset</button>
-                    </div>
-
-
-                    <div id="successText" class="alert alert-success ">
-                        <button onclick="Close_Alert_Div()" type="button" class="close" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <strong>Success!</strong> .
-
-                    </div>
-
-                    <div id="errortxt" class="alert alert-danger ">
-                        <button onclick="Close_Alert_Div()" type="button" class="close" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <p id="P_error"></p>
-                    </div>
-                    <div class="clearfix"> </div>
-
-
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-    <!--//forms-->
+<div class="col-md-6 form-group2 ">
+    <label class="control-label">Course</label>
+    <select id="CourseExamID">
+        <option value=""></option>
+    </select>
 </div>
+
+<div class="col-md-6 form-group2 group-mail">
+    <label class="control-label">Exam Type</label>
+    <select id="CourseExamType">
+        <option value=""></option>
+        <option value="">Midterm</option>
+        <option value="">Final</option>
+    </select>
+</div>
+
+
+<div class="clearfix"></div>
+    <div class="col-md-12 form-group1 ">
+        <label class="control-label">Date</label>
+        <input type="text" id="ExamDate">
+    </div>
+
+
+    <div class="clearfix"></div>
+    <div class="col-md-12 form-group1 ">
+        <label class="control-label">Notes</label>
+        <textarea id="ExamNotes" placeholder="Notes ..."></textarea>
+    </div>
+
+
+
+
+    <div class="clearfix"></div>
+
+
+
+    <div class="clearfix"></div>
+
+
+
+
+
+
+
+    <div class="col-md-12 form-group button-2">
+        <br>
+        <button id="AddExam" class="btn btn-primary">Add Exam</button>
+        <button type="reset" class="btn btn-default">Reset</button>
+    </div>
+
+
+    <div id="successText" class="alert alert-success ">
+        <button onclick="Close_Alert_Div()" type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Success!</strong> .
+
+    </div>
+
+    <div id="errortxt" class="alert alert-danger ">
+        <button onclick="Close_Alert_Div()" type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <p id="P_error"></p>
+    </div>
+    <div class="clearfix"> </div>
+
+
+
+
+  

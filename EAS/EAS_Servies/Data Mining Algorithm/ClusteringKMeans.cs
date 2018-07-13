@@ -117,6 +117,16 @@ namespace ClusteringKMeans
             return result;
         }
 
+        private static double Distance(double[] tuple, double[] mean)
+        {
+            // Euclidean distance between two vectors for UpdateClustering()
+            // consider alternatives such as Manhattan distance
+            double sumSquaredDiffs = 0.0;
+            for (int j = 0; j < tuple.Length; ++j)
+                sumSquaredDiffs += Math.Pow((tuple[j] - mean[j]), 2);
+            return Math.Sqrt(sumSquaredDiffs);
+        }
+
         private static bool UpdateMeans(double[][] data, int[] clustering, double[][] means)
         {
             // returns false if there is a cluster that has no tuples assigned to it
@@ -202,15 +212,6 @@ namespace ClusteringKMeans
             return true; // good clustering and at least one change
         }
 
-        private static double Distance(double[] tuple, double[] mean)
-        {
-            // Euclidean distance between two vectors for UpdateClustering()
-            // consider alternatives such as Manhattan distance
-            double sumSquaredDiffs = 0.0;
-            for (int j = 0; j < tuple.Length; ++j)
-                sumSquaredDiffs += Math.Pow((tuple[j] - mean[j]), 2);
-            return Math.Sqrt(sumSquaredDiffs);
-        }
 
         private static int MinIndex(double[] distances)
         {
@@ -293,5 +294,5 @@ namespace ClusteringKMeans
             } // k
             return Result;
         }
-    } // Program
-} // ns
+    } 
+} 

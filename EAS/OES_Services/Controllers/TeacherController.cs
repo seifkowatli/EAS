@@ -208,7 +208,7 @@ namespace OES_Services.Controllers
         }
 
 
-
+        [UseSSL]
         [Route("Get_Courses")]
         [HttpGet]
         public List<Course> Get_Courses()

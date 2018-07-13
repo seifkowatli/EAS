@@ -187,6 +187,7 @@
     <Compile Include="Controllers\AdminAnalysisController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TeacherAnalysisController.cs" />
+    <Compile Include="Data Mining Algorithm\SemesterKMeans.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

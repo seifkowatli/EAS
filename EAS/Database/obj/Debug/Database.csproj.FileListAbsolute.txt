@@ -16,4 +16,8 @@ C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Database\bin\Debug\EntityFramework.
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Database\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Database\obj\Debug\Database.dll
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Database\obj\Debug\Database.pdb
+<<<<<<< HEAD
+D:\salim\sunior\EAS1\EAS\EAS\Database\obj\Debug\Database.csprojResolveAssemblyReference.cache
+=======
 C:\Users\Seif\Desktop\Senior Project\EAS\EAS\Database\obj\Debug\Database.csprojResolveAssemblyReference.cache
+>>>>>>> 9ac70c9c7a73fe732590eef56fb2ffc536dfdd80
