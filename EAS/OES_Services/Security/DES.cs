@@ -10,11 +10,11 @@ namespace OES_Services.Security
 {
     public class DES
     {
-        static byte[] bytes = ASCIIEncoding.ASCII.GetBytes("ZeroCoov");
 
-        public static String Encrypt(string String)
+
+        public static String Encrypt(string String,string DESKEY)
         {
-
+            byte[] bytes = ASCIIEncoding.ASCII.GetBytes(DESKEY);
             if (String.IsNullOrEmpty(String))
             {
                 throw new ArgumentNullException
@@ -37,8 +37,9 @@ namespace OES_Services.Security
         //The IV property is automatically set to a new random value whenever you create ...
         //a new instance of one of the SymmetricAlgorithm classes or when you manually call the GenerateIV method. The size of the IV property must be the same as the BlockSize property divided by 8.
         //The classes that derive from the SymmetricAlgorithm class use a chaining mode called cipher block chaining (CBC), which requires a key (Key) and an initialization vector (IV) to perform cryptographic transformations on data
-        public static string Decrypt(string String)
+        public static string Decrypt(string String, string  DESKEY)
         {
+            byte[] bytes = ASCIIEncoding.ASCII.GetBytes(DESKEY);
             if (String.IsNullOrEmpty(String))
             {
                 throw new ArgumentNullException

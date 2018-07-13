@@ -1149,9 +1149,9 @@ $(document).ready(function () {
         $('#se-main1').hide();
         $('#semesteradmin').show();
 
-        var data = [];
+        var data =  [];
         var data1 = [];
-        var data2 = [];
+        var data2 = []; 
 
         for (var i = 0; i <10; i++) {
             var a = Math.floor(Math.random() * 2) + 18; 
