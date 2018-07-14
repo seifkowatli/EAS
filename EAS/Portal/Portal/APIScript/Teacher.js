@@ -381,7 +381,7 @@ $(document).ready(function () {
 
 
 
-            var TotalGrade = document.getElementById('ToatalGrade1').value;
+            var TotalGrade =20 // document.getElementById('ToatalGrade1').value;
             var ExamPeriod = document.getElementById('Period1').value;
 
 

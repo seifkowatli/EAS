@@ -1153,7 +1153,7 @@ $(document).ready(function () {
         var data1 = [];
         var data2 = []; 
 
-        for (var i = 0; i <10; i++) {
+        for (var i = 0; i <50; i++) {
             var a = Math.floor(Math.random() * 2) + 18; 
 
             var b = Math.floor(Math.random() * 28) + 70; 
@@ -1162,7 +1162,7 @@ $(document).ready(function () {
             data.push(temp);
         }
 
-        for (var i = 0; i < 10; i++) {
+        for (var i = 0; i < 50; i++) {
             var a = Math.floor(Math.random() * 2) + 20;
 
             var b = Math.floor(Math.random() * 28) + 80;

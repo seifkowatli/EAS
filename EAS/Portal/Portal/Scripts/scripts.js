@@ -160,7 +160,7 @@
 	});
 
 $("#Logoff").on('click', function () {
-
+    
     sessionStorage.removeItem('accessToken');
     window.location.href = "http://localhost:51103";
 

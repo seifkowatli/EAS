@@ -38,12 +38,7 @@ $(document).ready(function () {
     })
 
 
-    $("#Logoff").on('click', function () {
-
-        sessionStorage.removeItem('accessToken');
-        window.location.href = "http://http://localhost:51103";
-
-    })
+   
 })
 
 
