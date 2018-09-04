@@ -11,4 +11,4 @@
 
 <p> This is system develped as as a senior project to gain certificate in Software Engineering
 
-By <a href="https://github.com/seifkowatli"> Seif Al-Deen Al-Kowatli </a>  &amp <a href="https://github.com/salim-7"> Saleem Jammoul </a>
+By <a href="https://github.com/seifkowatli"> Seif Al-Deen Al-Kowatli </a> & <a href="https://github.com/salim-7"> Saleem Jammoul </a>
