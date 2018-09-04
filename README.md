@@ -14,12 +14,17 @@ Our system algorithms can be used to perform two types of assessment; summative,
 
 
 
-![EAS](https://raw.githubusercontent.com/seifkowatli/Education-Assessment-System-EAS-/master/images/1.PNG)
+![EAS](https://raw.githubusercontent.com/seifkowatli/Education-Assessment-System-EAS-/master/images/1.PNG)<br/>
 ![Admin Page](https://raw.githubusercontent.com/seifkowatli/Education-Assessment-System-EAS-/master/images/2.PNG)
+<br/>
 ![Student Page](https://raw.githubusercontent.com/seifkowatli/Education-Assessment-System-EAS-/master/images/3.PNG)
+<br/>
 ![Techer Page](https://raw.githubusercontent.com/seifkowatli/Education-Assessment-System-EAS-/master/images/4.PNG)
+<br/>
 ![](https://raw.githubusercontent.com/seifkowatli/Education-Assessment-System-EAS-/master/images/5.PNG)
+<br/>
 ![](https://raw.githubusercontent.com/seifkowatli/Education-Assessment-System-EAS-/master/images/6.PNG)
+<br/>
 ![](https://raw.githubusercontent.com/seifkowatli/Education-Assessment-System-EAS-/master/images/7.PNG)
 
 
