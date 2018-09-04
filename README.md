@@ -10,6 +10,7 @@ Those cores provide these services to the ASP.MVC Endpoints which request the se
 Since the information we work with is confidential, we put a lot of effort into the security part of the project and used encryption to ensure that the data is safe.
 Our system algorithms can be used to perform two types of assessment; summative, placement and formative assessment. In our University case study our main focus was the summative assessment.
 </p> 
+<br/>
 
 
 
